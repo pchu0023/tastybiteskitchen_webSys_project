@@ -69,9 +69,27 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
         <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
-            <a class="nav-link" href="index.html">
+            <a class="nav-link" href="<?= $this->Url->build('/') ?>">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Dashboard</span></a>
+        </li>
+
+        <li class="nav-item active">
+            <a class="nav-link" href="<?= $this->Url->build('/products') ?>">
+                <i class="fas fa-fw fa-hamburger"></i>
+                <span>Products</span></a>
+        </li>
+
+        <li class="nav-item active">
+            <a class="nav-link" href="<?= $this->Url->build('/menus') ?>">
+                <i class="fas fa-fw fa-scroll"></i>
+                <span>Menus</span></a>
+        </li>
+
+        <li class="nav-item active">
+            <a class="nav-link" href="<?= $this->Url->build('/orders') ?>">
+                <i class="fas fa-fw fa-shopping-cart"></i>
+                <span>Orders</span></a>
         </li>
 
         <!-- Divider -->
