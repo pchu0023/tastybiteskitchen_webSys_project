@@ -46,6 +46,14 @@
                     <th><?= __('Phone Number') ?></th>
                     <td><?= h($user->phone_number) ?></td>
                 </tr>
+                <tr>
+                    <th><?= __('Nonce') ?></th>
+                    <td><?= h($user->nonce) ?></td>
+                </tr>
+                <tr>
+                    <th><?= __('Nonce Expiry') ?></th>
+                    <td><?= h($user->nonce_expiry) ?></td>
+                </tr>
             </table>
             <div class="related">
                 <h4><?= __('Related Payments') ?></h4>

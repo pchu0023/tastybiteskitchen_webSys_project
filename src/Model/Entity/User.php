@@ -16,6 +16,8 @@ use Cake\ORM\Entity;
  * @property string $password
  * @property string $address
  * @property string $phone_number
+ * @property string $nonce
+ * @property \Cake\I18n\DateTime $nonce_expiry
  *
  * @property \App\Model\Entity\Payment[] $payments
  */
@@ -38,6 +40,8 @@ class User extends Entity
         'password' => true,
         'address' => true,
         'phone_number' => true,
+        'nonce' => true,
+        'nonce_expiry' => true,
         'payments' => true,
     ];
 
@@ -49,4 +53,14 @@ class User extends Entity
     protected array $_hidden = [
         'password',
     ];
+
+    protected function _setPassword(string $password): ?string
+    {
+        if (strlen($password) > 0) {
+            return (new DefaultPasswordHasher())->hash($password);
+        }
+
+        return $password;
+    }
+
 }
