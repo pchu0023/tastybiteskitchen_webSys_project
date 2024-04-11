@@ -14,6 +14,7 @@ declare(strict_types=1);
  * @since     0.2.9
  * @license   https://opensource.org/licenses/mit-license.php MIT License
  */
+
 namespace App\Controller;
 
 use Cake\Core\Configure;
@@ -31,6 +32,25 @@ use Cake\View\Exception\MissingTemplateException;
  */
 class PagesController extends AppController
 {
+    /**
+     * Controller initialize override
+     *
+     * @return void
+     */
+    public function initialize(): void
+    {
+        parent::initialize();
+
+        // Controller-level function/action whitelist for authentication
+        $this->Authentication->allowUnauthenticated(['display']);
+    }
+
+    /**
+     * Home page action
+     *
+     * @return \Cake\Http\Response|null|void Renders view
+     */
+
     /**
      * Displays a view
      *
