@@ -14,6 +14,7 @@ declare(strict_types=1);
  * @since     3.3.0
  * @license   https://opensource.org/licenses/mit-license.php MIT License
  */
+
 namespace App;
 
 use Authentication\AuthenticationService;
@@ -61,8 +62,6 @@ class Application extends BaseApplication implements AuthenticationServiceProvid
                 (new TableLocator())->allowFallbackClass(false)
             );
         }
-
-        $this->addPlugin('Authentication');
     }
 
     /**
@@ -98,13 +97,20 @@ class Application extends BaseApplication implements AuthenticationServiceProvid
             // https://book.cakephp.org/4/en/security/csrf.html#cross-site-request-forgery-csrf-middleware
             ->add(new CsrfProtectionMiddleware([
                 'httponly' => true,
-            ]));
+            ]))
 
-        $middlewareQueue->add(new AuthenticationMiddleware($this));
+            // Add Authentication support by plugin
+            ->add(new AuthenticationMiddleware($this));
 
         return $middlewareQueue;
     }
 
+    /**
+     * Authentication plugin implementation
+     *
+     * @param \Psr\Http\Message\ServerRequestInterface $request
+     * @return \Authentication\AuthenticationServiceInterface
+     */
     public function getAuthenticationService(ServerRequestInterface $request): AuthenticationServiceInterface
     {
         $authenticationService = new AuthenticationService([
@@ -140,7 +146,6 @@ class Application extends BaseApplication implements AuthenticationServiceProvid
 
         return $authenticationService;
     }
-
 
     /**
      * Register application container services.

@@ -43,8 +43,6 @@ class UsersTable extends Table
         $this->setDisplayField('type');
         $this->setPrimaryKey('id');
 
-        $this->addBehavior('CanAuthenticate');
-
         $this->hasMany('Payments', [
             'foreignKey' => 'user_id',
         ]);
