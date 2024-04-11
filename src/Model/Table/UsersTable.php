@@ -43,6 +43,8 @@ class UsersTable extends Table
         $this->setDisplayField('type');
         $this->setPrimaryKey('id');
 
+        $this->addBehavior('CanAuthenticate');
+
         $this->hasMany('Payments', [
             'foreignKey' => 'user_id',
         ]);
@@ -95,6 +97,17 @@ class UsersTable extends Table
             ->maxLength('phone_number', 12)
             ->requirePresence('phone_number', 'create')
             ->notEmptyString('phone_number');
+
+        $validator
+            ->scalar('nonce')
+            ->maxLength('nonce', 255)
+            ->requirePresence('nonce', 'create')
+            ->notEmptyString('nonce');
+
+        $validator
+            ->dateTime('nonce_expiry')
+            ->requirePresence('nonce_expiry', 'create')
+            ->notEmptyDateTime('nonce_expiry');
 
         return $validator;
     }
