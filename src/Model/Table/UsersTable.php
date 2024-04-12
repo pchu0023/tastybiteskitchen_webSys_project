@@ -87,25 +87,21 @@ class UsersTable extends Table
         $validator
             ->scalar('address')
             ->maxLength('address', 50)
-            ->requirePresence('address', 'create')
-            ->notEmptyString('address');
+            ->allowEmptyString('address');
 
         $validator
             ->scalar('phone_number')
             ->maxLength('phone_number', 12)
-            ->requirePresence('phone_number', 'create')
-            ->notEmptyString('phone_number');
+            ->allowEmptyString('phone_number');
 
         $validator
             ->scalar('nonce')
             ->maxLength('nonce', 255)
-            ->requirePresence('nonce', 'create')
-            ->notEmptyString('nonce');
+            ->allowEmptyString('nonce');
 
         $validator
             ->dateTime('nonce_expiry')
-            ->requirePresence('nonce_expiry', 'create')
-            ->notEmptyDateTime('nonce_expiry');
+            ->allowEmptyDateTime('nonce_expiry');
 
         return $validator;
     }
