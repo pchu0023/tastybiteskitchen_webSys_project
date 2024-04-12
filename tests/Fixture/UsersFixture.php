@@ -19,7 +19,7 @@ class UsersFixture extends TestFixture
     {
         $this->records = [
             [
-                'id' => '8f429fae-cfc4-4ed6-9b3c-2fca82d729ef',
+                'id' => 'b3c5d9ae-d46f-4495-a005-991c414b38f1',
                 'type' => 'Lorem ipsum dolor sit amet',
                 'first_name' => 'Lorem ipsum dolor ',
                 'last_name' => 'Lorem ipsum dolor ',
@@ -28,7 +28,7 @@ class UsersFixture extends TestFixture
                 'address' => 'Lorem ipsum dolor sit amet',
                 'phone_number' => 'Lorem ipsu',
                 'nonce' => 'Lorem ipsum dolor sit amet',
-                'nonce_expiry' => '2024-04-11 11:21:24',
+                'nonce_expiry' => '2024-04-12 11:30:35',
             ],
         ];
         parent::init();
