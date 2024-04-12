@@ -20,8 +20,9 @@ class ProductsController extends AppController
         parent::initialize();
 
         // Controller-level function/action whitelist for authentication
-        $this->Authentication->allowUnauthenticated(['display']);
+        $this->Authentication->allowUnauthenticated(['view', 'index']);
     }
+
     public function index()
     {
         $query = $this->Products->find();
