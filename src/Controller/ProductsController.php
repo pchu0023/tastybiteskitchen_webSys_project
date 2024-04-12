@@ -15,6 +15,14 @@ class ProductsController extends AppController
      *
      * @return \Cake\Http\Response|null|void Renders view
      */
+    public function initialize(): void
+    {
+        parent::initialize();
+
+        // Controller-level function/action whitelist for authentication
+        $this->Authentication->allowUnauthenticated(['view', 'index']);
+    }
+
     public function index()
     {
         $query = $this->Products->find();
