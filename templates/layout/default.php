@@ -73,7 +73,21 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                     <a href="<?= $this->Url->build('/') ?>" class="nav-item nav-link">About Us</a>
                     <a href="<?= $this->Url->build('/Menus') ?>" class="nav-item nav-link">Menu</a>
                 </div>
-                <a href="" class="btn btn-primary py-2 px-4">Book A Table</a>
+                <?php
+                if (!$this->Identity->isLoggedIn()) {
+                    echo $this->Html->link(
+                        'LOG IN',
+                        ['controller' => 'Auth', 'action' => 'login'],
+                        ['class' => 'button button-outline']);
+                }
+                ?>
+                <?php
+                if ($this->Identity->isLoggedIn()) {
+                    echo $this->Html->link('LOGOUT', ['controller' => 'Auth', 'action' => 'logout']);
+                }
+                ?>
+
+
             </div>
         </nav>
     </div>
