@@ -14,10 +14,10 @@ use Cake\ORM\Entity;
  * @property string $last_name
  * @property string $email
  * @property string $password
- * @property string $address
- * @property string $phone_number
- * @property string $nonce
- * @property \Cake\I18n\DateTime $nonce_expiry
+ * @property string|null $address
+ * @property string|null $phone_number
+ * @property string|null $nonce
+ * @property \Cake\I18n\DateTime|null $nonce_expiry
  *
  * @property \App\Model\Entity\Payment[] $payments
  */
