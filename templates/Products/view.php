@@ -42,18 +42,11 @@
                 <?php if (!empty($product->images)) : ?>
                 <div class="table-responsive">
                     <table>
-                        <tr>
-                            <th><?= __('Id') ?></th>
-                            <th><?= __('File Location') ?></th>
-                            <th class="actions"><?= __('Actions') ?></th>
-                        </tr>
                         <?php foreach ($product->images as $image) : ?>
                         <tr>
                             <div class="col-lg-2 text-right overflow-hidden">
                                 <img class="img-fluid float-right" src="<?= $image->file_location ?>" alt="">
                             </div>
-                            <td><?= h($image->id) ?></td>
-                            <td><?= h($image->file_location) ?></td>
                             <?php if($this->Identity->get('type') === "emp") : ?>
                                 <td class="actions">
                                     <?= $this->Html->link(__('Edit'), ['controller' => 'Images', 'action' => 'edit', $image->id]) ?>
