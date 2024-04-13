@@ -69,8 +69,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto py-0 pe-4">
-                    <a href="<?= $this->Url->build('/') ?>" class="nav-item nav-link active">Home</a>
-                    <a href="<?= $this->Url->build('/') ?>" class="nav-item nav-link">About Us</a>
+                    <a href="<?= $this->Url->build('/') ?>" class="nav-item nav-link">Home</a>
                     <a href="<?= $this->Url->build('/Menus') ?>" class="nav-item nav-link">Menu</a>
                 </div>
                 <?php
@@ -152,7 +151,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                     </div>
                     <div class="col-md-6 text-center text-md-end">
                         <div class="footer-menu">
-                            <a href="">Home</a>
+                            <a href="<?= $this->Url->build('/') ?>">Home</a>
                         </div>
                     </div>
                 </div>

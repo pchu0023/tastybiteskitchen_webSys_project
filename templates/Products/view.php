@@ -4,6 +4,7 @@
  * @var \App\Model\Entity\Product $product
  */
 ?>
+
 <div class="row">
     <?php if($this->Identity->get('type') === "emp") : ?>
         <aside class="column">
