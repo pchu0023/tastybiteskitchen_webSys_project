@@ -18,10 +18,12 @@
         <div class="products view content">
             <h3><?= h($product->name) ?></h3>
             <table>
-                <tr>
-                    <th><?= __('Id') ?></th>
-                    <td><?= h($product->id) ?></td>
-                </tr>
+                <?php if($this->Identity->get('type') === "emp") : ?>
+                    <tr>
+                        <th><?= __('Id') ?></th>
+                        <td><?= h($product->id) ?></td>
+                    </tr>
+                <?php endif; ?>
                 <tr>
                     <th><?= __('Name') ?></th>
                     <td><?= h($product->name) ?></td>
@@ -47,13 +49,17 @@
                         </tr>
                         <?php foreach ($product->images as $image) : ?>
                         <tr>
+                            <div class="col-lg-5 text-right overflow-hidden">
+                                <img class="img-fluid float-right" src="<?= $image->file_location ?>" alt="">
+                            </div>
                             <td><?= h($image->id) ?></td>
                             <td><?= h($image->file_location) ?></td>
-                            <td class="actions">
-                                <?= $this->Html->link(__('View'), ['controller' => 'Images', 'action' => 'view', $image->id]) ?>
-                                <?= $this->Html->link(__('Edit'), ['controller' => 'Images', 'action' => 'edit', $image->id]) ?>
-                                <?= $this->Form->postLink(__('Delete'), ['controller' => 'Images', 'action' => 'delete', $image->id], ['confirm' => __('Are you sure you want to delete # {0}?', $image->id)]) ?>
-                            </td>
+                            <?php if($this->Identity->get('type') === "emp") : ?>
+                                <td class="actions">
+                                    <?= $this->Html->link(__('Edit'), ['controller' => 'Images', 'action' => 'edit', $image->id]) ?>
+                                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Images', 'action' => 'delete', $image->id], ['confirm' => __('Are you sure you want to delete # {0}?', $image->id)]) ?>
+                                </td>
+                            <?php endif; ?>
                         </tr>
                         <?php endforeach; ?>
                     </table>
