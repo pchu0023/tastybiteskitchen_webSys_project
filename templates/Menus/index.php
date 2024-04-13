@@ -5,13 +5,16 @@
  */
 ?>
 <div class="menus index content">
-    <?= $this->Html->link(__('New Menu'), ['action' => 'add'], ['class' => 'button float-right']) ?>
+    <?php if($this->Identity->get('type') === "emp") : ?>
+        <br />
+        <?= $this->Html->link(__('New Menu'), ['action' => 'add'], ['class' => 'btn btn-primary py-sm-2 px-sm-5 me-1']) ?>
+        <br />
+    <?php endif; ?>
     <h3><?= __('Menus') ?></h3>
     <div class="table-responsive">
         <table>
             <thead>
                 <tr>
-                    <th><?= $this->Paginator->sort('id') ?></th>
                     <th><?= $this->Paginator->sort('name') ?></th>
                     <th><?= $this->Paginator->sort('description') ?></th>
                     <th class="actions"><?= __('Actions') ?></th>
@@ -20,7 +23,6 @@
             <tbody>
                 <?php foreach ($menus as $menu): ?>
                 <tr>
-                    <td><?= h($menu->id) ?></td>
                     <td><?= h($menu->name) ?></td>
                     <td><?= h($menu->description) ?></td>
                     <td class="actions">
