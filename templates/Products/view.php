@@ -85,60 +85,62 @@
                 </div>
                 <?php endif; ?>
             </div>
-            <div class="related">
-                <h4><?= __('Related Menus') ?></h4>
-                <?php if (!empty($product->menus)) : ?>
-                <div class="table-responsive">
-                    <table>
-                        <tr>
-                            <th><?= __('Id') ?></th>
-                            <th><?= __('Name') ?></th>
-                            <th><?= __('Description') ?></th>
-                            <th class="actions"><?= __('Actions') ?></th>
-                        </tr>
-                        <?php foreach ($product->menus as $menu) : ?>
-                        <tr>
-                            <td><?= h($menu->id) ?></td>
-                            <td><?= h($menu->name) ?></td>
-                            <td><?= h($menu->description) ?></td>
-                            <td class="actions">
-                                <?= $this->Html->link(__('View'), ['controller' => 'Menus', 'action' => 'view', $menu->id]) ?>
-                                <?= $this->Html->link(__('Edit'), ['controller' => 'Menus', 'action' => 'edit', $menu->id]) ?>
-                                <?= $this->Form->postLink(__('Delete'), ['controller' => 'Menus', 'action' => 'delete', $menu->id], ['confirm' => __('Are you sure you want to delete # {0}?', $menu->id)]) ?>
-                            </td>
-                        </tr>
-                        <?php endforeach; ?>
-                    </table>
+            <?php if($this->Identity->get('type') === "emp") : ?>
+                <div class="related">
+                    <h4><?= __('Related Menus') ?></h4>
+                    <?php if (!empty($product->menus)) : ?>
+                        <div class="table-responsive">
+                            <table>
+                                <tr>
+                                    <th><?= __('Id') ?></th>
+                                    <th><?= __('Name') ?></th>
+                                    <th><?= __('Description') ?></th>
+                                    <th class="actions"><?= __('Actions') ?></th>
+                                </tr>
+                                <?php foreach ($product->menus as $menu) : ?>
+                                    <tr>
+                                        <td><?= h($menu->id) ?></td>
+                                        <td><?= h($menu->name) ?></td>
+                                        <td><?= h($menu->description) ?></td>
+                                        <td class="actions">
+                                            <?= $this->Html->link(__('View'), ['controller' => 'Menus', 'action' => 'view', $menu->id]) ?>
+                                            <?= $this->Html->link(__('Edit'), ['controller' => 'Menus', 'action' => 'edit', $menu->id]) ?>
+                                            <?= $this->Form->postLink(__('Delete'), ['controller' => 'Menus', 'action' => 'delete', $menu->id], ['confirm' => __('Are you sure you want to delete # {0}?', $menu->id)]) ?>
+                                        </td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            </table>
+                        </div>
+                    <?php endif; ?>
                 </div>
-                <?php endif; ?>
-            </div>
-            <div class="related">
-                <h4><?= __('Related Orders') ?></h4>
-                <?php if (!empty($product->orders)) : ?>
-                <div class="table-responsive">
-                    <table>
-                        <tr>
-                            <th><?= __('Id') ?></th>
-                            <th><?= __('Payment Id') ?></th>
-                            <th><?= __('Delivery Id') ?></th>
-                            <th class="actions"><?= __('Actions') ?></th>
-                        </tr>
-                        <?php foreach ($product->orders as $order) : ?>
-                        <tr>
-                            <td><?= h($order->id) ?></td>
-                            <td><?= h($order->payment_id) ?></td>
-                            <td><?= h($order->delivery_id) ?></td>
-                            <td class="actions">
-                                <?= $this->Html->link(__('View'), ['controller' => 'Orders', 'action' => 'view', $order->id]) ?>
-                                <?= $this->Html->link(__('Edit'), ['controller' => 'Orders', 'action' => 'edit', $order->id]) ?>
-                                <?= $this->Form->postLink(__('Delete'), ['controller' => 'Orders', 'action' => 'delete', $order->id], ['confirm' => __('Are you sure you want to delete # {0}?', $order->id)]) ?>
-                            </td>
-                        </tr>
-                        <?php endforeach; ?>
-                    </table>
+                <div class="related">
+                    <h4><?= __('Related Orders') ?></h4>
+                    <?php if (!empty($product->orders)) : ?>
+                        <div class="table-responsive">
+                            <table>
+                                <tr>
+                                    <th><?= __('Id') ?></th>
+                                    <th><?= __('Payment Id') ?></th>
+                                    <th><?= __('Delivery Id') ?></th>
+                                    <th class="actions"><?= __('Actions') ?></th>
+                                </tr>
+                                <?php foreach ($product->orders as $order) : ?>
+                                    <tr>
+                                        <td><?= h($order->id) ?></td>
+                                        <td><?= h($order->payment_id) ?></td>
+                                        <td><?= h($order->delivery_id) ?></td>
+                                        <td class="actions">
+                                            <?= $this->Html->link(__('View'), ['controller' => 'Orders', 'action' => 'view', $order->id]) ?>
+                                            <?= $this->Html->link(__('Edit'), ['controller' => 'Orders', 'action' => 'edit', $order->id]) ?>
+                                            <?= $this->Form->postLink(__('Delete'), ['controller' => 'Orders', 'action' => 'delete', $order->id], ['confirm' => __('Are you sure you want to delete # {0}?', $order->id)]) ?>
+                                        </td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            </table>
+                        </div>
+                    <?php endif; ?>
                 </div>
-                <?php endif; ?>
-            </div>
+            <?php endif; ?>
         </div>
     </div>
 </div>
