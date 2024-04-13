@@ -17,7 +17,7 @@ $appLocale = Configure::read('App.defaultLocale');
     <?= $this->Html->charset() ?>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
-        <?= $this->fetch('title') ?> - Cake CMS/Auth Sample
+        <?= $this->fetch('title') ?> - Login
     </title>
     <?= $this->Html->meta('icon') ?>
 

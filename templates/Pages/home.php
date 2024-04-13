@@ -30,7 +30,7 @@
                 <div class="col-lg-6 text-center text-lg-start">
                     <h1 class="display-3 text-white animated slideInLeft">Welcome to<br>Tasty Bites Kitchen</h1>
                     <p class="text-white animated slideInLeft mb-4 pb-2"></p>
-                    <a href="" class="btn btn-primary py-sm-3 px-sm-5 me-3 animated slideInLeft">Check out the menu!</a>
+                    <a href="<?= $this->Url->build('/Menus') ?>" class="btn btn-primary py-sm-3 px-sm-5 me-3 animated slideInLeft">Check out the menu!</a>
                 </div>
                 <div class="col-lg-6 text-center text-lg-end overflow-hidden">
                     <img class="img-fluid" src="/team031-app_fit3047/webroot/img/meal.png" alt="">

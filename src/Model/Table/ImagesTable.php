@@ -60,7 +60,7 @@ class ImagesTable extends Table
     {
         $validator
             ->scalar('file_location')
-            ->maxLength('file_location', 50)
+            ->maxLength('file_location', 100)
             ->requirePresence('file_location', 'create')
             ->notEmptyString('file_location');
 
