@@ -30,6 +30,10 @@
                     <th><?= __('Description') ?></th>
                     <td><?= h($menu->description) ?></td>
                 </tr>
+                <tr>
+                    <th><?= __('Active') ?></th>
+                    <td><?= $menu->active ? __('Yes') : __('No'); ?></td>
+                </tr>
             </table>
             <div class="related">
                 <h4><?= __('Related Products') ?></h4>
