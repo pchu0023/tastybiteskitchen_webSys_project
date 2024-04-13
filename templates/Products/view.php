@@ -8,11 +8,9 @@
     <?php if($this->Identity->get('type') === "emp") : ?>
         <aside class="column">
             <div class="side-nav">
-                <h4 class="heading"><?= __('Actions') ?></h4>
-                <?= $this->Html->link(__('Edit Product'), ['action' => 'edit', $product->id], ['class' => 'side-nav-item']) ?>
-                <?= $this->Form->postLink(__('Delete Product'), ['action' => 'delete', $product->id], ['confirm' => __('Are you sure you want to delete # {0}?', $product->id), 'class' => 'side-nav-item']) ?>
-                <?= $this->Html->link(__('List Products'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
-                <?= $this->Html->link(__('New Product'), ['action' => 'add'], ['class' => 'side-nav-item']) ?>
+                <h4 class="heading"><?= __('Administrative Actions') ?></h4>
+                <?= $this->Html->link(__('Edit Product'), ['action' => 'edit', $product->id], ['class' => 'btn btn-primary py-sm-3 px-sm-5 me-3']) ?>
+                <?= $this->Form->postLink(__('Delete Product'), ['action' => 'delete', $product->id], ['confirm' => __('Are you sure you want to delete # {0}?', $product->id), 'class' => 'btn btn-danger py-sm-3 px-sm-5 me-3']) ?>
             </div>
         </aside>
     <?php endif; ?>
@@ -23,10 +21,7 @@
                 <img class="flex-sm-shrink-0 img-fluid rounded" src="<?= $image->file_location ?>" alt="">
                 <?php if($this->Identity->get('type') === "emp") : ?>
                     <p>
-                        <?= $this->Html->link(__('Edit'), ['controller' => 'Images', 'action' => 'edit', $image->id]) ?>
-                    </p>
-                    <p>
-                        <?= $this->Form->postLink(__('Delete'), ['controller' => 'Images', 'action' => 'delete', $image->id], ['confirm' => __('Are you sure you want to delete # {0}?', $image->id)]) ?>
+                        <?= $this->Html->link(__('Edit Image'), ['controller' => 'Images', 'action' => 'edit', $image->id], ['class' => 'btn btn-primary py-sm-2 px-sm-5 me-1']) ?>
                     </p>
                 <?php endif; ?>
             <?php endforeach; ?>
