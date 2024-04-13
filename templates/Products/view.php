@@ -18,16 +18,6 @@
         <div class="products view content">
             <h3><?= h($product->name) ?></h3>
             <table>
-                <?php if($this->Identity->get('type') === "emp") : ?>
-                    <tr>
-                        <th><?= __('Id') ?></th>
-                        <td><?= h($product->id) ?></td>
-                    </tr>
-                <?php endif; ?>
-                <tr>
-                    <th><?= __('Name') ?></th>
-                    <td><?= h($product->name) ?></td>
-                </tr>
                 <tr>
                     <th><?= __('Description') ?></th>
                     <td><?= h($product->description) ?></td>
@@ -65,13 +55,11 @@
                 <div class="table-responsive">
                     <table>
                         <tr>
-                            <th><?= __('Id') ?></th>
                             <th><?= __('Name') ?></th>
                             <th class="actions"><?= __('Actions') ?></th>
                         </tr>
                         <?php foreach ($product->ingredients as $ingredient) : ?>
                         <tr>
-                            <td><?= h($ingredient->id) ?></td>
                             <td><?= h($ingredient->name) ?></td>
                             <td class="actions">
                                 <?= $this->Html->link(__('View'), ['controller' => 'Ingredients', 'action' => 'view', $ingredient->id]) ?>
@@ -91,14 +79,12 @@
                         <div class="table-responsive">
                             <table>
                                 <tr>
-                                    <th><?= __('Id') ?></th>
                                     <th><?= __('Name') ?></th>
                                     <th><?= __('Description') ?></th>
                                     <th class="actions"><?= __('Actions') ?></th>
                                 </tr>
                                 <?php foreach ($product->menus as $menu) : ?>
                                     <tr>
-                                        <td><?= h($menu->id) ?></td>
                                         <td><?= h($menu->name) ?></td>
                                         <td><?= h($menu->description) ?></td>
                                         <td class="actions">
@@ -112,33 +98,33 @@
                         </div>
                     <?php endif; ?>
                 </div>
-                <div class="related">
-                    <h4><?= __('Related Orders') ?></h4>
-                    <?php if (!empty($product->orders)) : ?>
-                        <div class="table-responsive">
-                            <table>
-                                <tr>
-                                    <th><?= __('Id') ?></th>
-                                    <th><?= __('Payment Id') ?></th>
-                                    <th><?= __('Delivery Id') ?></th>
-                                    <th class="actions"><?= __('Actions') ?></th>
-                                </tr>
-                                <?php foreach ($product->orders as $order) : ?>
-                                    <tr>
-                                        <td><?= h($order->id) ?></td>
-                                        <td><?= h($order->payment_id) ?></td>
-                                        <td><?= h($order->delivery_id) ?></td>
-                                        <td class="actions">
-                                            <?= $this->Html->link(__('View'), ['controller' => 'Orders', 'action' => 'view', $order->id]) ?>
-                                            <?= $this->Html->link(__('Edit'), ['controller' => 'Orders', 'action' => 'edit', $order->id]) ?>
-                                            <?= $this->Form->postLink(__('Delete'), ['controller' => 'Orders', 'action' => 'delete', $order->id], ['confirm' => __('Are you sure you want to delete # {0}?', $order->id)]) ?>
-                                        </td>
-                                    </tr>
-                                <?php endforeach; ?>
-                            </table>
-                        </div>
-                    <?php endif; ?>
-                </div>
+<!--                <div class="related">-->
+<!--                    <h4>--><?php //= __('Related Orders') ?><!--</h4>-->
+<!--                    --><?php //if (!empty($product->orders)) : ?>
+<!--                        <div class="table-responsive">-->
+<!--                            <table>-->
+<!--                                <tr>-->
+<!--                                    <th>--><?php //= __('Id') ?><!--</th>-->
+<!--                                    <th>--><?php //= __('Payment Id') ?><!--</th>-->
+<!--                                    <th>--><?php //= __('Delivery Id') ?><!--</th>-->
+<!--                                    <th class="actions">--><?php //= __('Actions') ?><!--</th>-->
+<!--                                </tr>-->
+<!--                                --><?php //foreach ($product->orders as $order) : ?>
+<!--                                    <tr>-->
+<!--                                        <td>--><?php //= h($order->id) ?><!--</td>-->
+<!--                                        <td>--><?php //= h($order->payment_id) ?><!--</td>-->
+<!--                                        <td>--><?php //= h($order->delivery_id) ?><!--</td>-->
+<!--                                        <td class="actions">-->
+<!--                                            --><?php //= $this->Html->link(__('View'), ['controller' => 'Orders', 'action' => 'view', $order->id]) ?>
+<!--                                            --><?php //= $this->Html->link(__('Edit'), ['controller' => 'Orders', 'action' => 'edit', $order->id]) ?>
+<!--                                            --><?php //= $this->Form->postLink(__('Delete'), ['controller' => 'Orders', 'action' => 'delete', $order->id], ['confirm' => __('Are you sure you want to delete # {0}?', $order->id)]) ?>
+<!--                                        </td>-->
+<!--                                    </tr>-->
+<!--                                --><?php //endforeach; ?>
+<!--                            </table>-->
+<!--                        </div>-->
+<!--                    --><?php //endif; ?>
+<!--                </div>-->
             <?php endif; ?>
         </div>
     </div>
