@@ -49,7 +49,7 @@
                         </tr>
                         <?php foreach ($product->images as $image) : ?>
                         <tr>
-                            <div class="col-lg-5 text-right overflow-hidden">
+                            <div class="col-lg-2 text-right overflow-hidden">
                                 <img class="img-fluid float-right" src="<?= $image->file_location ?>" alt="">
                             </div>
                             <td><?= h($image->id) ?></td>
