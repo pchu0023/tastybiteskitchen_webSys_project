@@ -35,11 +35,13 @@
 //                        echo $this->Form->control('products._ids', ['options' => $products]);
 //                    ?>
                 </fieldset>
+                <br />
                 <div class="col">
                     <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-success'] ) ?>
                     <?= $this->Form->end() ?>
                     <?= $this->Html->link(__('Go Back to All Products'), ['action' => 'index'], ['class' => 'btn btn-primary']) ?>
                 </div>
+                <br />
             </div>
         </div>
     </div>
