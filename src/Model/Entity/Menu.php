@@ -11,6 +11,7 @@ use Cake\ORM\Entity;
  * @property string $id
  * @property string $name
  * @property string $description
+ * @property bool $active
  *
  * @property \App\Model\Entity\Product[] $products
  */
@@ -28,6 +29,7 @@ class Menu extends Entity
     protected array $_accessible = [
         'name' => true,
         'description' => true,
+        'active' => true,
         'products' => true,
     ];
 }

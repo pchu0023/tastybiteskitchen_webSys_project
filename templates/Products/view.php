@@ -6,18 +6,6 @@
 ?>
 
 <div class="row">
-    <?php if($this->Identity->get('type') === "emp") : ?>
-        <aside class="column">
-            <div class="side-nav">
-                <h4 class="heading"><?= __('Administrative Actions') ?></h4>
-                <?= $this->Html->link(__('Edit Product'), ['action' => 'edit', $product->id], ['class' => 'btn btn-primary py-sm-3 px-sm-5 me-3']) ?>
-                <?= $this->Form->postLink(__('Delete Product'), ['action' => 'delete', $product->id], ['confirm' => __('Are you sure you want to delete # {0}?', $product->id), 'class' => 'btn btn-danger py-sm-3 px-sm-5 me-3']) ?>
-            </div>
-        </aside>
-    <?php endif; ?>
-
-
-
     <div class="d-flex align-items-center">
         <!-- If there are images, display them -->
         <?php if (!empty($product->images)) : ?>
@@ -44,11 +32,6 @@
             <?php else : ?>
                 <?php foreach ($product->images as $image) : ?>
                     <img class="flex-sm-shrink-0 img-fluid rounded" src="<?= $image->file_location ?>" alt="">
-                    <?php if($this->Identity->get('type') === "emp") : ?>
-                        <p>
-                            <?= $this->Html->link(__('Edit Image'), ['controller' => 'Images', 'action' => 'edit', $image->id], ['class' => 'btn btn-primary py-sm-2 px-sm-5 me-1']) ?>
-                        </p>
-                    <?php endif; ?>
                 <?php endforeach; ?>
             <?php endif; ?>
         <?php endif; ?>
@@ -66,6 +49,18 @@
                 <?php foreach ($product->ingredients as $ingredient) : ?>
                     <small class="fst-normal"><?= h($ingredient->name) ?></small>
                 <?php endforeach; ?>
+                <br />
+            <?php endif; ?>
+            <?php if($this->Identity->get('type') === "emp") : ?>
+                <aside class="column">
+                    <div class="side-nav">
+                        <h6 class="d-flex justify-content-between border-bottom pb-1">
+                            <span><?= __('Administrative Actions') ?></span>
+                        </h6>
+                        <?= $this->Html->link(__('Edit Product'), ['action' => 'edit', $product->id], ['class' => 'btn btn-primary py-sm-2 px-sm-3 me-2']) ?>
+                        <?= $this->Form->postLink(__('Delete Product'), ['action' => 'delete', $product->id], ['confirm' => __('Are you sure you want to delete # {0}?', $product->id), 'class' => 'btn btn-danger py-sm-2 px-sm-2 me-2']) ?>
+                    </div>
+                </aside>
             <?php endif; ?>
         </div>
     </div>

@@ -86,8 +86,6 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                     echo $this->Html->link('LOGOUT', ['controller' => 'Auth', 'action' => 'logout']);
                 }
                 ?>
-
-
             </div>
         </nav>
     </div>
@@ -179,7 +177,8 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 <?= $this->Html->script('/vendor/restoran/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js') ?>
 
 <!-- Template Javascript -->
-<script src="/team031-app_fit3047/webroot/js/main.js"></script>
+<?= $this->Html->script('/js/main.js') ?>
+<!--<script src="/team031-app_fit3047/webroot/js/main.js"></script>-->
 </body>
 
 </html>

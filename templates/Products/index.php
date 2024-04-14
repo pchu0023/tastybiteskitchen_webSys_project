@@ -7,11 +7,13 @@
 <div class="products index content">
     <!-- IF CURRENT SESSION IS AN EMPLOYEE -->
     <?php if($this->Identity->get('type') === "emp") : ?>
-        <?= $this->Html->link(__('New Product'), ['action' => 'add'], ['class' => 'button float-right']) ?>
+        <br />
+        <?= $this->Html->link(__('New Product'), ['action' => 'add'], ['class' => 'btn btn-primary py-sm-2 px-sm-5 me-1']) ?>
+        <br />
     <?php endif; ?>
     <h3><?= __('Products') ?></h3>
     <div class="table-responsive">
-        <table>
+        <table class="table table-striped">
             <thead>
                 <tr>
                     <?php if($this->Identity->get('type') === "emp") : ?>

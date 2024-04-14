@@ -6,25 +6,29 @@
  * @var \Cake\Collection\CollectionInterface|string[] $ingredients
  */
 ?>
-<div class="row">
-    <aside class="column">
-        <div class="side-nav">
-            <h4 class="heading"><?= __('Actions') ?></h4>
-            <?= $this->Html->link(__('List Ingredients Products'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
-        </div>
-    </aside>
-    <div class="column column-80">
-        <div class="ingredientsProducts form content">
-            <?= $this->Form->create($ingredientsProduct) ?>
-            <fieldset>
-                <legend><?= __('Add Ingredients Product') ?></legend>
-                <?php
+<?php if($this->Identity->get('type') != "emp") : ?>
+    <div class="alert alert-danger">You do not have privileges to view this page.</div>
+<?php else : ?>
+    <div class="row">
+        <aside class="column">
+            <div class="side-nav">
+                <h4 class="heading"><?= __('Actions') ?></h4>
+                <?= $this->Html->link(__('List Ingredients Products'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
+            </div>
+        </aside>
+        <div class="column column-80">
+            <div class="ingredientsProducts form content">
+                <?= $this->Form->create($ingredientsProduct) ?>
+                <fieldset>
+                    <legend><?= __('Add Ingredients Product') ?></legend>
+                    <?php
                     echo $this->Form->control('product_id', ['options' => $products]);
                     echo $this->Form->control('ingredient_id', ['options' => $ingredients]);
-                ?>
-            </fieldset>
-            <?= $this->Form->button(__('Submit')) ?>
-            <?= $this->Form->end() ?>
+                    ?>
+                </fieldset>
+                <?= $this->Form->button(__('Submit')) ?>
+                <?= $this->Form->end() ?>
+            </div>
         </div>
     </div>
-</div>
+<?php endif; ?>
