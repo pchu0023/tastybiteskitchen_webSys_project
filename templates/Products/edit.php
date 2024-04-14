@@ -29,18 +29,55 @@
                         <h6 class="d-flex justify-content-between border-bottom pb-1">
                             <span>Description</span>
                         </h6>
-                        <?php echo $this->Form->control('description', ['label' => '', 'class' => 'd-flex']); ?>
+                        <?php echo $this->Form->control('description', ['label' => '', 'class' => 'd-flex flex-column', 'rows' => '5']); ?>
                         <br />
-                        <h6 class="d-flex justify-content-between border-bottom pb-1">
-                            <span>Images</span>
-                        </h6>
-                        <?php echo $this->Form->control('images._ids', ['options' => $images, 'label' => '', 'class' => 'd-flex']); ?>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th scope="col"></th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row"></th>
+                                    <td>
+                                        <h6 class="d-flex justify-content-between border-bottom pb-1">
+                                            <span>Images</span>
+                                        </h6>
+                                        <?php echo $this->Form->control('images._ids', ['options' => $images, 'label' => '', 'class' => 'd-flex']); ?>
+                                    </td>
+                                    <td>
+                                        <?= $this->Html->link(__('Edit Images'), ['action' => '../Images/index'], ['class' => 'btn btn-primary']) ?>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
                         <br />
-                        <h6 class="d-flex justify-content-between border-bottom pb-1">
-                            <span>Ingredients</span>
-                        </h6>
-                        <?php echo $this->Form->control('ingredients._ids', ['options' => $ingredients, 'label' => '', 'class' => 'd-flex']); ?>
-                        <br />
+                        <table>
+                            <thead>
+                            <tr>
+                                <th scope="col"></th>
+                                <th scope="col"></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <th scope="row"></th>
+                                <td>
+                                    <h6 class="d-flex justify-content-between border-bottom pb-1">
+                                        <span>Ingredients</span>
+                                    </h6>
+                                    <?php echo $this->Form->control('ingredients._ids', ['options' => $ingredients, 'label' => '', 'class' => 'd-flex']); ?>
+                                    <br />
+                                </td>
+                                <td>
+                                    <?= $this->Html->link(__('Edit Ingredients'), ['action' => '../Ingredients/index'], ['class' => 'btn btn-primary']) ?>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+
                     </fieldset>
                     <div class="col">
                         <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-success'] ) ?>
