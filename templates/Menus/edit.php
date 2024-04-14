@@ -6,7 +6,7 @@
  */
 ?>
 <?php if($this->Identity->get('type') != "emp") : ?>
-    <p> You do not have permission to view this resource. </p>
+    <div class="alert alert-danger">You do not have privileges to view this page.</div>
 <?php else : ?>
     <div class="row">
         <div class="column column-80">

@@ -6,7 +6,7 @@
  */
 ?>
 <?php if($this->Identity->get('type') != "emp") : ?>
-    <p> You do not have permission to view this resource. </p>
+    <div class="alert alert-danger">You do not have privileges to view this page.</div>
 <?php else : ?>
     <div class="row">
         <div class="column column-80">
@@ -28,12 +28,6 @@
                         <span>Active</span>
                     </h6>
                     <?php echo $this->Form->control('active', ['label' => '', 'class' => 'd-flex flex-column']); ?>
-
-<!--                    --><?php
-//                        echo $this->Form->control('description');
-//                        echo $this->Form->control('active');
-//                        echo $this->Form->control('products._ids', ['options' => $products]);
-//                    ?>
                 </fieldset>
                 <br />
                 <div class="col">
