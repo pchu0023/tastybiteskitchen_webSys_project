@@ -13,7 +13,7 @@
     <?php endif; ?>
     <h3><?= __('Products') ?></h3>
     <div class="table-responsive">
-        <table>
+        <table class="table table-striped">
             <thead>
                 <tr>
                     <?php if($this->Identity->get('type') === "emp") : ?>
