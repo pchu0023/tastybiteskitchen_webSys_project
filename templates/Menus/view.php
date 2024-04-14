@@ -28,6 +28,7 @@
             <br />
             <div class="related">
                 <h4><?= __('Products') ?></h4>
+                <br />
                 <?php if (!empty($menu->products)) : ?>
                     <div class="table-responsive">
                         <table>
