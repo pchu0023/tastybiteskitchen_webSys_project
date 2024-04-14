@@ -13,7 +13,7 @@
     <br />
     <h3 class="d-flex justify-content-between border-bottom pb-1"><?= __('Active Displayed Menus') ?></h3>
     <div class="table-responsive">
-        <table>
+        <table class="table table-striped">
             <thead>
                 <tr>
                     <th><?= $this->Paginator->sort('name') ?></th>
@@ -67,7 +67,7 @@
     <?php if($this->Identity->get('type') === "emp") : ?>
         <h3 class="d-flex justify-content-between border-bottom pb-1"><?= __('Inactive Menus') ?></h3>
         <div class="table-responsive">
-            <table>
+            <table class="table table-striped">
                 <thead>
                 <tr>
                     <th><?= $this->Paginator->sort('name') ?></th>
