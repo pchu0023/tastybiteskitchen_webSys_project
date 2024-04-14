@@ -4,6 +4,11 @@
  * @var iterable<\App\Model\Entity\Product> $products
  */
 ?>
+ <div class="container-xxl py-5 bg-dark hero-header mb-5">
+        <div class="container text-center my-5 pt-5 pb-4">
+            <h1 class="display-3 text-white mb-3 animated slideInDown">Menu Item</h1>
+        </div>
+    </div>
 <div class="products index content">
     <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
                     <h5 class="section-title ff-secondary text-center text-primary fw-normal">Food Menu</h5>
@@ -15,7 +20,7 @@
             <div class="col-lg-6 mb-4">
                     <div class="d-flex align-items-center">
                         <!-- <img class="flex-shrink-0 img-fluid rounded" src="<?= $this->Html->image('menu-' . $product->id . '.jpg', ['alt' => $product->name, 'style' => 'width: 80px;']) ?>" /> -->
-                        <img class="flex-shrink-0 img-fluid rounded" src="img/menu-1.jpg" alt="" style="width: 80px;">
+                        <img class="flex-shrink-0 img-fluid rounded" src="img/about-1.jpg" alt="" style="width: 80px;">
 
                         <div class="w-100 d-flex flex-column text-start ps-4">
                             <h5 class="d-flex justify-content-between border-bottom pb-2">
