@@ -11,7 +11,7 @@
         <br />
     <?php endif; ?>
     <br />
-    <h3 class="d-flex justify-content-between border-bottom pb-1"><?= __('Active Menus') ?></h3>
+    <h3 class="d-flex justify-content-between border-bottom pb-1"><?= __('Active Displayed Menus') ?></h3>
     <div class="table-responsive">
         <table>
             <thead>
