@@ -32,11 +32,6 @@
             <?php else : ?>
                 <?php foreach ($product->images as $image) : ?>
                     <img class="flex-sm-shrink-0 img-fluid rounded" src="<?= $image->file_location ?>" alt="">
-                    <?php if($this->Identity->get('type') === "emp") : ?>
-                        <p>
-                            <?= $this->Html->link(__('Edit Image'), ['controller' => 'Images', 'action' => 'edit', $image->id], ['class' => 'btn btn-primary py-sm-2 px-sm-5 me-1']) ?>
-                        </p>
-                    <?php endif; ?>
                 <?php endforeach; ?>
             <?php endif; ?>
         <?php endif; ?>

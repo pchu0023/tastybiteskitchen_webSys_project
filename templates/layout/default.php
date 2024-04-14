@@ -85,8 +85,6 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                     echo $this->Html->link('LOGOUT', ['controller' => 'Auth', 'action' => 'logout']);
                 }
                 ?>
-
-
             </div>
         </nav>
     </div>
