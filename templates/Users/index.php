@@ -5,7 +5,7 @@
  */
 ?>
 <div class="users index content">
-    <?= $this->Html->link(__('New User'), ['action' => 'add'], ['class' => 'button float-right']) ?>
+    <?= $this->Html->link(__('Add New User'), ['action' => 'add'], ['class' => 'btn btn-primary float-right']) ?>
     <h3 class="d-flex justify-content-between border-bottom pb-1"><?= __('Employees') ?></h3>
     <div class="table-responsive">
         <table class="table table-striped">
@@ -29,9 +29,9 @@
                             <td><?= h($user->address) ?></td>
                             <td><?= h($user->phone_number) ?></td>
                             <td class="actions">
-                                <?= $this->Html->link(__('View'), ['action' => 'view', $user->id]) ?>
-                                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $user->id]) ?>
-                                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $user->id], ['confirm' => __('Are you sure you want to delete # {0}?', $user->id)]) ?>
+                                <?= $this->Html->link(__('View'), ['action' => 'view', $user->id], ['class' => 'btn btn-primary float-right']) ?>
+                                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $user->id], ['class' => 'btn btn-secondary float-right']) ?>
+                                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $user->id], ['confirm' => __('Are you sure you want to delete # {0}?', $user->id), 'class' => 'btn btn-danger float-right']) ?>
                             </td>
                         </tr>
                     <?php endif; ?>
@@ -72,9 +72,9 @@
                         <td><?= h($user->address) ?></td>
                         <td><?= h($user->phone_number) ?></td>
                         <td class="actions">
-                            <?= $this->Html->link(__('View'), ['action' => 'view', $user->id]) ?>
-                            <?= $this->Html->link(__('Edit'), ['action' => 'edit', $user->id]) ?>
-                            <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $user->id], ['confirm' => __('Are you sure you want to delete # {0}?', $user->id)]) ?>
+                            <?= $this->Html->link(__('View'), ['action' => 'view', $user->id], ['class' => 'btn btn-primary float-right']) ?>
+                            <?= $this->Html->link(__('Edit'), ['action' => 'edit', $user->id], ['class' => 'btn btn-secondary float-right']) ?>
+                            <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $user->id], ['confirm' => __('Are you sure you want to delete # {0}?', $user->id), 'class' => 'btn btn-danger float-right']) ?>
                         </td>
                     </tr>
                 <?php endif; ?>
