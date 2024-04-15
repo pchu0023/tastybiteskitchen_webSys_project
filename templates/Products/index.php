@@ -21,7 +21,7 @@
             <div class="col-lg-6 mb-4">
                 <div class="d-flex align-items-center">
                     <!-- <img class="flex-shrink-0 img-fluid rounded" src="<?= $this->Html->image('menu-' . $product->id . '.jpg', ['alt' => $product->name, 'style' => 'width: 80px;']) ?>" /> -->
-                    <img class="flex-shrink-0 img-fluid rounded" src="img/about-1.jpg" alt="" style="width: 80px;">
+                    <?= $this->Html->image('about-1.jpg', ['alt' => '', 'style' => 'width: 80px;']) ?>
 
                     <div class="w-100 d-flex flex-column text-start ps-4">
                         <h5 class="d-flex justify-content-between border-bottom pb-2">
