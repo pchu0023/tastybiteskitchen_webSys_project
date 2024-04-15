@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Menu $menu
@@ -14,7 +15,7 @@
                     <br />
                 </tr>
             </table>
-            <?php if($this->Identity->get('type') === "emp") : ?>
+            <?php if ($this->Identity->get('type') === "emp") : ?>
                 <br />
                 <aside class="column">
                     <div class="side-nav">
@@ -30,19 +31,34 @@
                 <h4><?= __('Products') ?></h4>
                 <br />
                 <?php if (!empty($menu->products)) : ?>
-                    <div class="table-responsive">
-                        <table>
-                            <?php foreach ($menu->products as $product) : ?>
+                    <div class="row">
+
+                    <?php foreach ($menu->products as $product) : ?>
+
+                        <div class="col-lg-6 mb-4">
+                            <div class="d-flex align-items-center">
+                                <!-- <img class="flex-shrink-0 img-fluid rounded" src="<?= $this->Html->image('menu-' . $product->id . '.jpg', ['alt' => $product->name, 'style' => 'width: 80px;']) ?>" /> -->
+                                <img class="flex-shrink-0 img-fluid rounded" src="img/about-1.jpg" alt="" style="width: 80px;">
+
                                 <div class="w-100 d-flex flex-column text-start ps-4">
                                     <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                        <span><?= $this->Html->link(__($product->name), ['controller' => 'Products', 'action' => 'view', $product->id]) ?></span>
-                                        <span class="text-primary"><?= $this->Number->format($product->price) ?></span>
+
+                                        <!-- Use Html->link to make only the product name a link -->
+                                        <?= $this->Html->link(
+                                            h($product->name), // Product name as link text
+                                            ['action' => 'view', $product->id], // Link target (view action with product ID)
+                                            ['escape' => false] // Allow HTML content within link
+                                        ) ?>
+
+                                        <span class="text-primary">$<?= $this->Number->format($product->price) ?></span>
                                     </h5>
                                     <small class="fst-italic"><?= h($product->description) ?></small>
-                                    <br />
+                                    <div class="d-grid gap-2 mt-3">
+                                    </div>
                                 </div>
-                            <?php endforeach; ?>
-                        </table>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
                     </div>
                 <?php endif; ?>
             </div>
