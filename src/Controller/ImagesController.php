@@ -10,6 +10,7 @@ namespace App\Controller;
  */
 class ImagesController extends AppController
 {
+
     /**
      * Index method
      *
@@ -41,20 +42,38 @@ class ImagesController extends AppController
      *
      * @return \Cake\Http\Response|null|void Redirects on successful add, renders view otherwise.
      */
-    public function add()
-    {
-        $image = $this->Images->newEmptyEntity();
-        if ($this->request->is('post')) {
-            $image = $this->Images->patchEntity($image, $this->request->getData());
-            if ($this->Images->save($image)) {
-                $this->Flash->success(__('The image has been saved.'));
+public function add()
+{
+    $image = $this->Images->newEmptyEntity();
+    if ($this->request->is('post')) {
+        $fileObject = $this->request->getData('file');
 
-                return $this->redirect(['action' => 'index']);
+        if ($fileObject->getError() == UPLOAD_ERR_OK) {
+            $destination = WWW_ROOT . 'img' . DS . 'ProductImages' . DS . $fileObject->getClientFilename();
+            // Move files to specified directory
+            $fileObject->moveTo($destination);
+
+                $this->Flash->success(__('The image has been saved.'));
+                
+                // Create a new database record containing the final path to the file
+                $image->file_location = 'webroot/img/ProductImages/' . $fileObject->getClientFilename();
+                
+                // Try saving $image object to database
+                if ($result = $this->Images->save($image)) {
+                    // open the list page
+                    $this->Flash->success(__('Image path saved to database.'));
+                    return $this->redirect(['action' => 'index']);
+                } else {
+                    // Log the error message
+                    Log::error('Image path could not be saved to the database. Image entity details: ' . print_r($image->getErrors(), true));
+                    $this->Flash->error(__('The image path could not be saved to the database. Please, try again.'));
+                }
+
+            } else {
+                $this->Flash->error(__('Please select a valid file to upload.'));
             }
-            $this->Flash->error(__('The image could not be saved. Please, try again.'));
         }
-        $products = $this->Images->Products->find('list', limit: 200)->all();
-        $this->set(compact('image', 'products'));
+        $this->set(compact('image'));
     }
 
     /**
