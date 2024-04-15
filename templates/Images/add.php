@@ -9,7 +9,7 @@
         <aside class="column">
         </aside>
         <div class="container mt-5">
-    <?php if ($this->Identity->get('type') == "emp"): ?>
+    <?php if ($this->Identity->get('type') != "emp"): ?>
         <div class="alert alert-danger">You do not have privileges to view this page.</div>
     <?php else: ?>
         <div class="card">
