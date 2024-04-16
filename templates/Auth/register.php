@@ -6,6 +6,7 @@
 
 $this->layout = 'login';
 $this->assign('title', 'Register new user');
+
 ?>
 <div class="container register">
     <div class="column column-50 column-offset-25">
@@ -48,7 +49,7 @@ $this->assign('title', 'Register new user');
                     ]);
                     ?>
                     <small id="passwordHelpBlock" class="form-text text-muted">
-                        Your password must be 12 characters long, contain letters and numbers, and must not contain emojis.
+                        Your password must be between 8 and 128 characters long, contain at least one symbol, and must not contain emojis.
                     </small>
                 </div>
                 <br />
