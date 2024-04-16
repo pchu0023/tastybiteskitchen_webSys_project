@@ -34,6 +34,8 @@ $this->assign('title', 'Register new user');
                     echo $this->Form->control('password', [
                         'value' => '',  // Ensure password is not sending back to the client side
                         'class' => 'form-control needs-validation',
+                        'novalidate action' => "#",
+                        'minlength' => "8",
                         'placeholder' => 'Password'
                     ]);
                     // Validate password by repeating it

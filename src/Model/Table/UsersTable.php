@@ -81,7 +81,11 @@ class UsersTable extends Table
         $validator
             ->scalar('password')
             ->maxLength('password', 128)
+            ->minLength('password', 8)
             ->requirePresence('password', 'create')
+            ->add('password', ['hasSpecialCharacter' => ['rule' => function ($value, $context) {
+                return preg_match('/[^\w\s]/', $value) == 1;
+            }, 'message' => 'Missing special character']])
             ->notEmptyString('password');
 
         $validator
