@@ -24,16 +24,15 @@
                 <?= $this->Form->create($user) ?>
                 <fieldset>
                     <legend><?= __('Edit User') ?></legend>
+                    <div class="dropdown>
+                    <?php echo $this->Form->control('type', ["class" => 'form-select', 'options' => ['emp' => 'Employee', 'cust' => 'Customer'], 'label' => 'User Type']); ?>
                     <?php
-                    echo $this->Form->control('type');
                     echo $this->Form->control('first_name');
                     echo $this->Form->control('last_name');
                     echo $this->Form->control('email');
                     echo $this->Form->control('password');
                     echo $this->Form->control('address');
                     echo $this->Form->control('phone_number');
-                    echo $this->Form->control('nonce');
-                    echo $this->Form->control('nonce_expiry', ['empty' => true]);
                     ?>
                 </fieldset>
                 <?= $this->Form->button(__('Submit')) ?>
