@@ -33,23 +33,21 @@ $this->assign('title', 'Register new user');
                     <?php
                     echo $this->Form->control('password', [
                         'value' => '',  // Ensure password is not sending back to the client side
-                        'class' => 'form-control',
+                        'class' => 'form-control needs-validation',
                         'placeholder' => 'Password'
+                    ]);
+                    // Validate password by repeating it
+                    echo $this->Form->control('password_confirm', [
+                        'type' => 'password',
+                        'value' => '',  // Ensure password is not sending back to the client side
+                        'label' => '',
+                        'class' => 'form-control',
+                        'placeholder' => 'Retype Password'
                     ]);
                     ?>
                     <small id="passwordHelpBlock" class="form-text text-muted">
                         Your password must be 12 characters long, contain letters and numbers, and must not contain emojis.
                     </small>
-                    <?php
-                    // Validate password by repeating it
-                    echo $this->Form->control('password_confirm', [
-                        'type' => 'password',
-                        'value' => '',  // Ensure password is not sending back to the client side
-                        'label' => 'Retype Password',
-                        'class' => 'form-control',
-                        'placeholder' => 'Retype Password'
-                    ]);
-                    ?>
                 </div>
                 <br />
 
@@ -71,8 +69,9 @@ $this->assign('title', 'Register new user');
 
             <div class="d-grid">
                 <?= $this->Form->button('Register', ['class' => 'button btn-success btn-block']) ?>
+                <?= $this->Form->end() ?>
             </div>
-            <?= $this->Form->end() ?>
+
 
         </div>
     </div>
