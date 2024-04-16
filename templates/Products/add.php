@@ -30,7 +30,6 @@
                     echo $this->Form->control('images._ids', ['options' => $images]);
                     echo $this->Form->control('ingredients._ids', ['options' => $ingredients]);
                     echo $this->Form->control('menus._ids', ['options' => $menus]);
-                    echo $this->Form->control('orders._ids', ['options' => $orders]);
                     ?>
                 </fieldset>
                 <?= $this->Form->button(__('Submit')) ?>
