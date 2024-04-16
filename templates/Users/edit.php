@@ -60,7 +60,6 @@
                             Password
                         </span>
                     </h5>
-                    <?php echo $this->Form->control('password', ['class' => 'form-control','label' => '', 'placeholder' => 'Password', 'readonly']); ?>
                         <p>Please have the user use "Reset Your Password".</p>
                     <br />
                     <h5 class="d-flex justify-content-between border-bottom pb-2">
