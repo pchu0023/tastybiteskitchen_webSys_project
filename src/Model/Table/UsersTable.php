@@ -64,12 +64,20 @@ class UsersTable extends Table
             ->scalar('first_name')
             ->maxLength('first_name', 80)
             ->requirePresence('first_name', 'create')
+            ->add('first_name', ['validChars' => ['rule' => function ($value, $context) {
+                        // Allows only letters (both cases), hyphens, and apostrophes
+                return preg_match("/^[a-zA-Z'-]+$/", $value) > 0;
+            }, 'message' => ' ']])
             ->notEmptyString('first_name');
 
         $validator
             ->scalar('last_name')
             ->maxLength('last_name', 80)
             ->requirePresence('last_name', 'create')
+            ->add('last_name', ['validChars' => ['rule' => function ($value, $context) {
+                // Allows only letters (both cases), hyphens, and apostrophes
+                return preg_match("/^[a-zA-Z'-]+$/", $value) > 0;
+            }, 'message' => ' ']])
             ->notEmptyString('last_name');
 
         $validator

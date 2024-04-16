@@ -67,6 +67,9 @@ $this->assign('title', 'Register new user');
                         <?= $this->Form->control('last_name', ['class' => 'form-control','label' => '', 'placeholder' => 'Last Name']); ?>
                     </div>
                 </div>
+                <small id="passwordHelpBlock" class="form-text text-muted">
+                    Your name can only contain letters, hyphens, and apostrophes.
+                </small>
             </fieldset>
             <br />
 
