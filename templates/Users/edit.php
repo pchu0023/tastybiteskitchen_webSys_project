@@ -33,6 +33,7 @@
                     <div class="dropdown">
                         <?php echo $this->Form->control('type', ["class" => 'form-select', 'options' => ['emp' => 'Employee', 'cust' => 'Customer'], 'label' => '']); ?>
                     </div>
+                    <br />
                     <div class="row">
                         <h5 class="d-flex justify-content-between border-bottom pb-2">
                             <span>
@@ -46,12 +47,14 @@
                             <?php echo $this->Form->control('last_name', ['class' => 'form-control','label' => '', 'placeholder' => 'Surname']); ?>
                         </div>
                     </div>
+                    <br />
                     <h5 class="d-flex justify-content-between border-bottom pb-2">
                         <span>
                             Email Address
                         </span>
                     </h5>
                     <?php echo $this->Form->control('email', ['class' => 'form-control','label' => '', 'placeholder' => 'Email']); ?>
+                    <br />
                     <h5 class="d-flex justify-content-between border-bottom pb-2">
                         <span>
                             Password
@@ -59,12 +62,14 @@
                     </h5>
                     <?php echo $this->Form->control('password', ['class' => 'form-control','label' => '', 'placeholder' => 'Password', 'readonly']); ?>
                         <p>Please have the user use "Reset Your Password".</p>
+                    <br />
                     <h5 class="d-flex justify-content-between border-bottom pb-2">
                         <span>
                             Address
                         </span>
                     </h5>
                     <?php echo $this->Form->control('address', ['class' => 'form-control','label' => '', 'placeholder' => '1234 Main Street, Suburb 3000']); ?>
+                    <br />
                     <h5 class="d-flex justify-content-between border-bottom pb-2">
                         <span>
                             Phone Number
@@ -73,8 +78,11 @@
                     <?php echo $this->Form->control('phone_number', ['class' => 'form-control','label' => '', 'placeholder' => '0400000000']); ?>
                 </fieldset>
                 <br />
-                <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-success']) ?>
+                <div class="d-grid">
+                    <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-success btn-block']) ?>
+                </div>
                 <?= $this->Form->end() ?>
+                <br />
                 <br />
             </div>
         </div>
