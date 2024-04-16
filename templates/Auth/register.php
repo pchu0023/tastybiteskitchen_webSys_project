@@ -38,6 +38,9 @@ $this->assign('title', 'Register new user');
                     'templateVars' => ['container_class' => 'column']
                 ]);
                 ?>
+                <small id="passwordHelpBlock" class="form-text text-muted">
+                    Your password must be 8-20 characters long, contain letters and numbers, and must not contain emojis.
+                </small
             </div>
 
         </fieldset>
