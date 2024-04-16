@@ -10,8 +10,8 @@ $debug = Configure::read('debug');
 $this->layout = 'login';
 $this->assign('title', 'Login');
 ?>
-<div class="container login">
-    <div class="row">
+<div class="container login" >
+    <div class="row" >
         <div class="column column-50 column-offset-25">
             <div class="users form content">
 
@@ -19,7 +19,10 @@ $this->assign('title', 'Login');
 
                 <fieldset>
 
-                    <legend>Login</legend>
+                    <h1 class="d-flex justify-content-between">Log In</h1>
+                    <br />
+                    <h3 style="font-weight: 500">New to Tasty Bites Kitchen? <u style="font-weight: 600"><?= $this->Html->link('Sign up here.', ['controller' => 'Auth', 'action' => 'register']) ?></u></h3>
+                    <hr class="hr-between-buttons">
 
                     <?= $this->Flash->render() ?>
 
@@ -37,23 +40,22 @@ $this->assign('title', 'Login');
                         'required' => true,
                         'autofocus' => true,
                         'value' => $debug ? "test@example.com" : "",
+                        'placeholder' => 'Email Address'
                     ]);
                     echo $this->Form->control('password', [
                         'type' => 'password',
                         'required' => true,
                         'value' => $debug ? 'password' : '',
+                        'placeholder' => 'Password'
                     ]);
                     ?>
                 </fieldset>
-
-                <?= $this->Form->button('Login') ?>
-                <?= $this->Html->link('Forgot password?', ['controller' => 'Auth', 'action' => 'forgetPassword'], ['class' => 'button button-outline']) ?>
-                <?= $this->Form->end() ?>
-
+                <p><u style="font-weight: 600"><?= $this->Html->link('Forgotten your password?', ['controller' => 'Auth', 'action' => 'forgetPassword']) ?></u></p>
                 <hr class="hr-between-buttons">
 
-                <?= $this->Html->link('Register new user', ['controller' => 'Auth', 'action' => 'register'], ['class' => 'button button-clear']) ?>
-                <?= $this->Html->link('Go to Homepage', '/', ['class' => 'button button-clear']) ?>
+                <?= $this->Form->button('Login', ['class' => 'button btn-primary']) ?>
+                <?= $this->Html->link('Go to Homepage', '/', ['class' => 'button btn-secondary']) ?>
+                <?= $this->Form->end() ?>
             </div>
         </div>
     </div>

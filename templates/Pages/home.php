@@ -14,7 +14,7 @@
                     <a href="" class="btn btn-primary py-sm-3 px-sm-5 me-3 animated slideInLeft">Edit this website</a>
                 </div>
                 <div class="col-lg-5 text-right overflow-hidden">
-                    <img class="img-fluid float-right" src="/team031-app_fit3047/webroot/img/meal.png" alt="">
+                    <?= $this->Html->image('meal.png', ["alt" => "Meal", "class" => "img-fluid"]) ?>
                 </div>
             </div>
         </div>
@@ -33,7 +33,7 @@
                     <a href="<?= $this->Url->build('/Menus') ?>" class="btn btn-primary py-sm-3 px-sm-5 me-3 animated slideInLeft">Check out the menu!</a>
                 </div>
                 <div class="col-lg-6 text-center text-lg-end overflow-hidden">
-                    <img class="img-fluid" src="/team031-app_fit3047/webroot/img/meal.png" alt="">
+                    <?= $this->Html->image('meal.png', ["alt" => "Meal", "class" => "img-fluid"]) ?>
                 </div>
             </div>
         </div>
