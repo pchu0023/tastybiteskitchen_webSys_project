@@ -52,9 +52,8 @@ $this->assign('title', 'Login');
                 </fieldset>
                 <p><u style="font-weight: 600"><?= $this->Html->link('Forgotten your password?', ['controller' => 'Auth', 'action' => 'forgetPassword']) ?></u></p>
                 <hr class="hr-between-buttons">
-
-                <?= $this->Form->button('Login', ['class' => 'button btn-primary']) ?>
-                <?= $this->Html->link('Go to Homepage', '/', ['class' => 'button btn-secondary']) ?>
+                <div class="d-grid"><?= $this->Form->button('Login', ['class' => 'button btn-primary btn-block']) ?></div>
+<!--                --><?php //= $this->Html->link('Go to Homepage', '/', ['class' => 'button btn-secondary']) ?>
                 <?= $this->Form->end() ?>
             </div>
         </div>
