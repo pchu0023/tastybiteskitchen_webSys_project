@@ -62,18 +62,19 @@ class UsersTable extends Table
 
         $validator
             ->scalar('first_name')
-            ->maxLength('first_name', 20)
+            ->maxLength('first_name', 80)
             ->requirePresence('first_name', 'create')
             ->notEmptyString('first_name');
 
         $validator
             ->scalar('last_name')
-            ->maxLength('last_name', 20)
+            ->maxLength('last_name', 80)
             ->requirePresence('last_name', 'create')
             ->notEmptyString('last_name');
 
         $validator
             ->email('email')
+            ->maxLength('email', 255)
             ->requirePresence('email', 'create')
             ->notEmptyString('email');
 
@@ -85,7 +86,7 @@ class UsersTable extends Table
 
         $validator
             ->scalar('address')
-            ->maxLength('address', 50)
+            ->maxLength('address', 255)
             ->allowEmptyString('address');
 
         $validator
