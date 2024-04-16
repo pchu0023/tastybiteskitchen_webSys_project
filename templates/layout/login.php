@@ -25,11 +25,23 @@ $appLocale = Configure::read('App.defaultLocale');
 
     <?= $this->Html->css(['normalize.min', 'milligram.min', 'cake']) ?>
 
+    <!-- Customized Bootstrap Stylesheet -->
+    <?= $this->Html->css('bootstrap.min.css') ?>
+
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
 </head>
 <body>
+<div class="container-xxl position-relative p-0">
+    <nav class="navbar navbar-expand-lg navbar-brand bg-primary border-bottom justify-content-center px-4 px-lg-5 py-3 py-lg-0">
+        <a href="<?= $this->Url->build('/') ?>" class="navbar-brand p-0">
+            <!--     Replace cake-logo with TBK logo       -->
+            <?= $this->Html->image('cake-logo.png', ["alt" => "Logo", "class" => "img-fluid mx-auto img-responsive"]) ?>
+        </a>
+    </nav>
+</div>
+<br />
 <main class="main">
     <?= $this->fetch('content') ?>
 </main>
