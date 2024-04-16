@@ -8,22 +8,23 @@
     <div class="alert alert-danger">You do not have privileges to view this page.</div>
 <?php else : ?>
     <div class="row">
-        <aside class="column">
-            <div class="side-nav">
-                <h4 class="heading"><?= __('Actions') ?></h4>
-                <?= $this->Form->postLink(
-                    __('Delete'),
-                    ['action' => 'delete', $user->id],
-                    ['confirm' => __('Are you sure you want to delete # {0}?', $user->id), 'class' => 'side-nav-item']
-                ) ?>
-                <?= $this->Html->link(__('List Users'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
-            </div>
-        </aside>
         <div class="column column-80">
             <div class="users form content">
                 <?= $this->Form->create($user) ?>
                 <fieldset>
-                    <legend><?= __('Edit User') ?></legend>
+                    <br />
+                    <legend class="h1"><?= __('Edit User') ?></legend>
+                    <aside class="column">
+                        <div class="side-nav">
+                            <?= $this->Html->link(__('Go Back'), ['action' => 'index'], ['class' => 'btn btn-primary']) ?>
+                            <?= $this->Form->postLink(
+                                __('Delete User'),
+                                ['action' => 'delete', $user->id],
+                                ['confirm' => __('Are you sure you want to delete # {0}?', $user->id), 'class' => 'btn btn-danger']
+                            ) ?>
+                        </div>
+                        <br />
+                    </aside>
                     <h5 class="d-flex justify-content-between border-bottom">
                         <span>
                             User Type
@@ -71,8 +72,10 @@
                     </h5>
                     <?php echo $this->Form->control('phone_number', ['class' => 'form-control','label' => '', 'placeholder' => '0400000000']); ?>
                 </fieldset>
-                <?= $this->Form->button(__('Submit')) ?>
+                <br />
+                <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-success']) ?>
                 <?= $this->Form->end() ?>
+                <br />
             </div>
         </div>
     </div>
