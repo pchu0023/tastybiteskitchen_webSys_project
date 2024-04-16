@@ -24,16 +24,52 @@
                 <?= $this->Form->create($user) ?>
                 <fieldset>
                     <legend><?= __('Edit User') ?></legend>
-                    <div class="dropdown>
-                    <?php echo $this->Form->control('type', ["class" => 'form-select', 'options' => ['emp' => 'Employee', 'cust' => 'Customer'], 'label' => 'User Type']); ?>
-                    <?php
-                    echo $this->Form->control('first_name');
-                    echo $this->Form->control('last_name');
-                    echo $this->Form->control('email');
-                    echo $this->Form->control('password');
-                    echo $this->Form->control('address');
-                    echo $this->Form->control('phone_number');
-                    ?>
+                    <h5 class="d-flex justify-content-between border-bottom">
+                        <span>
+                            User Type
+                        </span>
+                    </h5>
+                    <div class="dropdown">
+                        <?php echo $this->Form->control('type', ["class" => 'form-select', 'options' => ['emp' => 'Employee', 'cust' => 'Customer'], 'label' => '']); ?>
+                    </div>
+                    <div class="row">
+                        <h5 class="d-flex justify-content-between border-bottom pb-2">
+                            <span>
+                                Name
+                            </span>
+                        </h5>
+                        <div class="col">
+                            <?php echo $this->Form->control('first_name', ['class' => 'form-control','label' => '', 'placeholder' => 'First Name']);?>
+                        </div>
+                        <div class="col">
+                            <?php echo $this->Form->control('last_name', ['class' => 'form-control','label' => '', 'placeholder' => 'Surname']); ?>
+                        </div>
+                    </div>
+                    <h5 class="d-flex justify-content-between border-bottom pb-2">
+                        <span>
+                            Email Address
+                        </span>
+                    </h5>
+                    <?php echo $this->Form->control('email', ['class' => 'form-control','label' => '', 'placeholder' => 'Email']); ?>
+                    <h5 class="d-flex justify-content-between border-bottom pb-2">
+                        <span>
+                            Password
+                        </span>
+                    </h5>
+                    <?php echo $this->Form->control('password', ['class' => 'form-control','label' => '', 'placeholder' => 'Password', 'readonly']); ?>
+                        <p>Please have the user use "Reset Your Password".</p>
+                    <h5 class="d-flex justify-content-between border-bottom pb-2">
+                        <span>
+                            Address
+                        </span>
+                    </h5>
+                    <?php echo $this->Form->control('address', ['class' => 'form-control','label' => '', 'placeholder' => '1234 Main Street, Suburb 3000']); ?>
+                    <h5 class="d-flex justify-content-between border-bottom pb-2">
+                        <span>
+                            Phone Number
+                        </span>
+                    </h5>
+                    <?php echo $this->Form->control('phone_number', ['class' => 'form-control','label' => '', 'placeholder' => '0400000000']); ?>
                 </fieldset>
                 <?= $this->Form->button(__('Submit')) ?>
                 <?= $this->Form->end() ?>
