@@ -33,9 +33,9 @@
                                     </h6>
                                     <?php echo $this->Form->control('name', [
                                         'class' => 'form-control',
-                                        'label' => false, 
+                                        'label' => false,
                                         'pattern' => '^[a-zA-Z0-9\s]*$',// Restrict characters to alphanumeric and space
-                                        'placeholder' => 'Product Name']); ?>                                
+                                        'placeholder' => 'Product Name']); ?>
                             </div>
                                 <div class="col">
                                     <br />
@@ -55,12 +55,12 @@
                             <br />
                             <h6 class="d-flex justify-content-between border-bottom pb-1">
                                 <span>Description *</span>
-                            </h6> 
+                            </h6>
                             <?php echo $this->Form->control('description', [
                                 'class' => 'form-control',
-                                'label' => false, 
+                                'label' => false,
                                 'pattern' => '^[a-zA-Z0-9\s]*$',// Restrict characters to alphanumeric and space
-                                'placeholder' => 'Product Description', 
+                                'placeholder' => 'Product Description',
                                 'rows' => 5]); ?>
                             <br />
                             <div class="row">
@@ -116,13 +116,14 @@
                                     </tbody>
                                 </table>
                             </div>
-
+                            <br/>
+                            <div class="row">
+                                <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-success'] ) ?>
+                                <?= $this->Form->end() ?>
+                            </div>
                         </fieldset>
                         <br />
-                        <div class="row">
-                            <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-success'] ) ?>
-                            <?= $this->Form->end() ?>
-                        </div>
+
                     </div>
                 </div>
                 <div class="col">
