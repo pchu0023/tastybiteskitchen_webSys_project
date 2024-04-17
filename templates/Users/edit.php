@@ -8,36 +8,82 @@
     <div class="alert alert-danger">You do not have privileges to view this page.</div>
 <?php else : ?>
     <div class="row">
-        <aside class="column">
-            <div class="side-nav">
-                <h4 class="heading"><?= __('Actions') ?></h4>
-                <?= $this->Form->postLink(
-                    __('Delete'),
-                    ['action' => 'delete', $user->id],
-                    ['confirm' => __('Are you sure you want to delete # {0}?', $user->id), 'class' => 'side-nav-item']
-                ) ?>
-                <?= $this->Html->link(__('List Users'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
-            </div>
-        </aside>
         <div class="column column-80">
             <div class="users form content">
                 <?= $this->Form->create($user) ?>
                 <fieldset>
-                    <legend><?= __('Edit User') ?></legend>
-                    <?php
-                    echo $this->Form->control('type');
-                    echo $this->Form->control('first_name');
-                    echo $this->Form->control('last_name');
-                    echo $this->Form->control('email');
-                    echo $this->Form->control('password');
-                    echo $this->Form->control('address');
-                    echo $this->Form->control('phone_number');
-                    echo $this->Form->control('nonce');
-                    echo $this->Form->control('nonce_expiry', ['empty' => true]);
-                    ?>
+                    <br />
+                    <legend class="h1"><?= __('Edit User') ?></legend>
+                    <aside class="column">
+                        <div class="side-nav">
+                            <?= $this->Html->link(__('Go Back'), ['action' => 'index'], ['class' => 'btn btn-primary']) ?>
+                            <?= $this->Form->postLink(
+                                __('Delete User'),
+                                ['action' => 'delete', $user->id],
+                                ['confirm' => __('Are you sure you want to delete # {0}?', $user->id), 'class' => 'btn btn-danger']
+                            ) ?>
+                        </div>
+                        <br />
+                    </aside>
+                    <h5 class="d-flex justify-content-between border-bottom">
+                        <span>
+                            User Type *
+                        </span>
+                    </h5>
+                    <div class="dropdown">
+                        <?php echo $this->Form->control('type', ["class" => 'form-select', 'options' => ['emp' => 'Employee', 'cust' => 'Customer'], 'label' => false]); ?>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <h5 class="d-flex justify-content-between border-bottom pb-2">
+                            <span>
+                                Name *
+                            </span>
+                        </h5>
+                        <div class="col">
+                            <?php echo $this->Form->control('first_name', ['class' => 'form-control','label' => false, 'placeholder' => 'First Name']);?>
+                        </div>
+                        <div class="col">
+                            <?php echo $this->Form->control('last_name', ['class' => 'form-control','label' => false, 'placeholder' => 'Surname']); ?>
+                        </div>
+                    </div>
+                    <br />
+                    <h5 class="d-flex justify-content-between border-bottom pb-2">
+                        <span>
+                            Email Address *
+                        </span>
+                    </h5>
+                    <?php echo $this->Form->control('email', ['class' => 'form-control','label' => false, 'placeholder' => 'Email']); ?>
+                    <br />
+                    <h5 class="d-flex justify-content-between border-bottom pb-2">
+                        <span>
+                            Password
+                        </span>
+                    </h5>
+                        <p>Please have the user use "Reset Your Password".</p>
+                    <br />
+                    <h5 class="d-flex justify-content-between border-bottom pb-2">
+                        <span>
+                            Address
+                        </span>
+                    </h5>
+                    <?php echo $this->Form->control('address', ['class' => 'form-control','label' => false, 'placeholder' => '1234 Main Street, Suburb 3000']); ?>
+                    <br />
+                    <h5 class="d-flex justify-content-between border-bottom pb-2">
+                        <span>
+                            Phone Number
+                        </span>
+                    </h5>
+                    <?php echo $this->Form->control('phone_number', ['class' => 'form-control','label' => false, 'placeholder' => '0400000000']); ?>
+
+                    <br />
+                    <div class="d-grid">
+                        <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-success'] ) ?>
+                        <?= $this->Form->end() ?>
+                    </div>
+                    <br />
+                    <br />
                 </fieldset>
-                <?= $this->Form->button(__('Submit')) ?>
-                <?= $this->Form->end() ?>
             </div>
         </div>
     </div>

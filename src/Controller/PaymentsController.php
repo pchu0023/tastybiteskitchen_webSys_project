@@ -100,4 +100,24 @@ class PaymentsController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+    public function checkout()
+    {
+        $payment = $this->Payments->newEmptyEntity();
+        if ($this->request->is('post')) {
+
+            $payment->user_id =  $_SESSION['Auth']['id'] ;;
+            $payment->amount = $this->request->getData('amount');
+            $payment->date = date('Y-m-d',time());
+
+            //$payment = $this->Payments->patchEntity($payment, $this->request->getData());
+            if ($this->Payments->save($payment)) {
+                $this->Flash->success(__('The payment has been saved.'));
+
+                return $this->redirect(['action' => 'index']);
+            }
+            $this->Flash->error(__('The payment could not be saved. Please, try again.'));
+        }
+
+
+    }
 }

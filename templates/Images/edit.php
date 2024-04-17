@@ -22,12 +22,19 @@
         </aside>
         <div class="column column-80">
             <div class="images form content">
+                <tr>
+                <img class="flex-sm-shrink-0 img-fluid rounded" src="<?= $image->file_location ?>" alt="not">
+                </tr>
                 <?= $this->Form->create($image) ?>
                 <fieldset>
                     <legend><?= __('Edit Image') ?></legend>
                     <?php
                     echo $this->Form->control('file_location');
-                    echo $this->Form->control('products._ids', ['options' => $products]);
+                    echo $this->Form->control('products._ids', [
+                        'options' => $products,
+                        'empty' => 'Select an Image', 
+                        'label' => 'Choose an Image',
+                         'multiple' => false,]);
                     ?>
                 </fieldset>
                 <?= $this->Form->button(__('Submit')) ?>

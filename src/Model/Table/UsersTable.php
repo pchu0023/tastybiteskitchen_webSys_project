@@ -62,30 +62,43 @@ class UsersTable extends Table
 
         $validator
             ->scalar('first_name')
-            ->maxLength('first_name', 20)
+            ->maxLength('first_name', 80)
             ->requirePresence('first_name', 'create')
+            ->add('first_name', ['validChars' => ['rule' => function ($value, $context) {
+                        // Allows only letters (both cases), hyphens, and apostrophes
+                return preg_match("/^[a-zA-Z'-]+$/", $value) > 0;
+            }, 'message' => ' ']])
             ->notEmptyString('first_name');
 
         $validator
             ->scalar('last_name')
-            ->maxLength('last_name', 20)
+            ->maxLength('last_name', 80)
             ->requirePresence('last_name', 'create')
+            ->add('last_name', ['validChars' => ['rule' => function ($value, $context) {
+                // Allows only letters (both cases), hyphens, and apostrophes
+                return preg_match("/^[a-zA-Z'-]+$/", $value) > 0;
+            }, 'message' => ' ']])
             ->notEmptyString('last_name');
 
         $validator
             ->email('email')
+            ->maxLength('email', 255)
             ->requirePresence('email', 'create')
             ->notEmptyString('email');
 
         $validator
             ->scalar('password')
             ->maxLength('password', 128)
+            ->minLength('password', 8)
             ->requirePresence('password', 'create')
+            ->add('password', ['hasSpecialCharacter' => ['rule' => function ($value, $context) {
+                return preg_match('/[^\w\s]/', $value) == 1;
+            }, 'message' => ' ']])
             ->notEmptyString('password');
 
         $validator
             ->scalar('address')
-            ->maxLength('address', 50)
+            ->maxLength('address', 255)
             ->allowEmptyString('address');
 
         $validator
