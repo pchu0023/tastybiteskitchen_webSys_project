@@ -113,4 +113,24 @@ class ProductsController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+
+    /**
+     * Add to cart method
+     * Responsible for storing product information into the $_SESSION which is then used to populate the shopping cart page
+     */
+    public function addToCart($id = null)
+    {
+        $product = $this->Products->get($id);
+
+
+
+        if (!isset($_SESSION['cart'])) {
+            $_SESSION['cart'] = array();
+        }
+        $details = $product->name . ", Price: $" . $product->price;
+        array_push($_SESSION['cart'], $details);
+        return $this->redirect(['action' => 'index']);
+    }
+
+
 }

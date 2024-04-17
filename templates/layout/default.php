@@ -72,6 +72,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                     <a href="<?= $this->Url->build('/') ?>" class="nav-item nav-link">Home</a>
                     <a href="<?= $this->Url->build('/Menus') ?>" class="nav-item nav-link">Menu</a>
                     <a href="<?= $this->Url->build('/About') ?>" class="nav-item nav-link">About Us</a>
+                    <a href="<?= $this->Url->build('/Carts') ?>" class="nav-item nav-link">View Cart</a>
                 </div>
                 <?php
                 if (!$this->Identity->isLoggedIn()) {
