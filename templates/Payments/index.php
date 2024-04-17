@@ -33,9 +33,8 @@
                          <td><?= h($payment->method) ?></td>
                         <td><?= h($payment->date) ?></td>
                         <td class="actions">
-                            <?= $this->Html->link(__('View'), ['action' => 'view', $payment->id], ['class' => 'btn btn-sm-square btn-primary mr-2']) ?>
-                            <?= $this->Html->link(__('Edit'), ['action' => 'edit', $payment->id], ['class' => 'btn btn-sm-square btn-secondary mr-2']) ?>
-                            <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $payment->id], ['class' => 'btn btn-sm-square btn-danger', 'confirm' => __('Are you sure you want to delete # {0}?', $payment->id)]) ?>
+                            <?= $this->Html->link(__('View'), ['action' => 'view', $payment->id]) ?>
+                            
                         </td>
                     </tr>
                 <?php endforeach; ?>
