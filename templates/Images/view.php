@@ -25,6 +25,8 @@
                 <tr>
                     <th><?= __('File Location') ?></th>
                     <td><?= h($image->file_location) ?></td>
+                    <img class="flex-sm-shrink-0 img-fluid rounded" src="<?= $image->file_location ?>" alt="not">
+                </tr>
                 </tr>
             </table>
             <div class="related">
