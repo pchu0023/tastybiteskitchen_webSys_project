@@ -30,6 +30,7 @@ $this->assign('title', 'Register new user');
                 </h2>
 
                 <?= $this->Form->control('email', ['class' => 'form-control', 'placeholder' => 'Email Address', 'type' => 'email']); ?>
+                <br />
                 <div class="row">
                     <?php
                     echo $this->Form->control('password', [
@@ -43,7 +44,7 @@ $this->assign('title', 'Register new user');
                     echo $this->Form->control('password_confirm', [
                         'type' => 'password',
                         'value' => '',  // Ensure password is not sending back to the client side
-                        'label' => '',
+                        'label' => false,
                         'class' => 'form-control',
                         'placeholder' => 'Retype Password'
                     ]);
@@ -61,10 +62,10 @@ $this->assign('title', 'Register new user');
                 </h2>
                 <div class="row">
                     <div class="col">
-                        <?= $this->Form->control('first_name', ['class' => 'form-control','label' => '', 'placeholder' => 'First Name']); ?>
+                        <?= $this->Form->control('first_name', ['class' => 'form-control','label' => false, 'placeholder' => 'First Name']); ?>
                     </div>
                     <div class="col">
-                        <?= $this->Form->control('last_name', ['class' => 'form-control','label' => '', 'placeholder' => 'Last Name']); ?>
+                        <?= $this->Form->control('last_name', ['class' => 'form-control','label' => false, 'placeholder' => 'Last Name']); ?>
                     </div>
                 </div>
                 <small id="passwordHelpBlock" class="form-text text-muted">
