@@ -6,7 +6,7 @@
  */
 
  /**
-  * 
+  *
     *            <?php echo $_SESSION["cart"][0] ?>;
 
   */
@@ -49,7 +49,7 @@
 
 
 
-                    <?php 
+                    <?php
                     $arr = $_SESSION["cart"];
                     foreach ($arr as $value) : ?>
                   <tr>
@@ -82,44 +82,44 @@
                   <label class="text-muted font-weight-normal m-0">Your Cart is empty, come back to this page after you have added some products.</label>
 
                 <?php endif; ?>
-        
+
                 </tbody>
               </table>
             </div>
             <!-- / Shopping cart table -->
-        
+
             <div class="float-left">
                 <div class="mt-4">
-                  <label class="text-muted font-weight-normal m-0">If you are interested in purchasing these products, please click "Checkout" to see instructions on how to pay / contact us.</label>
+                  <label class="text-muted font-weight-normal m-0">If you are interested in purchasing these products, please call us with the number below for instructions on how to pay!</label>
                   <!-- Uncommment this when the full cart functionality is ready
                   <div class="text-large"><strong>$1164.65</strong></div>
                     -->
                 </div>
               </div>
             </div>
-                    
+
             <div class="float-left">
             <a href="<?= $this->Url->build('/Menus') ?>" class="btn btn-secondary">Return to Menus</a>
             <!--  Create a button link here to the payment page created by Shuhui -->
               <button type="button" class="btn btn-lg btn-primary mt-2">Checkout</button>
             </div>
-        
-            
+
+
           </div>
       </div>
   </div>
 
 
-      <!--  
+      <!--
     <div class="table-responsive">
         <table class="table table-striped">
             <thead>
                 <tr>
-                    
+
                 </tr>
             </thead>
             <tbody>
-                
+
             </tbody>
         </table>
 </div> -->
