@@ -7,8 +7,12 @@
 <?php if($this->Identity->get('type') != "emp") : ?>
     <div class="alert alert-danger">You do not have privileges to view this page.</div>
 <?php else : ?>
-    <div class="users index content">
+    <br />
+    <div class="row">
         <?= $this->Html->link(__('Add New User'), ['action' => 'add'], ['class' => 'btn btn-primary float-right']) ?>
+    </div>
+    <br />
+    <div class="users index content">
         <h3 class="d-flex justify-content-between border-bottom pb-1"><?= __('Employees') ?></h3>
         <div class="table-responsive">
             <table class="table table-striped">
@@ -17,8 +21,6 @@
                         <th><?= $this->Paginator->sort('first_name') ?></th>
                         <th><?= $this->Paginator->sort('last_name') ?></th>
                         <th><?= $this->Paginator->sort('email') ?></th>
-                        <th><?= $this->Paginator->sort('address') ?></th>
-                        <th><?= $this->Paginator->sort('phone_number') ?></th>
                         <th class="actions"><?= __('Actions') ?></th>
                     </tr>
                 </thead>
@@ -29,8 +31,6 @@
                                 <td><?= h($user->first_name) ?></td>
                                 <td><?= h($user->last_name) ?></td>
                                 <td><?= h($user->email) ?></td>
-                                <td><?= h($user->address) ?></td>
-                                <td><?= h($user->phone_number) ?></td>
                                 <td class="actions">
                                     <?= $this->Html->link(__('View'), ['action' => 'view', $user->id], ['class' => 'btn btn-primary float-right']) ?>
                                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $user->id], ['class' => 'btn btn-secondary float-right']) ?>
