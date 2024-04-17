@@ -10,16 +10,17 @@
                 <div class="col-lg-6">
                     <div class="row g-3">
                         <div class="col-6 text-start">
-                            <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.1s" src="/team031-app_fit3047/webroot/img/about-1.jpg">
+<!--                            <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.1s" src="/team031-app_fit3047/webroot/img/about-1.jpg">-->
+                            <?= $this->Html->image('about-1.jpg', ["alt" => "About Us", "class" => "img-fluid rounded w-100 wow zoomIn", "data-wow-delay" => "0.1s"]) ?>
                         </div>
                         <div class="col-6 text-start">
-                            <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.3s" src="/team031-app_fit3047/webroot/img/about-2.jpg" style="margin-top: 25%;">
+                            <?= $this->Html->image('about-2.jpg', ["alt" => "About Us", "class" => "img-fluid rounded w-75 wow zoomIn", "data-wow-delay" => "0.3s", "style" => "margin-top: 25%"]) ?>
                         </div>
                         <div class="col-6 text-end">
-                            <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.5s" src="/team031-app_fit3047/webroot/img/about-3.jpg">
+                            <?= $this->Html->image('about-3.jpg', ["alt" => "About Us", "class" => "img-fluid rounded w-75 wow zoomIn", "data-wow-delay" => "0.5s"]) ?>
                         </div>
                         <div class="col-6 text-end">
-                            <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.7s" src="/team031-app_fit3047/webroot/img/about-4.jpg">
+                            <?= $this->Html->image('about-4.jpg', ["alt" => "About Us", "class" => "img-fluid rounded w-100 wow zoomIn", "data-wow-delay" => "0.7s"]) ?>
                         </div>
                     </div>
                 </div>
