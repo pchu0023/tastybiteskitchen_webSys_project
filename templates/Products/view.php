@@ -38,7 +38,7 @@
         <div class="w-100 d-flex flex-column text-start ps-4">
             <h5 class="d-flex justify-content-between border-bottom pb-2">
                 <span><?= h($product->name) ?></span>
-                <span class="text-primary"><?= $this->Number->format($product->price) ?></span>
+                <span class="text-primary">$<?= $this->Number->format($product->price) ?></span>
                 <?= $this->Form->postButton('Add to cart', ['controller' => 'Products', 'action' => 'addToCart', $product->id], ['class' => 'btn btn-primary'])?>
             </h5>
             <small class="fst-italic"><?= h($product->description) ?></small>
