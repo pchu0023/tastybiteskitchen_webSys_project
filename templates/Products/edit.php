@@ -31,22 +31,37 @@
                                     <h6 class="d-flex border-bottom">
                                         <span>Name *</span>
                                     </h6>
-                                    <?php echo $this->Form->control('name', ['class' => 'form-control','label' => false, 'placeholder' => 'Product Name']); ?>
-                                </div>
+                                    <?php echo $this->Form->control('name', [
+                                        'class' => 'form-control',
+                                        'label' => false, 
+                                        'pattern' => '^[a-zA-Z0-9\s]*$',// Restrict characters to alphanumeric and space
+                                        'placeholder' => 'Product Name']); ?>                                
+                            </div>
                                 <div class="col">
                                     <br />
                                     <h6 class="d-flex justify-content-between border-bottom pb-1">
                                         <span>Price *</span>
                                     </h6>
-                                    <?php echo $this->Form->control('price', ['class' => 'form-control','label' => false, 'placeholder' => 'Product Price']); ?>
-
+                                    <?php echo $this->Form->control('price', [
+                                        'class' => 'form-control',
+                                        'label' => false,
+                                        'type' => 'number',
+                                        'step' => '0.01', // Allows entering cents
+                                        'min' => '0',    // Ensures the price is not negative
+                                        'default' => '0', // Sets initial value to 0
+                                        'placeholder' => 'Product Price']); ?>
                                 </div>
                             </div>
                             <br />
                             <h6 class="d-flex justify-content-between border-bottom pb-1">
                                 <span>Description *</span>
-                            </h6>
-                            <?php echo $this->Form->control('description', ['class' => 'form-control','label' => false, 'placeholder' => 'Product Description', 'rows' => 5]); ?>
+                            </h6> 
+                            <?php echo $this->Form->control('description', [
+                                'class' => 'form-control',
+                                'label' => false, 
+                                'pattern' => '^[a-zA-Z0-9\s]*$',// Restrict characters to alphanumeric and space
+                                'placeholder' => 'Product Description', 
+                                'rows' => 5]); ?>
                             <br />
                             <div class="row">
                                 <table>
