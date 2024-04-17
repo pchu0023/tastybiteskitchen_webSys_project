@@ -8,6 +8,7 @@
 <div class="menus index content">
     <!-- display for admin -->
     <?php if ($this->Identity->get('type') === "emp") : ?>
+        <?php $this->layout = 'admin_default'; ?>
         <br />
         <?= $this->Html->link(__('New Menu'), ['action' => 'add'], ['class' => 'btn btn-primary py-sm-2 px-sm-5 me-1']) ?>
         <br />

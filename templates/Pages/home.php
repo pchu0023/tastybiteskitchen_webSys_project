@@ -11,7 +11,6 @@
                     <p class="text-white animated slideInLeft mb-4 pb-2"></p>
                     <a href="<?= $this->Url->build('/Menus') ?>" class="btn btn-primary py-sm-3 px-sm-5 me-3 animated slideInLeft">Edit the menu</a>
                     <a href="<?= $this->Url->build('/Users') ?>" class="btn btn-primary py-sm-3 px-sm-5 me-3 animated slideInLeft">Add a new admin user</a>
-                    <a href="" class="btn btn-primary py-sm-3 px-sm-5 me-3 animated slideInLeft">Edit this website</a>
                 </div>
                 <div class="col-lg-5 text-right overflow-hidden">
                     <?= $this->Html->image('meal.png', ["alt" => "Meal", "class" => "img-fluid"]) ?>
