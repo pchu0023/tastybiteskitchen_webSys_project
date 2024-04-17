@@ -33,6 +33,7 @@ $this->assign('title', 'Forget Password');
                     ?>
 
                 </fieldset>
+                <br />
 
                 <?= $this->Form->button('Send verification email') ?>
                 <?= $this->Form->end() ?>

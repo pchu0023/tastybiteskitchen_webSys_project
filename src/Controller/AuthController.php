@@ -111,7 +111,7 @@ class AuthController extends AppController
                     }
                 } else {
                     // Just in case something goes wrong when saving nonce and expiry
-                    $this->Flash->error('We are having issue to reset your password. Please try again. ');
+                    $this->Flash->error('We are having issues resetting your password. Please try again. ');
 
                     return $this->render(); // Skip the rest of the controller and render the view
                 }
