@@ -57,7 +57,7 @@
                       <div class="media align-items-center">
                         <!-- Place image here -->
                             <!-- <img class="flex-shrink-0 img-fluid rounded" src="<?= $this->Html->image('menu-' . $product->id . '.jpg', ['alt' => $product->name, 'style' => 'width: 80px;']) ?>" /> -->
-                            <?= $this->Html->image('about-1.jpg', ['alt' => '', 'style' => 'width: 80px;']) ?>
+<!--                            --><?php //= $this->Html->image('about-1.jpg', ['alt' => '', 'style' => 'width: 80px;']) ?>
                         <div class="media-body">
                           <a href="#" class="d-block text-dark"></a>
                           <small>
