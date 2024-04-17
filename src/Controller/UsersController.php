@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use Ramsey\Uuid\Uuid;
+
 /**
  * Users Controller
  *
@@ -46,6 +48,7 @@ class UsersController extends AppController
         $user = $this->Users->newEmptyEntity();
         if ($this->request->is('post')) {
             $user = $this->Users->patchEntity($user, $this->request->getData());
+            $user->id = Uuid::uuid4()->toString();
             if ($this->Users->save($user)) {
                 $this->Flash->success(__('The user has been saved.'));
 
