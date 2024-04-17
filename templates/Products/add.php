@@ -30,7 +30,7 @@
                         </h6>
                         <?php echo $this->Form->control('name', [
                             'class' => 'form-control',
-                            'label' => false, 
+                            'label' => false,
                             'pattern' => '^[a-zA-Z0-9\s]*$',// Restrict characters to alphanumeric and space
                             'placeholder' => 'Product Name']); ?>
                     </div>
@@ -55,9 +55,9 @@
                 </h6>
                 <?php echo $this->Form->control('description', [
                     'class' => 'form-control',
-                    'label' => false, 
+                    'label' => false,
                     'pattern' => '^[a-zA-Z0-9\s]*$',// Restrict characters to alphanumeric and space
-                    'placeholder' => 'Product Description', 
+                    'placeholder' => 'Product Description',
                     'rows' => 5]); ?>
                 <br />
                 <div class="row">
@@ -141,15 +141,15 @@
                 </div>
 
                 <br />
-
+                <br />
+                <div class="row">
+                    <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-success'] ) ?>
+                    <?= $this->Form->end() ?>
+                </div>
+                <br />
 
             </fieldset>
-            <br />
-            <div class="row">
-                <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-success'] ) ?>
-                <?= $this->Form->end() ?>
-            </div>
-            <br />
+
         </div>
     </div>
 <?php endif; ?>
