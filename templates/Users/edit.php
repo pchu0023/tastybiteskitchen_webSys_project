@@ -27,33 +27,33 @@
                     </aside>
                     <h5 class="d-flex justify-content-between border-bottom">
                         <span>
-                            User Type
+                            User Type *
                         </span>
                     </h5>
                     <div class="dropdown">
-                        <?php echo $this->Form->control('type', ["class" => 'form-select', 'options' => ['emp' => 'Employee', 'cust' => 'Customer'], 'label' => '']); ?>
+                        <?php echo $this->Form->control('type', ["class" => 'form-select', 'options' => ['emp' => 'Employee', 'cust' => 'Customer'], 'label' => false]); ?>
                     </div>
                     <br />
                     <div class="row">
                         <h5 class="d-flex justify-content-between border-bottom pb-2">
                             <span>
-                                Name
+                                Name *
                             </span>
                         </h5>
                         <div class="col">
-                            <?php echo $this->Form->control('first_name', ['class' => 'form-control','label' => '', 'placeholder' => 'First Name']);?>
+                            <?php echo $this->Form->control('first_name', ['class' => 'form-control','label' => false, 'placeholder' => 'First Name']);?>
                         </div>
                         <div class="col">
-                            <?php echo $this->Form->control('last_name', ['class' => 'form-control','label' => '', 'placeholder' => 'Surname']); ?>
+                            <?php echo $this->Form->control('last_name', ['class' => 'form-control','label' => false, 'placeholder' => 'Surname']); ?>
                         </div>
                     </div>
                     <br />
                     <h5 class="d-flex justify-content-between border-bottom pb-2">
                         <span>
-                            Email Address
+                            Email Address *
                         </span>
                     </h5>
-                    <?php echo $this->Form->control('email', ['class' => 'form-control','label' => '', 'placeholder' => 'Email']); ?>
+                    <?php echo $this->Form->control('email', ['class' => 'form-control','label' => false, 'placeholder' => 'Email']); ?>
                     <br />
                     <h5 class="d-flex justify-content-between border-bottom pb-2">
                         <span>
@@ -67,14 +67,14 @@
                             Address
                         </span>
                     </h5>
-                    <?php echo $this->Form->control('address', ['class' => 'form-control','label' => '', 'placeholder' => '1234 Main Street, Suburb 3000']); ?>
+                    <?php echo $this->Form->control('address', ['class' => 'form-control','label' => false, 'placeholder' => '1234 Main Street, Suburb 3000']); ?>
                     <br />
                     <h5 class="d-flex justify-content-between border-bottom pb-2">
                         <span>
                             Phone Number
                         </span>
                     </h5>
-                    <?php echo $this->Form->control('phone_number', ['class' => 'form-control','label' => '', 'placeholder' => '0400000000']); ?>
+                    <?php echo $this->Form->control('phone_number', ['class' => 'form-control','label' => false, 'placeholder' => '0400000000']); ?>
                 </fieldset>
                 <br />
                 <div class="d-grid">
