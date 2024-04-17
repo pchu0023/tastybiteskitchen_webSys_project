@@ -9,12 +9,11 @@
     <h3><?= __('Images') ?></h3>
     <?= $this->Html->link(__('New Image'), ['action' => 'add'], ['class' => 'btn btn-success']) ?>
         </div>
-        
+
     <div class="table-responsive">
     <table class="table table-bordered table-hover">
         <thead class="thead-light">
             <tr>
-                <th><?= $this->Paginator->sort('id') ?></th>
                 <th><?= $this->Paginator->sort('file_location', 'File Location') ?></th>
                 <th class="actions"><?= __('Actions') ?></th>
             </tr>
@@ -22,7 +21,6 @@
         <tbody>
             <?php foreach ($images as $image): ?>
             <tr>
-                <td><?= h($image->id) ?></td>
                 <td><?= h($image->file_location) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $image->id], ['class' => 'btn btn-info btn-sm']) ?>
