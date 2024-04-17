@@ -10,7 +10,6 @@ namespace App\Controller;
  */
 class ImagesController extends AppController
 {
-
     /**
      * Index method
      *
@@ -48,7 +47,7 @@ public function add()
     if ($this->request->is('post')) {
         $fileObject = $this->request->getData('file');
 
-        if ($fileObject->getError() == UPLOAD_ERR_OK) {
+        if ($fileObject->getError() == UPLOAD_ERR_OK && in_array($fileObject->getClientMediaType(), ['image/jpeg', 'image/png', 'image/gif'])) {
             $destination = WWW_ROOT . 'img' . DS . 'ProductImages' . DS . $fileObject->getClientFilename();
             // Move files to specified directory
             $fileObject->moveTo($destination);
@@ -56,7 +55,7 @@ public function add()
                 $this->Flash->success(__('The image has been saved.'));
                 
                 // Create a new database record containing the final path to the file
-                $image->file_location = 'webroot/img/ProductImages/' . $fileObject->getClientFilename();
+                $image->file_location = '/team031-app_fit3047/webroot/img/ProductImages/' . $fileObject->getClientFilename();
                 
                 // Try saving $image object to database
                 if ($result = $this->Images->save($image)) {
@@ -66,7 +65,7 @@ public function add()
                 } else {
                     // Log the error message
                     Log::error('Image path could not be saved to the database. Image entity details: ' . print_r($image->getErrors(), true));
-                    $this->Flash->error(__('The image path could not be saved to the database. Please, try again.'));
+                $this->Flash->error(__('The image path could not be saved to the database. Please, try again.'));
                 }
 
             } else {
@@ -107,15 +106,35 @@ public function add()
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
     public function delete($id = null)
-    {
-        $this->request->allowMethod(['post', 'delete']);
-        $image = $this->Images->get($id);
+{
+    $this->request->allowMethod(['post', 'delete']);
+    
+    $image = $this->Images->get($id);
+    
+    $filePath = WWW_ROOT . 'img' . DS . 'ProductImages' . DS . basename($image->file_location);
+    
+    if (file_exists($filePath)) {
+        // delete database record
         if ($this->Images->delete($image)) {
-            $this->Flash->success(__('The image has been deleted.'));
+            // delete image for file
+            if (unlink($filePath)) {
+                $this->Flash->success(__('The image and the file have been deleted.'));
+            } else {
+                $this->Flash->error(__('The image was deleted from the database, but the file could not be deleted.'));
+            }
         } else {
             $this->Flash->error(__('The image could not be deleted. Please, try again.'));
         }
-
-        return $this->redirect(['action' => 'index']);
+    } else {
+        $this->Flash->error(__('The file does not exist.'));
+        if ($this->Images->delete($image)) {
+            $this->Flash->success(__('The image record was deleted, but the file was not found.'));
+        } else {
+            $this->Flash->error(__('The image could not be deleted. Please, try again.'));
+        }
     }
+
+    return $this->redirect(['action' => 'index']);
+}
+
 }
