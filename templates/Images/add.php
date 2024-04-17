@@ -20,7 +20,14 @@
             <div class="card-body">
                 <?= $this->Form->create($image, ['type' => 'file', 'class' => 'form']) ?>
                     <div class="form-group">
-                        <?= $this->Form->control('file', ['type' => 'file', 'label' => ['text' => 'Choose Image', 'class' => 'form-label'], 'class' => 'form-control', 'id' => 'image-upload', 'onchange' => 'previewImage();']); ?>
+                        <?= $this->Form->control('file', [
+                            'type' => 'file', 
+                            'label' => ['text' => 'Choose Image: (JPG, JPEG, PNG, GIF) ', 'class' => 'form-label'], 
+                            'class' => 'form-control', 
+                            'id' => 'image-upload', 
+                            'onchange' => 'previewImage();',
+                            'accept' => '.jpg, .jpeg, .png, .gif',
+                            ]); ?>
                         <img id="image-preview" src="#" alt="Image Preview" style="display: none; width: 700px; height: 700px; object-fit: contain;"/>
                    </div>
                     <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-primary mt-2']) ?>
