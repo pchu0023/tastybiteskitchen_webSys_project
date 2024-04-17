@@ -72,6 +72,8 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                     <a href="<?= $this->Url->build('/') ?>" class="nav-item nav-link">Home</a>
                     <a href="<?= $this->Url->build('/Menus') ?>" class="nav-item nav-link">Manage Menu</a>
                     <a href="<?= $this->Url->build('/Users') ?>" class="nav-item nav-link">Manage Users</a>
+                    <a href="<?= $this->Url->build('/Products') ?>" class="nav-item nav-link">Manage Food Items</a>
+                    <a href="<?= $this->Url->build('/Images') ?>" class="nav-item nav-link">Manage Images</a>
                 </div>
                 <?php
                 if (!$this->Identity->isLoggedIn()) {
