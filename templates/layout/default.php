@@ -14,7 +14,7 @@
  * @var \App\View\AppView $this
  */
 
-$cakeDescription = 'CakePHP: the rapid development php framework';
+$cakeDescription = 'Tasty Bites Kitchen';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -149,7 +149,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                         Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a><br><br>
                         Distributed By <a class="border-bottom" href="https://themewagon.com" target="_blank">ThemeWagon</a>
                     </div>
-                   
+
                 </div>
             </div>
         </div>

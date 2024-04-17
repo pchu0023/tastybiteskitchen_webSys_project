@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use Cake\Routing\Router;
+
 /**
  * Images Controller
  *
@@ -53,10 +55,10 @@ public function add()
             $fileObject->moveTo($destination);
 
                 $this->Flash->success(__('The image has been saved.'));
-                
+
                 // Create a new database record containing the final path to the file
-                $image->file_location = '/team031-app_fit3047/webroot/img/ProductImages/' . $fileObject->getClientFilename();
-                
+                $image->file_location = Router::url('/webroot/img/ProductImages/') . $fileObject->getClientFilename();
+
                 // Try saving $image object to database
                 if ($result = $this->Images->save($image)) {
                     // open the list page
@@ -108,11 +110,11 @@ public function add()
     public function delete($id = null)
 {
     $this->request->allowMethod(['post', 'delete']);
-    
+
     $image = $this->Images->get($id);
-    
+
     $filePath = WWW_ROOT . 'img' . DS . 'ProductImages' . DS . basename($image->file_location);
-    
+
     if (file_exists($filePath)) {
         // delete database record
         if ($this->Images->delete($image)) {
