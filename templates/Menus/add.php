@@ -17,12 +17,12 @@
                     <h6 class="d-flex border-bottom">
                         <span>Name</span>
                     </h6>
-                    <?php echo $this->Form->control('name', ['label' => '', 'class' => 'd-flex flex-column']); ?>
+                    <?php echo $this->Form->control('name', ['class' => 'form-control','label' => '', 'placeholder' => 'Menu Name']); ?>
                     <br />
                     <h6 class="d-flex border-bottom">
                         <span>Description</span>
                     </h6>
-                    <?php echo $this->Form->control('description', ['label' => '', 'class' => 'd-flex flex-column', 'rows' => '5']); ?>
+                    <?php echo $this->Form->control('description', ['class' => 'form-control','label' => '', 'placeholder' => 'Menu Description', 'rows' => 5]); ?>
                     <br />
                     <h6 class="d-flex border-bottom">
                         <span>Active</span>
