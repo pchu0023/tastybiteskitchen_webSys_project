@@ -25,29 +25,38 @@
                                 ['action' => 'delete', $product->id],
                                 ['confirm' => __('Are you sure you want to delete # {0}?', $product->id), 'class' => 'btn btn-danger']
                             ) ?>
-                            <h6 class="d-flex border-bottom">
-                                <span>Name</span>
-                            </h6>
-                            <?php echo $this->Form->control('name', ['class' => 'form-control','label' => false, 'placeholder' => 'Product Name']); ?>
+                            <div class="row">
+                                <div class="col">
+                                    <br />
+                                    <h6 class="d-flex border-bottom">
+                                        <span>Name *</span>
+                                    </h6>
+                                    <?php echo $this->Form->control('name', ['class' => 'form-control','label' => false, 'placeholder' => 'Product Name']); ?>
+                                </div>
+                                <div class="col">
+                                    <br />
+                                    <h6 class="d-flex justify-content-between border-bottom pb-1">
+                                        <span>Price *</span>
+                                    </h6>
+                                    <?php echo $this->Form->control('price', ['class' => 'form-control','label' => false, 'placeholder' => 'Product Price']); ?>
+
+                                </div>
+                            </div>
                             <br />
                             <h6 class="d-flex justify-content-between border-bottom pb-1">
-                                <span>Price</span>
-                            </h6>
-                            <?php echo $this->Form->control('price', ['class' => 'form-control','label' => false, 'placeholder' => 'Product Price']); ?>
-                            <br />
-                            <h6 class="d-flex justify-content-between border-bottom pb-1">
-                                <span>Description</span>
+                                <span>Description *</span>
                             </h6>
                             <?php echo $this->Form->control('description', ['class' => 'form-control','label' => false, 'placeholder' => 'Product Description', 'rows' => 5]); ?>
                             <br />
-                            <table>
-                                <thead>
+                            <div class="row">
+                                <table>
+                                    <thead>
                                     <tr>
                                         <th scope="col"></th>
                                         <th scope="col"></th>
                                     </tr>
-                                </thead>
-                                <tbody>
+                                    </thead>
+                                    <tbody>
                                     <tr>
                                         <td>
                                             <h6 class="d-flex justify-content-between border-bottom pb-1">
@@ -62,17 +71,20 @@
                                             </div>
                                         </td>
                                     </tr>
-                                </tbody>
-                            </table>
+                                    </tbody>
+                                </table>
+                            </div>
+
                             <br />
-                            <table>
-                                <thead>
+                            <div class="row">
+                                <table>
+                                    <thead>
                                     <tr>
                                         <th scope="col"></th>
                                         <th scope="col"></th>
                                     </tr>
-                                </thead>
-                                <tbody>
+                                    </thead>
+                                    <tbody>
                                     <tr>
                                         <th scope="row"></th>
                                         <td>
@@ -86,8 +98,9 @@
                                             </div>
                                         </td>
                                     </tr>
-                                </tbody>
-                            </table>
+                                    </tbody>
+                                </table>
+                            </div>
 
                         </fieldset>
                         <br />
