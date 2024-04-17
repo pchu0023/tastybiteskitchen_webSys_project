@@ -16,8 +16,8 @@
         <h1 class="mb-5">All Items</h1>
     </div>
 
-   
-    
+
+
 
 <div class="container my-4">
     <div class="d-flex justify-content-end mb-3">
@@ -25,12 +25,11 @@
     </div>
 
     <h3><?= __('Products') ?></h3>
-    
+
     <div class="table-responsive">
         <table class="table">
             <thead>
                 <tr>
-                    <th><?= $this->Paginator->sort('id') ?></th>
                     <th><?= $this->Paginator->sort('name') ?></th>
                     <th><?= $this->Paginator->sort('price') ?></th>
                     <th><?= $this->Paginator->sort('description') ?></th>
@@ -40,7 +39,6 @@
             <tbody>
                 <?php foreach ($products as $product): ?>
                 <tr>
-                    <td><?= h($product->id) ?></td>
                     <td><?= h($product->name) ?></td>
                     <td><?= $this->Number->format($product->price) ?> $ </td>
                     <td><?= h($product->description) ?></td>
@@ -54,7 +52,7 @@
             </tbody>
         </table>
     </div>
-    
+
     <div class="paginator py-3">
         <ul class="pagination justify-content-center">
             <?= $this->Paginator->first('<< ' . __('first'), ['class' => 'page-item']) ?>
