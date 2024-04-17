@@ -114,14 +114,14 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             <div class="row g-5">
                 <div class="col-lg-3 col-md-6">
                     <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Company</h4>
-                    <a class="btn btn-link" href="">About Us</a>
-                    <a class="btn btn-link" href="">Menu</a>
+                    <p class="mb-2"><a class="btn btn-link" href="<?= $this->Url->build('/About') ?>">About Us</a><p class="mb-2">
+                    <a class="btn btn-link" href="<?= $this->Url->build('/Menus') ?>">Menu</a>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Contact</h4>
-                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>CHANGE ADDRESS</p>
-                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>CHANGE NUMBER</p>
-                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>CHANGE EMAIL</p>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>12/4 Bromham Place, Richmond VIC 3121</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>03 0988 9485</p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>tastyBitesAdmin@gmail.com</p>
                     <div class="d-flex pt-2">
                         <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
                         <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
@@ -131,10 +131,10 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Opening</h4>
-                    <h5 class="text-light fw-normal">Monday - Saturday</h5>
-                    <p>CHANGE HOURS</p>
-                    <h5 class="text-light fw-normal">Sunday</h5>
-                    <p>CHANGE HOURS</p>
+                    <h5 class="text-light fw-normal">Monday - Friday</h5>
+                    <p>6PM - 12AM</p>
+                    <h5 class="text-light fw-normal">Weekends</h5>
+                    <p>11AM - 12AM</p>
                 </div>
             </div>
         </div>
@@ -148,11 +148,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                         Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a><br><br>
                         Distributed By <a class="border-bottom" href="https://themewagon.com" target="_blank">ThemeWagon</a>
                     </div>
-                    <div class="col-md-6 text-center text-md-end">
-                        <div class="footer-menu">
-                            <a href="<?= $this->Url->build('/') ?>">Home</a>
-                        </div>
-                    </div>
+                   
                 </div>
             </div>
         </div>

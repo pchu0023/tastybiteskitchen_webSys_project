@@ -21,6 +21,8 @@
                 <h1 class="display-3 text-white mb-3 animated slideInDown">Current Active Menu</h1>
             </div>
         </div>
+        <h3 class="d-flex justify-content-between border-bottom pb-1"><?= __('Please select a menu for order:') ?></h3>
+
     <?php endif; ?>
 
     <div class="table-responsive">
