@@ -75,7 +75,7 @@ $this->assign('title', 'Register new user');
             <br />
 
             <div class="d-grid">
-                <?= $this->Form->button('Register', ['class' => 'button btn-success btn-block']) ?>
+                <?= $this->Form->button('Register', ['class' => 'button btn-success btn-block ','style' => 'background-color: orange; border-color: orange;']) ?>
                 <?= $this->Form->end() ?>
             </div>
 
