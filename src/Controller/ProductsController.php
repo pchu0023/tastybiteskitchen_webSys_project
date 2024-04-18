@@ -129,6 +129,7 @@ class ProductsController extends AppController
         }
         $details = $product->name . ", Price: $" . $product->price;
         array_push($_SESSION['cart'], $details);
+        $this->Flash->success(__('Product added to cart.'));
         return $this->redirect(['controller' => 'Menus', 'action' => 'index']);
     }
 
