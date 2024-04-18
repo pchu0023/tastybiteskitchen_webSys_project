@@ -53,6 +53,8 @@
                 <br />
             <?php endif; ?>
             <?php if($this->Identity->get('type') === "emp") : ?>
+                <?php $this->layout = 'admin_default'; ?>
+
                 <aside class="column">
                     <div class="side-nav">
                         <h6 class="d-flex justify-content-between border-bottom pb-1">
