@@ -6,7 +6,9 @@
  */
 ?>
 <?php if($this->Identity->get('type') != "emp") : ?>
+    <br/>
     <div class="alert alert-danger">You do not have privileges to view this page.</div>
+    <br/>
 <?php else : ?>
 <div class="container-xxl py-5 bg-dark hero-header mb-5">
     <div class="container text-center my-5 pt-5 pb-4">
