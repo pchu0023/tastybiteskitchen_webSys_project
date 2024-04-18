@@ -70,7 +70,7 @@ $cakeDescription = 'Tasty Bites Kitchen';
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto py-0 pe-4">
                     <a href="<?= $this->Url->build('/') ?>" class="nav-item nav-link">Home</a>
-                    <a href="<?= $this->Url->build('/Menus') ?>" class="nav-item nav-link">Manage Menu</a>
+                    <a href="<?= $this->Url->build('/Menus/adminIndex') ?>" class="nav-item nav-link">Manage Menu</a>
                     <a href="<?= $this->Url->build('/Users') ?>" class="nav-item nav-link">Manage Users</a>
                     <a href="<?= $this->Url->build('/Products') ?>" class="nav-item nav-link">Manage Food Items</a>
                     <a href="<?= $this->Url->build('/Images') ?>" class="nav-item nav-link">Manage Images</a>
