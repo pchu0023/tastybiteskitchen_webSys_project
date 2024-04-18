@@ -129,7 +129,7 @@ class ProductsController extends AppController
         }
         $details = $product->name . ", Price: $" . $product->price;
         array_push($_SESSION['cart'], $details);
-        return $this->redirect(['action' => 'index']);
+        // return $this->redirect(['action' => 'index']);
     }
 
 
