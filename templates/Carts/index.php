@@ -90,7 +90,7 @@
 
             <div class="float-left">
                 <div class="mt-4">
-                  <label class="text-muted font-weight-normal m-0">If you are interested in purchasing these products, please click contact us using the details provided below.</label>
+                  <label class="text-muted font-weight-normal m-0">If you are interested in purchasing these products, please contact us using our contact details at the bottom of the website.</label>
                   <!-- Uncommment this when the full cart functionality is ready
                   <div class="text-large"><strong>$1164.65</strong></div>
                     -->
