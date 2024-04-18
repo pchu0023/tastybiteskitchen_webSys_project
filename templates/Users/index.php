@@ -34,7 +34,10 @@
                                 <td class="actions">
                                     <?= $this->Html->link(__('View'), ['action' => 'view', $user->id], ['class' => 'btn btn-primary float-right']) ?>
                                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $user->id], ['class' => 'btn btn-secondary float-right']) ?>
-                                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $user->id], ['confirm' => __('Are you sure you want to delete # {0}?', $user->id), 'class' => 'btn btn-danger float-right']) ?>
+                                    <?= $this->Html->link(__('Go Back'), ['action' => 'index'], ['class' => 'btn btn-primary']) ?>
+                                    <?php if($this->Identity->get('id') != $user->id) : ?>
+                                        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $user->id], ['confirm' => __('Are you sure you want to delete # {0}?', $user->id), 'class' => 'btn btn-danger float-right']) ?>
+                                    <?php endif; ?>
                                 </td>
                             </tr>
                         <?php endif; ?>

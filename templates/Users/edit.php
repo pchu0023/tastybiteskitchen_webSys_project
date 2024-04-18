@@ -17,11 +17,13 @@
                     <aside class="column">
                         <div class="side-nav">
                             <?= $this->Html->link(__('Go Back'), ['action' => 'index'], ['class' => 'btn btn-primary']) ?>
-                            <?= $this->Form->postLink(
-                                __('Delete User'),
-                                ['action' => 'delete', $user->id],
-                                ['confirm' => __('Are you sure you want to delete # {0}?', $user->id), 'class' => 'btn btn-danger']
-                            ) ?>
+                            <?php if($this->Identity->get('id') != $user->id) : ?>
+                                <?= $this->Form->postLink(
+                                    __('Delete User'),
+                                    ['action' => 'delete', $user->id],
+                                    ['confirm' => __('Are you sure you want to delete # {0}?', $user->id), 'class' => 'btn btn-danger']
+                                ) ?>
+                            <?php endif; ?>
                         </div>
                         <br />
                     </aside>

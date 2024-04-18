@@ -21,7 +21,9 @@
                 <aside class="column">
                     <div class="side-nav">
                         <?= $this->Html->link(__('Edit User'), ['action' => 'edit', $user->id], ['class' => 'btn btn-primary py-sm-2 px-sm-3 me-2']) ?>
-                        <?= $this->Form->postLink(__('Delete User'), ['action' => 'delete', $user->id], ['confirm' => __('Are you sure you want to delete # {0}?', $user->id), 'class' => 'btn btn-danger py-sm-2 px-sm-3 me-2']) ?>
+                        <?php if($this->Identity->get('id') != $user->id) : ?>
+                            <?= $this->Form->postLink(__('Delete User'), ['action' => 'delete', $user->id], ['confirm' => __('Are you sure you want to delete # {0}?', $user->id), 'class' => 'btn btn-danger py-sm-2 px-sm-3 me-2']) ?>
+                        <?php endif; ?>
                     </div>
                     <br />
                 </aside>
