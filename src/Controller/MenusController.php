@@ -31,6 +31,14 @@ class MenusController extends AppController
         $this->set(compact('menus'));
     }
 
+    public function adminIndex()
+    {
+        $query = $this->Menus->find();
+        $menus = $this->paginate($query);
+
+        $this->set(compact('menus'));
+    }
+
     /**
      * View method
      *
