@@ -20,7 +20,7 @@ class ProductsController extends AppController
         parent::initialize();
 
         // Controller-level function/action whitelist for authentication
-        $this->Authentication->allowUnauthenticated(['view', 'index']);
+        $this->Authentication->allowUnauthenticated(['view', 'index', 'addToCart']);
     }
 
     public function index()
