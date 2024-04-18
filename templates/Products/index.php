@@ -50,7 +50,6 @@
                         <td class="actions">
                             <?= $this->Html->link(__('View'), ['action' => 'view', $product->id], ['class' => 'btn btn-sm btn-info']) ?>
                             <?php if($this->Identity->get('type') == "emp") : ?>
-                                <div class="alert alert-danger">You do not have privileges to view this page.</div>
                                 <?= $this->Html->link(__('Edit'), ['action' => 'edit', $product->id], ['class' => 'btn btn-sm btn-primary']) ?>
                                 <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $product->id], ['confirm' => __('Are you sure you want to delete # {0}?', $product->id), 'class' => 'btn btn-sm btn-danger']) ?>
                             <?php endif ?>
