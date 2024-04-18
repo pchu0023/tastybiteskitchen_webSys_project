@@ -11,6 +11,8 @@
 <?php if($this->Identity->get('type') != "emp") : ?>
     <div class="alert alert-danger">You do not have privileges to view this page.</div>
 <?php else : ?>
+    <?php $this->layout = 'admin_default'; ?>
+
     <div class="col">
         <div class="products form content">
             <?= $this->Form->create($product) ?>

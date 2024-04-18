@@ -4,6 +4,8 @@
  * @var \App\Model\Entity\Image $image
  */
 ?>
+        <?php $this->layout = 'admin_default'; ?>
+
 <div class="row">
     <aside class="column">
         <div class="side-nav">
