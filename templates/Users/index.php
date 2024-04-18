@@ -10,9 +10,9 @@
     <?php $this->layout = 'admin_default'; ?>
 
     <br />
-    <div class="row">
-        <?= $this->Html->link(__('Add New User'), ['action' => 'add'], ['class' => 'btn btn-primary float-right']) ?>
-    </div>
+    <?= $this->Html->link(__('Add New User'), ['action' => 'add'], ['class' => 'btn btn-primary float-right']) ?>
+
+    <br />
     <br />
     <div class="users index content">
         <h3 class="d-flex justify-content-between border-bottom pb-1"><?= __('Employees') ?></h3>

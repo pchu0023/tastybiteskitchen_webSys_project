@@ -11,26 +11,13 @@
     <br/>
 <?php else : ?>
     <?php $this->layout = 'admin_default'; ?>
-
-<div class="container-xxl py-5 bg-dark hero-header mb-5">
-    <div class="container text-center my-5 pt-5 pb-4">
-        <h1 class="display-3 text-white mb-3 animated slideInDown">Items</h1>
-    </div>
-</div>
+    <br />
+    <?= $this->Html->link(__('Add New Product'), ['action' => 'add'], ['class' => 'btn btn-primary']) ?>
+        <br />
+        <br />
 <div class="products index content">
-    <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-        <h5 class="section-title ff-secondary text-center text-primary fw-normal">Food Items</h5>
-        <h1 class="mb-5">All Items</h1>
-    </div>
-
-
-
 
     <div class="container my-4">
-        <div class="d-flex justify-content-end mb-3">
-            <?= $this->Html->link(__('New Product'), ['action' => 'add'], ['class' => 'btn btn-primary']) ?>
-        </div>
-
         <h3><?= __('Products') ?></h3>
 
         <div class="table-responsive">

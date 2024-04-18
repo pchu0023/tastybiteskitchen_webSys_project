@@ -10,7 +10,7 @@
     <?php if ($this->Identity->get('type') === "emp") : ?>
         <?php $this->layout = 'admin_default'; ?>
         <br />
-        <?= $this->Html->link(__('New Menu'), ['action' => 'add'], ['class' => 'btn btn-primary py-sm-2 px-sm-5 me-1']) ?>
+        <?= $this->Html->link(__('Add New Menu'), ['action' => 'add'], ['class' => 'btn btn-primary py-sm-2 px-sm-5 me-1']) ?>
         <br />
         <br />
         <h3 class="d-flex justify-content-between border-bottom pb-1"><?= __('Active Displayed Menus') ?></h3>

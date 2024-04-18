@@ -5,11 +5,14 @@
  */
 ?>
         <?php $this->layout = 'admin_default'; ?>
+      <br>
+        <?= $this->Html->link(__('Add New Image'), ['action' => 'add'], ['class' => 'btn btn-success', 'style' => 'background-color: orange; border-color: orange;']) ?>
+        <br>
+        <br>
 
 <div class="images index content">
     <div class="d-flex justify-content-between align-items-center mb-3">
     <h3><?= __('Images') ?></h3>
-    <?= $this->Html->link(__('New Image'), ['action' => 'add'], ['class' => 'btn btn-success']) ?>
         </div>
 
     <div class="table-responsive">
