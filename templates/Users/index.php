@@ -7,6 +7,8 @@
 <?php if($this->Identity->get('type') != "emp") : ?>
     <div class="alert alert-danger">You do not have privileges to view this page.</div>
 <?php else : ?>
+    <?php $this->layout = 'admin_default'; ?>
+
     <br />
     <div class="row">
         <?= $this->Html->link(__('Add New User'), ['action' => 'add'], ['class' => 'btn btn-primary float-right']) ?>

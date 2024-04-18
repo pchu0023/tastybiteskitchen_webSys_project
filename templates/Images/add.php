@@ -12,6 +12,8 @@
     <?php if ($this->Identity->get('type') != "emp"): ?>
         <div class="alert alert-danger">You do not have privileges to view this page.</div>
     <?php else: ?>
+        <?php $this->layout = 'admin_default'; ?>
+
         <div class="card">
         <div class="card-header d-flex justify-content-between align-items-center">
     <h4 class="card-title mb-0"><?= __('Add Image') ?></h4>

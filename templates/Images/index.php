@@ -4,6 +4,8 @@
  * @var iterable<\App\Model\Entity\Image> $images
  */
 ?>
+        <?php $this->layout = 'admin_default'; ?>
+
 <div class="images index content">
     <div class="d-flex justify-content-between align-items-center mb-3">
     <h3><?= __('Images') ?></h3>

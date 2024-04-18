@@ -6,6 +6,7 @@
  */
 ?>
 <?php if ($this->Identity->get('type') === "emp") : ?>
+    <?php $this->layout = 'admin_default'; ?>
 
     <div class="row">
         <div class="column column-80">
