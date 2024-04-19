@@ -16,6 +16,7 @@
     <br />
     <div class="users index content">
         <h3 class="d-flex justify-content-between border-bottom pb-1"><?= __('Employees') ?></h3>
+       
         <div class="table-responsive">
             <table class="table table-striped">
                 <thead>
@@ -34,11 +35,11 @@
                                 <td><?= h($user->last_name) ?></td>
                                 <td><?= h($user->email) ?></td>
                                 <td class="actions">
-                                    <?= $this->Html->link(__('View'), ['action' => 'view', $user->id], ['class' => 'btn btn-primary float-right']) ?>
-                                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $user->id], ['class' => 'btn btn-secondary float-right']) ?>
-                                    <?= $this->Html->link(__('Go Back'), ['action' => 'index'], ['class' => 'btn btn-primary']) ?>
+                                    <?= $this->Html->link(__('View'), ['action' => 'view', $user->id], ['class' => 'btn btn-sm btn-info']) ?>
+                                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $user->id], ['class' => 'btn btn-sm btn-primary']) ?>
+                                    <!-- <?= $this->Html->link(__('Go Back'), ['action' => 'index'], ['class' => 'btn btn-primary']) ?> -->
                                     <?php if($this->Identity->get('id') != $user->id) : ?>
-                                        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $user->id], ['confirm' => __('Are you sure you want to delete # {0}?', $user->id), 'class' => 'btn btn-danger float-right']) ?>
+                                        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $user->id], ['confirm' => __('Are you sure you want to delete user: {0}?', $user->last_name . ' ' .$user->first_name . ' - email: '. $user->email), 'class' => 'btn btn-sm btn-danger']) ?>
                                     <?php endif; ?>
                                 </td>
                             </tr>
@@ -47,16 +48,7 @@
                 </tbody>
             </table>
         </div>
-        <div class="paginator">
-            <ul class="pagination">
-                <?= $this->Paginator->first('<< ' . __('first')) ?>
-                <?= $this->Paginator->prev('< ' . __('previous')) ?>
-                <?= $this->Paginator->numbers() ?>
-                <?= $this->Paginator->next(__('next') . ' >') ?>
-                <?= $this->Paginator->last(__('last') . ' >>') ?>
-            </ul>
-            </div>
-
+        
         <h3 class="d-flex justify-content-between border-bottom pb-1"><?= __('Customers') ?></h3>
         <div class="table-responsive">
             <table class="table table-striped">
@@ -80,24 +72,17 @@
                             <td><?= h($user->address) ?></td>
                             <td><?= h($user->phone_number) ?></td>
                             <td class="actions">
-                                <?= $this->Html->link(__('View'), ['action' => 'view', $user->id], ['class' => 'btn btn-primary float-right']) ?>
-                                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $user->id], ['class' => 'btn btn-secondary float-right']) ?>
-                                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $user->id], ['confirm' => __('Are you sure you want to delete # {0}?', $user->id), 'class' => 'btn btn-danger float-right']) ?>
-                            </td>
+                            <?= $this->Html->link(__('View'), ['action' => 'view', $user->id], ['class' => 'btn btn-sm btn-info']) ?>
+                                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $user->id], ['class' => 'btn btn-sm btn-primary']) ?>
+                                        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $user->id], ['confirm' => __('Are you sure you want to delete user: {0}?', $user->last_name . ' ' .$user->first_name . ' - email: '. $user->email), 'class' => 'btn btn-sm btn-danger']) ?>
+                                   
+                                </td>
                         </tr>
                     <?php endif; ?>
                 <?php endforeach; ?>
                 </tbody>
             </table>
         </div>
-        <div class="paginator">
-            <ul class="pagination">
-                <?= $this->Paginator->first('<< ' . __('first')) ?>
-                <?= $this->Paginator->prev('< ' . __('previous')) ?>
-                <?= $this->Paginator->numbers() ?>
-                <?= $this->Paginator->next(__('next') . ' >') ?>
-                <?= $this->Paginator->last(__('last') . ' >>') ?>
-            </ul>
-        </div>
+        
     </div>
 <?php endif; ?>

@@ -11,13 +11,11 @@
         <br>
 
 <div class="images index content">
-    <div class="d-flex justify-content-between align-items-center mb-3">
-    <h3><?= __('Images') ?></h3>
-        </div>
+    <h3 class="d-flex justify-content-between border-bottom pb-1"><?= __('Images') ?></h3>
 
     <div class="table-responsive">
-    <table class="table table-bordered table-hover">
-        <thead class="thead-light">
+    <table class="table table-striped">
+        <thead >
             <tr>
                 <th><?= $this->Paginator->sort('file_location', 'File Location') ?></th>
                 <th class="actions"><?= __('Actions') ?></th>
@@ -38,14 +36,4 @@
     </table>
 </div>
 
-    <div class="paginator">
-        <ul class="pagination">
-            <?= $this->Paginator->first('<< ' . __('first')) ?>
-            <?= $this->Paginator->prev('< ' . __('previous')) ?>
-            <?= $this->Paginator->numbers() ?>
-            <?= $this->Paginator->next(__('next') . ' >') ?>
-            <?= $this->Paginator->last(__('last') . ' >>') ?>
-        </ul>
-        <p><?= $this->Paginator->counter(__('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')) ?></p>
-    </div>
-</div>
+   
