@@ -16,7 +16,14 @@
                 <?= $this->Form->create($menu) ?>
                 <fieldset>
                     <legend><?= __('Add Menu') ?></legend>
-                    <h6 class="d-flex border-bottom">
+                   
+                    <aside class="column">
+                        <div class="side-nav">
+                        <?= $this->Html->link(__('Go Back to All Menus'), ['action' => 'adminIndex'], ['class' => 'btn btn-primary']) ?>
+                        </div>
+                        <br />
+                    </aside>
+                     <h6 class="d-flex border-bottom">
                         <span>Name</span>
                     </h6>
                     <?php echo $this->Form->control('name', ['class' => 'form-control','label' => false, 'placeholder' => 'Menu Name']); ?>
@@ -32,11 +39,11 @@
                     <?php echo $this->Form->control('active', ['label' => false, 'class' => 'd-flex flex-column']); ?>
                 </fieldset>
                 <br />
-                <div class="col">
-                    <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-success'] ) ?>
-                    <?= $this->Form->end() ?>
-                    <?= $this->Html->link(__('Go Back to All Menus'), ['action' => 'index'], ['class' => 'btn btn-primary']) ?>
+                <div class="d-grid">
+                    <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-success btn-block'] ) ?>
                 </div>
+                <?= $this->Form->end() ?>
+                <br />
                 <br />
             </div>
         </div>

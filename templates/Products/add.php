@@ -62,7 +62,10 @@
                     'placeholder' => 'Product Description',
                     'rows' => 5]); ?>
                 <br />
+                <div style="margin-left: 10px;">
+
                 <div class="row">
+
                     <table>
                         <thead>
                         <tr>
@@ -73,7 +76,7 @@
                         <tbody>
                         <tr>
                             <td>
-                                <h6 class="d-flex justify-content-between border-bottom pb-1">
+                            <h6 class="d-flex border-bottom">
                                     <span>Images</span>
                                 </h6>
                                 <div class="row">
@@ -87,6 +90,7 @@
                         </tr>
                         </tbody>
                     </table>
+                </div>
                 </div>
                 <br />
                 <div class="row">
