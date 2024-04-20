@@ -80,12 +80,27 @@ class ProductsTable extends Table
             ->scalar('name')
             ->maxLength('name', 40)
             ->requirePresence('name', 'create')
+            ->add('name', ['validChars' => ['rule' => function ($value, $context) {
+                return preg_match("/^[a-zA-Z0-9' -]+$/", $value) > 0;
+            }, 'message' => '! ! ! The name must only contain letters, numbers, and spaces. ']])
             ->notEmptyString('name');
 
         $validator
-            ->numeric('price')
+            ->decimal('price')
             ->requirePresence('price', 'create')
-            ->notEmptyString('price');
+            ->notEmptyString('price')
+            ->add('price', 'custom', [
+                'rule' => function ($value, $context) {
+                    return $value <= 999.99;
+                },
+                'message' => '! ! ! Price must not exceed 999.99.'
+            ])
+            ->add('price', 'numeric', [
+                'rule' => function ($value, $context) {
+                    return is_numeric($value);
+                },
+                'message' => 'Price must only contain numbers.'
+            ]);            
 
         $validator
             ->scalar('description')

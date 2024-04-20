@@ -39,7 +39,6 @@
                                     <?php echo $this->Form->control('name', [
                                         'class' => 'form-control',
                                         'label' => false,
-                                        'pattern' => '^[a-zA-Z0-9\s]*$', // Restrict characters to alphanumeric and space
                                         'placeholder' => 'Product Name'
                                     ]); ?>
                                 </div>
@@ -66,7 +65,6 @@
                             <?php echo $this->Form->control('description', [
                                 'class' => 'form-control',
                                 'label' => false,
-                                'pattern' => '^[a-zA-Z0-9\s]*$', // Restrict characters to alphanumeric and space
                                 'placeholder' => 'Product Description',
                                 'rows' => 5
                             ]); ?>

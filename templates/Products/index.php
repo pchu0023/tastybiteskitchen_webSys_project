@@ -33,7 +33,7 @@
                     <?php foreach ($products as $product) : ?>
                         <tr>
                             <td><?= h($product->name) ?></td>
-                            <td><?= $this->Number->format($product->price) ?> $ </td>
+                            <td>$<?= $this->Number->format($product->price) ?></td>
                             <td><?= h($product->description) ?></td>
                             <td class="actions">
                                 <?= $this->Html->link(__('View'), ['action' => 'view', $product->id], ['class' => 'btn btn-sm btn-info']) ?>
