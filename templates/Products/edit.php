@@ -224,11 +224,4 @@
         </div>
     </div>
     <br />
-    <script src="/webroot/js/main.js"></script>
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        restoreFormData();
-        window.addEventListener('beforeunload', saveFormData);
-    });
-    </script>
 <?php endif; ?>
