@@ -45,6 +45,7 @@
 
 
                     <?php
+                    $totalPrice = 0;
                     if (!empty($this->request->getSession()->read('cart'))) : ?>
                         <?php
                         $size = sizeof($this->request->getSession()->read('cart'));
@@ -52,10 +53,10 @@
 
 
                     <?php
-                    $totalPrice = 0;
                     foreach ($this->request->getSession()->read('cart') as $value) :
-                        $totalPrice += $value->price;
-                        $quant = 1;
+                        $product = $value['product'];
+                        $quant = $value['quantity'];
+                        $totalPrice += ($product->price)*$quant;
                         ?>
                   <tr>
                     <td class="p-4">
@@ -66,16 +67,19 @@
                         <div class="media-body">
                           <a href="#" class="d-block text-dark"></a>
                           <small>
-                            <span class="text-primary"><?= $value->name?> </span>
+                            <span class="text-primary"><?= $product->name?> </span>
                             <span class="ui-product-color ui-product-color-sm align-text-bottom" style="background:#e81e2c;"></span> &nbsp;
                           </small>
                         </div>
                       </div>
                     </td>
 
-                    <td class="text-right font-weight-semibold align-middle p-4"><?= $value->price ?></td>
-                    <td class="align-middle p-4"><input type="text" class="form-control text-center" value="<?= $quant ?>"></td>
-                    <td class="text-right font-weight-semibold align-middle p-4"><?= $value->price * $quant ?></td>
+                    <td class="text-right font-weight-semibold align-middle p-4"><?= $product->price ?></td>
+                    <td class="align-middle p-4"><input type="number" min = 1 step = 1 class="form-control text-center" value="<?= $quant ?>"
+                        oninput="this.value = Math.round(this.value);"
+
+                        ></td>
+                    <td class="text-right font-weight-semibold align-middle p-4" id="totalProdPrice"><?= $product->price * $quant ?></td>
                     <td class="text-center align-middle px-0"><a href="#" class="shop-tooltip close float-none text-danger" title="" data-original-title="Remove">×</a></td>
 
                   </tr>

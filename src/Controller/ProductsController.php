@@ -120,9 +120,10 @@ class ProductsController extends AppController
      */
     public function addToCart($id = null)
     {
+        // Identify the product
         $product = $this->Products->get($id);
 
-
+        // Initialise the cart in session if it doesn't exist
         if ($this->request->getSession()->read('cart') == null) {
             $arr = array();
             $this->request->getSession()->write('cart', $arr);
@@ -131,8 +132,19 @@ class ProductsController extends AppController
         // read existing cart
         $arr = $this->request->getSession()->read('cart');
 
+        // If the product is not already in the cart add it, else update quantity
+        if (!in_array($product, array_column($arr, 'product'))) {
+            $prodInfo = array(
+                "product" => $product,
+                "quantity" => 1,
+            );
+            $arr[] = $prodInfo;
+        } else {
+            $key = array_search($product, array_column($arr, 'Product'));
+            $arr[$key]['quantity'] += 1;
+        }
         // add new product to existing cart
-        $arr[] = $product;
+
 
         // Overwrite previous cart in session
         $this->request->getSession()->write('cart', $arr);
