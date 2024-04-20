@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Product $product
@@ -8,7 +9,7 @@
  * @var string[]|\Cake\Collection\CollectionInterface $orders
  */
 ?>
-<?php if($this->Identity->get('type') != "emp") : ?>
+<?php if ($this->Identity->get('type') != "emp") : ?>
     <div class="alert alert-danger">You do not have privileges to view this page.</div>
 <?php else : ?>
     <?php $this->layout = 'admin_default'; ?>
@@ -36,9 +37,10 @@
                                     <?php echo $this->Form->control('name', [
                                         'class' => 'form-control',
                                         'label' => false,
-                                        'pattern' => '^[a-zA-Z0-9\s]*$',// Restrict characters to alphanumeric and space
-                                        'placeholder' => 'Product Name']); ?>
-                            </div>
+                                        'pattern' => '^[a-zA-Z0-9\s]*$', // Restrict characters to alphanumeric and space
+                                        'placeholder' => 'Product Name'
+                                    ]); ?>
+                                </div>
                                 <div class="col">
                                     <br />
                                     <h6 class="d-flex justify-content-between border-bottom pb-1">
@@ -51,7 +53,8 @@
                                         'step' => '0.01', // Allows entering cents
                                         'min' => '0',    // Ensures the price is not negative
                                         'default' => '0', // Sets initial value to 0
-                                        'placeholder' => 'Product Price']); ?>
+                                        'placeholder' => 'Product Price'
+                                    ]); ?>
                                 </div>
                             </div>
                             <br />
@@ -61,11 +64,65 @@
                             <?php echo $this->Form->control('description', [
                                 'class' => 'form-control',
                                 'label' => false,
-                                'pattern' => '^[a-zA-Z0-9\s]*$',// Restrict characters to alphanumeric and space
+                                'pattern' => '^[a-zA-Z0-9\s]*$', // Restrict characters to alphanumeric and space
                                 'placeholder' => 'Product Description',
-                                'rows' => 5]); ?>
+                                'rows' => 5
+                            ]); ?>
                             <br />
                             <div class="row">
+                                <div class="col">
+
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th scope="col"></th>
+                                                <th scope="col"></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <h6 class="d-flex justify-content-between border-bottom pb-1">
+                                                        <span>Images</span>
+                                                    </h6>
+                                                    <div class="row">
+                                                        <?php echo $this->Form->control('images._ids', ['options' => $images, 'label' => false, 'class' => 'd-flex flex form-select']); ?>
+                                                    </div>
+                                                    <br />
+                                                    <div class="row">
+                                                        <?= $this->Html->link(__('Edit Images'), ['action' => '../Images/index'], ['class' => 'btn btn-primary']) ?>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="col">
+                                    <table style="width: 90%; margin: 0 auto;">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col"></th>
+                                                <th scope="col"></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row"></th>
+                                                <td>
+                                                    <h6 class="d-flex justify-content-between border-bottom pb-1">
+                                                        <span>Menus</span>
+                                                    </h6>
+                                                    <?php echo $this->Form->control('menus._ids', ['options' => $menus, 'label' => false, 'class' => 'd-flex flex form-select']); ?>
+                                                    <br />
+                                                    <div class="row">
+                                                        <?= $this->Html->link(__('Edit Menus'), ['action' => '../Menus/admin_index'], ['class' => 'btn btn-primary']) ?>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!-- <div class="row">
                                 <table>
                                     <thead>
                                     <tr>
@@ -117,12 +174,12 @@
                                     </tr>
                                     </tbody>
                                 </table>
-                            </div>
-                            <br/>
-                            <div class="row">
-                                <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-success'] ) ?>
-                                <?= $this->Form->end() ?>
-                            </div>
+                            </div> -->
+                                <br />
+                                <div class="row">
+                                    <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-success']) ?>
+                                    <?= $this->Form->end() ?>
+                                </div>
                         </fieldset>
                         <br />
 

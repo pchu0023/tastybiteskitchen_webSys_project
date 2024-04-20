@@ -35,7 +35,7 @@
                 <div class="col">
                     <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-success'] ) ?>
                     <?= $this->Form->end() ?>
-                    <?= $this->Html->link(__('Go Back to All Menus'), ['action' => 'index'], ['class' => 'btn btn-primary']) ?>
+                    <?= $this->Html->link(__('Go Back to All Menus'), ['action' => 'adminIndex'], ['class' => 'btn btn-primary']) ?>
                 </div>
                 <?= $this->Form->end() ?>
                 <br />

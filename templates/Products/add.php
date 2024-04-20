@@ -58,12 +58,6 @@
                     'placeholder' => 'Product Description',
                     'rows' => 5]); ?>
                 <br />
-<<<<<<< HEAD
-                <div style="margin-left: 10px;">
-
-                <div class="row">
-
-=======
 <!-- image edit and menu edit -->
 <div class="row">
                 
@@ -122,7 +116,6 @@
                 
 
                 <!-- <div class="row">
->>>>>>> MakeAdminManageViewConsistence
                     <table>
                         <thead>
                         <tr>
