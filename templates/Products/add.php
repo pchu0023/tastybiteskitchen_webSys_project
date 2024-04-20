@@ -19,11 +19,7 @@
             <fieldset>
                 <legend><?= __('Add New Product') ?></legend>
                 <?= $this->Html->link(__('Go Back to All Products'), ['action' => 'index'], ['class' => 'btn btn-primary']) ?>
-                <?= $this->Form->postLink(
-                    __('Delete'),
-                    ['action' => 'delete', $product->id],
-                    ['confirm' => __('Are you sure you want to delete # {0}?', $product->id), 'class' => 'btn btn-danger']
-                ) ?>
+                
                 <div class="row">
                     <div class="col">
                         <br />
@@ -62,10 +58,71 @@
                     'placeholder' => 'Product Description',
                     'rows' => 5]); ?>
                 <br />
+<<<<<<< HEAD
                 <div style="margin-left: 10px;">
 
                 <div class="row">
 
+=======
+<!-- image edit and menu edit -->
+<div class="row">
+                
+                    <div class="col">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th scope="col"></th>
+                                <th scope="col"></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                            <td>
+                                <h6 class="d-flex justify-content-between border-bottom pb-1">
+                                    <span>Images</span>
+                                </h6>
+                                <div class="row">
+                                    <?php echo $this->Form->control('images._ids', ['options' => $images, 'label' => false, 'class' => 'd-flex flex form-select']); ?>
+                                </div>
+                                <br />
+                                <div class="row">
+                                    <?= $this->Html->link(__('Edit Images'), ['action' => '../Images/index'], ['class' => 'btn btn-primary']) ?>
+                                </div>
+                            </td>
+                        </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col">
+                    <table style="width: 90%; margin: 0 auto;">
+                            <thead>
+                            <tr>
+                                <th scope="col"></th>
+                                <th scope="col"></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <th scope="row"></th>
+                                <td>
+                                    <h6 class="d-flex justify-content-between border-bottom pb-1">
+                                        <span>Menus</span>
+                                    </h6>
+                                    <?php echo $this->Form->control('menus._ids', ['options' => $menus, 'label' => false, 'class' => 'd-flex flex form-select']); ?>
+                                    <br />
+                                    <div class="row">
+                                        <?= $this->Html->link(__('Edit Menus'), ['action' => '../Menus/admin_index'], ['class' => 'btn btn-primary']) ?>
+                                    </div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+
+                <!-- <div class="row">
+>>>>>>> MakeAdminManageViewConsistence
                     <table>
                         <thead>
                         <tr>
@@ -144,7 +201,7 @@
                             </tbody>
                         </table>
                     </div>
-                </div>
+                </div> -->
 
                 <br />
                 <br />

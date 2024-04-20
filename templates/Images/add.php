@@ -17,7 +17,7 @@
         <div class="card">
         <div class="card-header d-flex justify-content-between align-items-center">
     <h4 class="card-title mb-0"><?= __('Add Image') ?></h4>
-    <?= $this->Html->link(__('List Images'), ['action' => 'index'], ['class' => 'btn btn-primary']) ?>
+    <?= $this->Html->link(__('Go Back To List Images'), ['action' => 'index'], ['class' => 'btn btn-primary']) ?>
             </div>
             <div class="card-body">
                 <?= $this->Form->create($image, ['type' => 'file', 'class' => 'form']) ?>
@@ -32,7 +32,8 @@
                             ]); ?>
                         <img id="image-preview" src="#" alt="Image Preview" style="display: none; width: 700px; height: 700px; object-fit: contain;"/>
                    </div>
-                    <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-primary mt-2']) ?>
+                   <br>
+                    <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-success']) ?>
                 <?= $this->Form->end() ?>
             </div>
         </div>

@@ -41,7 +41,7 @@
                 <div class="col">
                     <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-success'] ) ?>
                     <?= $this->Form->end() ?>
-                    <?= $this->Html->link(__('Go Back to All Menus'), ['action' => 'index'], ['class' => 'btn btn-primary']) ?>
+                    <?= $this->Html->link(__('Go Back to All Menus'), ['action' => 'admin_index'], ['class' => 'btn btn-primary']) ?>
                     <?= $this->Form->postLink(
                         __('Delete'),
                         ['action' => 'delete', $menu->id],
