@@ -123,12 +123,21 @@ class ProductsController extends AppController
         $product = $this->Products->get($id);
 
 
-
-        if (!isset($_SESSION['cart'])) {
-            $_SESSION['cart'] = array();
+        if ($this->request->getSession()->read('cart') == null) {
+            $arr = array();
+            $this->request->getSession()->write('cart', $arr);
         }
-        $details = $product->name . ", Price: $" . $product->price;
-        array_push($_SESSION['cart'], $details);
+
+        // read existing cart
+        $arr = $this->request->getSession()->read('cart');
+
+        // add new product to existing cart
+        $arr[] = $product;
+
+        // Overwrite previous cart in session
+        $this->request->getSession()->write('cart', $arr);
+
+        // Success message & Redirect to menus
         $this->Flash->success(__('Product added to cart.'));
         return $this->redirect(['controller' => 'Menus', 'action' => 'index']);
     }

@@ -33,11 +33,9 @@
                   <tr>
                     <!-- Set columns width -->
                     <th class="text-center py-3 px-4" style="min-width: 400px;">Product Name &amp; Details</th>
-                    <!--  Uncommment this when the full cart functionality is ready
                     <th class="text-right py-3 px-4" style="width: 100px;">Price</th>
                     <th class="text-center py-3 px-4" style="width: 120px;">Quantity</th>
                     <th class="text-right py-3 px-4" style="width: 100px;">Total</th>
-                -->
                     <th class="text-center align-middle py-3 px-0" style="width: 40px;"><a href="#" class="shop-tooltip float-none text-light" title="" data-original-title="Clear cart"><i class="ino ion-md-trash"></i></a></th>
                   </tr>
                 </thead>
@@ -45,34 +43,41 @@
                     <!-- create a for each loop here to create one of these entries for each product in the session -->
 
 
-                    <?php if (!empty($_SESSION["cart"])) : ?>
 
+                    <?php
+                    if (!empty($this->request->getSession()->read('cart'))) : ?>
+                        <?php
+                        $size = sizeof($this->request->getSession()->read('cart'));
+                        echo  "products in cart:" . $size ?>
 
 
                     <?php
-                    $arr = $_SESSION["cart"];
-                    foreach ($arr as $value) : ?>
+                    $totalPrice = 0;
+                    foreach ($this->request->getSession()->read('cart') as $value) :
+                        $totalPrice += $value->price;
+                        $quant = 1;
+                        ?>
                   <tr>
                     <td class="p-4">
                       <div class="media align-items-center">
                         <!-- Place image here -->
-                            <!-- <img class="flex-shrink-0 img-fluid rounded" src="<?= $this->Html->image('menu-' . $product->id . '.jpg', ['alt' => $product->name, 'style' => 'width: 80px;']) ?>" /> -->
-<!--                            --><?php //= $this->Html->image('about-1.jpg', ['alt' => '', 'style' => 'width: 80px;']) ?>
+<!--                             <img class="flex-shrink-0 img-fluid rounded" src="--><?php //= $this->Html->image('menu-' . $value->id . '.jpg', ['alt' => $value->name, 'style' => 'width: 80px;']) ?><!--" /> -->
+<!--                             --><?php ////= $this->Html->image('about-1.jpg', ['alt' => '', 'style' => 'width: 80px;']) ?>
                         <div class="media-body">
                           <a href="#" class="d-block text-dark"></a>
                           <small>
-                            <span class="text-primary">Product: <?= $value?> </span>
+                            <span class="text-primary"><?= $value->name?> </span>
                             <span class="ui-product-color ui-product-color-sm align-text-bottom" style="background:#e81e2c;"></span> &nbsp;
                           </small>
                         </div>
                       </div>
                     </td>
-                    <!--Uncommment this when the full cart functionality is ready
-                    <td class="text-right font-weight-semibold align-middle p-4">$57.55</td>
-                    <td class="align-middle p-4"><input type="text" class="form-control text-center" value=""></td>
-                    <td class="text-right font-weight-semibold align-middle p-4">$115.1</td>
+
+                    <td class="text-right font-weight-semibold align-middle p-4"><?= $value->price ?></td>
+                    <td class="align-middle p-4"><input type="text" class="form-control text-center" value="<?= $quant ?>"></td>
+                    <td class="text-right font-weight-semibold align-middle p-4"><?= $value->price * $quant ?></td>
                     <td class="text-center align-middle px-0"><a href="#" class="shop-tooltip close float-none text-danger" title="" data-original-title="Remove">×</a></td>
-                    -->
+
                   </tr>
                 <?php endforeach; ?>
 
@@ -90,10 +95,10 @@
 
             <div class="float-left">
                 <div class="mt-4">
-                  <label class="text-muted font-weight-normal m-0">If you are interested in purchasing these products, please contact us using our contact details at the bottom of the website.</label>
-                  <!-- Uncommment this when the full cart functionality is ready
-                  <div class="text-large"><strong>$1164.65</strong></div>
-                    -->
+                  <label class="text-muted font-weight-normal m-0">Total price</label>
+                  <div class="text-large"><strong> $<?= $totalPrice ?></strong></div>
+                <label class="text-muted font-weight-normal m-0">If you are interested in purchasing these products, please contact us using our contact details at the bottom of the website.</label>
+
                 </div>
               </div>
             </div>
@@ -111,19 +116,6 @@
   </div>
 
 
-      <!--
-    <div class="table-responsive">
-        <table class="table table-striped">
-            <thead>
-                <tr>
-
-                </tr>
-            </thead>
-            <tbody>
-
-            </tbody>
-        </table>
-</div> -->
 
 
 
