@@ -10,6 +10,8 @@
         <br>
         <br>
 
+        <button class="btn btn-primary float-right" id="back-button-class">Back</button>
+        <br>
 <div class="images index content">
     <h3 class="d-flex justify-content-between border-bottom pb-1"><?= __('Images') ?></h3>
 

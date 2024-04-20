@@ -117,3 +117,40 @@
     
 })(jQuery);
 
+//back button func
+document.addEventListener('DOMContentLoaded', function() {
+    var backButton = document.getElementById('back-button-class');
+    if (backButton) {
+        backButton.addEventListener('click', function(event) {
+
+            event.preventDefault();
+            // run back
+            window.history.back();
+        });
+    }
+});
+
+// save web data to localStorage
+function saveFormData() {
+    var formElements = document.querySelectorAll('form input, form textarea');
+    var formData = {};
+    formElements.forEach(function(element) {
+        if (element.name) {
+            formData[element.name] = element.value;
+        }
+    });
+    localStorage.setItem('formData', JSON.stringify(formData));
+}
+
+// from localStorage re-enter web data
+function restoreFormData() {
+    var formData = JSON.parse(localStorage.getItem('formData'));
+    if (formData) {
+        var formElements = document.querySelectorAll('form input, form textarea');
+        formElements.forEach(function(element) {
+            if (element.name && formData.hasOwnProperty(element.name)) {
+                element.value = formData[element.name];
+            }
+        });
+    }
+}

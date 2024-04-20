@@ -6,7 +6,11 @@
  */
 ?>
 <?php $this->layout = 'admin_default'; ?>
-
+    <br>
+    <h3 class="heading"><?= __('Administrative Actions') ?></h3>   <br>
+    <button class="btn btn-primary float-right" id="back-button-class">Back</button>
+    <br>
+    <br>
 <div class="row">
     <!--     
     <aside class="column">
@@ -19,7 +23,7 @@
     <div class="column column-80">
         <aside class="column">
             <div class="side-nav">
-                <h3 class="heading"><?= __('Administrative Actions') ?></h3>
+                <!-- <h3 class="heading"><?= __('Administrative Actions') ?></h3> -->
                 <!-- image cant edit, only create new one  -->
                 <!-- <?= $this->Html->link(__('Edit Image'), ['action' => 'edit', $image->id], ['class' => 'btn btn-primary']) ?> -->
                 <?= $this->Form->postLink(__('Delete Image'), ['action' => 'delete', $image->id], ['confirm' => __('Are you sure you want to delete # {0}?', $image->id), 'class' => 'btn btn-danger']) ?>
