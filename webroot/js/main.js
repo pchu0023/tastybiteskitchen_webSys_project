@@ -117,3 +117,15 @@
     
 })(jQuery);
 
+//back button func
+document.addEventListener('DOMContentLoaded', function() {
+    var backButton = document.getElementById('back-button-class');
+    if (backButton) {
+        backButton.addEventListener('click', function(event) {
+
+            event.preventDefault();
+            // run back
+            window.history.back();
+        });
+    }
+});

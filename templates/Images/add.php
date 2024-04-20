@@ -5,6 +5,9 @@
  * @var \Cake\Collection\CollectionInterface|string[] $products
  */
 ?>
+        <br>
+        <button class="btn btn-primary float-right" id="back-button-class">Back</button>
+        <br>
  <div class="row">
         <aside class="column">
         </aside>
