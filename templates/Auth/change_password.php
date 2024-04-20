@@ -33,11 +33,9 @@ $this->assign('title', 'Change User Password - Users');
                     ]);
                     ?>
                 </div>
-
+                <?= $this->Form->button('Submit') ?>
+                <?= $this->Form->end() ?>
             </fieldset>
-
-            <?= $this->Form->button('Submit') ?>
-            <?= $this->Form->end() ?>
 
         </div>
     </div>

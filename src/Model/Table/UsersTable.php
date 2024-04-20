@@ -118,6 +118,25 @@ class UsersTable extends Table
         return $validator;
     }
 
+    /** Reset Password Validation
+     * @param Validator $validator
+     * @return Validator
+     */
+    public function validationResetPassword(Validator $validator): Validator
+    {
+        $validator
+            ->scalar('password')
+            ->maxLength('password', 128)
+            ->minLength('password', 8)
+            ->requirePresence('password', 'true')
+            ->add('password', ['hasSpecialCharacter' => ['rule' => function ($value, $context) {
+                return preg_match('/[^\w\s]/', $value) == 1;
+            }, 'message' => 'Password must contain a special character']])
+            ->notEmptyString('password');
+
+        return $validator;
+    }
+
     /**
      * Returns a rules checker object that will be used for validating
      * application integrity.

@@ -149,18 +149,23 @@ class AuthController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             // Used a different validation set in Model/Table file to ensure both fields are filled
             $user = $this->Users->patchEntity($user, $this->request->getData(), ['validate' => 'resetPassword']);
-
-            // Also clear the nonce-related fields on successful password resets.
-            // This ensures that the reset link can't be used a second time.
-            $user->nonce = null;
-            $user->nonce_expiry = null;
-
-            if ($this->Users->save($user)) {
-                $this->Flash->success('Your password has been successfully reset. Please login with new password. ');
-
-                return $this->redirect(['action' => 'login']);
+            if ($this->request->getData('password_confirm') != ($this->request->getData('password'))) {
+                $this->Flash->error('Passwords must match. Please, try again.');
             }
-            $this->Flash->error('The password cannot be reset. Please try again.');
+            else {
+
+                // Also clear the nonce-related fields on successful password resets.
+                // This ensures that the reset link can't be used a second time.
+                $user->nonce = null;
+                $user->nonce_expiry = null;
+
+                if ($this->Users->save($user)) {
+                    $this->Flash->success('Your password has been successfully reset. Please login with new password.');
+
+                    return $this->redirect(['action' => 'login']);
+                }
+                $this->Flash->error('The password cannot be reset. Please try again.');
+            }
         }
 
         $this->set(compact('user'));
