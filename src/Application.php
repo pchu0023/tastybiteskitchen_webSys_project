@@ -35,6 +35,7 @@ use Cake\Routing\Middleware\AssetMiddleware;
 use Cake\Routing\Middleware\RoutingMiddleware;
 use Cake\Routing\Router;
 use Psr\Http\Message\ServerRequestInterface;
+use Cake\Http\Middleware\HttpsEnforcerMiddleware;
 
 /**
  * Application setup class.
@@ -101,7 +102,19 @@ class Application extends BaseApplication implements AuthenticationServiceProvid
             ]))
 
             // Add Authentication support by plugin
-            ->add(new AuthenticationMiddleware($this));
+            ->add(new AuthenticationMiddleware($this))
+
+            ->add(new HttpsEnforcerMiddleware([
+                'redirect' => true,
+                'status' => 301,
+                'sslOn' => ['dev-tbk.u24s1031.monash-ie.me', 'review-tbk.u24s1031.monash-ie.me', 'tastybiteskitchen.u24s1031.monash-ie.me'],
+                'headers' => ['X-Https-Upgrade' => 1],
+                'hsts' => [
+                    'maxAge' => 60 * 60 * 24 * 365,
+                    'includeSubDomains' => true,
+                    'preload' => true,
+                ],
+            ]));
 
         return $middlewareQueue;
     }
