@@ -9,9 +9,15 @@
         <?= $this->Html->link(__('Add New Image'), ['action' => 'add'], ['class' => 'btn btn-success', 'style' => 'background-color: orange; border-color: orange;']) ?>
         <br>
         <br>
-
         <button class="btn btn-primary float-right" id="back-button-class">Back</button>
         <br>
+        <br>
+        <aside class="column">
+            <div class="side-nav">
+                <?= $this->Html->link(__('Go Back To Add Product'), ['action' => '../Products/add'], ['class' => 'btn btn-primary']) ?>
+                <?= $this->Html->link(__('Go Back To Edit Product'), ['action' => '../Products/edit'], ['class' => 'btn btn-secondary']) ?>
+            </div>
+        </aside>
 <div class="images index content">
     <h3 class="d-flex justify-content-between border-bottom pb-1"><?= __('Images') ?></h3>
 
