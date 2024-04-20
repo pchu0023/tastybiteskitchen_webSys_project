@@ -40,7 +40,7 @@
                                 <?php if ($this->Identity->get('type') == "emp") : ?>
 
                                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $product->id], ['class' => 'btn btn-sm btn-primary']) ?>
-                                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $product->id], ['confirm' => __('Are you sure you want to delete # {0}?', $product->id), 'class' => 'btn btn-sm btn-danger']) ?>
+                                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $product->id], ['confirm' => __('Are you sure you want to delete # {0}?', $product->name), 'class' => 'btn btn-sm btn-danger']) ?>
                                 <?php endif ?>
                             </td>
                         </tr>

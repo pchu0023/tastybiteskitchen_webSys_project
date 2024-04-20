@@ -36,7 +36,7 @@
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $image->id], ['class' => 'btn btn-info btn-sm']) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $image->id], ['class' => 'btn btn-primary btn-sm']) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $image->id], ['confirm' => __('Are you sure you want to delete # {0}?', $image->id), 'class' => 'btn btn-danger btn-sm']) ?>
+                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $image->id], ['confirm' => __('Are you sure you want to delete # {0}?', $image->file_location), 'class' => 'btn btn-danger btn-sm']) ?>
                 </td>
             </tr>
             <?php endforeach; ?>
