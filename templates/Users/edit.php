@@ -10,25 +10,24 @@
     <?php $this->layout = 'admin_default'; ?>
 
     <div class="row">
+    <legend class="h1"><?= __('Edit User') ?></legend>
+                    <aside class="column">
+                        <div class="side-nav">
+                            <?= $this->Html->link(__('Go Back'), ['action' => 'index'], ['class' => 'btn btn-primary']) ?>
+                            <?= $this->Form->postLink(
+                                    __('Delete User'),
+                                    ['action' => 'delete', $user->id],
+                                    ['confirm' => __('Are you sure you want to delete # {0}?', $user->id), 'class' => 'btn btn-danger']
+                                ) ?>
+                        </div>
+                        <br />
+                    </aside>
         <div class="column column-80">
             <div class="users form content">
                 <?= $this->Form->create($user) ?>
                 <fieldset>
                     <br />
-                    <legend class="h1"><?= __('Edit User') ?></legend>
-                    <aside class="column">
-                        <div class="side-nav">
-                            <?= $this->Html->link(__('Go Back'), ['action' => 'index'], ['class' => 'btn btn-primary']) ?>
-                            <?php if($this->Identity->get('id') != $user->id) : ?>
-                                <?= $this->Form->postLink(
-                                    __('Delete User'),
-                                    ['action' => 'delete', $user->id],
-                                    ['confirm' => __('Are you sure you want to delete # {0}?', $user->id), 'class' => 'btn btn-danger']
-                                ) ?>
-                            <?php endif; ?>
-                        </div>
-                        <br />
-                    </aside>
+                   
                     <h5 class="d-flex justify-content-between border-bottom">
                         <span>
                             User Type *
@@ -81,9 +80,12 @@
                     <?php echo $this->Form->control('phone_number', ['class' => 'form-control','label' => false, 'placeholder' => '0400000000']); ?>
 
                     <br />
-                    <div class="d-grid">
+                    <div class="d-col">
                         <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-success'] ) ?>
+                    
                         <?= $this->Form->end() ?>
+                        
+
                     </div>
                     <br />
                     <br />

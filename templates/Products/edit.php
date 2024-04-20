@@ -18,16 +18,18 @@
         <div class="container text-center">
             <div class="row">
                 <div class="col">
+                    <legend><?= __('Edit Product') ?></legend>
+                    <?= $this->Html->link(__('Go Back to All Products'), ['action' => 'index'], ['class' => 'btn btn-primary']) ?>
+                    <?= $this->Form->postLink(
+                        __('Delete Product'),
+                        ['action' => 'delete', $product->id],
+                        ['confirm' => __('Are you sure you want to delete # {0}?', $product->id), 'class' => 'btn btn-danger']
+                    ) ?>
                     <div class="products form content">
+
                         <?= $this->Form->create($product) ?>
                         <fieldset>
-                            <legend><?= __('Edit Product') ?></legend>
-                            <?= $this->Html->link(__('Go Back to All Products'), ['action' => 'index'], ['class' => 'btn btn-primary']) ?>
-                            <?= $this->Form->postLink(
-                                __('Delete'),
-                                ['action' => 'delete', $product->id],
-                                ['confirm' => __('Are you sure you want to delete # {0}?', $product->id), 'class' => 'btn btn-danger']
-                            ) ?>
+
                             <div class="row">
                                 <div class="col">
                                     <br />
@@ -179,6 +181,7 @@
                                 <div class="row">
                                     <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-success']) ?>
                                     <?= $this->Form->end() ?>
+
                                 </div>
                         </fieldset>
                         <br />

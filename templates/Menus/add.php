@@ -16,6 +16,12 @@
                 <?= $this->Form->create($menu) ?>
                 <fieldset>
                     <legend><?= __('Add Menu') ?></legend>
+                    <aside class="column">
+                        <div class="side-nav">
+                        <?= $this->Html->link(__('Go Back to All Menus'), ['action' => 'adminIndex'], ['class' => 'btn btn-primary']) ?>
+                        </div>
+                        <br />
+                    </aside>
                     <h6 class="d-flex border-bottom">
                         <span>Name</span>
                     </h6>
@@ -35,7 +41,6 @@
                 <div class="col">
                     <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-success'] ) ?>
                     <?= $this->Form->end() ?>
-                    <?= $this->Html->link(__('Go Back to All Menus'), ['action' => 'adminIndex'], ['class' => 'btn btn-primary']) ?>
                 </div>
                 <?= $this->Form->end() ?>
                 <br />
