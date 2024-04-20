@@ -1,10 +1,11 @@
 <?php
+
 /**
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\User $user
  */
 ?>
-<?php if($this->Identity->get('type') != "emp") : ?>
+<?php if ($this->Identity->get('type') != "emp") : ?>
     <div class="alert alert-danger">You do not have privileges to view this page.</div>
 <?php else : ?>
     <?php $this->layout = 'admin_default'; ?>
@@ -12,23 +13,22 @@
     <div class="row">
         <aside class="column">
             <br />
+            <h3 class="heading"><?= __('Administrative Actions') ?></h3>
+
             <div class="side-nav">
-                <?= $this->Html->link(__('Show All Users'), ['action' => 'index'], ['class' => 'btn btn-secondary py-sm-2 px-sm-3 me-2']) ?>
-                </div>
+                <?= $this->Html->link(__('Edit User'), ['action' => 'edit', $user->id], ['class' => 'btn btn-primary py-sm-2 px-sm-3 me-2']) ?>
+                <?php if ($this->Identity->get('id') != $user->id) : ?>
+                    <?= $this->Form->postLink(__('Delete User'), ['action' => 'delete', $user->id], ['confirm' => __('Are you sure you want to delete # {0}?', $user->id), 'class' => 'btn btn-danger py-sm-2 px-sm-3 me-2']) ?>
+                <?php endif; ?>
+                <?= $this->Html->link(__('Go Back To All Users'), ['action' => 'index'], ['class' => 'btn btn-secondary py-sm-2 px-sm-3 me-2']) ?>
+
+            </div>
             <br />
         </aside>
         <div class="column column-80">
             <div class="users view content">
-                <h3 class="d-flex justify-content-between border-bottom pb-1">View User</h3>
-                <aside class="column">
-                    <div class="side-nav">
-                        <?= $this->Html->link(__('Edit User'), ['action' => 'edit', $user->id], ['class' => 'btn btn-primary py-sm-2 px-sm-3 me-2']) ?>
-                        <?php if($this->Identity->get('id') != $user->id) : ?>
-                            <?= $this->Form->postLink(__('Delete User'), ['action' => 'delete', $user->id], ['confirm' => __('Are you sure you want to delete # {0}?', $user->id), 'class' => 'btn btn-danger py-sm-2 px-sm-3 me-2']) ?>
-                        <?php endif; ?>
-                    </div>
-                    <br />
-                </aside>
+                <h3 class="d-flex justify-content-between border-bottom pb-1">User Detail</h3>
+
                 <div class="w-100 d-flex flex-column text-start ps-4">
 
                     <h5 class="d-flex justify-content-between border-bottom">

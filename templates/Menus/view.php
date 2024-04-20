@@ -21,7 +21,9 @@
                 <br />
                 <aside class="column">
                     <div class="side-nav">
-                        <h4 class="heading"><?= __('Administrative Actions') ?></h4>
+                    <h6 class="d-flex justify-content-between border-bottom pb-1">
+                            <span><?= __('Administrative Actions') ?></span>
+                        </h6>
                         <?= $this->Html->link(__('Edit Menu'), ['action' => 'edit', $menu->id], ['class' => 'btn btn-primary']) ?>
                         <?= $this->Html->link(__('Go Back to All Menus'), ['action' => 'admin_index'], ['class' => 'btn btn-secondary']) ?>
                         <?= $this->Form->postLink(__('Delete Menu'), ['action' => 'delete', $menu->id], ['confirm' => __('Are you sure you want to delete # {0}?', $menu->id), 'class' => 'btn btn-danger']) ?>
@@ -41,8 +43,8 @@
             <div class="products index content">
                 <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
                     <h5 class="section-title ff-secondary text-center text-primary fw-normal"><?= h($menu->name) ?> </h5>
-                   <br>
-                    <small  >------Please click each item name for item details and make multiple purchases------</small>
+                    <br>
+                    <small>------Please click each item name for item details and make multiple purchases------</small>
 
                     <h1 class="mb-5"><?= h($menu->description) ?> </h1>
 
@@ -56,7 +58,7 @@
                         <div class="col-lg-6 mb-4">
                             <div class="d-flex align-items-center">
                                 <!-- Use Uncomment the following to distribute image on product-->
-                                <!-- <img class="flex-shrink-0 img-fluid rounded" src=" $this->Html->image($product->images[0]->file_direction, ['alt' => $product->name, 'style' => 'width: 80px;']) ?>" /> --> 
+                                <!-- <img class="flex-shrink-0 img-fluid rounded" src=" $this->Html->image($product->images[0]->file_direction, ['alt' => $product->name, 'style' => 'width: 80px;']) ?>" /> -->
 
                                 <div class="w-100 d-flex flex-column text-start ps-4">
                                     <h5 class="d-flex justify-content-between border-bottom pb-2">
