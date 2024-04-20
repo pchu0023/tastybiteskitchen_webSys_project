@@ -19,7 +19,7 @@
                         <div class="side-nav">
                             <?= $this->Html->link(__('Go Back to All Menus'), ['action' => 'admin_index'], ['class' => 'btn btn-primary']) ?>
                             <?= $this->Form->postLink(
-                        __('Delete'),
+                        __('Delete Menu'),
                         ['action' => 'delete', $menu->id],
                         ['confirm' => __('Are you sure you want to delete # {0}?', $menu->id), 'class' => 'btn btn-danger']
                     ) ?>
@@ -31,12 +31,12 @@
                 <fieldset>
                     
                     <h6 class="d-flex border-bottom">
-                        <span>Name</span>
+                        <span>Name *</span>
                     </h6>
                     <?php echo $this->Form->control('name', ['class' => 'form-control', 'label' => false, 'placeholder' => 'Menu Name']); ?>
                     <br />
                     <h6 class="d-flex border-bottom">
-                        <span>Description</span>
+                        <span>Description *</span>
                     </h6>
                     <?php echo $this->Form->control('description', ['class' => 'form-control', 'label' => false, 'placeholder' => 'Menu Description', 'rows' => 5]); ?>
                     <br />
@@ -45,11 +45,11 @@
                     </h6>
                     <?php echo $this->Form->control('active', ['label' => false, 'class' => 'd-flex flex-column']); ?>
                     <br />
-                    <h6 class="d-flex border-bottom">
+                    <!-- <h6 class="d-flex border-bottom">
                         <span>Products Included</span>
                     </h6>
                     <?php echo $this->Form->control('products._ids', ['options' => $products, 'label' => false, 'class' => 'd-flex flex form-select']); ?>
-                    <br />
+                    <br /> -->
                 </fieldset>
                 <div class="col">
                     <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-success']) ?>

@@ -10,10 +10,12 @@
     <?php $this->layout = 'admin_default'; ?>
 
     <div class="row">
-    <legend class="h1"><?= __('Edit User') ?></legend>
+    <div class="column column-80">
+
+    <legend><?= __('Edit User') ?></legend>
                     <aside class="column">
                         <div class="side-nav">
-                            <?= $this->Html->link(__('Go Back'), ['action' => 'index'], ['class' => 'btn btn-primary']) ?>
+                            <?= $this->Html->link(__('Go Back To All Users'), ['action' => 'index'], ['class' => 'btn btn-primary']) ?>
                             <?= $this->Form->postLink(
                                     __('Delete User'),
                                     ['action' => 'delete', $user->id],
@@ -22,27 +24,25 @@
                         </div>
                         <br />
                     </aside>
-        <div class="column column-80">
             <div class="users form content">
                 <?= $this->Form->create($user) ?>
                 <fieldset>
-                    <br />
                    
-                    <h5 class="d-flex justify-content-between border-bottom">
+                <h6 class="d-flex border-bottom">
                         <span>
                             User Type *
                         </span>
-                    </h5>
+                    </h6>
                     <div class="dropdown">
                         <?php echo $this->Form->control('type', ["class" => 'form-select', 'options' => ['emp' => 'Employee', 'cust' => 'Customer'], 'label' => false]); ?>
                     </div>
                     <br />
                     <div class="row">
-                        <h5 class="d-flex justify-content-between border-bottom pb-2">
+                    <h6 class="d-flex border-bottom">
                             <span>
                                 Name *
                             </span>
-                        </h5>
+                        </h6>
                         <div class="col">
                             <?php echo $this->Form->control('first_name', ['class' => 'form-control','label' => false, 'placeholder' => 'First Name']);?>
                         </div>
@@ -51,32 +51,32 @@
                         </div>
                     </div>
                     <br />
-                    <h5 class="d-flex justify-content-between border-bottom pb-2">
+                    <h6 class="d-flex border-bottom">
                         <span>
                             Email Address *
                         </span>
-                    </h5>
+                    </h6>
                     <?php echo $this->Form->control('email', ['class' => 'form-control','label' => false, 'placeholder' => 'Email']); ?>
                     <br />
-                    <h5 class="d-flex justify-content-between border-bottom pb-2">
+                    <h6 class="d-flex border-bottom">
                         <span>
                             Password
                         </span>
-                    </h5>
+                    </h6>
                         <p>Please have the user use "Reset Your Password".</p>
                     <br />
-                    <h5 class="d-flex justify-content-between border-bottom pb-2">
+                    <h6 class="d-flex border-bottom">
                         <span>
                             Address
                         </span>
-                    </h5>
+                    </h6>
                     <?php echo $this->Form->control('address', ['class' => 'form-control','label' => false, 'placeholder' => '1234 Main Street, Suburb 3000']); ?>
                     <br />
-                    <h5 class="d-flex justify-content-between border-bottom pb-2">
+                    <h6 class="d-flex border-bottom">
                         <span>
                             Phone Number
                         </span>
-                    </h5>
+                    </h6>
                     <?php echo $this->Form->control('phone_number', ['class' => 'form-control','label' => false, 'placeholder' => '0400000000']); ?>
 
                     <br />
