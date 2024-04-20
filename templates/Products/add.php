@@ -19,11 +19,7 @@
             <fieldset>
                 <legend><?= __('Add New Product') ?></legend>
                 <?= $this->Html->link(__('Go Back to All Products'), ['action' => 'index'], ['class' => 'btn btn-primary']) ?>
-                <?= $this->Form->postLink(
-                    __('Delete'),
-                    ['action' => 'delete', $product->id],
-                    ['confirm' => __('Are you sure you want to delete # {0}?', $product->id), 'class' => 'btn btn-danger']
-                ) ?>
+                
                 <div class="row">
                     <div class="col">
                         <br />
@@ -90,7 +86,7 @@
                 </div>
                 <br />
                 <div class="row">
-                    <div class="col">
+                    <!-- <div class="col">
                         <table>
                             <thead>
                             <tr>
@@ -114,8 +110,8 @@
                             </tr>
                             </tbody>
                         </table>
-                    </div>
-                    <div class="col">
+                    </div> -->
+                    <!-- <div class="col"> -->
                         <table>
                             <thead>
                             <tr>
@@ -139,7 +135,7 @@
                             </tr>
                             </tbody>
                         </table>
-                    </div>
+                    <!-- </div> -->
                 </div>
 
                 <br />
