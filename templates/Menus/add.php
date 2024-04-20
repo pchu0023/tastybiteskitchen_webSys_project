@@ -17,12 +17,12 @@
                 <fieldset>
                     <legend><?= __('Add Menu') ?></legend>
                     <h6 class="d-flex border-bottom">
-                        <span>Name</span>
+                        <span>Name *</span>
                     </h6>
                     <?php echo $this->Form->control('name', ['class' => 'form-control','label' => false, 'placeholder' => 'Menu Name']); ?>
                     <br />
                     <h6 class="d-flex border-bottom">
-                        <span>Description</span>
+                        <span>Description *</span>
                     </h6>
                     <?php echo $this->Form->control('description', ['class' => 'form-control','label' => false, 'placeholder' => 'Menu Description', 'rows' => 5]); ?>
                     <br />
