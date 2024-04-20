@@ -23,7 +23,7 @@
                     <div class="side-nav">
                         <h4 class="heading"><?= __('Administrative Actions') ?></h4>
                         <?= $this->Html->link(__('Edit Menu'), ['action' => 'edit', $menu->id], ['class' => 'btn btn-primary']) ?>
-                        <?= $this->Html->link(__('Go Back to All Menus'), ['action' => 'index'], ['class' => 'btn btn-secondary']) ?>
+                        <?= $this->Html->link(__('Go Back to All Menus'), ['action' => 'admin_index'], ['class' => 'btn btn-secondary']) ?>
                         <?= $this->Form->postLink(__('Delete Menu'), ['action' => 'delete', $menu->id], ['confirm' => __('Are you sure you want to delete # {0}?', $menu->id), 'class' => 'btn btn-danger']) ?>
                     </div>
                 </aside>
