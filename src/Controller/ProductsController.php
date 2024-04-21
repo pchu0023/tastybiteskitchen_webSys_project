@@ -116,7 +116,7 @@ class ProductsController extends AppController
 
     /**
      * Add to cart method
-     * Responsible for storing product information into the $_SESSION which is then used to populate the shopping cart page
+     * Responsible for storing product information into the session, which is then used to populate the shopping cart page
      */
     public function addToCart($id = null)
     {
@@ -140,7 +140,7 @@ class ProductsController extends AppController
             );
             $arr[] = $prodInfo;
         } else {
-            $key = array_search($product, array_column($arr, 'Product'));
+            $key = array_search($product, array_column($arr, 'product'));
             $arr[$key]['quantity'] += 1;
         }
         // add new product to existing cart

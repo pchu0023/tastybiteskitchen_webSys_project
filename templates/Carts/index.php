@@ -80,7 +80,10 @@
 
                         ></td>
                     <td class="text-right font-weight-semibold align-middle p-4" id="totalProdPrice"><?= $product->price * $quant ?></td>
-                    <td class="text-center align-middle px-0"><a href="#" class="shop-tooltip close float-none text-danger" title="" data-original-title="Remove">×</a></td>
+                      <td class="actions">
+                          <?= $this->Html->link(__('Delete'), ['action' => 'delete', $product->id], ['class' => 'btn btn-secondary py-sm-2 px-sm-3 me-2']) ?>
+
+                      </td><!--                      <td class="text-center align-middle px-0"><button class="shop-tooltip close float-none text-danger" title="" data-original-title="Remove">×</button></td>-->
 
                   </tr>
                 <?php endforeach; ?>

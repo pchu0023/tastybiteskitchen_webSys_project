@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use App\Model\Entity\Product;
+use App\Model\Table\ProductsTable;
 /**
  * Carts Controller
  *
@@ -32,5 +34,33 @@ class CartsController extends AppController
     {
 
     }
+
+
+    public function update($data)
+    {
+
+    }
+
+    public function delete($id = null)
+    {
+        $arr = $this->request->getSession()->read('cart');
+
+        foreach ($arr as $key => $value) {
+            if ($value['product']['id'] == $id) {
+                unset($arr[$key]);
+                $arr = array_values($arr);
+                $this->request->getSession()->write('cart', $arr);
+
+                $this->Flash->success(__('Product removed from cart.'));
+                return $this->redirect(['controller' => 'Carts', 'action' => 'index']);
+
+            }
+        }
+
+        $this->Flash->error(__('Failed to remove product from cart.'));
+        return $this->redirect(['controller' => 'Carts', 'action' => 'index']);
+
+    }
+
 
 }
