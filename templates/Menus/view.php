@@ -56,7 +56,7 @@
                         <div class="col-lg-6 mb-4">
                             <div class="d-flex align-items-center">
                                 <!-- Use Uncomment the following to distribute image on product-->
-                                <!-- <img class="flex-shrink-0 img-fluid rounded" src=" $this->Html->image($product->images[0]->file_direction, ['alt' => $product->name, 'style' => 'width: 80px;']) ?>" /> --> 
+                                <!-- <img class="flex-shrink-0 img-fluid rounded" src=" $this->Html->image($product->images[0]->file_direction, ['alt' => $product->name, 'style' => 'width: 80px;']) ?>" /> -->
 
                                 <div class="w-100 d-flex flex-column text-start ps-4">
                                     <h5 class="d-flex justify-content-between border-bottom pb-2">
@@ -66,6 +66,7 @@
                                         <span class="text-primary">$<?= $this->Number->format($product->price) ?></span>
                                     </h5>
                                     <small class="fst-italic"><?= h($product->description) ?></small>
+                                    <?= $this->Form->postButton('Add to cart', ['controller' => 'Products', 'action' => 'addToCart', $product->id], ['class' => 'btn btn-primary'])?>
                                     <div class="d-grid gap-2 mt-3">
                                     </div>
                                 </div>
