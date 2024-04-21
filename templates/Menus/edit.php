@@ -51,7 +51,7 @@
                     <?php echo $this->Form->control('products._ids', ['options' => $products, 'label' => false, 'class' => 'd-flex flex form-select']); ?>
                     <br /> -->
                 </fieldset>
-                <div class="col">
+                <div class="d-grid">
                     <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-success']) ?>
                     <?= $this->Form->end() ?>
 

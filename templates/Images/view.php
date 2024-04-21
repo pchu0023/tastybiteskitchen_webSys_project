@@ -6,12 +6,21 @@
  */
 ?>
 <?php $this->layout = 'admin_default'; ?>
-    <br>
-    <h3 class="heading"><?= __('Administrative Actions') ?></h3>   <br>
-    <button class="btn btn-primary float-right" id="back-button-class">Back</button>
-    <br>
-    <br>
 <div class="row">
+    <aside class="column">
+            <br />
+            <h3 class="heading"><?= __('Administrative Actions') ?></h3>
+
+            <div class="side-nav">
+            <!-- <h3 class="heading"><?= __('Administrative Actions') ?></h3> -->
+            <!-- image cant edit, only create new one  -->
+            <!-- <?= $this->Html->link(__('Edit Image'), ['action' => 'edit', $image->id], ['class' => 'btn btn-primary']) ?> -->
+            <?= $this->Form->postLink(__('Delete Image'), ['action' => 'delete', $image->id], ['confirm' => __('Are you sure you want to delete # {0}?', $image->id), 'class' => 'btn btn-danger']) ?>
+            <?= $this->Html->link(__('Go Back To All Images'), ['action' => 'index'], ['class' => 'btn btn-secondary']) ?>
+
+        </div>
+            <br />
+        </aside>
     <!--     
     <aside class="column">
         <div class="side-nav">
@@ -21,19 +30,9 @@
         </div>
     </aside> -->
     <div class="column column-80">
-        <aside class="column">
-            <div class="side-nav">
-                <!-- <h3 class="heading"><?= __('Administrative Actions') ?></h3> -->
-                <!-- image cant edit, only create new one  -->
-                <!-- <?= $this->Html->link(__('Edit Image'), ['action' => 'edit', $image->id], ['class' => 'btn btn-primary']) ?> -->
-                <?= $this->Form->postLink(__('Delete Image'), ['action' => 'delete', $image->id], ['confirm' => __('Are you sure you want to delete # {0}?', $image->id), 'class' => 'btn btn-danger']) ?>
-                <?= $this->Html->link(__('Go Back To All Images'), ['action' => 'index'], ['class' => 'btn btn-secondary']) ?>
 
-            </div>
-        </aside>
-        <br>
         <div class="images view content">
-        <h3 class="d-flex justify-content-between border-bottom pb-1">Image detail</h3>
+            <h3 class="d-flex justify-content-between border-bottom pb-1">Image detail</h3>
 
             <h4>Image File: <?= basename($image->file_location) ?></h4>
             <table>
@@ -53,7 +52,7 @@
                 <h4><?= __('Related Products') ?></h4>
                 <?php if (!empty($image->products)) : ?>
                     <div class="table-responsive">
-                    <table class="table table-striped">
+                        <table class="table table-striped">
                             <tr>
                                 <th><?= __('Id') ?></th>
                                 <th><?= __('Name') ?></th>
@@ -68,8 +67,8 @@
                                     <td><?= h($product->price) ?></td>
                                     <td><?= h($product->description) ?></td>
                                     <td class="actions">
-                                        <?= $this->Html->link(__('View'), ['controller' => 'Products', 'action' => 'view', $product->id], ['class'=>'btn btn-sm btn-info']) ?>
-                                        <?= $this->Html->link(__('Edit'), ['controller' => 'Products', 'action' => 'edit', $product->id], ['class'=>'btn btn-sm btn-primary']) ?>
+                                        <?= $this->Html->link(__('View'), ['controller' => 'Products', 'action' => 'view', $product->id], ['class' => 'btn btn-sm btn-info']) ?>
+                                        <?= $this->Html->link(__('Edit'), ['controller' => 'Products', 'action' => 'edit', $product->id], ['class' => 'btn btn-sm btn-primary']) ?>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>

@@ -175,12 +175,10 @@
                                     </tbody>
                                 </table>
                             </div> -->
-                                <br />
-                                <div class="row">
-                                    <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-success']) ?>
-                                    <?= $this->Form->end() ?>
-
-                                </div>
+                <div class="d-grid">
+    <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-success']) ?>
+    <?= $this->Form->end() ?>
+</div>
                         </fieldset>
                         <br />
 

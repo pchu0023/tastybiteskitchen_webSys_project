@@ -80,7 +80,7 @@
                     <?php echo $this->Form->control('phone_number', ['class' => 'form-control','label' => false, 'placeholder' => '0400000000']); ?>
 
                     <br />
-                    <div class="d-col">
+                    <div class="d-grid">
                         <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-success'] ) ?>
                     
                         <?= $this->Form->end() ?>
