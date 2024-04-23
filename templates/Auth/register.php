@@ -39,7 +39,11 @@ $this->assign('title', 'Register new user');
                         'novalidate action' => "#",
                         'minlength' => "8",
                         'placeholder' => 'Password'
-                    ]);
+                    ]); ?>
+                </div>
+                <br />
+                <div class="row">
+                    <?php
                     // Validate password by repeating it
                     echo $this->Form->control('password_confirm', [
                         'type' => 'password',
