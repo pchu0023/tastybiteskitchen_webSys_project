@@ -487,11 +487,18 @@
         max-width: none !important;
         width: 100% !important; 
     }
+}
 
 
-    #content {
-    flex-grow: 1; 
-   }
+.container-xxl {
+    display: flex; 
+    flex-direction: column; 
+    min-height: 100vh; 
+}
+
+#content {
+    flex-grow: 1; /* 允许内容区域增长以填充额外空间 */
+   
 }
 @media (max-width: 767.98px) {
     .side-nav {
@@ -538,5 +545,7 @@
         margin: 10px; 
     }
 }
+
+
 
 
