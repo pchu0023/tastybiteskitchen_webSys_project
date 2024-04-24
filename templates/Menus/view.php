@@ -68,6 +68,7 @@
                                         <span class="text-primary">$<?= $this->Number->format($product->price) ?></span>
                                     </h5>
                                     <small class="fst-italic"><?= h($product->description) ?></small>
+                                    <br>
                                     <?= $this->Form->postButton('Add to cart', ['controller' => 'Products', 'action' => 'addToCart', $product->id], ['class' => 'btn btn-primary'])?>
                                     <div class="d-grid gap-2 mt-3">
                                     </div>
