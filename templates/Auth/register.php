@@ -29,7 +29,11 @@ $this->assign('title', 'Register new user');
                         </span>
                 </h2>
 
-                <?= $this->Form->control('email', ['class' => 'form-control', 'placeholder' => 'Email Address', 'type' => 'email']); ?>
+                <?= $this->Form->control('email', ['class' => 'form-control', 'placeholder' => 'Email Address', 'type' => 'email', 'label' => 'Email *']); ?>
+                <small id="passwordHelpBlock" class="form-text text-muted">
+                    Your email must be a valid email, contain at least one symbol, and must not contain emojis.
+                </small>
+                <br />
                 <br />
                 <div class="row">
                     <?php
@@ -38,8 +42,10 @@ $this->assign('title', 'Register new user');
                         'class' => 'form-control needs-validation',
                         'novalidate action' => "#",
                         'minlength' => "8",
-                        'placeholder' => 'Password'
+                        'placeholder' => 'Password',
+                        'label' => 'Password *'
                     ]); ?>
+                    <i class="bi bi-eye-slash" id="togglePassword"></i>
                 </div>
                 <br />
                 <div class="row">
@@ -53,6 +59,7 @@ $this->assign('title', 'Register new user');
                         'placeholder' => 'Retype Password'
                     ]);
                     ?>
+                    <i class="bi bi-eye-slash" id="toggleConfirmPassword"></i>
                     <small id="passwordHelpBlock" class="form-text text-muted">
                         Your password must be between 8 and 128 characters long, contain at least one symbol, and must not contain emojis.
                     </small>
@@ -66,10 +73,10 @@ $this->assign('title', 'Register new user');
                 </h2>
                 <div class="row">
                     <div class="col">
-                        <?= $this->Form->control('first_name', ['class' => 'form-control','label' => false, 'placeholder' => 'First Name']); ?>
+                        <?= $this->Form->control('first_name', ['class' => 'form-control','label' => false, 'placeholder' => 'First Name *']); ?>
                     </div>
                     <div class="col">
-                        <?= $this->Form->control('last_name', ['class' => 'form-control','label' => false, 'placeholder' => 'Last Name']); ?>
+                        <?= $this->Form->control('last_name', ['class' => 'form-control','label' => false, 'placeholder' => 'Last Name *']); ?>
                     </div>
                 </div>
                 <small id="passwordHelpBlock" class="form-text text-muted">
