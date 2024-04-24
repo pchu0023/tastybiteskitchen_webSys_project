@@ -63,7 +63,12 @@ class AuthController extends AppController
 
                     return $this->redirect(['action' => 'login']);
                 }
-                $this->Flash->error('The user could not be registered. Please check all your inputs, and try again.');
+                elseif ($user -> getErrors()){
+                    $this->Flash->error('Please correct the following errors: ');
+                }
+                else {
+                    $this->Flash->error('The user could not be registered. Please check all your inputs, and try again.');
+                }
             }
         }
         $this->set(compact('user'));

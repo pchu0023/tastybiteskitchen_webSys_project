@@ -22,6 +22,17 @@ $this->assign('title', 'Register new user');
                 <hr class="hr-between-buttons">
 
                 <?= $this->Flash->render() ?>
+                <?php if ($user->getErrors()): ?>
+                    <div class="errors">
+                        <ul>
+                            <?php foreach ($user->getErrors() as $field => $errors): ?>
+                                <?php foreach ($errors as $error): ?>
+                                    <li><?= h($field) . ': ' . h($error) ?></li>
+                                <?php endforeach; ?>
+                            <?php endforeach; ?>
+                        </ul>
+                    </div>
+                <?php endif; ?>
                 <br />
                 <h2 class="d-flex justify-content-between border-bottom pb-2">
                         <span>
