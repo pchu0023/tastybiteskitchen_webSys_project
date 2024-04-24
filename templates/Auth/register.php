@@ -63,7 +63,7 @@ $this->assign('title', 'Register new user');
                         'label' => 'Password *',
                         'style' => 'font-size:1.5rem'
                     ]); ?>
-                    <i class="bi bi-eye-slash" id="togglePassword"></i>
+<!--                    <i class="bi bi-eye-slash" id="togglePassword"></i>-->
                 </div>
                 <br />
                 <div class="row">
@@ -78,7 +78,7 @@ $this->assign('title', 'Register new user');
                         'style' => 'font-size:1.5rem'
                     ]);
                     ?>
-                    <i class="bi bi-eye-slash" id="toggleConfirmPassword"></i>
+<!--                    <i class="bi bi-eye-slash" id="toggleConfirmPassword"></i>-->
                     <small id="passwordHelpBlock" class="form-text text-muted">
                         Your password must be between 8 and 128 characters long, contain at least one symbol, and must not contain emojis.
                     </small>
