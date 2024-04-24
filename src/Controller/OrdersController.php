@@ -17,8 +17,7 @@ class OrdersController extends AppController
      */
     public function index()
     {
-        $query = $this->Orders->find()
-            ->contain(['Payments', 'Deliveries']);
+        $query = $this->Orders->find('all');
         $orders = $this->paginate($query);
 
         $this->set(compact('orders'));
@@ -33,7 +32,7 @@ class OrdersController extends AppController
      */
     public function view($id = null)
     {
-        $order = $this->Orders->get($id, contain: ['Payments', 'Deliveries', 'Products']);
+        $order = $this->Orders->get($id, contain: ['Products']);
         $this->set(compact('order'));
     }
 
@@ -59,6 +58,24 @@ class OrdersController extends AppController
         $products = $this->Orders->Products->find('list', limit: 200)->all();
         $this->set(compact('order', 'payments', 'deliveries', 'products'));
     }
+
+
+    /**
+     * Add method for adding from session
+     *
+     * @return \Cake\Http\Response|null|void Redirects on successful add, renders view otherwise.
+     */
+    public function addBlankEntity()
+    {
+        $order = $this->Orders->newEmptyEntity();
+        if (!$this->Orders->save($order)) {
+            $this->Flash->error(__('The order failed to save.'));
+            return $this->redirect(['controller' => 'Carts', 'action' => 'index']);
+        }
+
+        return $this->redirect(['controller' => 'OrdersProducts', 'action' => 'addFromSession', $order->id]);
+    }
+
 
     /**
      * Edit method

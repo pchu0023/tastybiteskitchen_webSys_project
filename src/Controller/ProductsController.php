@@ -116,19 +116,40 @@ class ProductsController extends AppController
 
     /**
      * Add to cart method
-     * Responsible for storing product information into the $_SESSION which is then used to populate the shopping cart page
+     * Responsible for storing product information into the session, which is then used to populate the shopping cart page
      */
     public function addToCart($id = null)
     {
+        // Identify the product
         $product = $this->Products->get($id);
 
-
-
-        if (!isset($_SESSION['cart'])) {
-            $_SESSION['cart'] = array();
+        // Initialise the cart in session if it doesn't exist
+        if ($this->request->getSession()->read('cart') == null) {
+            $arr = array();
+            $this->request->getSession()->write('cart', $arr);
         }
-        $details = $product->name . ", Price: $" . $product->price;
-        array_push($_SESSION['cart'], $details);
+
+        // read existing cart
+        $arr = $this->request->getSession()->read('cart');
+
+        // If the product is not already in the cart add it, else update quantity
+        if (!in_array($product, array_column($arr, 'product'))) {
+            $prodInfo = array(
+                "product" => $product,
+                "quantity" => 1,
+            );
+            $arr[] = $prodInfo;
+        } else {
+            $key = array_search($product, array_column($arr, 'product'));
+            $arr[$key]['quantity'] += 1;
+        }
+        // add new product to existing cart
+
+
+        // Overwrite previous cart in session
+        $this->request->getSession()->write('cart', $arr);
+
+        // Success message & Redirect to menus
         $this->Flash->success(__('Product added to cart.'));
         return $this->redirect(['controller' => 'Menus', 'action' => 'index']);
     }
