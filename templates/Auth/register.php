@@ -22,6 +22,17 @@ $this->assign('title', 'Register new user');
                 <hr class="hr-between-buttons">
 
                 <?= $this->Flash->render() ?>
+                <?php if ($user->getErrors()): ?>
+                    <div class="errors">
+                        <ul>
+                            <?php foreach ($user->getErrors() as $field => $errors): ?>
+                                <?php foreach ($errors as $error): ?>
+                                    <li><?= h($field) . ': ' . h($error) ?></li>
+                                <?php endforeach; ?>
+                            <?php endforeach; ?>
+                        </ul>
+                    </div>
+                <?php endif; ?>
                 <br />
                 <h2 class="d-flex justify-content-between border-bottom pb-2">
                         <span>
@@ -29,7 +40,17 @@ $this->assign('title', 'Register new user');
                         </span>
                 </h2>
 
-                <?= $this->Form->control('email', ['class' => 'form-control', 'placeholder' => 'Email Address', 'type' => 'email']); ?>
+                <?= $this->Form->control('email', [
+                    'class' => 'form-control',
+                    'placeholder' => 'Email Address',
+                    'type' => 'email',
+                    'label' => 'Email *',
+                    'style' => 'font-size:1.5rem'
+                ]); ?>
+                <small id="passwordHelpBlock" class="form-text text-muted">
+                    Your email must be a valid email, contain at least one symbol, and must not contain emojis.
+                </small>
+                <br />
                 <br />
                 <div class="row">
                     <?php
@@ -38,17 +59,26 @@ $this->assign('title', 'Register new user');
                         'class' => 'form-control needs-validation',
                         'novalidate action' => "#",
                         'minlength' => "8",
-                        'placeholder' => 'Password'
-                    ]);
+                        'placeholder' => 'Password',
+                        'label' => 'Password *',
+                        'style' => 'font-size:1.5rem'
+                    ]); ?>
+<!--                    <i class="bi bi-eye-slash" id="togglePassword"></i>-->
+                </div>
+                <br />
+                <div class="row">
+                    <?php
                     // Validate password by repeating it
                     echo $this->Form->control('password_confirm', [
                         'type' => 'password',
                         'value' => '',  // Ensure password is not sending back to the client side
                         'label' => false,
                         'class' => 'form-control',
-                        'placeholder' => 'Retype Password'
+                        'placeholder' => 'Retype Password',
+                        'style' => 'font-size:1.5rem'
                     ]);
                     ?>
+<!--                    <i class="bi bi-eye-slash" id="toggleConfirmPassword"></i>-->
                     <small id="passwordHelpBlock" class="form-text text-muted">
                         Your password must be between 8 and 128 characters long, contain at least one symbol, and must not contain emojis.
                     </small>
@@ -62,10 +92,20 @@ $this->assign('title', 'Register new user');
                 </h2>
                 <div class="row">
                     <div class="col">
-                        <?= $this->Form->control('first_name', ['class' => 'form-control','label' => false, 'placeholder' => 'First Name']); ?>
+                        <?= $this->Form->control('first_name', [
+                            'class' => 'form-control',
+                            'label' => false,
+                            'placeholder' => 'First Name *',
+                            'style' => 'font-size:1.5rem'
+                        ]); ?>
                     </div>
                     <div class="col">
-                        <?= $this->Form->control('last_name', ['class' => 'form-control','label' => false, 'placeholder' => 'Last Name']); ?>
+                        <?= $this->Form->control('last_name', [
+                            'class' => 'form-control',
+                            'label' => false,
+                            'placeholder' => 'Last Name *',
+                            'style' => 'font-size:1.5rem'
+                        ]); ?>
                     </div>
                 </div>
                 <small id="passwordHelpBlock" class="form-text text-muted">
@@ -76,7 +116,7 @@ $this->assign('title', 'Register new user');
 
             <div class="d-grid">
                 <?= $this->Form->button('Register', ['class' => 'button btn-success btn-block ','style' => 'background-color: orange; border-color: orange;']) ?>
-                <?= $this->Form->end() ?>
+                <?= $this->Form->end(['data-type' => 'hidden']) ?>
             </div>
 
 

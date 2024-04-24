@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use Cake\Http\Response;
 use Ramsey\Uuid\Uuid;
 
 /**
@@ -49,6 +50,7 @@ class UsersController extends AppController
         if ($this->request->is('post')) {
             $user = $this->Users->patchEntity($user, $this->request->getData());
             $user->id = Uuid::uuid4()->toString();
+
             if ($this->Users->save($user)) {
                 $this->Flash->success(__('The user has been saved.'));
 

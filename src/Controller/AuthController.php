@@ -48,9 +48,14 @@ class AuthController extends AppController
         $user = $this->Users->newEmptyEntity();
         if ($this->request->is('post')) {
             $user = $this->Users->patchEntity($user, $this->request->getData());
+            $user->type = "cust";
+
             if (($this->request->getData('password_confirm') != ($this->request->getData('password')))){
+                $userData = $this->request->getData();
+                unset($userData['password']);
+                unset($userData['password_confirm']);
+                $user = $this->Users->newEntity($userData);
                 $this->Flash->error('Passwords must match. Please, try again.');
-                return $this->redirect(['action' => 'register']);
             }
             else {
                 if ($this->Users->save($user)) {
@@ -58,7 +63,12 @@ class AuthController extends AppController
 
                     return $this->redirect(['action' => 'login']);
                 }
-                $this->Flash->error('The user could not be registered. Please check all your inputs, and try again.');
+                elseif ($user -> getErrors()){
+                    $this->Flash->error('Please correct the following errors: ');
+                }
+                else {
+                    $this->Flash->error('The user could not be registered. Please check all your inputs, and try again.');
+                }
             }
         }
         $this->set(compact('user'));

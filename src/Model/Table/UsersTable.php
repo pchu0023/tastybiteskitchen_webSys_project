@@ -67,7 +67,7 @@ class UsersTable extends Table
             ->add('first_name', ['validChars' => ['rule' => function ($value, $context) {
                         // Allows only letters (both cases), hyphens, and apostrophes
                 return preg_match("/^[a-zA-Z'-]+$/", $value) > 0;
-            }, 'message' => ' ']])
+            }, 'message' => 'Name must only contain letters, hyphens and apostrophes']])
             ->notEmptyString('first_name');
 
         $validator
@@ -77,7 +77,7 @@ class UsersTable extends Table
             ->add('last_name', ['validChars' => ['rule' => function ($value, $context) {
                 // Allows only letters (both cases), hyphens, and apostrophes
                 return preg_match("/^[a-zA-Z'-]+$/", $value) > 0;
-            }, 'message' => ' ']])
+            }, 'message' => 'Name must only contain letters, hyphens and apostrophes']])
             ->notEmptyString('last_name');
 
         $validator
