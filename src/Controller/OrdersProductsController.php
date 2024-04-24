@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use App\Model\Entity\Order;
+
 /**
  * OrdersProducts Controller
  *
@@ -17,8 +19,7 @@ class OrdersProductsController extends AppController
      */
     public function index()
     {
-        $query = $this->OrdersProducts->find()
-            ->contain(['Orders', 'Products']);
+        $query = $this->OrdersProducts->find('all');
         $ordersProducts = $this->paginate($query);
 
         $this->set(compact('ordersProducts'));
@@ -58,6 +59,40 @@ class OrdersProductsController extends AppController
         $products = $this->OrdersProducts->Products->find('list', limit: 200)->all();
         $this->set(compact('ordersProduct', 'orders', 'products'));
     }
+
+
+    /**
+     * Add method for adding orders_products using the cart session
+     *
+     * @return \Cake\Http\Response|null|void Redirects on successful add, renders view otherwise.
+     */
+    public function addFromSession($id = null)
+    {
+        $arr = $this->request->getSession()->read('cart');
+
+        foreach ($arr as $key => $value) {
+            $ordersProduct = $this->OrdersProducts->newEmptyEntity();
+            $ordersProduct->order_id = $id;
+            $ordersProduct->product_id = $value['product']['id'];
+            $ordersProduct->quantity= $value['quantity'];
+
+            if (!$this->OrdersProducts->save($ordersProduct)) {
+                $this->Flash->error(__('Failed to save orders_products entry.'));
+                return $this->redirect(['controller' => 'Carts', 'action' => 'index']);
+            }
+        }
+
+        $this->Flash->success(__('Your order has been saved successfully.'));
+        return $this->redirect(['controller' => 'Carts', 'action' => 'clear']);
+
+
+
+
+
+    }
+
+
+
 
     /**
      * Edit method

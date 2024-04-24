@@ -67,7 +67,7 @@
                         <div class="media-body">
                           <a href="#" class="d-block text-dark"></a>
                           <small>
-                            <span class="text-primary"><?= $product->name?> </span>
+                            <span class="text-primary" id="productID"><?= $this->Html->link(__($product->name), ['controller' => 'Products', 'action' => 'view', $product->id]) ?></span>
                             <span class="ui-product-color ui-product-color-sm align-text-bottom" style="background:#e81e2c;"></span> &nbsp;
                           </small>
                         </div>
@@ -75,19 +75,49 @@
                     </td>
 
                     <td class="text-right font-weight-semibold align-middle p-4"><?= $product->price ?></td>
-                    <td class="align-middle p-4"><input type="number" min = 1 step = 1 class="form-control text-center" value="<?= $quant ?>"
-                        oninput="this.value = Math.round(this.value);"
+                    <td class="align-middle p-4"><input name="quantity[]" readonly type="number" min = 1 max = 10 step = 1 class="form-control text-center" value="<?= $quant ?>"
+                        onchange="this.value = Math.round(this.value);"
 
-                        ></td>
+
+                        /></td>
                     <td class="text-right font-weight-semibold align-middle p-4" id="totalProdPrice"><?= $product->price * $quant ?></td>
                       <td class="actions">
                           <?= $this->Html->link(__('Delete'), ['action' => 'delete', $product->id], ['class' => 'btn btn-secondary py-sm-2 px-sm-3 me-2']) ?>
 
-                      </td><!--                      <td class="text-center align-middle px-0"><button class="shop-tooltip close float-none text-danger" title="" data-original-title="Remove">×</button></td>-->
+                      </td>
 
                   </tr>
                 <?php endforeach; ?>
 
+                        <tr>
+                            <td class="p-4">
+                                <div class="media align-items-center">
+                                    <div class="media-body">
+                                        <a href="#" class="d-block text-dark"></a>
+                                        <small>
+                                            <span class="text-primary"> </span>
+                                            <span class="ui-product-color ui-product-color-sm align-text-bottom" style="background:#e81e2c;"></span> &nbsp;
+                                        </small>
+                                    </div>
+                                </div>
+                            </td>
+
+                            <td class="text-right font-weight-semibold align-middle p-4"></td>
+
+                            <td class="actions">
+<!--                                --><?php //= $this->Form->postButton('Update', ['controller' => 'Carts', 'action' => 'update', $product->id, 3], ['class' => 'btn btn-secondary py-sm-2 px-sm-3 me-2']) ?>
+
+
+                            </td>
+                            <td class="text-right font-weight-semibold align-middle p-4" id="totalProdPrice"></td>
+                            <td class="actions">
+                                <?= $this->Html->link(__('Clear Cart'), ['action' => 'clear'], ['class' => 'btn btn-danger py-sm-2 px-sm-2 me-2']) ?>
+
+                            </td><!--                      <td class="text-center align-middle px-0"><button class="shop-tooltip close float-none text-danger" title="" data-original-title="Remove">×</button></td>-->
+
+                        </tr>
+
+<!--                        --><?php //echo $this->Form->end();?>
 
                 <?php else : ?>
 
@@ -112,9 +142,10 @@
 
             <div class="float-left">
             <a href="<?= $this->Url->build('/Menus') ?>" class="btn btn-secondary">Return to Menus</a>
-            <!--  Create a button link here to the payment page created by Shuhui
-              <button type="button" class="btn btn-lg btn-primary mt-2">Checkout</button>
-                -->
+            <!--  Change this to redirect to the payment confirmation page when completed -->
+                <?php if (!empty($this->request->getSession()->read('cart'))) : ?>
+                <?= $this->Html->link(__('Checkout'), ['controller' => 'Orders', 'action' => 'addBlankEntity'], ['class' => "btn btn-lg btn-primary mt-2"]) ?>
+                <?php endif; ?>
             </div>
 
 
