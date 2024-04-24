@@ -28,7 +28,7 @@
         </div>
         <div class="card-body">
             <div class="table-responsive">
-              <table class="table table-bordered m-0">
+            <table class="table table-striped">
                 <thead>
                   <tr>
                     <!-- Set columns width -->
@@ -43,15 +43,15 @@
                     <!-- create a for each loop here to create one of these entries for each product in the session -->
 
 
-
+<h5>
                     <?php
                     $totalPrice = 0;
                     if (!empty($this->request->getSession()->read('cart'))) : ?>
                         <?php
                         $size = sizeof($this->request->getSession()->read('cart'));
-                        echo  "products in cart:" . $size ?>
+                        echo  "Food item in cart: " . $size ?>
 
-
+</h5>
                     <?php
                     foreach ($this->request->getSession()->read('cart') as $value) :
                         $product = $value['product'];
@@ -132,20 +132,23 @@
 
             <div class="float-left">
                 <div class="mt-4">
-                  <label class="text-muted font-weight-normal m-0">Total price</label>
-                  <div class="text-large"><strong> $<?= $totalPrice ?></strong></div>
-                <label class="text-muted font-weight-normal m-0">If you are interested in purchasing these products, please contact us using our contact details at the bottom of the website.</label>
+                <label class="text-muted font-weight-normal m-0"><h5>Total price:</h5>
+                <h4> $<?= $totalPrice ?></h4></label>
+                 <br>
+                <label class="text-muted font-weight-normal m-0"> Once checkout, your order will be recorded. </label>
+                <label class="text-muted font-weight-normal m-0">  To finish purchasing these products, please contact us using our contact details at the bottom of the website.</label>
 
                 </div>
               </div>
             </div>
 
             <div class="float-left">
-            <a href="<?= $this->Url->build('/Menus') ?>" class="btn btn-secondary">Return to Menus</a>
             <!--  Change this to redirect to the payment confirmation page when completed -->
                 <?php if (!empty($this->request->getSession()->read('cart'))) : ?>
                 <?= $this->Html->link(__('Checkout'), ['controller' => 'Orders', 'action' => 'addBlankEntity'], ['class' => "btn btn-lg btn-primary mt-2"]) ?>
                 <?php endif; ?>
+                <a href="<?= $this->Url->build('/Menus') ?>" class="btn btn-lg btn-secondary mt-2">Return to Menus</a>
+
             </div>
 
 
