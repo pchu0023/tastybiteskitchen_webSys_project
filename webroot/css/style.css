@@ -479,26 +479,12 @@
     padding-right: 0;
     border-right: none;
 }
+/* Ensure .container-xxl is always full width */
 @media (min-width: 1400px) {
     .container-xxl {
-        display: flex; 
-        flex-direction: column; 
-        min-height: 100vh; 
-        max-width: none !important;
-        width: 100% !important; 
+        max-width: none !important; /* Remove any max-width constraints */
+        width: 100% !important; /* Force width to be 100% */
     }
-}
-
-
-.container-xxl {
-    display: flex; 
-    flex-direction: column; 
-    min-height: 100vh; 
-}
-
-#content {
-    flex-grow: 1; /* 允许内容区域增长以填充额外空间 */
-   
 }
 @media (max-width: 767.98px) {
     .side-nav {
@@ -519,33 +505,13 @@
 @media (min-width: 768px) {
     .side-nav {
         /* Adjust this as per your layout's requirement */
-        width: 250px; 
+        width: 250px; /* Example width */
         float: right; /* Make the sidebar float if needed */
     }
     .d-flex.align-items-center {
         flex-direction: row; /* Set back to default flex direction */
     }
 }
-
-@media (max-width: 768px) {
-    .navbar-nav .nav-link {
-        padding: 0.5rem; 
-    }
-    
-    .side-nav {
-        width: 100%;
-        position: relative; 
-        float: none;
-        margin: 0 auto; 
-    }
-    
-    .service-item, .team-item, .testimonial-item {
-       
-        box-shadow: none; 
-        margin: 10px; 
-    }
-}
-
 
 
 
