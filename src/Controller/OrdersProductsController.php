@@ -83,7 +83,7 @@ class OrdersProductsController extends AppController
         }
 
         $this->Flash->success(__('Your order has been saved successfully.'));
-        return $this->redirect(['controller' => 'Carts', 'action' => 'clear']);
+        return $this->redirect(['controller' => 'Carts', 'action' => 'checkoutClear']);
 
 
 

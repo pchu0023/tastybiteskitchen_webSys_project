@@ -98,5 +98,16 @@ class CartsController extends AppController
         return $this->redirect(['controller' => 'Carts', 'action' => 'index']);
     }
 
+    public function checkoutClear()
+    {
+        $arr = $this->request->getSession()->read('cart');
+
+        foreach ($arr as $key => $value) {
+            unset($arr[$key]);
+            $this->request->getSession()->write('cart', $arr);
+        }
+        return $this->redirect(['controller' => 'Carts', 'action' => 'index']);
+    }
+
 
 }
