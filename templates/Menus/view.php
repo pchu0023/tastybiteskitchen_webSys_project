@@ -44,7 +44,7 @@
                 <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
                     <h5 class="section-title ff-secondary text-center text-primary fw-normal"><?= h($menu->name) ?> </h5>
                     <br>
-                    <small>------Please click each item name for item details and make multiple purchases------</small>
+                    <small>------Please click each item name for item details------</small>
 
                     <h1 class="mb-5"><?= h($menu->description) ?> </h1>
 
