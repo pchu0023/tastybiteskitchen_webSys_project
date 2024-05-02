@@ -48,7 +48,7 @@ class MenusController extends AppController
      */
     public function view($id = null)
     {
-        $menu = $this->Menus->get($id, contain: ['Products']);
+        $menu = $this->Menus->get($id, contain: ['Products','Products.Images']);
         $this->set(compact('menu'));
     }
 
