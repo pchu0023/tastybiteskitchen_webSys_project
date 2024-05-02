@@ -90,16 +90,18 @@
                                 <div class="w-100 d-flex flex-column text-start ps-4">
                                     <h5 class="d-flex justify-content-between border-bottom pb-2">
                                         <!-- Use Html->link to make only the product name a link -->
-                                        <!-- <span><?= $this->Html->link(__($product->name), ['controller' => 'Products', 'action' => 'view', $product->id]) ?></span> -->
-
-                                        <!-- HTML -->
                                         <?= $this->Html->link(__($product->name), ['controller' => 'Products', 'action' => 'view', $product->id], ['style' => 'color: black;']) ?>
 
                                         <span class="text-primary">$<?= $this->Number->format($product->price) ?></span>
                                     </h5>
                                     <small class="fst-italic"><?= h($product->description) ?></small>
                                     <br>
-                                    <?= $this->Form->postButton('Add to cart', ['controller' => 'Products', 'action' => 'addToCart', $product->id], ['class' => 'btn btn-primary']) ?>
+      
+    <div class="d-flex justify-content-end">
+        <?= $this->Form->postButton('Add to cart', ['controller' => 'Products', 'action' => 'addToCart', $product->id], ['class' => 'btn btn-primary me-2']) ?>
+
+        <?= $this->Html->link(__('View Details'), ['controller' => 'Products', 'action' => 'view', $product->id], ['class' => 'btn btn-secondary', 'style' => 'color: white; background-color: grey; margin-left: 5px;', 'escape' => false]) ?>
+    </div>
                                     <div class="d-grid gap-2 mt-3">
                                     </div>
                                 </div>
