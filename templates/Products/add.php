@@ -76,6 +76,17 @@
                     'rows' => 5
                 ]); ?>
                 <br />
+                <h6 class="d-flex justify-content-between border-bottom pb-1">
+                                <span>Extra Information </span>
+                            </h6>
+                            <?php echo $this->Form->control('extra_info', [
+                                'class' => 'form-control',
+                                'label' => false,
+                                'placeholder' => 'Example: contain nuts and dairy',
+                                'rows' => 5
+                            ]); ?>
+
+                            <br/>
                 <!-- image edit and menu edit -->
                 <div class="row">
 

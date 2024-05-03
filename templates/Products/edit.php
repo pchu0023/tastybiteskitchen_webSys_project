@@ -82,6 +82,16 @@
                                 'rows' => 5
                             ]); ?>
                             <br />
+                            <h6 class="d-flex justify-content-between border-bottom pb-1">
+                                <span>Extra Information </span>
+                            </h6>
+                            <?php echo $this->Form->control('extra_info', [
+                                'class' => 'form-control',
+                                'label' => false,
+                                'placeholder' => 'Example: This product can be consumed by everyone',
+                                'rows' => 5
+                            ]); ?>
+                            <br/>
                             <div class="row">
                                 <div class="col">
 
@@ -188,6 +198,9 @@
                                     </tbody>
                                 </table>
                             </div> -->
+
+                            
+                            <br />
                 <div class="d-grid">
     <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-success']) ?>
     <?= $this->Form->end() ?>
@@ -220,13 +233,15 @@
                                     <small class="fst-italic"><?= h($product->description) ?></small>
                                     <br />
                                     <h6 class="d-flex justify-content-between border-bottom pb-1">
-                                        <span>Ingredients</span>
+                                        <span>Extra Information</span>
                                     </h6>
-                                    <?php if (!empty($product->ingredients)) : ?>
-                                        <?php foreach ($product->ingredients as $ingredient) : ?>
+                                    <?php if (!empty($product->extra_info)) : ?>
+                                        <small class="fst-normal"><?= h($product->extra_info) ?></small>
+
+                                        <!-- <?php foreach ($product->extra_info as $ingredient) : ?>
                                             <small class="fst-normal"><?= h($ingredient->name) ?></small>
                                         <?php endforeach; ?>
-                                        <br />
+                                        <br /> -->
                                     <?php endif; ?>
                                 </div>
                             </div>

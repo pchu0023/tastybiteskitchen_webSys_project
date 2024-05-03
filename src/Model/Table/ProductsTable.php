@@ -124,6 +124,10 @@ class ProductsTable extends Table
                 },
                 'message' => 'Quantity must only contain numbers.'
             ]); 
+            $validator
+            ->scalar('extra_info')
+            ->maxLength('extra_info', 200);
+
 
         return $validator;
     }

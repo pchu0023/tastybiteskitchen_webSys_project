@@ -36,22 +36,24 @@
             <?php endif; ?>
         <?php endif; ?>
         <div class="w-100 d-flex flex-column text-start ps-4">
-            <h5 class="d-flex justify-content-between border-bottom pb-2">
+            <h4 class="d-flex justify-content-between border-bottom pb-2">
                 <span><?= h($product->name) ?></span>
                 <span class="text-primary">$<?= $this->Number->format($product->price) ?></span>
                 <?= $this->Form->postButton('Add to cart', ['controller' => 'Products', 'action' => 'addToCart', $product->id], ['class' => 'btn btn-primary'])?>
-            </h5>
+            </h4>
             <h6>Quantity: <?= h($product->quantity) ?></h6>
 
             <small class="fst-italic"><?= h($product->description) ?></small>
             <br />
             <h6 class="d-flex justify-content-between border-bottom pb-1">
-                <span>Ingredients</span>
+                <span>Extra Information</span>
             </h6>
-            <?php if (!empty($product->ingredients)) : ?>
-                <?php foreach ($product->ingredients as $ingredient) : ?>
+            <?php if (!empty($product->extra_info)) : ?>
+                <small class="fst-normal"><?= h($product->extra_info) ?></small>
+
+                <!-- <?php foreach ($product->ingredients as $ingredient) : ?>
                     <small class="fst-normal"><?= h($ingredient->name) ?></small>
-                <?php endforeach; ?>
+                <?php endforeach; ?> -->
                 <br />
             <?php endif; ?>
             <?php if($this->Identity->get('type') === "emp") : ?>
