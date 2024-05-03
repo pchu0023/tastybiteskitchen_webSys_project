@@ -29,11 +29,7 @@
 
                         <?= $this->Form->create($product) ?>
                         <fieldset>
-
-                            <div class="row">
-                                <div class="col">
-                                    <br />
-                                    <h6 class="d-flex border-bottom">
+                        <h6 class="d-flex border-bottom">
                                         <span>Name *</span>
                                     </h6>
                                     <?php echo $this->Form->control('name', [
@@ -41,7 +37,9 @@
                                         'label' => false,
                                         'placeholder' => 'Product Name'
                                     ]); ?>
-                                </div>
+                            <div class="row">
+                                
+                            
                                 <div class="col">
                                     <br />
                                     <h6 class="d-flex justify-content-between border-bottom pb-1">
@@ -55,6 +53,21 @@
                                         'min' => '0',    // Ensures the price is not negative
                                         'default' => '0', // Sets initial value to 0
                                         'placeholder' => 'Product Price'
+                                    ]); ?>
+                                </div>
+                                <div class="col">
+                                    <br />
+                                    <h6 class="d-flex border-bottom">
+                                        <span>Quantity </span>
+                                    </h6>
+                                    <?php echo $this->Form->control('quantity', [
+                                        'class' => 'form-control',
+                                        'label' => false,
+                                        'type' => 'number',
+                                        'step' => '1', // Allows entering cents
+                                        'min' => '0',    // Ensures the price is not negative
+                                        'max' => '9999',    // Ensures the price is not negative
+                                        'placeholder' => 'Product Quantity'
                                     ]); ?>
                                 </div>
                             </div>
