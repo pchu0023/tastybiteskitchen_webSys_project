@@ -41,6 +41,8 @@
                 <span class="text-primary">$<?= $this->Number->format($product->price) ?></span>
                 <?= $this->Form->postButton('Add to cart', ['controller' => 'Products', 'action' => 'addToCart', $product->id], ['class' => 'btn btn-primary'])?>
             </h5>
+            <h6>Quantity: <?= h($product->quantity) ?></h6>
+
             <small class="fst-italic"><?= h($product->description) ?></small>
             <br />
             <h6 class="d-flex justify-content-between border-bottom pb-1">

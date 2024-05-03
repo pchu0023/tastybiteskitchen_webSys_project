@@ -215,6 +215,8 @@
                                         <span><?= h($product->name) ?></span>
                                         <span class="text-primary"><?= $this->Number->format($product->price) ?></span>
                                     </h5>
+                                    <h6>Quantity: <?= h($product->quantity) ?></h6>
+
                                     <small class="fst-italic"><?= h($product->description) ?></small>
                                     <br />
                                     <h6 class="d-flex justify-content-between border-bottom pb-1">
