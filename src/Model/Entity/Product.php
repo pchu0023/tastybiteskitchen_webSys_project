@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Model\Entity;
@@ -37,5 +38,6 @@ class Product extends Entity
         'ingredients' => true,
         'menus' => true,
         'orders' => true,
+        'quantity' => true,
     ];
 }

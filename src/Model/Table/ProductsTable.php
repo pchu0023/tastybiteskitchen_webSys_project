@@ -108,6 +108,22 @@ class ProductsTable extends Table
             ->requirePresence('description', 'create')
             ->notEmptyString('description');
 
+        $validator
+            ->scalar('quantity')
+            ->allowEmptyString('quantity')
+            ->add('quantity', 'custom', [
+                'rule' => function ($value, $context) {
+                    return $value <= 9999;
+                },
+                'message' => '! ! ! Price must not exceed 9999.'
+            ])
+            ->add('quantity', 'numeric', [
+                'rule' => function ($value, $context) {
+                    return is_numeric($value);
+                },
+                'message' => 'Price must only contain numbers.'
+            ]); 
+
         return $validator;
     }
 }

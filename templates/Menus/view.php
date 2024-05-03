@@ -94,14 +94,16 @@
 
                                         <span class="text-primary">$<?= $this->Number->format($product->price) ?></span>
                                     </h5>
+                                    <h6>Quantity: <?= h($product->quantity) ?></h6>
                                     <small class="fst-italic"><?= h($product->description) ?></small>
-                                    <br>
-      
-    <div class="d-flex justify-content-end">
-        <?= $this->Form->postButton('Add to cart', ['controller' => 'Products', 'action' => 'addToCart', $product->id], ['class' => 'btn btn-primary me-2']) ?>
 
-        <?= $this->Html->link(__('View Details'), ['controller' => 'Products', 'action' => 'view', $product->id], ['class' => 'btn btn-secondary', 'style' => 'color: white; background-color: grey; margin-left: 5px;', 'escape' => false]) ?>
-    </div>
+                                    <br>
+
+                                    <div class="d-flex justify-content-end">
+                                        <?= $this->Form->postButton('Add to cart', ['controller' => 'Products', 'action' => 'addToCart', $product->id], ['class' => 'btn btn-primary me-2']) ?>
+
+                                        <?= $this->Html->link(__('View Details'), ['controller' => 'Products', 'action' => 'view', $product->id], ['class' => 'btn btn-secondary', 'style' => 'color: white; background-color: grey; margin-left: 5px;', 'escape' => false]) ?>
+                                    </div>
                                     <div class="d-grid gap-2 mt-3">
                                     </div>
                                 </div>
