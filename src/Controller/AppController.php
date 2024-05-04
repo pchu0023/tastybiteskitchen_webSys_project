@@ -70,5 +70,13 @@ class AppController extends Controller
   
         $this->set('websiteContent', $content);
     }
+
+    // 在控制器方法中
+$imagesTable = TableRegistry::getTableLocator()->get('Images');
+$images = $imagesTable->find('list', [
+    'keyField' => 'file_location',
+    'valueField' => 'file_location'  // 确保字段名正确，此处假设图片路径存储在 'file_location' 字段
+])->toArray();
+$this->set(compact('images'));
 }
 }

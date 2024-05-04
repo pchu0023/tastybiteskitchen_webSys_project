@@ -19,6 +19,7 @@
                 <tr>
                     <th><?= __('Home Image') ?></th>
                     <td><?= h($websiteContent->home_image) ?></td>
+                    <td><img class="flex-sm-shrink-0 img-fluid roundd" src="<?= $websiteContent->home_image ?>" style="width: 200px; height: auto; object-fit: contain;" alt=""></td>
                 </tr>
                 <tr>
                     <th><?= __('Address') ?></th>
@@ -43,7 +44,9 @@
                 <tr>
                     <th><?= __('Logo Image') ?></th>
                     <td><?= h($websiteContent->logo_image) ?></td>
+                    <td><img class="flex-sm-shrink-0 img-fluid roundd" src="<?= $websiteContent->logo_image ?>" style="width: 200px; height: auto; object-fit: contain;" alt=""></td>
                 </tr>
+                
                 <tr>
                     <th><?= __('About Title') ?></th>
                     <td><?= h($websiteContent->about_title) ?></td>
@@ -51,18 +54,22 @@
                 <tr>
                     <th><?= __('About Us Image1') ?></th>
                     <td><?= h($websiteContent->image1) ?></td>
+                    <td><img class="flex-sm-shrink-0 img-fluid roundd" src="<?= $websiteContent->image1 ?>" style="width: 200px; height: auto; object-fit: contain;" alt=""></td>
                 </tr>
                 <tr>
                     <th><?= __('About Us Image2') ?></th>
                     <td><?= h($websiteContent->image2) ?></td>
+                    <td><img class="flex-sm-shrink-0 img-fluid roundd" src="<?= $websiteContent->image2 ?>" style="width: 200px; height: auto; object-fit: contain;" alt=""></td>
                 </tr>
                 <tr>
                     <th><?= __('About Us Image3') ?></th>
                     <td><?= h($websiteContent->image3) ?></td>
+                    <td><img class="flex-sm-shrink-0 img-fluid roundd" src="<?= $websiteContent->image3 ?>" style="width: 200px; height: auto; object-fit: contain;" alt=""></td>
                 </tr>
                 <tr>
                     <th><?= __('About Us Image4') ?></th>
                     <td><?= h($websiteContent->image4) ?></td>
+                    <td><img class="flex-sm-shrink-0 img-fluid roundd" src="<?= $websiteContent->image4 ?>" style="width: 200px; height: auto; object-fit: contain;" alt=""></td>
                 </tr>
                 <tr>
                     <th><?= __('Id') ?></th>

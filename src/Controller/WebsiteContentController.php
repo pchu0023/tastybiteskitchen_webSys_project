@@ -2,7 +2,8 @@
 declare(strict_types=1);
 
 namespace App\Controller;
-
+use Cake\Controller\Controller;
+use Cake\ORM\TableRegistry;
 /**
  * WebsiteContent Controller
  *
@@ -66,7 +67,6 @@ class WebsiteContentController extends AppController
 
         $data = $this->request->getData();
     
-
         $websiteContent = $this->WebsiteContent->patchEntity($websiteContent, $data);
         if ($this->WebsiteContent->save($websiteContent)) {
             $this->Flash->success(__('The website content has been saved.'));
@@ -76,6 +76,7 @@ class WebsiteContentController extends AppController
     }
     $this->set(compact('websiteContent'));
 }
+
 
 
 

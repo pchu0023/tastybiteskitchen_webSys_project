@@ -34,34 +34,72 @@
                     
                 ?>
 
-
-<!-- 
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th scope="col"></th>
-                                    <th scope="col"></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <h6 class="d-flex justify-content-between border-bottom pb-1">
-                                            <span>select home image</span>
-                                        </h6>
-                                        <div class="row">
-                                            <?php echo $this->Form->control('home_image', ['options' => $images, 'label' => false, 'class' => 'd-flex flex form-select']); ?>
-                                        </div>
-                                        <br />
-                                        <div class="row">
-                                            <?= $this->Html->link(__('Edit Images'), ['action' => '../Images/index'], ['class' => 'btn btn-primary']) ?>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-       -->
-
+<div class="row">
+    <?php
+    echo $this->Form->control('home_image', [
+        'type' => 'select',
+        'options' => $images,
+        'label' => false,
+        'class' => 'form-select',
+        'empty' => 'Please select an image'
+    ]);
+    ?>
+</div>
+<div class="row">
+    <?php
+    echo $this->Form->control('logo_image', [
+        'type' => 'select',
+        'options' => $images,
+        'label' => false,
+        'class' => 'form-select',
+        'empty' => 'Please select an image'
+    ]);
+    ?>
+</div>
+<div class="row">
+    <?php
+    echo $this->Form->control('image1', [
+        'type' => 'select',
+        'options' => $images,
+        'label' => false,
+        'class' => 'form-select',
+        'empty' => 'Please select an image'
+    ]);
+    ?>
+</div>
+<div class="row">
+    <?php
+    echo $this->Form->control('image2', [
+        'type' => 'select',
+        'options' => $images,
+        'label' => false,
+        'class' => 'form-select',
+        'empty' => 'Please select an image'
+    ]);
+    ?>
+</div>
+<div class="row">
+    <?php
+    echo $this->Form->control('image3', [
+        'type' => 'select',
+        'options' => $images,
+        'label' => false,
+        'class' => 'form-select',
+        'empty' => 'Please select an image'
+    ]);
+    ?>
+</div>
+<div class="row">
+    <?php
+    echo $this->Form->control('image4', [
+        'type' => 'select',
+        'options' => $images,
+        'label' => false,
+        'class' => 'form-select',
+        'empty' => 'Please select an image'
+    ]);
+    ?>
+</div>
             </fieldset>
             <?= $this->Form->button(__('Submit')) ?>
             <?= $this->Form->end() ?>

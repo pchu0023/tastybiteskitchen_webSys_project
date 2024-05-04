@@ -10,18 +10,29 @@
                 <div class="col-lg-6">
                     <div class="row g-3">
                         <div class="col-6 text-start">
-<!--                            <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.1s" src="/team031-app_fit3047/webroot/img/about-1.jpg">-->
-                            <?= $this->Html->image('about-1.jpg', ["alt" => "About Us", "class" => "img-fluid rounded w-100 wow zoomIn", "data-wow-delay" => "0.1s"]) ?>
+                           <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.1s" src="<?= $websiteContent->image1 ?>">
+
+                            <!-- <?= $this->Html->image('about-1.jpg', ["alt" => "About Us", "class" => "img-fluid rounded w-100 wow zoomIn", "data-wow-delay" => "0.1s"]) ?> -->
                         </div>
+                        
                         <div class="col-6 text-start">
-                            <?= $this->Html->image('about-2.jpg', ["alt" => "About Us", "class" => "img-fluid rounded w-75 wow zoomIn", "data-wow-delay" => "0.3s", "style" => "margin-top: 25%"]) ?>
+                        <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.1s" src="<?= $websiteContent->image2 ?>">    
+
+                        <!-- <?= $this->Html->image('about-2.jpg', ["alt" => "About Us", "class" => "img-fluid rounded w-75 wow zoomIn", "data-wow-delay" => "0.3s", "style" => "margin-top: 25%"]) ?> -->
                         </div>
+
                         <div class="col-6 text-end">
-                            <?= $this->Html->image('about-3.jpg', ["alt" => "About Us", "class" => "img-fluid rounded w-75 wow zoomIn", "data-wow-delay" => "0.5s"]) ?>
+                            <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.1s" src="<?= $websiteContent->image3 ?>">
+
+                            <!-- <?= $this->Html->image('about-3.jpg', ["alt" => "About Us", "class" => "img-fluid rounded w-75 wow zoomIn", "data-wow-delay" => "0.5s"]) ?> -->
                         </div>
+
                         <div class="col-6 text-end">
-                            <?= $this->Html->image('about-4.jpg', ["alt" => "About Us", "class" => "img-fluid rounded w-100 wow zoomIn", "data-wow-delay" => "0.7s"]) ?>
+                             <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.1s" src="<?= $websiteContent->image4 ?>">
+
+                            <!-- <?= $this->Html->image('about-4.jpg', ["alt" => "About Us", "class" => "img-fluid rounded w-100 wow zoomIn", "data-wow-delay" => "0.7s"]) ?> -->
                         </div>
+                        
                     </div>
                 </div>
                 <div class="col-lg-6">

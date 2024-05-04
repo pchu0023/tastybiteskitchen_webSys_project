@@ -40,6 +40,8 @@ class WebsiteContentTable extends Table
         $this->setTable('website_content');
         $this->setDisplayField('id');
         $this->setPrimaryKey('id');
+
+
     }
 
     /**
