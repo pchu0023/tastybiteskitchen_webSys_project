@@ -44,9 +44,9 @@ class WebsiteContent extends Entity
         'logo_image' => true,
         'about_title' => true,
         'about_description' => true,
-        'about_us_image1' => true,
-        'about_us_image2' => true,
-        'about_us_image3' => true,
-        'about_us_image4' => true,
+        'image1' => true,
+        'image2' => true,
+        'image3' => true,
+        'image4' => true,
     ];
 }

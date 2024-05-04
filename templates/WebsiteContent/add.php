@@ -4,6 +4,8 @@
  * @var \App\Model\Entity\WebsiteContent $websiteContent
  */
 ?>
+don't need this page 
+<?php $this->layout = 'admin_default'; ?>
 <div class="row">
     <aside class="column">
         <div class="side-nav">

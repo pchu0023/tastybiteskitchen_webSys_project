@@ -18,6 +18,7 @@ namespace App\Controller;
 
 use Cake\Controller\Controller;
 use Cake\Event\EventInterface;
+use Cake\ORM\TableRegistry;
 
 /**
  * Application Controller
@@ -53,5 +54,21 @@ class AppController extends Controller
          */
         //$this->loadComponent('FormProtection');
         $this->loadComponent('Authentication.Authentication');
+
+
     }
+    public function beforeRender(\Cake\Event\EventInterface $event)
+{
+    parent::beforeRender($event);
+
+  
+    $websiteContentTable = TableRegistry::getTableLocator()->get('WebsiteContent');
+
+    $content = $websiteContentTable->find()->first();
+
+    if ($content) {
+  
+        $this->set('websiteContent', $content);
+    }
+}
 }

@@ -70,6 +70,7 @@ $cakeDescription = 'Tasty Bites Kitchen';
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto py-0 pe-4">
                     <a href="<?= $this->Url->build('/') ?>" class="nav-item nav-link">Home</a>
+                    <a href="<?= $this->Url->build('/website-content/view') ?>" class="nav-item nav-link">Edit Web Page</a>
                     <a href="<?= $this->Url->build('/Menus/adminIndex') ?>" class="nav-item nav-link">Manage Menu</a>
                     <a href="<?= $this->Url->build('/Users') ?>" class="nav-item nav-link">Manage Users</a>
                     <a href="<?= $this->Url->build('/Products') ?>" class="nav-item nav-link">Manage Food Items</a>
@@ -121,9 +122,9 @@ $cakeDescription = 'Tasty Bites Kitchen';
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Contact</h4>
-                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>12/4 Bromham Place, Richmond VIC 3121</p>
-                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>03 0988 9485</p>
-                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>tastyBitesAdmin@gmail.com</p>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i><?= h($websiteContent->address) ?></p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i><?= h($websiteContent->phone) ?></p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i><?= h($websiteContent->email) ?></p>
                     <div class="d-flex pt-2">
                         <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
                         <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
@@ -134,9 +135,9 @@ $cakeDescription = 'Tasty Bites Kitchen';
                 <div class="col-lg-3 col-md-6">
                     <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Opening</h4>
                     <h5 class="text-light fw-normal">Monday - Friday</h5>
-                    <p>6PM - 12AM</p>
+                    <p><?= h($websiteContent->opening_time_weekdays) ?></p>
                     <h5 class="text-light fw-normal">Weekends</h5>
-                    <p>11AM - 12AM</p>
+                    <p><?= h($websiteContent->opening_time_weekends) ?></p>
                 </div>
             </div>
         </div>

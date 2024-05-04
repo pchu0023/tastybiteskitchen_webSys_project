@@ -94,24 +94,24 @@ class WebsiteContentTable extends Table
             ->allowEmptyString('about_description');
 
         $validator
-            ->scalar('about_us_image1')
-            ->maxLength('about_us_image1', 255)
-            ->allowEmptyString('about_us_image1');
+            ->scalar('image1')
+            ->maxLength('image1', 255)
+            ->allowEmptyString('image1');
 
         $validator
-            ->scalar('about_us_image2')
-            ->maxLength('about_us_image2', 255)
-            ->allowEmptyString('about_us_image2');
+            ->scalar('image2')
+            ->maxLength('image2', 255)
+            ->allowEmptyString('image2');
 
         $validator
-            ->scalar('about_us_image3')
-            ->maxLength('about_us_image3', 255)
-            ->allowEmptyString('about_us_image3');
+            ->scalar('image3')
+            ->maxLength('image3', 255)
+            ->allowEmptyString('image3');
 
         $validator
-            ->scalar('about_us_image4')
-            ->maxLength('about_us_image4', 255)
-            ->allowEmptyString('about_us_image4');
+            ->scalar('image4')
+            ->maxLength('image4', 255)
+            ->allowEmptyString('image4');
 
         return $validator;
     }

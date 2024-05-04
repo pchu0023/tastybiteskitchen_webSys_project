@@ -4,6 +4,9 @@
  * @var iterable<\App\Model\Entity\WebsiteContent> $websiteContent
  */
 ?>
+don't need this page 
+
+<?php $this->layout = 'admin_default'; ?>
 <div class="websiteContent index content">
     <?= $this->Html->link(__('New Website Content'), ['action' => 'add'], ['class' => 'button float-right']) ?>
     <h3><?= __('Website Content') ?></h3>

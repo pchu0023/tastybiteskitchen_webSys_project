@@ -10,6 +10,15 @@ namespace App\Controller;
  */
 class WebsiteContentController extends AppController
 {
+
+
+    public function beforeFilter(\Cake\Event\EventInterface $event)
+    {
+        parent::beforeFilter($event);
+        // Allow non-logged-in users to access the 'add' 'index' action
+        $this->Authentication->allowUnauthenticated(['view','edit']);
+        //later to delete there
+    }
     /**
      * Index method
      *
@@ -17,10 +26,7 @@ class WebsiteContentController extends AppController
      */
     public function index()
     {
-        $query = $this->WebsiteContent->find();
-        $websiteContent = $this->paginate($query);
 
-        $this->set(compact('websiteContent'));
     }
 
     /**
@@ -30,7 +36,7 @@ class WebsiteContentController extends AppController
      * @return \Cake\Http\Response|null|void Renders view
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
-    public function view($id = null)
+    public function view($id = 1)
     {
         $websiteContent = $this->WebsiteContent->get($id, contain: []);
         $this->set(compact('websiteContent'));
@@ -43,17 +49,7 @@ class WebsiteContentController extends AppController
      */
     public function add()
     {
-        $websiteContent = $this->WebsiteContent->newEmptyEntity();
-        if ($this->request->is('post')) {
-            $websiteContent = $this->WebsiteContent->patchEntity($websiteContent, $this->request->getData());
-            if ($this->WebsiteContent->save($websiteContent)) {
-                $this->Flash->success(__('The website content has been saved.'));
-
-                return $this->redirect(['action' => 'index']);
-            }
-            $this->Flash->error(__('The website content could not be saved. Please, try again.'));
-        }
-        $this->set(compact('websiteContent'));
+     
     }
 
     /**
@@ -63,20 +59,25 @@ class WebsiteContentController extends AppController
      * @return \Cake\Http\Response|null|void Redirects on successful edit, renders view otherwise.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
-    public function edit($id = null)
-    {
-        $websiteContent = $this->WebsiteContent->get($id, contain: []);
-        if ($this->request->is(['patch', 'post', 'put'])) {
-            $websiteContent = $this->WebsiteContent->patchEntity($websiteContent, $this->request->getData());
-            if ($this->WebsiteContent->save($websiteContent)) {
-                $this->Flash->success(__('The website content has been saved.'));
+    public function edit($id = 1)
+{
+    $websiteContent = $this->WebsiteContent->get($id, contain: []);
+    if ($this->request->is(['patch', 'post', 'put'])) {
 
-                return $this->redirect(['action' => 'index']);
-            }
-            $this->Flash->error(__('The website content could not be saved. Please, try again.'));
+        $data = $this->request->getData();
+    
+
+        $websiteContent = $this->WebsiteContent->patchEntity($websiteContent, $data);
+        if ($this->WebsiteContent->save($websiteContent)) {
+            $this->Flash->success(__('The website content has been saved.'));
+            return $this->redirect(['action' => 'view']);
         }
-        $this->set(compact('websiteContent'));
+        $this->Flash->error(__('The website content could not be saved. Please, try again.'));
     }
+    $this->set(compact('websiteContent'));
+}
+
+
 
     /**
      * Delete method
@@ -87,14 +88,6 @@ class WebsiteContentController extends AppController
      */
     public function delete($id = null)
     {
-        $this->request->allowMethod(['post', 'delete']);
-        $websiteContent = $this->WebsiteContent->get($id);
-        if ($this->WebsiteContent->delete($websiteContent)) {
-            $this->Flash->success(__('The website content has been deleted.'));
-        } else {
-            $this->Flash->error(__('The website content could not be deleted. Please, try again.'));
-        }
-
-        return $this->redirect(['action' => 'index']);
+      
     }
 }
