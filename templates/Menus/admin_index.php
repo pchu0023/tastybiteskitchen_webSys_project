@@ -50,8 +50,8 @@
                     <?php foreach ($menus as $menu) : ?>
                         <?php if ($menu->active === TRUE) : ?>
                             <tr>
-                                <td><?= h($menu->name) ?></td>
-                                <td><?= h($menu->description) ?></td>
+                                <td style="max-width:100px; word-wrap:break-word;"><?= h($menu->name) ?></td>
+                                <td style="max-width: 300px; word-wrap: break-word;"><?= h($menu->description) ?></td>
                                 <td class="actions">
                                     <?= $this->Html->link(__('View'), ['action' => 'view', $menu->id], ['class' => 'btn btn-sm btn-info']) ?>
                                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $menu->id], ['class' => 'btn btn-sm btn-primary']) ?>
