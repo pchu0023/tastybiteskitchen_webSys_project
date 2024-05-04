@@ -10,6 +10,7 @@
     <?php $this->layout = 'admin_default'; ?>
     <br />
     <?= $this->Html->link(__('Add New Menu'), ['action' => 'add'], ['class' => 'btn btn-primary float-right']) ?>
+    <?= $this->Html->link(__('Change Active Status'), ['action' => 'active'], ['class' => 'btn btn-secondary float-right']) ?>
     <br />
     <br />
 
@@ -35,8 +36,9 @@
                 endforeach;
                 if (sizeof($active_array) == 1) : ?>
                     <tr>
-                        <td><?= h($active_array[0]->name) ?></td>
-                        <td><?= h($active_array[0]->description) ?></td>
+                        <td style="max-width:100px; word-wrap:break-word;"><?= h($active_array[0]->name) ?></td>
+                                <td style="max-width: 400px; word-wrap: break-word;"><?= h($active_array[0]->description) ?></td>
+                               
                         <td class="actions">
                             <?= $this->Html->link(__('View'), ['action' => 'view', $active_array[0]->id], ['class' => 'btn btn-secondary py-sm-2 px-sm-3 me-2']) ?>
                             <?php if ($this->Identity->get('type') === "emp") : ?>
@@ -51,7 +53,7 @@
                         <?php if ($menu->active === TRUE) : ?>
                             <tr>
                                 <td style="max-width:100px; word-wrap:break-word;"><?= h($menu->name) ?></td>
-                                <td style="max-width: 300px; word-wrap: break-word;"><?= h($menu->description) ?></td>
+                                <td style="max-width: 400px; word-wrap: break-word;"><?= h($menu->description) ?></td>
                                 <td class="actions">
                                     <?= $this->Html->link(__('View'), ['action' => 'view', $menu->id], ['class' => 'btn btn-sm btn-info']) ?>
                                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $menu->id], ['class' => 'btn btn-sm btn-primary']) ?>
@@ -80,15 +82,15 @@
                 <?php foreach ($menus as $menu) : ?>
                     <?php if ($menu->active === FALSE) : ?>
                         <tr>
-                            <td><?= h($menu->name) ?></td>
-                            <td><?= h($menu->description) ?></td>
+                            <td style="max-width:100px; word-wrap:break-word;"><?= h($menu->name) ?></td>
+                            <td style="max-width: 400px; word-wrap: break-word;"><?= h($menu->description) ?></td>
                             <td class="actions">
-                                
-                            <?= $this->Html->link(__('View'), ['action' => 'view', $menu->id], ['class' => 'btn btn-sm btn-info']) ?>
-                                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $menu->id], ['class' => 'btn btn-sm btn-primary']) ?>
-                                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $menu->id], ['confirm' => __('Are you sure you want to delete {0}?', $menu->name), 'class' => 'btn btn-sm btn-danger']) ?>
-                               
-                                </td>
+
+                                <?= $this->Html->link(__('View'), ['action' => 'view', $menu->id], ['class' => 'btn btn-sm btn-info']) ?>
+                                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $menu->id], ['class' => 'btn btn-sm btn-primary']) ?>
+                                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $menu->id], ['confirm' => __('Are you sure you want to delete {0}?', $menu->name), 'class' => 'btn btn-sm btn-danger']) ?>
+
+                            </td>
                         </tr>
                     <?php endif; ?>
                 <?php endforeach; ?>
