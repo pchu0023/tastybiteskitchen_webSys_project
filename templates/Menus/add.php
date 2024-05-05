@@ -36,6 +36,11 @@
                         <span>Active</span>
                     </h6>
                     <?php echo $this->Form->control('active', ['label' => false, 'class' => 'd-flex flex-column']); ?>
+                <br />
+                    <h6 class="d-flex border-bottom">
+                        <span>Catering</span>
+                    </h6>
+                    <?php echo $this->Form->control('catering', ['label' => false, 'class' => 'd-flex flex-column']); ?>
                 </fieldset>
                 <br />
                 <div class="col">
