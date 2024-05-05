@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Controller;
@@ -13,6 +14,14 @@ use Ramsey\Uuid\Uuid;
  */
 class UsersController extends AppController
 {
+    public function initialize(): void
+    {
+        parent::initialize();
+
+        // By default, CakePHP will (sensibly) default to preventing users from accessing any actions on a controller.
+        // These actions, however, are typically required for users who have not yet logged in.
+        $this->Authentication->allowUnauthenticated(['editProfile']);
+    }
     /**
      * Index method
      *
@@ -82,6 +91,36 @@ class UsersController extends AppController
         }
         $this->set(compact('user'));
     }
+
+    public function editProfile()
+{
+    // Get the currently logged-in user's ID
+    $userId = $this->Authentication->getIdentity()->id;
+
+    // Retrieve the user's data
+    $user = $this->Users->get($userId, ['contain' => []]);
+
+    // Check if the request is a PATCH, POST, or PUT request
+    if ($this->request->is(['patch', 'post', 'put'])) {
+        // Patch the retrieved entity with the data from the request
+        $user = $this->Users->patchEntity($user, $this->request->getData());
+
+        // Attempt to save the user's data
+        if ($this->Users->save($user)) {
+            $this->Flash->success(__('Your profile has been updated.'));
+            // Redirect to the home page
+            return $this->redirect(['controller' => 'Pages', 'action' => 'display', 'home']);
+        } else {
+            // If saving fails, display an error message
+            $this->Flash->error(__('Unable to update your profile. Please, try again.'));
+        }
+    }
+
+    // Pass the user data to the view
+    $this->set(compact('user'));
+}
+
+
 
     /**
      * Delete method

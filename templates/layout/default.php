@@ -74,19 +74,16 @@ $cakeDescription = 'Tasty Bites Kitchen';
                     <a href="<?= $this->Url->build('/About') ?>" class="nav-item nav-link">About Us</a>
                     <a href="<?= $this->Url->build('/Carts') ?>" class="nav-item nav-link">View Cart</a>
                 </div>
-                <?php
-                if (!$this->Identity->isLoggedIn()) {
-                    echo $this->Html->link(
-                        'LOG IN',
-                        ['controller' => 'Auth', 'action' => 'login'],
-                        ['class' => 'button button-outline']);
-                }
-                ?>
-                <?php
-                if ($this->Identity->isLoggedIn()) {
-                    echo $this->Html->link('LOGOUT', ['controller' => 'Auth', 'action' => 'logout']);
-                }
-                ?>
+                <div class="nav-item dropdown">
+    <a href="#" class="nav-link dropdown-toggle text-white" data-bs-toggle="dropdown">
+        <span class="me-lg-2"><?= $this->Identity->get('first_name') ?>  <?= $this->Identity->get('last_name') ?></span>
+    </a>
+    <div class="dropdown-menu border-0 rounded-0 rounded-bottom m-0" style=" background-color: #001f3f;">
+        <a href="<?= $this->Url->build('/Users/editProfile') ?>" class="dropdown-item text-white">Edit Profile</a>
+        <a href="<?= $this->Url->build('/Auth/logout') ?>" class="dropdown-item text-white">Log Out</a>
+    </div>
+</div>
+
             </div>
         </nav>
     </div>
