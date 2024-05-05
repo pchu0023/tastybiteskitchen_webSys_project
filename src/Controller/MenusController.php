@@ -88,7 +88,7 @@ class MenusController extends AppController
             }
 
             // Flash success message
-            $this->Flash->success(__('Menus active status updated successfully.'));
+            $this->Flash->success(__('Menus active/cater status updated successfully.'));
 
             // Redirect back to the active page
             return $this->redirect(['action' => 'adminIndex']);
