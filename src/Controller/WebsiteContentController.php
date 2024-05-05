@@ -13,13 +13,13 @@ class WebsiteContentController extends AppController
 {
 
 
-    public function beforeFilter(\Cake\Event\EventInterface $event)
-    {
-        parent::beforeFilter($event);
-        // Allow non-logged-in users to access the 'add' 'index' action
-        $this->Authentication->allowUnauthenticated(['view','edit']);
-        //later to delete there
-    }
+    // public function beforeFilter(\Cake\Event\EventInterface $event)
+    // {
+    //     parent::beforeFilter($event);
+    //     // Allow non-logged-in users to access the 'add' 'index' action
+    //     $this->Authentication->allowUnauthenticated(['view','edit']);
+    //     //later to delete there
+    // }
     /**
      * Index method
      *

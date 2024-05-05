@@ -16,7 +16,7 @@
                         </div>
                         
                         <div class="col-6 text-start">
-                        <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.1s" src="<?= $websiteContent->image2 ?>">    
+                        <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.1s" src="<?= $websiteContent->image2 ?>" style = "margin-top: 25%">    
 
                         <!-- <?= $this->Html->image('about-2.jpg', ["alt" => "About Us", "class" => "img-fluid rounded w-75 wow zoomIn", "data-wow-delay" => "0.3s", "style" => "margin-top: 25%"]) ?> -->
                         </div>

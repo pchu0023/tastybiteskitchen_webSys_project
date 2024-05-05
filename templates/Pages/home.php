@@ -17,7 +17,7 @@
                 </div>
             </div>
             <div class="col-lg-5 text-right overflow-hidden">
-            <img class="flex-sm-shrink-0 img-fluid roundd" src="<?= $websiteContent->home_image ?>" style="width: 200px; height: auto; object-fit: contain;" alt="">
+            <img class="flex-sm-shrink-0 img-fluid roundd" src="<?= $websiteContent->home_image ?>" style="width: 768px; height: auto; object-fit: contain;" alt="">
             <!-- <?= $this->Html->image('meal.png', ["alt" => "Meal", "class" => "img-fluid"]) ?> -->
             </div>
         </div>
@@ -51,7 +51,7 @@
                     <a href="<?= $this->Url->build('/Menus') ?>" class="btn btn-primary py-sm-3 px-sm-5 me-3 animated slideInLeft">Check out the menu!</a>
                 </div>
                 <div class="col-lg-6 text-center text-lg-end overflow-hidden">
-                <img class="flex-sm-shrink-0 img-fluid roundd" src="<?= $websiteContent->home_image ?>" style="width: 200px; height: auto; object-fit: contain;" alt="">
+                <img class="flex-sm-shrink-0 img-fluid roundd" src="<?= $websiteContent->home_image ?>" style="width: 768px; height: auto; object-fit: contain;" alt="">
                             <!-- <?= $this->Html->image('meal.png', ["alt" => "Meal", "class" => "img-fluid"]) ?> -->
             </div>
             </div>
