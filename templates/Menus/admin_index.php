@@ -10,8 +10,7 @@
     <?php $this->layout = 'admin_default'; ?>
     <br />
     <?= $this->Html->link(__('Add New Menu'), ['action' => 'add'], ['class' => 'btn btn-primary float-right']) ?>
-    <?= $this->Html->link(__('Change Active Status'), ['action' => 'active'], ['class' => 'btn btn-secondary float-right']) ?>
-    <!-- <?= $this->Html->link(__('Change Catering Status'), ['action' => 'catering'], ['class' => 'btn btn-secondary float-right']) ?> -->
+    <?= $this->Html->link(__('Change Active Status'), ['action' => 'activeCater'], ['class' => 'btn btn-secondary float-right']) ?>
     <br />
     <br />
 

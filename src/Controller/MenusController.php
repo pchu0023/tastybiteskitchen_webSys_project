@@ -30,7 +30,10 @@ class MenusController extends AppController
 
         $this->set(compact('menus'));
     }
-
+ /**
+     * index method for admin view
+     *
+     */
     public function adminIndex()
     {
         $query = $this->Menus->find();
@@ -38,42 +41,48 @@ class MenusController extends AppController
 
         $this->set(compact('menus'));
     }
-    
-    public function active()
+     /**
+     * render multi active +cater edit of menu - admin view
+          */
+    public function activeCater()
     {
         $query = $this->Menus->find();
         $menus = $this->paginate($query);
 
         $this->set(compact('menus'));
     }
-
-    public function updateAllActiveState()
-    {
-        
-            if ($this->request->is('post')) {
-                // Get the submitted data from the form
-                $postData = $this->request->getData();
-    
-                // Loop through each menu
-                foreach ($postData as $menuName => $active) {
-                    // Find the menu by its name
-                    $menu = $this->Menus->find()->where(['name' => $menuName])->first();
-    
-                    // Update the active state if the menu is found
-                    if ($menu) {
-                        $menu->active = (bool)$active;
-                        $this->Menus->save($menu);
-                    }
-                }
-    
-                // Flash success message
-                $this->Flash->success(__('Menus active status updated successfully.'));
-    
-                // Redirect back to the active page
-                return $this->redirect(['action' => 'adminIndex']);
-            }
-        
-    }
+ /**
+     * post method for multi active + cater edit of menu - admin view
+          */
+          public function updateAllActiveCaterState()
+          {
+              if ($this->request->is('post')) {
+                  // Get the submitted data from the form
+                  $postData = $this->request->getData();
+          
+                  // Loop through each menu
+                  foreach ($postData['active'] as $id => $active) {
+                      // Find the menu by its id
+                      $menu = $this->Menus->get($id);
+          
+                      // Update the active state
+                      $menu->active = (bool)$active;
+                      
+                      // Update the catering state
+                      $menu->catering = (bool)$postData['catering'][$id] ?? false;
+          
+                      // Save the menu
+                      $this->Menus->save($menu);
+                  }
+          
+                  // Flash success message
+                  $this->Flash->success(__('Menus active status updated successfully.'));
+          
+                  // Redirect back to the active page
+                  return $this->redirect(['action' => 'adminIndex']);
+              }
+          }
+          
     /**
      * View method
      *

@@ -1,12 +1,11 @@
 <?php
-
 /**
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Menu[]|\Cake\Collection\CollectionInterface $menus
  */
 ?>
 
-<?= $this->Form->create(null, ['url' => ['controller' => 'Menus', 'action' => 'updateAllActiveState']]) ?>
+<?= $this->Form->create(null, ['url' => ['controller' => 'Menus', 'action' => 'updateAllActiveCaterState']]) ?>
 <div class="menus index content">
     <!-- display for admin -->
     <?php $this->layout = 'admin_default'; ?>
@@ -26,6 +25,7 @@
                     <th><?= $this->Paginator->sort('name') ?></th>
                     <th><?= $this->Paginator->sort('description') ?></th>
                     <th><?= __('Active?') ?></th>
+                    <th><?= __('Catering?') ?></th>
                 </tr>
             </thead>
             <tbody>
@@ -33,8 +33,8 @@
                     <tr>
                         <td style="max-width:100px; word-wrap:break-word;"><?= h($menu->name) ?></td>
                         <td style="max-width: 300px; word-wrap: break-word;"><?= h($menu->description) ?></td>
-                        <td><?= $this->Form->checkbox($menu->name, ['checked' => $menu->active]) ?></td>
-
+                        <td><?= $this->Form->checkbox("active[$menu->id]", ['checked' => $menu->active]) ?></td>
+                        <td><?= $this->Form->checkbox("catering[$menu->id]", ['checked' => $menu->catering]) ?></td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
