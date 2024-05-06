@@ -120,31 +120,18 @@ $cakeDescription = 'Tasty Bites Kitchen';
             </div>
         </nav>
     </div>
-    <br />
-    <br />
-    <br />
-    <br />
     <!-- Navbar & Hero End -->
 
     <!-- Main Content -->
     <div id="content">
-
-        <!-- Begin Page Content -->
-        <div class="container-fluid bg-body">
-            <!-- page content here -->
-            <?= $this->Flash->render() ?>
-            <?= $this->fetch('content') ?>
-        </div>
-        <!-- Navbar & Hero End -->
-
         <!-- Main Content -->
         <div id="content">
 
             <!-- Begin Page Content -->
             <div class="container-fluid bg-body">
+                <!-- page content here -->
                 <?= $this->Flash->render() ?>
                 <?= $this->fetch('content') ?>
-                <!-- page content here -->
             </div>
 
         </div>
