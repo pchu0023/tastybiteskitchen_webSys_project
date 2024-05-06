@@ -3,8 +3,7 @@
 <!-- IF CURRENT SESSION IS AN EMPLOYEE -->
 <?php if($this->Identity->get('type') === "emp") : ?>
     <body>
-    <div class="container-lg py-1 bg-light hero-header mb-5">
-    <div class="container my-5 py-5">
+    <div class="container-lg py-1 bg-light hero-header mb-5" style="background: linear-gradient(rgba(15, 23, 43, .9), rgba(15, 23, 43, .9)), url('<?= htmlspecialchars($websiteContent->background_image) ?>'); background-position: center center; background-repeat: no-repeat; background-size: cover;">    <div class="container my-5 py-5">
         <div class="row align-items-center g-5">
             <div class="col-lg-6 text-center text-lg-start">
                 <h1 class="display-3 text-white animated slideInLeft">Welcome,<br>Admin.</h1>
@@ -42,8 +41,7 @@
 <!-- IF CURRENT IDENTITY IS NOT AN EMPLOYEE -->
 <?php else : ?>
     <body>
-    <div class="container-lg py-1 bg-light hero-header mb-5">
-        <div class="container my-5 py-5" >
+    <div class="container-lg py-1 bg-light hero-header mb-5" style="background: linear-gradient(rgba(15, 23, 43, .9), rgba(15, 23, 43, .9)), url('<?= htmlspecialchars($websiteContent->background_image) ?>'); background-position: center center; background-repeat: no-repeat; background-size: cover;">        <div class="container my-5 py-5" >
             <div class="row align-items-center g-5">
                 <div class="col-lg-6 text-center text-lg-start">
                     <h1 class="display-3 text-white animated slideInLeft">Welcome to<br>Tasty Bites Kitchen</h1>

@@ -56,7 +56,11 @@ class WebsiteContentTable extends Table
             ->scalar('home_image')
             ->maxLength('home_image', 255)
             ->allowEmptyFile('home_image');
-
+        
+        $validator
+            ->scalar('background_image')
+            ->maxLength('background_image', 255)
+            ->allowEmptyFile('background_image');
         $validator
             ->scalar('address')
             ->maxLength('address', 255)
