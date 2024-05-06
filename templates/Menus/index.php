@@ -7,8 +7,7 @@
 ?>
 <div class="menus index content">
     <!-- display for customer -->
-    <div class="container-xxl py-5 bg-dark hero-header mb-5">
-        <div class="container text-center my-5 pt-5 pb-4">
+    <div class="container-lg py-1 bg-light hero-header mb-5" style="background: linear-gradient(rgba(15, 23, 43, .9), rgba(15, 23, 43, .9)), url('<?= htmlspecialchars($websiteContent->background_image) ?>'); background-position: center center; background-repeat: no-repeat; background-size: cover;">        <div class="container text-center my-5 pt-5 pb-4">
             <h1 class="display-3 text-white mb-3 animated slideInDown">Current Active Menu</h1>
             <div class="text-center">
             <?= $this->Html->link(__('View Catering Menu'), ['action' => 'caterIndex'], ['class' => 'btn btn-secondary float-right']) ?>

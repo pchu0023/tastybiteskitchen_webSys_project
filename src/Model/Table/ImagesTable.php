@@ -48,6 +48,7 @@ class ImagesTable extends Table
             'targetForeignKey' => 'product_id',
             'joinTable' => 'images_products',
         ]);
+
     }
 
     /**
