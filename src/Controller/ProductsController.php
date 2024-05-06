@@ -151,7 +151,7 @@ class ProductsController extends AppController
 
         // Success message & Redirect to menus
         $this->Flash->success(__('Product added to cart.'));
-        return $this->redirect(['controller' => 'Menus', 'action' => 'index']);
+        return $this->redirect($this->referer());
     }
 
 
