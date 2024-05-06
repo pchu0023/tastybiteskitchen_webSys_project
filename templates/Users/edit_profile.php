@@ -8,7 +8,8 @@
     <div class="column column-80">
 
     <legend><?= __('Edit Profile') ?></legend>
-                    
+    <a href="<?= $this->Url->build('/') ?>" class='btn btn-primary'>Back Home</a>
+
             <div class="users form content">
                 <?= $this->Form->create($user) ?>
                 <fieldset>
@@ -35,7 +36,8 @@
                         </span>
                     </h6>
                         <p>Please create a new account if your email changed, and reset your password in registration page.</p>
-                    <br />
+                        <p class="form-control-static"> Current Email: <strong><?php echo $user->email; ?></strong></p>
+                    
                     <h6 class="d-flex border-bottom">
                         <span>
                             Address
