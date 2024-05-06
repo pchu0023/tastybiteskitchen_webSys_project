@@ -76,7 +76,7 @@ $cakeDescription = 'Tasty Bites Kitchen';
                 </div>
                 <div class="nav-item dropdown">
     <a href="#" class="nav-link dropdown-toggle text-white" data-bs-toggle="dropdown">
-        <span class="me-lg-2"><?= $this->Identity->get('first_name') ?>  <?= $this->Identity->get('last_name') ?></span>
+        <span class="me-lg-2"><?= $this->Identity->get('email') ?>  </span>
     </a>
     <div class="dropdown-menu border-0 rounded-0 rounded-bottom m-0" style=" background-color: #001f3f;">
         <a href="<?= $this->Url->build('/Users/editProfile') ?>" class="dropdown-item text-white">Edit Profile</a>
