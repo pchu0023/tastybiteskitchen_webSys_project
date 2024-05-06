@@ -108,6 +108,7 @@ class CartsController extends AppController
         foreach ($this->request->getSession()->read('cart') as $value) {
             $product = $value['product'];
             $quantity = $value['quantity'];
+//          We do this because cost is in cents
             $cost = ($product->price) * 100;
             $name = ($product->name);
             $description = ($product->description);
