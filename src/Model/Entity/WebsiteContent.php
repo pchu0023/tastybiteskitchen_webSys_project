@@ -10,6 +10,7 @@ use Cake\ORM\Entity;
  *
  * @property int $id
  * @property string|null $home_image
+ * @property string|null $background_image
  * @property string|null $address
  * @property string|null $phone
  * @property string|null $email
@@ -36,6 +37,7 @@ class WebsiteContent extends Entity
      */
     protected array $_accessible = [
         'home_image' => true,
+        'background_image' => true,
         'address' => true,
         'phone' => true,
         'email' => true,

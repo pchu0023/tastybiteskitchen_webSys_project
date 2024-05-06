@@ -84,7 +84,7 @@
                                         <h6 class="d-flex justify-content-between border-bottom pb-1">
                                             <span>Home Image</span>
                                         </h6>
-                                        <img class="flex-sm-shrink-0 img-fluid roundd" src="<?= $websiteContent->home_image ?>" style="width: 200px; height: auto; object-fit: contain;" alt="">
+                                        <img class="flex-sm-shrink-0 img-fluid roundd" src="<?= $websiteContent->home_image ?>" style="width: 200px; height: auto; object-fit: contain;" alt="None image in there">
                                     </td>
                                 </tr>
                             </tbody>
@@ -104,7 +104,27 @@
                                         <h6 class="d-flex justify-content-between border-bottom pb-1">
                                             <span>Logo Image</span>
                                         </h6>
-                                        <img class="flex-sm-shrink-0 img-fluid roundd" src="<?= $websiteContent->logo_image ?>" style="width: 200px; height: auto; object-fit: contain;" alt="">
+                                        <img class="flex-sm-shrink-0 img-fluid roundd" src="<?= $websiteContent->logo_image ?>" style="width: 200px; height: auto; object-fit: contain;" alt="None image in there">
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th scope="col"></th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <h6 class="d-flex justify-content-between border-bottom pb-1">
+                                            <span>Home Background Image</span>
+                                        </h6>
+                                        <img class="flex-sm-shrink-0 img-fluid roundd" src="<?= $websiteContent->background_image ?>" style="width: 200px; height: auto; object-fit: contain;" alt="None image in there">
                                     </td>
                                 </tr>
                             </tbody>
@@ -143,7 +163,7 @@
                                         <h6 class="d-flex justify-content-between border-bottom pb-1">
                                             <span>About page Image One</span>
                                         </h6>
-                                        <img class="flex-sm-shrink-0 img-fluid roundd" src="<?= $websiteContent->image1 ?>" style="width: 200px; height: auto; object-fit: contain;" alt="">
+                                        <img class="flex-sm-shrink-0 img-fluid roundd" src="<?= $websiteContent->image1 ?>" style="width: 200px; height: auto; object-fit: contain;" alt="None image in there">
                                     </td>
                                 </tr>
                             </tbody>
@@ -163,7 +183,7 @@
                                         <h6 class="d-flex justify-content-between border-bottom pb-1">
                                             <span>About page Image Two</span>
                                         </h6>
-                                        <img class="flex-sm-shrink-0 img-fluid roundd" src="<?= $websiteContent->image2 ?>" style="width: 200px; height: auto; object-fit: contain;" alt="">
+                                        <img class="flex-sm-shrink-0 img-fluid roundd" src="<?= $websiteContent->image2 ?>" style="width: 200px; height: auto; object-fit: contain;" alt="None image in there">
                                     </td>
                                 </tr>
                             </tbody>
@@ -187,7 +207,7 @@
                                         <h6 class="d-flex justify-content-between border-bottom pb-1">
                                             <span>About page Image Three</span>
                                         </h6>
-                                        <img class="flex-sm-shrink-0 img-fluid roundd" src="<?= $websiteContent->image3 ?>" style="width: 200px; height: auto; object-fit: contain;" alt="">
+                                        <img class="flex-sm-shrink-0 img-fluid roundd" src="<?= $websiteContent->image3 ?>" style="width: 200px; height: auto; object-fit: contain;" alt="None image in there">
 
                                     </td>
                                 </tr>
@@ -208,7 +228,7 @@
                                         <h6 class="d-flex justify-content-between border-bottom pb-1">
                                             <span>About page Image Four</span>
                                         </h6>
-                                        <img class="flex-sm-shrink-0 img-fluid roundd" src="<?= $websiteContent->image4 ?>" style="width: 200px; height: auto; object-fit: contain;" alt="">
+                                        <img class="flex-sm-shrink-0 img-fluid roundd" src="<?= $websiteContent->image4 ?>" style="width: 200px; height: auto; object-fit: contain;" alt="None image in there">
 
                                     </td>
                                 </tr>
