@@ -104,7 +104,36 @@ $cakeDescription = 'Tasty Bites Kitchen';
 
 
                 </div>
-            </nav>
+                <?php
+                if (!$this->Identity->isLoggedIn()) {
+                    echo $this->Html->link(
+                        'LOG IN',
+                        ['controller' => 'Auth', 'action' => 'login'],
+                        ['class' => 'button button-outline']);
+                }
+                ?>
+                <?php
+                if ($this->Identity->isLoggedIn()) {
+                    echo $this->Html->link('LOGOUT', ['controller' => 'Auth', 'action' => 'logout']);
+                }
+                ?>
+            </div>
+        </nav>
+    </div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <!-- Navbar & Hero End -->
+
+    <!-- Main Content -->
+    <div id="content">
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid bg-body">
+            <!-- page content here -->
+            <?= $this->Flash->render() ?>
+            <?= $this->fetch('content') ?>
         </div>
         <!-- Navbar & Hero End -->
 

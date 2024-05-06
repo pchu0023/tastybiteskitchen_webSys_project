@@ -11,6 +11,7 @@
 
   */
 ?>
+<?= $this->Html->script("https://js.stripe.com/v3/") ?>
 <div class="carts index content">
 
         <!-- display for all users -->
@@ -144,7 +145,7 @@
             <div class="float-left">
             <!--  Change this to redirect to the payment confirmation page when completed -->
                 <?php if (!empty($this->request->getSession()->read('cart'))) : ?>
-                <?= $this->Html->link(__('Checkout'), ['controller' => 'Orders', 'action' => 'addBlankEntity'], ['class' => "btn btn-lg btn-primary mt-2"]) ?>
+                    <?= $this->Html->link(__('Checkout'), ['action' => 'checkout'], ['class' => 'btn btn-lg btn-primary mt-2']) ?>
                 <?php endif; ?>
                 <a href="<?= $this->Url->build('/Menus') ?>" class="btn btn-lg btn-secondary mt-2">Return to Menus</a>
 

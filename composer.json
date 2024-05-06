@@ -11,7 +11,8 @@
         "cakephp/migrations": "^4.0.0",
         "cakephp/plugin-installer": "^2.0",
         "mobiledetect/mobiledetectlib": "^3.74",
-        "ramsey/uuid": "^4.7"
+        "ramsey/uuid": "^4.7",
+        "stripe/stripe-php": "^14.5"
     },
     "require-dev": {
         "cakephp/bake": "^3.0.0",
