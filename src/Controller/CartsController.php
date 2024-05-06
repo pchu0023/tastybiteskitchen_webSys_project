@@ -18,15 +18,14 @@ class CartsController extends AppController
 
         // By default, CakePHP will (sensibly) default to preventing users from accessing any actions on a controller.
         // These actions, however, are typically required for users who have not yet logged in.
-        $this->Authentication->allowUnauthenticated(['index','delete','clear','checkoutClear']);
+        $this->Authentication->allowUnauthenticated(['index','delete','clear','checkoutClear', 'checkout']);
     }
 
     public $modelClass = '';
 
 
-   public function index()
-   {
-
+    public function index()
+    {
    }
 
 
@@ -98,15 +97,48 @@ class CartsController extends AppController
         return $this->redirect(['controller' => 'Carts', 'action' => 'index']);
     }
 
-    public function checkoutClear()
-    {
-        $arr = $this->request->getSession()->read('cart');
+    public function checkout(){
+        require_once '../vendor/autoload.php';
+        require_once '../config/secrets.php';
+        \Stripe\Stripe::setApiKey($stripeSecretKey);
 
-        foreach ($arr as $key => $value) {
-            unset($arr[$key]);
-            $this->request->getSession()->write('cart', $arr);
+//      Build empty array
+        $cartarr = array();
+//      Build cart in Stripe form
+        foreach ($this->request->getSession()->read('cart') as $value) {
+            $product = $value['product'];
+            $quantity = $value['quantity'];
+            $cost = ($product->price) * 100;
+            $name = ($product->name);
+            $description = ($product->description);
+
+            $cart_item = [
+                'price_data' => [
+                    'currency' => 'aud',
+                    'unit_amount' => $cost,
+                    'product_data' => [
+                        'name' => $name,
+                        'description' => $description,
+                    ],
+                ],
+                'quantity' => $quantity,
+            ];
+
+            array_push($cartarr, $cart_item);
         }
-        return $this->redirect(['controller' => 'Carts', 'action' => 'index']);
+
+        header('Content-Type: application/json');
+        $YOUR_DOMAIN = \Cake\Routing\url('/', true);
+
+        $checkout_session = \Stripe\Checkout\Session::create([
+            'line_items' => [$cartarr],
+            'mode' => 'payment',
+            'success_url' => $YOUR_DOMAIN,
+            'cancel_url' => $YOUR_DOMAIN . "Carts",
+        ]);
+
+        header("HTTP/1.1 303 See Other");
+        return $this->redirect($checkout_session->url);
     }
 
 

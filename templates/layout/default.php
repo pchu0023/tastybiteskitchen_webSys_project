@@ -101,9 +101,9 @@ $cakeDescription = 'Tasty Bites Kitchen';
 
         <!-- Begin Page Content -->
         <div class="container-fluid bg-body">
+            <!-- page content here -->
             <?= $this->Flash->render() ?>
             <?= $this->fetch('content') ?>
-            <!-- page content here -->
         </div>
 
     </div>
