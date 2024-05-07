@@ -47,11 +47,12 @@ class OrdersTable extends Table
 
         $this->belongsTo('Payments', [
             'foreignKey' => 'payment_id',
-            'joinType' => 'INNER',
         ]);
         $this->belongsTo('Deliveries', [
             'foreignKey' => 'delivery_id',
-            'joinType' => 'INNER',
+        ]);
+        $this->belongsTo('Users', [
+            'foreignKey' => 'user_id',
         ]);
         $this->belongsToMany('Products', [
             'foreignKey' => 'order_id',
@@ -70,11 +71,35 @@ class OrdersTable extends Table
     {
         $validator
             ->uuid('payment_id')
-            ->notEmptyString('payment_id');
+            ->allowEmptyString('payment_id');
 
         $validator
             ->uuid('delivery_id')
-            ->notEmptyString('delivery_id');
+            ->allowEmptyString('delivery_id');
+
+        $validator
+            ->scalar('delivery_address')
+            ->maxLength('delivery_address', 255)
+            ->requirePresence('delivery_address', 'create')
+            ->notEmptyString('delivery_address');
+
+        $validator
+            ->date('requested_date')
+            ->allowEmptyDate('requested_date');
+
+        $validator
+            ->uuid('user_id')
+            ->allowEmptyString('user_id');
+
+        $validator
+            ->scalar('receiver_name')
+            ->maxLength('receiver_name', 80)
+            ->allowEmptyString('receiver_name');
+
+        $validator
+            ->scalar('receiver_phone')
+            ->maxLength('receiver_phone', 12)
+            ->allowEmptyString('receiver_phone');
 
         return $validator;
     }
@@ -90,6 +115,7 @@ class OrdersTable extends Table
     {
         $rules->add($rules->existsIn(['payment_id'], 'Payments'), ['errorField' => 'payment_id']);
         $rules->add($rules->existsIn(['delivery_id'], 'Deliveries'), ['errorField' => 'delivery_id']);
+        $rules->add($rules->existsIn(['user_id'], 'Users'), ['errorField' => 'user_id']);
 
         return $rules;
     }

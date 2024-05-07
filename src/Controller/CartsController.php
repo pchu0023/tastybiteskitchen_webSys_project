@@ -5,6 +5,8 @@ namespace App\Controller;
 
 use App\Model\Entity\Product;
 use App\Model\Table\ProductsTable;
+use Ramsey\Uuid\Uuid;
+
 /**
  * Carts Controller
  *
@@ -18,7 +20,17 @@ class CartsController extends AppController
 
         // By default, CakePHP will (sensibly) default to preventing users from accessing any actions on a controller.
         // These actions, however, are typically required for users who have not yet logged in.
-        $this->Authentication->allowUnauthenticated(['index','delete','clear','checkoutClear', 'checkout', 'saveDeliveryToSession']);
+        $this->Authentication->allowUnauthenticated(
+            [
+                'index',
+                'delete',
+                'clear',
+                'checkoutClear',
+                'checkout',
+                'saveDeliveryToSession',
+                'transferOrderSuccess',
+                'cardOrderSuccess',
+                ]);
     }
 
     public $modelClass = '';
@@ -156,7 +168,7 @@ class CartsController extends AppController
                 $this->Flash->success('Proceeding to bank transfer...');
 
 //                Still yet to be built.. need to work on this once this session stuff is done!
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['action' => 'transferOrderSuccess']);
             }
 
             return $this->redirect(['action' => 'checkout']);
@@ -171,6 +183,27 @@ class CartsController extends AppController
     }
 
     public function transferOrderSuccess(){
-        
+        $this->Orders = $this->fetchTable('Orders');
+        $session = $this->request->getSession();
+        $deliveryData = $session->read('DeliveryData');
+
+        if (empty($deliveryData)) {
+            $this->Flash->error('No delivery details found.');
+            return $this->redirect(['action' => 'index']); // Redirect to a safe default
+        }
+
+        // Create the order in the database using $deliveryData
+        $order = $this->Orders->newEmptyEntity();
+        $order->id = Uuid::uuid4()->toString();
+        $order->delivery_address = $deliveryData['address'];
+        $order->requested_date = $deliveryData['requested_date'];
+        $order->receiver_name = $deliveryData['first_name'] . ' ' . $deliveryData['last_name'];
+        $order->receiver_phone = $deliveryData['phone_number'];
+        if ($this->Orders->save($order)) {
+            $this->Flash->success(__('The order has been saved.'));
+
+            $this->set(compact('deliveryData'));
+        }
+        $this->Flash->error(__('The order could not be saved. Please, try again.'));
     }
 }

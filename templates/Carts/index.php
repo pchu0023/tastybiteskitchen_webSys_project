@@ -196,8 +196,6 @@
                             </div>
                         </div>
                     </div>
-<!--                Save delivery preferences to session -->
-<!--                Pay with Card button pointing to stripe -->
 <!--                Pay with Bank transfer button -->
 <!--                Redirect to confirmation page which: -->
 <!--                    Creates order -->
