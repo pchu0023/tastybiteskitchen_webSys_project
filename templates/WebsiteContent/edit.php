@@ -106,7 +106,7 @@
                                             <span>Home Image</span>
                                         </h6>
                                         <div class="row">
-                                            <?php echo $this->Form->control('home_image', ['options' => $images, 'label' => false, 'class' => 'd-flex flex form-select', 'empty' => 'None']); ?>
+                                            <?php echo $this->Form->control('home_image', ['options' => $globalImages, 'label' => false, 'class' => 'd-flex flex form-select', 'empty' => 'None']); ?>
                                         </div>
                                         <br />
                                         <div class="row">
@@ -132,7 +132,7 @@
                                             <span>Logo Image</span>
                                         </h6>
                                         <div class="row">
-                                            <?php echo $this->Form->control('logo_image', ['options' => $images, 'label' => false, 'class' => 'd-flex flex form-select', 'empty' => 'None']); ?>
+                                            <?php echo $this->Form->control('logo_image', ['options' => $globalImages, 'label' => false, 'class' => 'd-flex flex form-select', 'empty' => 'None']); ?>
                                         </div>
                                         <br />
                                         <div class="row">
@@ -158,7 +158,7 @@
                                             <span>Home background Image</span>
                                         </h6>
                                         <div class="row">
-                                            <?php echo $this->Form->control('background_image', ['options' => $images, 'label' => false, 'class' => 'd-flex flex form-select', 'empty' => 'None']); ?>
+                                            <?php echo $this->Form->control('background_image', ['options' => $globalImages, 'label' => false, 'class' => 'd-flex flex form-select', 'empty' => 'None']); ?>
                                         </div>
                                         <br />
                                         <div class="row">
@@ -212,7 +212,7 @@
                                             <span>About page Image One</span>
                                         </h6>
                                         <div class="row">
-                                            <?php echo $this->Form->control('image1', ['options' => $images, 'label' => false, 'class' => 'd-flex flex form-select', 'empty' => 'None']); ?>
+                                            <?php echo $this->Form->control('image1', ['options' => $globalImages, 'label' => false, 'class' => 'd-flex flex form-select', 'empty' => 'None']); ?>
                                         </div>
                                         <br />
                                         <div class="row">
@@ -238,7 +238,7 @@
                                             <span>About page Image Two</span>
                                         </h6>
                                         <div class="row">
-                                            <?php echo $this->Form->control('image2', ['options' => $images, 'label' => false, 'class' => 'd-flex flex form-select', 'empty' => 'None']); ?>
+                                            <?php echo $this->Form->control('image2', ['options' => $globalImages, 'label' => false, 'class' => 'd-flex flex form-select', 'empty' => 'None']); ?>
                                         </div>
                                         <br />
                                         <div class="row">
@@ -268,7 +268,7 @@
                                             <span>About page Image Three</span>
                                         </h6>
                                         <div class="row">
-                                            <?php echo $this->Form->control('image3', ['options' => $images, 'label' => false, 'class' => 'd-flex flex form-select', 'empty' => 'None']); ?>
+                                            <?php echo $this->Form->control('image3', ['options' => $globalImages, 'label' => false, 'class' => 'd-flex flex form-select', 'empty' => 'None']); ?>
                                         </div>
                                         <br />
                                         <div class="row">
@@ -294,7 +294,7 @@
                                             <span>About page Image Four</span>
                                         </h6>
                                         <div class="row">
-                                            <?php echo $this->Form->control('image4', ['options' => $images, 'label' => false, 'class' => 'd-flex flex form-select', 'empty' => 'None']); ?>
+                                            <?php echo $this->Form->control('image4', ['options' => $globalImages, 'label' => false, 'class' => 'd-flex flex form-select', 'empty' => 'None']); ?>
                                         </div>
                                         <br />
                                         <div class="row">
