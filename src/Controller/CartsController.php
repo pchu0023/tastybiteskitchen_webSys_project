@@ -192,6 +192,7 @@ class CartsController extends AppController
         $order->receiver_phone = $deliveryData['phone_number'];
         if ($this->Orders->save($order)) {
             $this->set(compact('deliveryData'));
+            $this->set(compact('order'));
         }
         else {
             $this->Flash->error(__('The order could not be saved. Please, try again.'));
@@ -219,6 +220,7 @@ class CartsController extends AppController
 //        it as "unpaid" here!
         if ($this->Orders->save($order)) {
             $this->set(compact('deliveryData'));
+            $this->set(compact('order'));
         }
         else {
             $this->Flash->error(__('The order could not be saved. Please, try again.'));

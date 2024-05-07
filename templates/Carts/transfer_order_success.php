@@ -28,7 +28,7 @@
                 <tbody>
                 <tr>
                     <th scope="row">Order ID</th>
-                    <td><?= h($deliveryData['first_name']) ?></td>
+                    <td><?= h($order->id) ?></td>
                 </tr>
                 </tbody>
             </table>
@@ -36,11 +36,37 @@
         <div class="col-12">
             <h5>Items</h5>
             <table class="table">
+                <thead>
+                    <tr>
+                        <th class="text-center py-3 px-4" style="min-width: 400px;">Product Name &amp; Details</th>
+                        <th class="text-right py-3 px-4" style="width: 100px;">Price</th>
+                        <th class="text-center py-3 px-4" style="width: 120px;">Quantity</th>
+                    </tr>
+                </thead>
                 <tbody>
-                <tr>
-                    <th scope="row">Item 1</th>
-                    <td><?= h($deliveryData['first_name']) ?></td>
-                </tr>
+                <?php foreach ($this->request->getSession()->read('cart') as $value) :
+                    $product = $value['product'];
+                    $quant = $value['quantity'];
+                ?>
+                    <tr>
+                        <td class="p-4">
+                            <div class="media align-items-center">
+                                <div class="media-body">
+                                    <a href="#" class="d-block text-dark"></a>
+                                        <small>
+                                            <span class="text-primary" id="productID"><?= $this->Html->link(__($product->name), ['controller' => 'Products', 'action' => 'view', $product->id]) ?></span>
+                                            <span class="ui-product-color ui-product-color-sm align-text-bottom" style="background:#e81e2c;"></span> &nbsp;
+                                        </small>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="text-right font-weight-semibold align-middle p-4"><?= $product->price ?></td>
+                        <td class="align-middle p-4"><input name="quantity[]" readonly type="number" min = 1 max = 10 step = 1 class="form-control text-center" value="<?= $quant ?>"
+                                                            onchange="this.value = Math.round(this.value);"/>
+                        </td>
+                        <td class="text-right font-weight-semibold align-middle p-4" id="totalProdPrice"><?= $product->price * $quant ?></td>
+                    </tr>
+                <?php endforeach; ?>
                 </tbody>
             </table>
         </div>

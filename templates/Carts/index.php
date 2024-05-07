@@ -196,13 +196,8 @@
                             </div>
                         </div>
                     </div>
-<!--                Pay with Bank transfer button -->
-<!--                Redirect to confirmation page which: -->
-<!--                    Creates order -->
 <!--                    Creates delivery -->
 <!--                    Creates payment -->
-<!--                        If from Stripe, then paid -->
-<!--                        Else, then set as not paid -->
 <!--                    Links order and delivery -->
                 <?php endif; ?>
                 <a href="<?= $this->Url->build('/Menus') ?>" class="btn btn-lg btn-secondary mt-2">Return to Menus</a>
