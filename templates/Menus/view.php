@@ -31,8 +31,9 @@
                 </aside>
             <?php else : ?>
 
-                <div class="container-xxl py-5 bg-dark hero-header mb-5" style="background: linear-gradient(rgba(15, 23, 43, .9), rgba(15, 23, 43, .9)), url('<?= htmlspecialchars($websiteContent->background_image) ?>'); background-position: center center; background-repeat: no-repeat; background-size: cover;">                    <div class="container text-center my-5 pt-5 pb-4">
-                        <h1 class="display-3 text-white mb-3 animated slideInDown " >Menu Item</h1>
+                <div class="container-xxl py-5 bg-dark hero-header mb-5" style="background: linear-gradient(rgba(15, 23, 43, .9), rgba(15, 23, 43, .9)), url('<?= htmlspecialchars($websiteContent->background_image) ?>'); background-position: center center; background-repeat: no-repeat; background-size: cover;">
+                    <div class="container text-center my-5 pt-5 pb-4">
+                        <h1 class="display-3 text-white mb-3 animated slideInDown ">Menu Item</h1>
                     </div>
                 </div>
 

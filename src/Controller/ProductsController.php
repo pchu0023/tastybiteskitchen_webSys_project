@@ -155,9 +155,9 @@ class ProductsController extends AppController
         if ($refererUrl) {
             return $this->redirect($refererUrl);
         } else {
-            // If referer URL is not available, redirect to a default page
-            return $this->redirect(['controller' => 'Menus', 'action' => 'index']);
-        }
+            // If referer URL is not available, redirect to the current page
+        return $this->redirect($this->referer());
+    }
         // return $this->redirect($this->referer());
         // return $this->redirect(['Controller'=> 'Menus','action' => 'view']);
 
