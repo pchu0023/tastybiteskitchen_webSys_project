@@ -104,19 +104,8 @@ $cakeDescription = 'Tasty Bites Kitchen';
 
 
                 </div>
-                <?php
-                if (!$this->Identity->isLoggedIn()) {
-                    echo $this->Html->link(
-                        'LOG IN',
-                        ['controller' => 'Auth', 'action' => 'login'],
-                        ['class' => 'button button-outline']);
-                }
-                ?>
-                <?php
-                if ($this->Identity->isLoggedIn()) {
-                    echo $this->Html->link('LOGOUT', ['controller' => 'Auth', 'action' => 'logout']);
-                }
-                ?>
+               
+    
             </div>
         </nav>
     </div>

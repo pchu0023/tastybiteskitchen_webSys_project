@@ -151,7 +151,16 @@ class ProductsController extends AppController
 
         // Success message & Redirect to menus
         $this->Flash->success(__('Product added to cart.'));
-        return $this->redirect($this->referer());
+        $refererUrl = $this->request->getQuery('return_to');
+        if ($refererUrl) {
+            return $this->redirect($refererUrl);
+        } else {
+            // If referer URL is not available, redirect to a default page
+            return $this->redirect(['controller' => 'Menus', 'action' => 'index']);
+        }
+        // return $this->redirect($this->referer());
+        // return $this->redirect(['Controller'=> 'Menus','action' => 'view']);
+
     }
 
 
