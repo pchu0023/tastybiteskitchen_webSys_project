@@ -145,7 +145,6 @@
             <div class="float-left">
             <!--  Change this to redirect to the payment confirmation page when completed -->
                 <?php if (!empty($this->request->getSession()->read('cart'))) : ?>
-<!--                Create modal pop-up asking for delivery preferences -->
                     <!-- Button to trigger modal -->
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#checkoutModal">
                         Checkout Now!
@@ -169,9 +168,6 @@
                                             <?= $this->Form->control('phone_number', ['label' => 'Phone Number', 'type' => 'tel', 'required' => true, 'class' => 'form-control']) ?>
                                             <?= $this->Form->control('email', ['label' => 'Email Address', 'type' => 'email', 'required' => true, 'class' => 'form-control']) ?>
                                             <?= $this->Form->control('address', ['label' => 'Delivery Address', 'required' => true, 'class' => 'form-control']) ?>
-                                            <!-- <?= $this->Form->control('city', ['label' => 'City', 'required' => true, 'class' => 'form-control']) ?>
-                                            <?= $this->Form->control('zip', ['label' => 'Postal / Zip Code', 'required' => true, 'class' => 'form-control']) ?>
-                                            <?= $this->Form->control('state', ['label' => 'State / Province / Region', 'class' => 'form-control']) ?> -->
                                             <?= $this->Form->control('requested_date', ['label' => 'Requested Delivery Date', 'type' => 'date', 'required' => true, 'class' => 'form-control']) ?>
                                         </div>
                                     </div>
