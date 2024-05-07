@@ -5,6 +5,8 @@ namespace App\Controller;
 
 use App\Model\Entity\Product;
 use App\Model\Table\ProductsTable;
+use Ramsey\Uuid\Uuid;
+
 /**
  * Carts Controller
  *
@@ -18,7 +20,17 @@ class CartsController extends AppController
 
         // By default, CakePHP will (sensibly) default to preventing users from accessing any actions on a controller.
         // These actions, however, are typically required for users who have not yet logged in.
-        $this->Authentication->allowUnauthenticated(['index','delete','clear','checkoutClear', 'checkout']);
+        $this->Authentication->allowUnauthenticated(
+            [
+                'index',
+                'delete',
+                'clear',
+                'checkoutClear',
+                'checkout',
+                'saveDeliveryToSession',
+                'transferOrderSuccess',
+                'cardOrderSuccess',
+                ]);
     }
 
     public $modelClass = '';
@@ -134,7 +146,7 @@ class CartsController extends AppController
         $checkout_session = \Stripe\Checkout\Session::create([
             'line_items' => [$cartarr],
             'mode' => 'payment',
-            'success_url' => $YOUR_DOMAIN,
+            'success_url' => $YOUR_DOMAIN . "Carts/card_order_success",
             'cancel_url' => $YOUR_DOMAIN . "Carts",
         ]);
 
@@ -142,5 +154,76 @@ class CartsController extends AppController
         return $this->redirect($checkout_session->url);
     }
 
+    public function saveDeliveryToSession(){
 
+        if ($this->request->is('post')) {
+            $formData = $this->request->getData();
+            $this->request->getSession()->write('DeliveryData', $formData);
+
+            if ($formData['submit'] === 'card') {
+                return $this->redirect(['action' => 'checkout']);
+            } elseif ($formData['submit'] === 'bank') {
+                return $this->redirect(['action' => 'transferOrderSuccess']);
+            }
+
+            return $this->redirect(['action' => 'checkout']);
+        }
+        $this->Flash->error('Unexpected and invalid request occurred! Please try again.');
+
+        return $this->redirect(['action' => 'index']);
+    }
+
+    public function cardOrderSuccess(){
+        $this->Orders = $this->fetchTable('Orders');
+        $session = $this->request->getSession();
+        $deliveryData = $session->read('DeliveryData');
+
+        if (empty($deliveryData)) {
+            $this->Flash->error('No delivery details found.');
+            return $this->redirect(['action' => 'index']);
+        }
+
+        // Create the order in the database using $deliveryData
+        $order = $this->Orders->newEmptyEntity();
+        $order->id = Uuid::uuid4()->toString();
+        $order->delivery_address = $deliveryData['address'];
+        $order->requested_date = $deliveryData['requested_date'];
+        $order->receiver_name = $deliveryData['first_name'] . ' ' . $deliveryData['last_name'];
+        $order->receiver_phone = $deliveryData['phone_number'];
+        if ($this->Orders->save($order)) {
+            $this->set(compact('deliveryData'));
+            $this->set(compact('order'));
+        }
+        else {
+            $this->Flash->error(__('The order could not be saved. Please, try again.'));
+        }
+    }
+
+    public function transferOrderSuccess(){
+        $this->Orders = $this->fetchTable('Orders');
+        $session = $this->request->getSession();
+        $deliveryData = $session->read('DeliveryData');
+
+        if (empty($deliveryData)) {
+            $this->Flash->error('No delivery details found.');
+            return $this->redirect(['action' => 'index']);
+        }
+
+        // Create the order in the database using $deliveryData
+        $order = $this->Orders->newEmptyEntity();
+        $order->id = Uuid::uuid4()->toString();
+        $order->delivery_address = $deliveryData['address'];
+        $order->requested_date = $deliveryData['requested_date'];
+        $order->receiver_name = $deliveryData['first_name'] . ' ' . $deliveryData['last_name'];
+        $order->receiver_phone = $deliveryData['phone_number'];
+//        Team, as I've stated before, I would seriously recommend adding an attribute about payment, and we can mark
+//        it as "unpaid" here!
+        if ($this->Orders->save($order)) {
+            $this->set(compact('deliveryData'));
+            $this->set(compact('order'));
+        }
+        else {
+            $this->Flash->error(__('The order could not be saved. Please, try again.'));
+        }
+    }
 }

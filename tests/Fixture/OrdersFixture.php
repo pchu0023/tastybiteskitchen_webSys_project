@@ -19,9 +19,14 @@ class OrdersFixture extends TestFixture
     {
         $this->records = [
             [
-                'id' => '48b5d6d0-746a-400c-95fa-05b211ee7008',
-                'payment_id' => 'a19333aa-dcce-42ae-9ca2-6d909ce7f16c',
-                'delivery_id' => '069da352-ca95-4ea4-8206-0e69626b883b',
+                'id' => '2b1e357b-2995-40f6-bf7b-c15ba6d86869',
+                'payment_id' => 'a4bf24c2-e971-4008-9f35-271761e2b94c',
+                'delivery_id' => '15e464a7-c994-4e85-af50-e7b10a282cb8',
+                'delivery_address' => 'Lorem ipsum dolor sit amet',
+                'requested_date' => '2024-05-07',
+                'user_id' => '4b314e08-ce75-40ef-bb8a-9d0d7a0b5da2',
+                'receiver_name' => 'Lorem ipsum dolor sit amet',
+                'receiver_phone' => 'Lorem ipsu',
             ],
         ];
         parent::init();
