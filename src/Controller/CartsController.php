@@ -189,7 +189,7 @@ class CartsController extends AppController
 
         if (empty($deliveryData)) {
             $this->Flash->error('No delivery details found.');
-            return $this->redirect(['action' => 'index']); // Redirect to a safe default
+            return $this->redirect(['action' => 'index']);
         }
 
         // Create the order in the database using $deliveryData
@@ -199,11 +199,13 @@ class CartsController extends AppController
         $order->requested_date = $deliveryData['requested_date'];
         $order->receiver_name = $deliveryData['first_name'] . ' ' . $deliveryData['last_name'];
         $order->receiver_phone = $deliveryData['phone_number'];
+//        Team, as I've stated before, I would seriously recommend adding an attribute about payment, and we can mark
+//        it as "unpaid" here!
         if ($this->Orders->save($order)) {
-            $this->Flash->success(__('The order has been saved.'));
-
             $this->set(compact('deliveryData'));
         }
-        $this->Flash->error(__('The order could not be saved. Please, try again.'));
+        else {
+            $this->Flash->error(__('The order could not be saved. Please, try again.'));
+        }
     }
 }
