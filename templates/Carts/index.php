@@ -146,25 +146,40 @@
             <!--  Change this to redirect to the payment confirmation page when completed -->
                 <?php if (!empty($this->request->getSession()->read('cart'))) : ?>
 <!--                Create modal pop-up asking for delivery preferences -->
-                    <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        Launch demo modal
+                    <!-- Button to trigger modal -->
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#checkoutModal">
+                        Checkout Now!
                     </button>
 
                     <!-- Modal -->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="checkoutModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                    <h5 class="modal-title" id="checkoutModalLabel">Set Delivery Preferences</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    ...
+                                    <?= $this->Form->create(null, ['url' => ['controller' => 'Orders', 'action' => 'checkout'], 'method' => 'post', 'id' => 'checkoutForm']) ?>
+                                    <div class="row">
+                                        <div class="col-lg-8">
+                                            <!-- User inputs for order processing -->
+                                            <?= $this->Form->control('first_name', ['label' => 'First Name', 'required' => true, 'class' => 'form-control']) ?>
+                                            <?= $this->Form->control('last_name', ['label' => 'Last Name', 'required' => true, 'class' => 'form-control']) ?>
+                                            <?= $this->Form->control('phone_number', ['label' => 'Phone Number', 'type' => 'tel', 'required' => true, 'class' => 'form-control']) ?>
+                                            <?= $this->Form->control('email', ['label' => 'Email Address', 'type' => 'email', 'required' => true, 'class' => 'form-control']) ?>
+                                            <?= $this->Form->control('address', ['label' => 'Delivery Address', 'required' => true, 'class' => 'form-control']) ?>
+                                            <!-- <?= $this->Form->control('city', ['label' => 'City', 'required' => true, 'class' => 'form-control']) ?>
+                                            <?= $this->Form->control('zip', ['label' => 'Postal / Zip Code', 'required' => true, 'class' => 'form-control']) ?>
+                                            <?= $this->Form->control('state', ['label' => 'State / Province / Region', 'class' => 'form-control']) ?> -->
+                                            <?= $this->Form->control('requested_date', ['label' => 'Requested Delivery Date', 'type' => 'date', 'required' => true, 'class' => 'form-control']) ?>
+                                        </div>
+                                    </div>
+                                    <?= $this->Form->end() ?>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                    <?= $this->Html->link(__('Pay with Card'), ['action' => 'checkout'], ['class' => 'btn btn-lg btn-primary mt-2']) ?>
+                                    <?= $this->Html->link(__('Pay with Bank Transfer'), ['action' => 'checkout'], ['class' => 'btn btn-lg btn-primary mt-2']) ?>
                                 </div>
                             </div>
                         </div>
@@ -179,7 +194,6 @@
 <!--                        If from Stripe, then paid -->
 <!--                        Else, then set as not paid -->
 <!--                    Links order and delivery -->
-                    <?= $this->Html->link(__('Checkout'), ['action' => 'checkout'], ['class' => 'btn btn-lg btn-primary mt-2']) ?>
                 <?php endif; ?>
                 <a href="<?= $this->Url->build('/Menus') ?>" class="btn btn-lg btn-secondary mt-2">Return to Menus</a>
 
