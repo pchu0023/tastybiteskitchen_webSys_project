@@ -145,6 +145,17 @@
             <div class="float-left">
             <!--  Change this to redirect to the payment confirmation page when completed -->
                 <?php if (!empty($this->request->getSession()->read('cart'))) : ?>
+<!--                Create modal pop-up asking for delivery preferences -->
+<!--                Save delivery preferences to session -->
+<!--                Pay with Card button pointing to stripe -->
+<!--                Pay with Bank transfer button -->
+<!--                Redirect to confirmation page which: -->
+<!--                    Creates order -->
+<!--                    Creates delivery -->
+<!--                    Creates payment -->
+<!--                        If from Stripe, then paid -->
+<!--                        Else, then set as not paid -->
+<!--                    Links order and delivery -->
                     <?= $this->Html->link(__('Checkout'), ['action' => 'checkout'], ['class' => 'btn btn-lg btn-primary mt-2']) ?>
                 <?php endif; ?>
                 <a href="<?= $this->Url->build('/Menus') ?>" class="btn btn-lg btn-secondary mt-2">Return to Menus</a>
