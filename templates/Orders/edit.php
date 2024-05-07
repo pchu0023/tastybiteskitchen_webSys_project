@@ -32,6 +32,32 @@
                     echo $this->Form->control('delivery_id', ['options' => $deliveries]);
                     echo $this->Form->control('products._ids', ['options' => $products]);
                     ?>
+
+                    <table>
+                        <tr>
+                            <th><?= __('Id') ?></th>
+                            <th><?= __('Name') ?></th>
+                            <th><?= __('Price') ?></th>
+                            <th><?= __('Description') ?></th>
+                            <th class="actions"><?= __('Actions') ?></th>
+                        </tr>
+                        <?php foreach ($order->products as $product) : ?>
+                            <tr>
+                                <td><?= h($product->id) ?></td>
+                                <td><?= h($product->name) ?></td>
+                                <td><?= h($product->price) ?></td>
+                                <td><?= h($product->description) ?></td>
+                                <td class="actions">
+<!--                                    --><?php //= $this->Html->link(__('View Product'), ['controller' => 'Products', 'action' => 'view', $product->id]) ?>
+                                    <?= $this->Html->link(__('View Product'), ['controller' => 'Products', 'action' => 'view', $product->id]) ?>
+                                    <?= $this->Html->link(__('Edit Product'), ['controller' => 'Products', 'action' => 'edit', $product->id]) ?>
+                                    <?= $this->Html->link(__('Remove'), ['controller' => 'OrdersProducts', 'action' => 'deleteRelation', $order->id, $product->id]) ?>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </table>
+
+
                 </fieldset>
                 <?= $this->Form->button(__('Submit')) ?>
                 <?= $this->Form->end() ?>

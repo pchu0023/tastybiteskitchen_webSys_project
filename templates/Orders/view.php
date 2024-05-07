@@ -44,7 +44,6 @@
                                     <th><?= __('Name') ?></th>
                                     <th><?= __('Price') ?></th>
                                     <th><?= __('Description') ?></th>
-                                    <th class="actions"><?= __('Actions') ?></th>
                                 </tr>
                                 <?php foreach ($order->products as $product) : ?>
                                     <tr>
@@ -52,11 +51,6 @@
                                         <td><?= h($product->name) ?></td>
                                         <td><?= h($product->price) ?></td>
                                         <td><?= h($product->description) ?></td>
-                                        <td class="actions">
-                                            <?= $this->Html->link(__('View'), ['controller' => 'Products', 'action' => 'view', $product->id]) ?>
-                                            <?= $this->Html->link(__('Edit'), ['controller' => 'Products', 'action' => 'edit', $product->id]) ?>
-                                            <?= $this->Form->postLink(__('Delete'), ['controller' => 'Products', 'action' => 'delete', $product->id], ['confirm' => __('Are you sure you want to delete # {0}?', $product->id)]) ?>
-                                        </td>
                                     </tr>
                                 <?php endforeach; ?>
                             </table>
