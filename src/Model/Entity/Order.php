@@ -9,8 +9,13 @@ use Cake\ORM\Entity;
  * Order Entity
  *
  * @property string $id
- * @property string $payment_id
- * @property string $delivery_id
+ * @property string|null $payment_id
+ * @property string|null $delivery_id
+ * @property string $delivery_address
+ * @property \Cake\I18n\Date|null $requested_date
+ * @property string|null $user_id
+ * @property string|null $receiver_name
+ * @property string|null $receiver_phone
  *
  * @property \App\Model\Entity\Payment $payment
  * @property \App\Model\Entity\Delivery $delivery
@@ -30,6 +35,11 @@ class Order extends Entity
     protected array $_accessible = [
         'payment_id' => true,
         'delivery_id' => true,
+        'delivery_address' => true,
+        'requested_date' => true,
+        'user_id' => true,
+        'receiver_name' => true,
+        'receiver_phone' => true,
         'payment' => true,
         'delivery' => true,
         'products' => true,
