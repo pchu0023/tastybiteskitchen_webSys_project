@@ -158,8 +158,14 @@
                                     <h5 class="modal-title" id="checkoutModalLabel">Set Delivery Preferences</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
+                                <?= $this->Form->create(
+                                    null,
+                                    ['url' => ['action' => 'saveDeliveryToSession'],
+                                        'method' => 'post',
+                                        'id' => 'checkoutForm',
+                                    ]
+                                ) ?>
                                 <div class="modal-body">
-                                    <?= $this->Form->create(null, ['url' => ['controller' => 'Orders', 'action' => 'checkout'], 'method' => 'post', 'id' => 'checkoutForm']) ?>
                                     <div class="row">
                                         <div class="col-lg-8">
                                             <!-- User inputs for order processing -->
@@ -171,12 +177,22 @@
                                             <?= $this->Form->control('requested_date', ['label' => 'Requested Delivery Date', 'type' => 'date', 'required' => true, 'class' => 'form-control']) ?>
                                         </div>
                                     </div>
-                                    <?= $this->Form->end() ?>
                                 </div>
                                 <div class="modal-footer">
-                                    <?= $this->Html->link(__('Pay with Card'), ['action' => 'checkout'], ['class' => 'btn btn-lg btn-primary mt-2']) ?>
-                                    <?= $this->Html->link(__('Pay with Bank Transfer'), ['action' => 'checkout'], ['class' => 'btn btn-lg btn-primary mt-2']) ?>
+                                    <?= $this->Form->button(__('Pay with Card'), [
+                                        'type' => 'submit',
+                                        'class' => 'btn btn-lg btn-primary mt-2',
+                                        'name' => 'submit',
+                                        'value' => 'card',
+                                    ]) ?>
+                                    <?= $this->Form->button(__('Pay with Bank Transfer'), [
+                                        'type' => 'submit',
+                                        'class' => 'btn btn-lg btn-primary mt-2',
+                                        'name' => 'submit',
+                                        'value' => 'bank',
+                                    ]) ?>
                                 </div>
+                                <?= $this->Form->end() ?>
                             </div>
                         </div>
                     </div>

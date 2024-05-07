@@ -18,7 +18,7 @@ class CartsController extends AppController
 
         // By default, CakePHP will (sensibly) default to preventing users from accessing any actions on a controller.
         // These actions, however, are typically required for users who have not yet logged in.
-        $this->Authentication->allowUnauthenticated(['index','delete','clear','checkoutClear', 'checkout']);
+        $this->Authentication->allowUnauthenticated(['index','delete','clear','checkoutClear', 'checkout', 'saveDeliveryToSession']);
     }
 
     public $modelClass = '';
@@ -142,5 +142,35 @@ class CartsController extends AppController
         return $this->redirect($checkout_session->url);
     }
 
+    public function saveDeliveryToSession(){
 
+        if ($this->request->is('post')) {
+            $formData = $this->request->getData();
+            $this->request->getSession()->write('DeliveryData', $formData);
+
+            if ($formData['submit'] === 'card') {
+                $this->Flash->success('Proceeding to card payment...');
+
+                return $this->redirect(['action' => 'checkout']);
+            } elseif ($formData['submit'] === 'bank') {
+                $this->Flash->success('Proceeding to bank transfer...');
+
+//                Still yet to be built.. need to work on this once this session stuff is done!
+                return $this->redirect(['action' => 'index']);
+            }
+
+            return $this->redirect(['action' => 'checkout']);
+        }
+        $this->Flash->error('Unexpected and invalid request occurred! Please try again.');
+
+        return $this->redirect(['action' => 'index']);
+    }
+
+    public function cardOrderSuccess(){
+
+    }
+
+    public function transferOrderSuccess(){
+        
+    }
 }
