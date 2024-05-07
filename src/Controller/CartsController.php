@@ -146,7 +146,7 @@ class CartsController extends AppController
         $checkout_session = \Stripe\Checkout\Session::create([
             'line_items' => [$cartarr],
             'mode' => 'payment',
-            'success_url' => $YOUR_DOMAIN,
+            'success_url' => $YOUR_DOMAIN . "Carts/card_order_success",
             'cancel_url' => $YOUR_DOMAIN . "Carts",
         ]);
 
@@ -161,13 +161,8 @@ class CartsController extends AppController
             $this->request->getSession()->write('DeliveryData', $formData);
 
             if ($formData['submit'] === 'card') {
-                $this->Flash->success('Proceeding to card payment...');
-
                 return $this->redirect(['action' => 'checkout']);
             } elseif ($formData['submit'] === 'bank') {
-                $this->Flash->success('Proceeding to bank transfer...');
-
-//                Still yet to be built.. need to work on this once this session stuff is done!
                 return $this->redirect(['action' => 'transferOrderSuccess']);
             }
 
@@ -179,7 +174,28 @@ class CartsController extends AppController
     }
 
     public function cardOrderSuccess(){
+        $this->Orders = $this->fetchTable('Orders');
+        $session = $this->request->getSession();
+        $deliveryData = $session->read('DeliveryData');
 
+        if (empty($deliveryData)) {
+            $this->Flash->error('No delivery details found.');
+            return $this->redirect(['action' => 'index']);
+        }
+
+        // Create the order in the database using $deliveryData
+        $order = $this->Orders->newEmptyEntity();
+        $order->id = Uuid::uuid4()->toString();
+        $order->delivery_address = $deliveryData['address'];
+        $order->requested_date = $deliveryData['requested_date'];
+        $order->receiver_name = $deliveryData['first_name'] . ' ' . $deliveryData['last_name'];
+        $order->receiver_phone = $deliveryData['phone_number'];
+        if ($this->Orders->save($order)) {
+            $this->set(compact('deliveryData'));
+        }
+        else {
+            $this->Flash->error(__('The order could not be saved. Please, try again.'));
+        }
     }
 
     public function transferOrderSuccess(){
