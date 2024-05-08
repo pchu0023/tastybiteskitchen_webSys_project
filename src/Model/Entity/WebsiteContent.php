@@ -16,6 +16,8 @@ use Cake\ORM\Entity;
  * @property string|null $email
  * @property string|null $opening_time_weekdays
  * @property string|null $opening_time_weekends
+ * @property string|null $opening_content1
+ * @property string|null $opening_content2
  * @property string|null $logo_image
  * @property string|null $about_title
  * @property string|null $about_description
@@ -43,6 +45,8 @@ class WebsiteContent extends Entity
         'email' => true,
         'opening_time_weekdays' => true,
         'opening_time_weekends' => true,
+        'opening_content1' => true,
+        'opening_content2' => true,
         'logo_image' => true,
         'about_title' => true,
         'about_description' => true,
