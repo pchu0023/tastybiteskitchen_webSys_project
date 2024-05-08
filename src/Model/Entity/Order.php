@@ -16,6 +16,7 @@ use Cake\ORM\Entity;
  * @property \App\Model\Entity\Payment $payment
  * @property \App\Model\Entity\Delivery $delivery
  * @property \App\Model\Entity\Product[] $products
+ * @property \App\Model\Entity\OrdersProduct[] $ordersProduct
  */
 class Order extends Entity
 {
@@ -34,6 +35,7 @@ class Order extends Entity
         'payment' => true,
         'delivery' => true,
         'products' => true,
+        'ordersProduct' => true,
         'status' => true,
     ];
 }

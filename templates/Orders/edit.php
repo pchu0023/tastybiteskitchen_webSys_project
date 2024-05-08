@@ -5,6 +5,7 @@
  * @var string[]|\Cake\Collection\CollectionInterface $payments
  * @var string[]|\Cake\Collection\CollectionInterface $deliveries
  * @var string[]|\Cake\Collection\CollectionInterface $products
+ * @var string[]|\Cake\Collection\CollectionInterface $ordersProduct
  */
 ?>
 <?php if($this->Identity->get('type') != "emp") : ?>
@@ -14,6 +15,53 @@
         <aside class="column">
             <div class="side-nav">
                 <h4 class="heading"><?= __('Actions') ?></h4>
+
+<!--               Form for showing ordersProducts details -->
+                <h5 class="heading"><?= __('Related OrderProducts') ?></h5>
+                <table>
+                    <tr>
+                        <th><?= __('Id') ?></th>
+                        <th><?= __('Product ID') ?></th>
+                        <th><?= __('Order ID') ?></th>
+                        <th><?= __('Quantity') ?></th>
+                        <th class="actions"><?= __('Actions') ?></th>
+                    </tr>
+                    <?php foreach ($order->ordersProduct as $orderProduct) : ?>
+                        <tr>
+                            <td><?= h($orderProduct->id) ?></td>
+                            <td><?= h($orderProduct->product_id) ?></td>
+                            <td><?= h($orderProduct->order_id) ?></td>
+                            <td><?= h($orderProduct->quantity) ?></td>
+                            <td class="actions">
+                                <?= $this->Form->create(null, [['controller' => 'OrdersProducts', 'action' => 'updateQuant']]) ?>
+                            <td><?= h($order->ordersProduct) ?></td>
+                            <?= $this->Form->control('quantity', ['options' => $ordersProduct]) ?>
+                            <?= $this->Form->end() ?>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+
+
+
+
+                    <?php foreach ($order->products as $product) : ?>
+                        <tr>
+                            <td><?= h($product->id) ?></td>
+                            <td><?= h($product->name) ?></td>
+                            <td><?= h($product->price) ?></td>
+                            <td><?= h($product->description) ?></td>
+                            <td class="actions">
+                                <?= $this->Form->create(null, [['controller' => 'OrdersProducts', 'action' => 'updateQuant']]) ?>
+                                <?= h($ordersProduct->quantity) ?>
+                                <?= $this->Form->control('quantity', ['options' => $ordersProduct]) ?>
+                                <?= $this->Form->end() ?>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                </table>
+
+
+
                 <?= $this->Form->postLink(
                     __('Delete'),
                     ['action' => 'delete', $order->id],

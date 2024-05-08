@@ -11,6 +11,7 @@ use Cake\ORM\Entity;
  * @property string $id
  * @property string $order_id
  * @property string $product_id
+ * @property int $quantity
  *
  * @property \App\Model\Entity\Order $order
  * @property \App\Model\Entity\Product $product
@@ -29,6 +30,7 @@ class OrdersProduct extends Entity
     protected array $_accessible = [
         'order_id' => true,
         'product_id' => true,
+        'quantity' => true,
         'order' => true,
         'product' => true,
     ];

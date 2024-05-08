@@ -108,7 +108,8 @@ class OrdersController extends AppController
         $payments = $this->Orders->Payments->find('list', limit: 200)->all();
         $deliveries = $this->Orders->Deliveries->find('list', limit: 200)->all();
         $products = $this->Orders->Products->find('list', limit: 200)->all();
-        $this->set(compact('order', 'payments', 'deliveries', 'products'));
+        $ordersProduct = $this->Orders->Products->junction()->find('list', limit: 200)->all();
+        $this->set(compact('order', 'payments', 'deliveries', 'products', 'ordersProduct'));
     }
 
     /**
