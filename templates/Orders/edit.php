@@ -43,7 +43,7 @@
 
 
 
-
+                    <h5 class="heading"><?= __('Related Products') ?></h5>
                     <?php foreach ($order->products as $product) : ?>
                         <tr>
                             <td><?= h($product->id) ?></td>
