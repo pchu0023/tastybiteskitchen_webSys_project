@@ -65,6 +65,7 @@ class ProductsTable extends Table
             'foreignKey' => 'product_id',
             'targetForeignKey' => 'order_id',
             'joinTable' => 'orders_products',
+            'through' => 'OrdersProducts',
         ]);
     }
 
@@ -100,7 +101,7 @@ class ProductsTable extends Table
                     return is_numeric($value);
                 },
                 'message' => 'Price must only contain numbers.'
-            ]);            
+            ]);
 
         $validator
             ->scalar('description')
@@ -123,7 +124,7 @@ class ProductsTable extends Table
                     return is_numeric($value);
                 },
                 'message' => 'Quantity must only contain numbers.'
-            ]); 
+            ]);
             $validator
             ->scalar('extra_info')
             ->maxLength('extra_info', 200);

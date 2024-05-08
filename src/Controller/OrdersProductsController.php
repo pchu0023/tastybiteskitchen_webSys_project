@@ -117,7 +117,7 @@ class OrdersProductsController extends AppController
             if ($this->OrdersProducts->save($ordersProduct)) {
                 $this->Flash->success(__('The orders product has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['controller' => 'Orders', 'action' => 'index']);
             }
             $this->Flash->error(__('The orders product could not be saved. Please, try again.'));
         }

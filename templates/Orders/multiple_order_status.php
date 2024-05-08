@@ -4,7 +4,9 @@
  * @var \App\Model\Entity\Order[]|\Cake\Collection\CollectionInterface $orders
  */
 ?>
-
+<?php if($this->Identity->get('type') != "emp") : ?>
+    <div class="alert alert-danger">You do not have privileges to view this page.</div>
+<?php else : ?>
 <?= $this->Form->create(null, ['url' => ['controller' => 'Orders', 'action' => 'updateAllOrderStatus']]) ?>
 <div class="orders index content">
     <!-- display for admin -->
@@ -45,3 +47,4 @@
     <br/>
 </div>
 <?= $this->Form->end() ?>
+<?php endif; ?>
