@@ -74,10 +74,7 @@ class MenusTable extends Table
             ->boolean('active')
             ->notEmptyString('active');
 
-        $validator
-            ->boolean('catering')
-            ->notEmptyString('catering');
-
+       
         return $validator;
     }
 }

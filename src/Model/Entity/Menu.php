@@ -12,7 +12,6 @@ use Cake\ORM\Entity;
  * @property string $name
  * @property string $description
  * @property bool $active
- * @property bool $catering
  *
  * @property \App\Model\Entity\Product[] $products
  */
@@ -31,7 +30,6 @@ class Menu extends Entity
         'name' => true,
         'description' => true,
         'active' => true,
-        'catering' => true,
         'products' => true,
     ];
 }

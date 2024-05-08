@@ -6,19 +6,11 @@
  */
 ?>
 <div class="menus index content">
-    
+
     <div class="container-xxl py-5 bg-dark hero-header mb-5" style="background: linear-gradient(rgba(15, 23, 43, .9), rgba(15, 23, 43, .9)), url('<?= htmlspecialchars($websiteContent->background_image) ?>'); background-position: center center; background-repeat: no-repeat; background-size: cover;">
         <div class="container text-center my-5 pt-5 pb-4">
             <h1 class="display-3 text-white mb-3 animated slideInDown">Basic Active Menu</h1>
-            <div class="text-center">
-                <?= $this->Html->link(__('View Catering Menu'), ['action' => 'caterIndex'], ['class' => 'btn btn-secondary float-right']) ?>
-            </div>
-    <!-- <div class="container-lg py-1 bg-light hero-header mb-5" style="background: linear-gradient(rgba(15, 23, 43, .9), rgba(15, 23, 43, .9)), url('<?= htmlspecialchars($websiteContent->background_image) ?>'); background-position: center center; background-repeat: no-repeat; background-size: cover;">
-        <div class="container text-center my-5 pt-5 pb-4">
-            <h1 class="display-3 text-white mb-3 animated slideInDown">Basic Active Menu</h1>
-            <div class="text-center">
-                <?= $this->Html->link(__('View Catering Menu'), ['action' => 'caterIndex'], ['class' => 'btn btn-secondary float-right']) ?>
-            </div> -->
+
 
         </div>
 
@@ -28,9 +20,10 @@
 <div class="container">
     <div class="row row-cols-1 row-cols-md-2 g-4">
         <?php foreach ($menus as $menu) : ?>
-            <?php if ($menu->active === TRUE && $menu->catering === FALSE) : ?>
+            <?php if ($menu->active === TRUE) : ?>
                 <div class="col">
-                    <div class="card" <?= $menu->catering ? 'style="display: none;"' : '' ?>>
+
+                    <div class="card" >
                         <div class="card-body">
                             <h3 class="card-title text-center"><?= h($menu->name) ?></h3>
                             <p class="card-text text-center mb-4"><?= h($menu->description) ?></p>

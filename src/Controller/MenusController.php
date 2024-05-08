@@ -80,15 +80,12 @@ class MenusController extends AppController
                 // Update the active state
                 $menu->active = (bool)$active;
 
-                // Update the catering state
-                $menu->catering = (bool)$postData['catering'][$id] ?? false;
-
                 // Save the menu
                 $this->Menus->save($menu);
             }
 
             // Flash success message
-            $this->Flash->success(__('Menus active/cater status updated successfully.'));
+            $this->Flash->success(__('Menus active status updated successfully.'));
 
             // Redirect back to the active page
             return $this->redirect(['action' => 'adminIndex']);

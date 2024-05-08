@@ -25,7 +25,6 @@
                     <th><?= $this->Paginator->sort('name') ?></th>
                     <th><?= $this->Paginator->sort('description') ?></th>
                     <th><?= __('Active?') ?></th>
-                    <th><?= __('Catering?') ?></th>
                 </tr>
             </thead>
             <tbody>
@@ -34,7 +33,6 @@
                         <td style="max-width:100px; word-wrap:break-word;"><?= h($menu->name) ?></td>
                         <td style="max-width: 300px; word-wrap: break-word;"><?= h($menu->description) ?></td>
                         <td><?= $this->Form->checkbox("active[$menu->id]", ['checked' => $menu->active]) ?></td>
-                        <td><?= $this->Form->checkbox("catering[$menu->id]", ['checked' => $menu->catering]) ?></td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
