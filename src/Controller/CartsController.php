@@ -236,6 +236,7 @@ class CartsController extends AppController
                 }
                 $Products->save($product);
             }
+            $session->delete('paymentSessionId');
         } else {
             $this->Flash->error(__('The order could not be saved. Please, try again.'));
         }
