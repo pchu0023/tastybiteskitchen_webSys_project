@@ -199,8 +199,24 @@ class CartsController extends AppController
         if ($this->Orders->save($order)) {
             $this->set(compact('deliveryData'));
             $this->set(compact('order'));
-        }
-        else {
+
+            // Update quantities of products
+            // Load Products table
+            $Products = $this->fetchTable('Products');
+            // For each item in the cart
+            foreach ($this->request->getSession()->read('cart') as $value) {
+                $productCart = $value['product'];
+                $quantityCart = $value['quantity'];
+                $productID = ($productCart->id);
+                $product = $Products->get($productID);
+                if (($product->quantity - $quantityCart) < 0) {
+                    $product->quantity = 0;
+                } else {
+                    $product->quantity -= $quantityCart;
+                }
+                $Products->save($product);
+            }
+        } else {
             $this->Flash->error(__('The order could not be saved. Please, try again.'));
         }
     }
