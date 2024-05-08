@@ -168,13 +168,22 @@
                                 <div class="modal-body">
                                     <div class="row">
                                         <div class="col-lg-8">
+                                            <?php if($this->Identity->isLoggedIn()) : ?>
+                                                <?= $this->Form->control('first_name', ['label' => 'First Name', 'required' => true, 'class' => 'form-control', 'value' => $this->Identity->get('first_name')]) ?>
+                                                <?= $this->Form->control('last_name', ['label' => 'Last Name', 'required' => true, 'class' => 'form-control', 'value' => $this->Identity->get('last_name')]) ?>
+                                                <?= $this->Form->control('phone_number', ['label' => 'Phone Number', 'type' => 'tel', 'required' => true, 'class' => 'form-control', 'value' => $this->Identity->get('phone_number')]) ?>
+                                                <?= $this->Form->control('email', ['label' => 'Email Address', 'type' => 'email', 'required' => true, 'class' => 'form-control', 'value' => $this->Identity->get('email')]) ?>
+                                                <?= $this->Form->control('address', ['label' => 'Delivery Address', 'required' => true, 'class' => 'form-control', 'value' => $this->Identity->get('address')]) ?>
+                                                <?= $this->Form->control('requested_date', ['label' => 'Requested Delivery Date', 'type' => 'date', 'required' => true, 'class' => 'form-control']) ?>
+                                            <?php else : ?>
+                                                <?= $this->Form->control('first_name', ['label' => 'First Name', 'required' => true, 'class' => 'form-control']) ?>
+                                                <?= $this->Form->control('last_name', ['label' => 'Last Name', 'required' => true, 'class' => 'form-control']) ?>
+                                                <?= $this->Form->control('phone_number', ['label' => 'Phone Number', 'type' => 'tel', 'required' => true, 'class' => 'form-control']) ?>
+                                                <?= $this->Form->control('email', ['label' => 'Email Address', 'type' => 'email', 'required' => true, 'class' => 'form-control']) ?>
+                                                <?= $this->Form->control('address', ['label' => 'Delivery Address', 'required' => true, 'class' => 'form-control']) ?>
+                                                <?= $this->Form->control('requested_date', ['label' => 'Requested Delivery Date', 'type' => 'date', 'required' => true, 'class' => 'form-control']) ?>
+                                            <?php endif; ?>
                                             <!-- User inputs for order processing -->
-                                            <?= $this->Form->control('first_name', ['label' => 'First Name', 'required' => true, 'class' => 'form-control']) ?>
-                                            <?= $this->Form->control('last_name', ['label' => 'Last Name', 'required' => true, 'class' => 'form-control']) ?>
-                                            <?= $this->Form->control('phone_number', ['label' => 'Phone Number', 'type' => 'tel', 'required' => true, 'class' => 'form-control']) ?>
-                                            <?= $this->Form->control('email', ['label' => 'Email Address', 'type' => 'email', 'required' => true, 'class' => 'form-control']) ?>
-                                            <?= $this->Form->control('address', ['label' => 'Delivery Address', 'required' => true, 'class' => 'form-control']) ?>
-                                            <?= $this->Form->control('requested_date', ['label' => 'Requested Delivery Date', 'type' => 'date', 'required' => true, 'class' => 'form-control']) ?>
                                         </div>
                                     </div>
                                 </div>
