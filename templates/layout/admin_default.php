@@ -55,8 +55,8 @@ $cakeDescription = 'Tasty Bites Kitchen';
 </head>
 <style>
     body {
-        padding-top: 120px; 
-        /* padding-bottom: 90px; 
+        padding-top: 120px;
+        /* padding-bottom: 90px;
         margin-bottom: 90px;  */
         /* margin-top: 90px; */
          /* Adjust this value as needed */
@@ -83,6 +83,7 @@ $cakeDescription = 'Tasty Bites Kitchen';
                     <a href="<?= $this->Url->build('/Users') ?>" class="nav-item nav-link">Manage Users</a>
                     <a href="<?= $this->Url->build('/Products') ?>" class="nav-item nav-link">Manage Food Items</a>
                     <a href="<?= $this->Url->build('/Images') ?>" class="nav-item nav-link">Manage Images</a>
+                    <a href="<?= $this->Url->build('/Orders') ?>" class="nav-item nav-link">Manage Orders</a>
                 </div>
                 <?php
                 if (!$this->Identity->isLoggedIn()) {

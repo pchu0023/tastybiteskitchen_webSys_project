@@ -58,6 +58,7 @@ class OrdersTable extends Table
             'foreignKey' => 'order_id',
             'targetForeignKey' => 'product_id',
             'joinTable' => 'orders_products',
+            'through' => 'OrdersProducts',
         ]);
     }
 

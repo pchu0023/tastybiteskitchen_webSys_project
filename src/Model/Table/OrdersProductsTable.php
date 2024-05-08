@@ -70,6 +70,10 @@ class OrdersProductsTable extends Table
             ->uuid('product_id')
             ->notEmptyString('product_id');
 
+        $validator
+            ->integer('quantity')
+            ->notEmptyString('quantity');
+
         return $validator;
     }
 
