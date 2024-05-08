@@ -117,7 +117,7 @@ class OrdersProductsController extends AppController
             if ($this->OrdersProducts->save($ordersProduct)) {
                 $this->Flash->success(__('The orders product has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['controller' => 'Orders', 'action' => 'index']);
             }
             $this->Flash->error(__('The orders product could not be saved. Please, try again.'));
         }
@@ -145,4 +145,17 @@ class OrdersProductsController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+
+    public function deleteRelation($oId = null, $pId = null)
+    {
+        $orderProduct = $this->OrdersProducts->find()->where(['order_id' => $oId, 'product_id' => $pId])->first();
+        if ($this->OrdersProducts->delete($orderProduct)) {
+            $this->Flash->success(__('The orders product has been deleted.'));
+        } else {
+            $this->Flash->error(__('The orders product could not be deleted. Please, try again.'));
+        }
+        return $this->redirect(['controller' => 'Orders', 'action' => 'index']);
+
+    }
+
 }

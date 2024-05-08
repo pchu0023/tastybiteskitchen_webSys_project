@@ -16,10 +16,12 @@ use Cake\ORM\Entity;
  * @property string|null $user_id
  * @property string|null $receiver_name
  * @property string|null $receiver_phone
+ * @property string $status
  *
  * @property \App\Model\Entity\Payment $payment
  * @property \App\Model\Entity\Delivery $delivery
  * @property \App\Model\Entity\Product[] $products
+ * @property \App\Model\Entity\OrdersProduct[] $ordersProduct
  */
 class Order extends Entity
 {
@@ -43,5 +45,7 @@ class Order extends Entity
         'payment' => true,
         'delivery' => true,
         'products' => true,
+        'ordersProduct' => true,
+        'status' => true,
     ];
 }

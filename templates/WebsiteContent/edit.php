@@ -47,7 +47,7 @@
                             'class' => 'form-control',
                             'id' => 'phone',
                             'label' => false,
-                            'placeholder' => 'Phone Numbe'
+                            'placeholder' => 'Phone Number'
                         ]); ?>
                     </div>
                     <div class="col">

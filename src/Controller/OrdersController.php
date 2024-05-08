@@ -108,7 +108,8 @@ class OrdersController extends AppController
         $payments = $this->Orders->Payments->find('list', limit: 200)->all();
         $deliveries = $this->Orders->Deliveries->find('list', limit: 200)->all();
         $products = $this->Orders->Products->find('list', limit: 200)->all();
-        $this->set(compact('order', 'payments', 'deliveries', 'products'));
+        $ordersProduct = $this->Orders->Products->junction()->find('list', limit: 200)->all();
+        $this->set(compact('order', 'payments', 'deliveries', 'products', 'ordersProduct'));
     }
 
     /**
@@ -130,4 +131,53 @@ class OrdersController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+
+
+    /**
+     * render all orders with status edit options - admin
+     */
+    public function multipleOrderStatus()
+    {
+        $query = $this->Orders->find();
+        $orders = $this->paginate($query);
+
+        $this->set(compact('orders'));
+    }
+
+
+
+    /**
+     * post method for changing multiple order statuses at once
+     */
+    public function updateAllOrderStatus()
+    {
+        if ($this->request->is('post')) {
+            // Get the submitted data from the form
+            $postData = $this->request->getData();
+
+            // Loop through each order
+            foreach ($postData['status'] as $id => $status) {
+                // Find the menu by its id
+                $order = $this->Orders->get($id);
+
+                // Update the active state
+                $order->status = $status;
+
+                // Save the menu
+                $this->Orders->save($order);
+            }
+
+            // Flash success message
+            $this->Flash->success(__('Order status(es) updated successfully.'));
+
+            // Redirect back to the active page
+            return $this->redirect(['action' => 'index']);
+        }
+
+        $this->Flash->error(__('Order status(es) updated successfully.'));
+        return $this->redirect(['action' => 'index']);
+    }
+
+
+
 }
