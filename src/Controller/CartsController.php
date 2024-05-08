@@ -38,6 +38,8 @@ class CartsController extends AppController
 
     public function index()
     {
+        $session = $this->request->getSession();
+        $session->write('PaymentConfirmed', false);
    }
 
 
@@ -114,6 +116,9 @@ class CartsController extends AppController
         require_once '../config/secrets.php';
         \Stripe\Stripe::setApiKey($stripeSecretKey);
 
+        $paymentSessionId = Uuid::uuid4()->toString();
+        $this->request->getSession()->write('paymentSessionId', $paymentSessionId);
+
 //      Build empty array
         $cartarr = array();
 //      Build cart in Stripe form
@@ -152,7 +157,7 @@ class CartsController extends AppController
         $checkout_session = \Stripe\Checkout\Session::create([
             'line_items' => [$cartarr],
             'mode' => 'payment',
-            'success_url' => $YOUR_DOMAIN . "Carts/card_order_success",
+            'success_url' => $YOUR_DOMAIN . "Carts/card_order_success?session_id={$paymentSessionId}",
             'cancel_url' => $YOUR_DOMAIN . "Carts",
         ]);
 
@@ -184,8 +189,23 @@ class CartsController extends AppController
         $session = $this->request->getSession();
         $deliveryData = $session->read('DeliveryData');
 
+        $storedSessionId = $session->read('paymentSessionId');
+        $passedSessionId = $this->request->getQuery('session_id');
+
+        if ($storedSessionId !== $passedSessionId) {
+            $this->Flash->warning('Invalid payment session. Please try again.');
+            return $this->redirect(['action' => 'index']);
+        }
+
+        $session->write('PaymentConfirmed', true);
+
+        if (!$session->read('PaymentConfirmed')) {
+            $this->Flash->warning('Payment has not been confirmed.');
+            return $this->redirect(['action' => 'index']);
+        }
+
         if (empty($deliveryData)) {
-            $this->Flash->error('No delivery details found.');
+            $this->Flash->warning('No delivery details found.');
             return $this->redirect(['action' => 'index']);
         }
 
@@ -216,6 +236,7 @@ class CartsController extends AppController
                 }
                 $Products->save($product);
             }
+            $session->delete('paymentSessionId');
         } else {
             $this->Flash->error(__('The order could not be saved. Please, try again.'));
         }
