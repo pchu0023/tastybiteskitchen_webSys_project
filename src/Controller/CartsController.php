@@ -120,8 +120,14 @@ class CartsController extends AppController
         foreach ($this->request->getSession()->read('cart') as $value) {
             $product = $value['product'];
             $quantity = $value['quantity'];
-//          We do this because cost is in cents
-            $cost = ($product->price) * 100;
+//          Cost * 100 is because cost is in cents, so change to dollars $$$$$$$$$$
+            if ($quantity >= 20) {
+//              Cost = Price of the item multiplied by the inverse of the discount (10% off = cost * 0.9, 20% off = cost * 0.8, etc..)
+                $cost = round((($product->price) * (1.0 - ($product->catering_discount / 100))) * 100);
+            }
+            else {
+                $cost = ($product->price) * 100;
+            }
             $name = ($product->name);
             $description = ($product->description);
 
