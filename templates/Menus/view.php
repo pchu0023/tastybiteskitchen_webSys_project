@@ -100,7 +100,14 @@
                                     <br>
 
                                     <div class="d-flex justify-content-end">
-                                        <?= $this->Form->postButton('Add to cart', ['controller' => 'Products', 'action' => 'addToCart', $product->id], ['class' => 'btn btn-primary me-2']) ?>
+                                    <?= $this->Form->postButton(
+    $product->quantity > 0 ? 'Add to cart' : 'Unavailable',
+    ['controller' => 'Products', 'action' => 'addToCart', $product->id],
+    [
+        'class' => 'btn btn-primary me-2',
+        'disabled' => $product->quantity == 0 ? true : false
+    ]
+) ?>
 
                                         <?= $this->Html->link(__('View Product'), ['controller' => 'Products', 'action' => 'view', $product->id, '?' => ['return_to' => $this->getRequest()->getRequestTarget()]], ['class' => 'btn btn-secondary me-2']) ?>
                                     </div>

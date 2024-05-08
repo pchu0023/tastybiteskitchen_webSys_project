@@ -102,9 +102,13 @@ class UsersTable extends Table
             ->allowEmptyString('address');
 
         $validator
-            ->scalar('phone_number')
-            ->maxLength('phone_number', 12)
-            ->allowEmptyString('phone_number');
+        ->scalar('phone_number')
+        ->maxLength('phone_number', 12)
+        ->allowEmptyString('phone_number')
+        ->add('phone_number', 'validFormat', [
+            'rule' => ['custom', '/^(?:\d{2}\s?\d{4}\s?\d{4}|\d{10})$/'],
+            'message' => __('Phone number must be in the format "04 0000 0000" or "0400000000"')
+        ]);
 
         $validator
             ->scalar('nonce')

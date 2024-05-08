@@ -43,7 +43,39 @@ class ProductsController extends AppController
         $product = $this->Products->get($id, contain: ['Images', 'Ingredients', 'Menus', 'Orders']);
         $this->set(compact('product'));
     }
+ 
+    public function quantityEdit()
+    {
+        $query = $this->Products->find();
+        $product = $this->paginate($query);
 
+        $this->set(compact('product'));
+    }
+    public function updateAllQuantities()
+{
+    if ($this->request->is('post')) {
+        // Get the submitted data from the form
+        $postData = $this->request->getData();
+
+        // Loop through each product
+        foreach ($postData['quantity'] as $productId => $quantity) {
+            // Find the product by its id
+            $product = $this->Products->get($productId);
+
+            // Update the quantity
+            $product->quantity = $quantity;
+
+            // Save the product
+            $this->Products->save($product);
+        }
+
+        // Flash success message
+        $this->Flash->success(__('Product quantities updated successfully.'));
+
+        // Redirect back to the index page
+        return $this->redirect(['action' => 'index']);
+    }
+}
     /**
      * Add method
      *

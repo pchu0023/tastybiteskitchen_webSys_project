@@ -17,7 +17,7 @@ class WebsiteContentController extends AppController
     // {
     //     parent::beforeFilter($event);
     //     // Allow non-logged-in users to access the 'add' 'index' action
-    //     $this->Authentication->allowUnauthenticated(['view','edit']);
+    //     $this->Authentication->allowUnauthenticated(['view','edit','add']);
     //     //later to delete there
     // }
     /**
@@ -48,9 +48,21 @@ class WebsiteContentController extends AppController
      *
      * @return \Cake\Http\Response|null|void Redirects on successful add, renders view otherwise.
      */
-    public function add()
+    public function add($id = 1)
     {
-     
+        $websiteContent = $this->WebsiteContent->get($id, contain: []);
+        if ($this->request->is(['patch', 'post', 'put'])) {
+    
+            $data = $this->request->getData();
+        
+            $websiteContent = $this->WebsiteContent->patchEntity($websiteContent, $data);
+            if ($this->WebsiteContent->save($websiteContent)) {
+                $this->Flash->success(__('The website content has been saved.'));
+                return $this->redirect(['action' => 'view']);
+            }
+            $this->Flash->error(__('The website content could not be saved. Please, try again.'));
+        }
+        $this->set(compact('websiteContent'));
     }
 
     /**
@@ -66,7 +78,22 @@ class WebsiteContentController extends AppController
     if ($this->request->is(['patch', 'post', 'put'])) {
 
         $data = $this->request->getData();
-    
+
+   
+    $websiteContent->opening_time_weekdays = 
+    $data['opening_time_weekdays_start'] .
+    $data['opening_time_weekdays_am_pm_start'] . '-' .
+    $data['opening_time_weekdays_end'] .
+    $data['opening_time_weekdays_am_pm_end']. ' ' .
+    $data['extra_info_weekdays'];
+
+$websiteContent->opening_time_weekends = 
+    $data['opening_time_weekends_start'] .
+    $data['opening_time_weekends_am_pm_start'] . '-' .
+    $data['opening_time_weekends_end'] .
+    $data['opening_time_weekends_am_pm_end']. ' ' .
+    $data['extra_info_weekends'];
+
         $websiteContent = $this->WebsiteContent->patchEntity($websiteContent, $data);
         if ($this->WebsiteContent->save($websiteContent)) {
             $this->Flash->success(__('The website content has been saved.'));
