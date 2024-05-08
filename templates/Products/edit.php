@@ -38,8 +38,8 @@
                                         'placeholder' => 'Product Name'
                                     ]); ?>
                             <div class="row">
-                                
-                            
+
+
                                 <div class="col">
                                     <br />
                                     <h6 class="d-flex justify-content-between border-bottom pb-1">
@@ -83,7 +83,7 @@
                             ]); ?>
                             <br />
                             <h6 class="d-flex justify-content-between border-bottom pb-1">
-                                <span>Extra Information </span>
+                                <span>Extra Information *</span>
                             </h6>
                             <?php echo $this->Form->control('extra_info', [
                                 'class' => 'form-control',
@@ -199,7 +199,7 @@
                                 </table>
                             </div> -->
 
-                            
+
                             <br />
                 <div class="d-grid">
     <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-success']) ?>
