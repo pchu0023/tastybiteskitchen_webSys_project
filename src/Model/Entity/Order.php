@@ -11,6 +11,7 @@ use Cake\ORM\Entity;
  * @property string $id
  * @property string $payment_id
  * @property string $delivery_id
+ * @property string $status
  *
  * @property \App\Model\Entity\Payment $payment
  * @property \App\Model\Entity\Delivery $delivery
@@ -33,5 +34,6 @@ class Order extends Entity
         'payment' => true,
         'delivery' => true,
         'products' => true,
+        'status' => true,
     ];
 }

@@ -13,7 +13,9 @@
 <div class="menus index content">
     <!-- display for admin -->
     <?php $this->layout = 'admin_default'; ?>
-
+    <br />
+    <?= $this->Html->link(__('Change multiple order statuses'), ['action' => 'multipleOrderStatus'], ['class' => 'btn btn-secondary float-right']) ?>
+    <br />
     <br />
 
     <h3 class="d-flex justify-content-between border-bottom pb-1"><?= __('Received payment and assigned delivery') ?></h3>
