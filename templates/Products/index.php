@@ -13,6 +13,7 @@
     <?php $this->layout = 'admin_default'; ?>
     <br />
     <?= $this->Html->link(__('Add New Product'), ['action' => 'add'], ['class' => 'btn btn-primary']) ?>
+    <?= $this->Html->link(__('Update Quantities'), ['action' => 'quantity_edit'], ['class' => 'btn btn-secondary']) ?>
     <br />
     <br />
     <div class="products index content">
@@ -24,8 +25,10 @@
                 <thead>
                     <tr>
                         <th><?= $this->Paginator->sort('name') ?></th>
-                        <th><?= $this->Paginator->sort('price') ?></th>
                         <th><?= $this->Paginator->sort('description') ?></th>
+                        <th><?= $this->Paginator->sort('extra_info') ?></th>
+                        <th><?= $this->Paginator->sort('price') ?></th>
+                        <th><?= $this->Paginator->sort('quantity') ?></th>
                         <th><?= __('Actions') ?></th>
                     </tr>
                 </thead>
@@ -33,8 +36,12 @@
                     <?php foreach ($products as $product) : ?>
                         <tr>
                             <td><?= h($product->name) ?></td>
-                            <td>$<?= $this->Number->format($product->price) ?></td>
                             <td style="max-width: 400px; word-wrap: break-word;"><?= h($product->description) ?></td>
+                            <td style="max-width: 400px; word-wrap: break-word;"><?= h($product->extra_info) ?></td>
+
+                            <td>$<?= $this->Number->format($product->price) ?></td>
+
+                            <td ><?= h($product->quantity) ?></td>
                             <td class="actions">
                                 <?= $this->Html->link(__('View'), ['action' => 'view', $product->id], ['class' => 'btn btn-sm btn-info']) ?>
                                 <?php if ($this->Identity->get('type') == "emp") : ?>

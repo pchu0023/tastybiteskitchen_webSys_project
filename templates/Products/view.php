@@ -39,7 +39,14 @@
             <h4 class="d-flex justify-content-between border-bottom pb-2">
                 <span><?= h($product->name) ?></span>
                 <span class="text-primary">$<?= $this->Number->format($product->price) ?></span>
-                <?= $this->Form->postButton('Add to cart', ['controller' => 'Products', 'action' => 'addToCart', $product->id, '?' => $this->getRequest()->getQueryParams()], ['class' => 'btn btn-primary']) ?>
+                <?= $this->Form->postButton(
+    $product->quantity > 0 ? 'Add to cart' : 'Unavailable',
+    ['controller' => 'Products', 'action' => 'addToCart', $product->id],
+    [
+        'class' => 'btn btn-primary me-2',
+        'disabled' => $product->quantity == 0 ? true : false
+    ]
+) ?>
             </h4>
             <h6>Quantity: <?= h($product->quantity) ?></h6>
 
