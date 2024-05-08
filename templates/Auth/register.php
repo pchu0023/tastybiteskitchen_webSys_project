@@ -108,6 +108,25 @@ $this->assign('title', 'Register new user');
                         ]); ?>
                     </div>
                 </div>
+                <br>
+                <div class="row">
+                    <div class="col">
+                        <?= $this->Form->control('phone', [
+                            'class' => 'form-control',
+                            'label' => false,
+                            'placeholder' => 'Phone',
+                            'style' => 'font-size:1.5rem'
+                        ]); ?>
+                    </div>
+                    <div class="col">
+                        <?= $this->Form->control('address', [
+                            'class' => 'form-control',
+                            'label' => false,
+                            'placeholder' => 'Address',
+                            'style' => 'font-size:1.5rem'
+                        ]); ?>
+                    </div>
+                </div>
                 <small id="passwordHelpBlock" class="form-text text-muted">
                     Your name can only contain letters, hyphens, and apostrophes.
                 </small>
