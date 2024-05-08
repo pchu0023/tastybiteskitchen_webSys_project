@@ -8,19 +8,22 @@
         <div class="alert alert-danger">You do not have privileges to view this page.</div>
         <?php else : ?>
     <?php $this->layout = 'admin_default'; ?>
-
+    <legend><?= __('Edit website Home page') ?></legend>
     <div class="col">
         <div class="products form content">
         <?= $this->Form->create($websiteContent) ?>
             <fieldset>
-            <legend><?= __('Edit website') ?></legend>
-                <?= $this->Html->link(__('Go Back to View Website Content'), ['action' => 'view'], ['class' => 'btn btn-primary']) ?>
-                <br>
+            
+                <?= $this->Html->link(__('Go Back to View Website Display'), ['action' => 'view'], ['class' => 'btn btn-primary']) ?>
+
+                <?= $this->Html->link(__('Edit Images'), ['action' => '../Images/index'], ['class' => 'btn btn-primary']) ?>
+
+                <!-- <br>
                 <br>
                 <h4 class="d-flex justify-content-between border-bottom pb-1">
-                            <span>Edit Home Page</span>
-                        </h4>
-                <br>
+                            <span>Edit website Home page</span>
+                        </h4> -->
+                <br><br>
                 <h5 class="d-flex justify-content-between border-bottom pb-1">
                             <span>Edit Home Page footer (contact)</span>
                         </h5>
@@ -108,10 +111,7 @@
                                         <div class="row">
                                             <?php echo $this->Form->control('home_image', ['options' => $globalImages, 'label' => false, 'class' => 'd-flex flex form-select', 'empty' => 'None']); ?>
                                         </div>
-                                        <br />
-                                        <div class="row">
-                                            <?= $this->Html->link(__('Edit Images'), ['action' => '../Images/index'], ['class' => 'btn btn-primary']) ?>
-                                        </div>
+
                                     </td>
                                 </tr>
                             </tbody>
@@ -134,16 +134,13 @@
                                         <div class="row">
                                             <?php echo $this->Form->control('logo_image', ['options' => $globalImages, 'label' => false, 'class' => 'd-flex flex form-select', 'empty' => 'None']); ?>
                                         </div>
-                                        <br />
-                                        <div class="row">
-                                            <?= $this->Html->link(__('Edit Images'), ['action' => '../Images/index'], ['class' => 'btn btn-primary']) ?>
-                                        </div>
+
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
-                    div class="col">
+                    <div class="col">
                         <table>
                             <thead>
                                 <tr>
@@ -160,17 +157,14 @@
                                         <div class="row">
                                             <?php echo $this->Form->control('background_image', ['options' => $globalImages, 'label' => false, 'class' => 'd-flex flex form-select', 'empty' => 'None']); ?>
                                         </div>
-                                        <br />
-                                        <div class="row">
-                                            <?= $this->Html->link(__('Edit Images'), ['action' => '../Images/index'], ['class' => 'btn btn-primary']) ?>
-                                        </div>
+
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
-                <br>
+                <!-- <br>
                 <br>
                 <h4 class="d-flex justify-content-between border-bottom pb-1">
                             <span>Edit About Us Page</span>
@@ -185,6 +179,7 @@
                     'placeholder' => 'About Us Title'
                 ]); ?>
 
+                    
                 <h6 class="d-flex justify-content-between border-bottom pb-1">
                     <span>About Description</span>
                 </h6>
@@ -214,10 +209,7 @@
                                         <div class="row">
                                             <?php echo $this->Form->control('image1', ['options' => $globalImages, 'label' => false, 'class' => 'd-flex flex form-select', 'empty' => 'None']); ?>
                                         </div>
-                                        <br />
-                                        <div class="row">
-                                            <?= $this->Html->link(__('Edit Images'), ['action' => '../Images/index'], ['class' => 'btn btn-primary']) ?>
-                                        </div>
+                                       
                                     </td>
                                 </tr>
                             </tbody>
@@ -241,9 +233,7 @@
                                             <?php echo $this->Form->control('image2', ['options' => $globalImages, 'label' => false, 'class' => 'd-flex flex form-select', 'empty' => 'None']); ?>
                                         </div>
                                         <br />
-                                        <div class="row">
-                                            <?= $this->Html->link(__('Edit Images'), ['action' => '../Images/index'], ['class' => 'btn btn-primary']) ?>
-                                        </div>
+                                   
                                     </td>
                                 </tr>
                             </tbody>
@@ -271,9 +261,7 @@
                                             <?php echo $this->Form->control('image3', ['options' => $globalImages, 'label' => false, 'class' => 'd-flex flex form-select', 'empty' => 'None']); ?>
                                         </div>
                                         <br />
-                                        <div class="row">
-                                            <?= $this->Html->link(__('Edit Images'), ['action' => '../Images/index'], ['class' => 'btn btn-primary']) ?>
-                                        </div>
+                                      
                                     </td>
                                 </tr>
                             </tbody>
@@ -297,15 +285,13 @@
                                             <?php echo $this->Form->control('image4', ['options' => $globalImages, 'label' => false, 'class' => 'd-flex flex form-select', 'empty' => 'None']); ?>
                                         </div>
                                         <br />
-                                        <div class="row">
-                                            <?= $this->Html->link(__('Edit Images'), ['action' => '../Images/index'], ['class' => 'btn btn-primary']) ?>
-                                        </div>
+                                        
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
-                </div>
+                </div> -->
 
                 <br>
                 <div class="row">
