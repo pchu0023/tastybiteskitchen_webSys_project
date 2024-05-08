@@ -19,10 +19,13 @@ class ProductsFixture extends TestFixture
     {
         $this->records = [
             [
-                'id' => '2ff87d39-d586-4e93-8af8-a6407bf66858',
+                'id' => '2057c7a9-96dc-47a8-a6b0-99c6bc984da0',
                 'name' => 'Lorem ipsum dolor sit amet',
                 'price' => 1,
                 'description' => 'Lorem ipsum dolor sit amet',
+                'quantity' => 1,
+                'extra_info' => 'Lorem ipsum dolor sit amet',
+                'catering_discount' => 1,
             ],
         ];
         parent::init();

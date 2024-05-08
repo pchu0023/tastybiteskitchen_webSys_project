@@ -56,7 +56,12 @@
                     foreach ($this->request->getSession()->read('cart') as $value) :
                         $product = $value['product'];
                         $quant = $value['quantity'];
-                        $totalPrice += ($product->price)*$quant;
+                        if ($quant >= 20) {
+                            $totalPrice += (($product->price) * (1.0 - ($product->catering_discount / 100)) * $quant);
+                        }
+                        else {
+                            $totalPrice += ($product->price)*$quant;
+                        }
                         ?>
                   <tr>
                     <td class="p-4">
@@ -73,14 +78,20 @@
                         </div>
                       </div>
                     </td>
-
-                    <td class="text-right font-weight-semibold align-middle p-4"><?= $product->price ?></td>
+                    <?php if ($quant >= 20) : ?>
+                        <td class="text-right font-weight-semibold align-middle p-4"><?= ($product->price) * (1.0 - ($product->catering_discount / 100)) ?></td>
+                      <?php else : ?>
+                        <td class="text-right font-weight-semibold align-middle p-4"><?= $product->price ?></td>
+                      <?php endif ?>
                     <td class="align-middle p-4"><input name="quantity[]" readonly type="number" min = 1 max = 10 step = 1 class="form-control text-center" value="<?= $quant ?>"
                         onchange="this.value = Math.round(this.value);"
-
-
                         /></td>
-                    <td class="text-right font-weight-semibold align-middle p-4" id="totalProdPrice"><?= $product->price * $quant ?></td>
+                      <?php if ($quant >= 20) : ?>
+                          <td class="text-right font-weight-semibold align-middle p-4" id="totalProdPrice"><?= ($product->price) * (1.0 - ($product->catering_discount / 100)) * $quant ?></td>
+                      <?php else : ?>
+                          <td class="text-right font-weight-semibold align-middle p-4" id="totalProdPrice"><?= $product->price * $quant ?></td>
+                      <?php endif ?>
+
                       <td class="actions">
                           <?= $this->Html->link(__('Delete'), ['action' => 'delete', $product->id], ['class' => 'btn btn-secondary py-sm-2 px-sm-3 me-2']) ?>
 
