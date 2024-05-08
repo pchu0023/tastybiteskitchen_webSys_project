@@ -2,62 +2,62 @@
 /**
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Order $order
+ * @var string[]|\Cake\Collection\CollectionInterface $payments
+ * @var string[]|\Cake\Collection\CollectionInterface $deliveries
+ * @var string[]|\Cake\Collection\CollectionInterface $products
+ * @var string[]|\Cake\Collection\CollectionInterface $ordersProduct
  */
 ?>
 <?php if($this->Identity->get('type') != "emp") : ?>
     <div class="alert alert-danger">You do not have privileges to view this page.</div>
 <?php else : ?>
+
+    <br />
+    <?= $this->Html->link(__('Back To All Orders'), ['action' => 'index'], ['class' => 'btn btn-primary float-right']) ?>
+    <br />
     <div class="row">
         <aside class="column">
             <div class="side-nav">
-                <h4 class="heading"><?= __('Actions') ?></h4>
-                <?= $this->Html->link(__('Edit Order'), ['action' => 'edit', $order->id], ['class' => 'side-nav-item']) ?>
-                <?= $this->Form->postLink(__('Delete Order'), ['action' => 'delete', $order->id], ['confirm' => __('Are you sure you want to delete # {0}?', $order->id), 'class' => 'side-nav-item']) ?>
-                <?= $this->Html->link(__('List Orders'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
-                <?= $this->Html->link(__('New Order'), ['action' => 'add'], ['class' => 'side-nav-item']) ?>
-            </div>
-        </aside>
-        <div class="column column-80">
-            <div class="orders view content">
-                <h3><?= h($order->id) ?></h3>
+                <h4 class="heading"><?= __('Order ID') ?></h4>
+                <td><?= h($order->id) ?></td>
+
+                <h4 class="heading"><?= __('Order Status') ?></h4>
+                <tr>
+                    <td> Current Status:  <?= h($order->status) ?> </td>
+                </tr>
                 <table>
                     <tr>
-                        <th><?= __('Id') ?></th>
-                        <td><?= h($order->id) ?></td>
+                        <th><?= __('Product Name') ?></th>
+                        <th><?= __('Price') ?></th>
+                        <th><?= __('Description') ?></th>
+                        <th><?= __('Quantity') ?></th>
                     </tr>
-                    <tr>
-                        <th><?= __('Payment') ?></th>
-                        <td><?= $order->hasValue('payment') ? $this->Html->link($order->payment->method, ['controller' => 'Payments', 'action' => 'view', $order->payment->id]) : '' ?></td>
-                    </tr>
-                    <tr>
-                        <th><?= __('Delivery') ?></th>
-                        <td><?= $order->hasValue('delivery') ? $this->Html->link($order->delivery->type, ['controller' => 'Deliveries', 'action' => 'view', $order->delivery->id]) : '' ?></td>
-                    </tr>
+                    <h4 class="heading"><?= __('Products in order') ?></h4>
+                    <?php foreach ($order->products as $product) : ?>
+                        <tr>
+                            <td><?= h($product->name) ?></td>
+                            <td><?= h($product->price) ?></td>
+                            <td><?= h($product->description) ?></td>
+                            <td class="actions">
+                                <?= $this->Form->create(null, ['url' => ['controller' => 'OrdersProducts', 'action' => 'edit', $product->_joinData->id]]) ?>
+                                <?php echo $this->Form->control('quantity', [
+                                    'class' => 'form-control',
+                                    'type' => 'number',
+                                    'step' => '1',
+                                    'min' => '1',
+                                    'max' => '100',
+                                    'readonly',
+                                    'label' => false,
+                                    'default' => $product->_joinData->quantity,
+                                ]); ?>
+                            </td>
+                            <td
+                            <!--                                --><?php //= $this->Html->link(__('Update Quantity'), ['controller' => 'OrdersProducts', 'action' => 'edit', $product->_joinData->id], ['class' => 'btn btn-primary']) ?>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
                 </table>
-                <div class="related">
-                    <h4><?= __('Related Products') ?></h4>
-                    <?php if (!empty($order->products)) : ?>
-                        <div class="table-responsive">
-                            <table>
-                                <tr>
-                                    <th><?= __('Id') ?></th>
-                                    <th><?= __('Name') ?></th>
-                                    <th><?= __('Price') ?></th>
-                                    <th><?= __('Description') ?></th>
-                                </tr>
-                                <?php foreach ($order->products as $product) : ?>
-                                    <tr>
-                                        <td><?= h($product->id) ?></td>
-                                        <td><?= h($product->name) ?></td>
-                                        <td><?= h($product->price) ?></td>
-                                        <td><?= h($product->description) ?></td>
-                                    </tr>
-                                <?php endforeach; ?>
-                            </table>
-                        </div>
-                    <?php endif; ?>
-                </div>
             </div>
-        </div>
+        </aside>
     </div>
 <?php endif; ?>
