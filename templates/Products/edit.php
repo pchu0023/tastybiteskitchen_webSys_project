@@ -38,8 +38,8 @@
                                         'placeholder' => 'Product Name'
                                     ]); ?>
                             <div class="row">
-                                
-                            
+
+
                                 <div class="col">
                                     <br />
                                     <h6 class="d-flex justify-content-between border-bottom pb-1">
@@ -58,7 +58,7 @@
                                 <div class="col">
                                     <br />
                                     <h6 class="d-flex border-bottom">
-                                        <span>Quantity </span>
+                                        <span>Quantity *</span>
                                     </h6>
                                     <?php echo $this->Form->control('quantity', [
                                         'class' => 'form-control',
@@ -72,6 +72,25 @@
                                 </div>
                             </div>
                             <br />
+                            <div class="row">
+                                <h6 class="d-flex border-bottom">
+                                    <span>Catering Discount *</span>
+                                </h6>
+                                <?php echo $this->Form->control('catering_discount', [
+                                    'class' => 'form-control',
+                                    'label' => false,
+                                    'type' => 'number',
+                                    'step' => '1',
+                                    'min' => '0',    // Ensures the price is not negative, doubled in validator
+                                    'max' => '99.99',    // Ensures the price is not over 100%, doubled in validator
+                                    'placeholder' => 'Catering Discount amount'
+                                ]); ?>
+                                <small id="passwordHelpBlock" class="form-text text-muted">
+                                    The amount to be discounted when there are over 20 of this item ordered in one order.
+                                    <p>"10" would be a 10% discount, "20" would be a 20% discount, etc.</p>
+                                </small>
+                            </div>
+                            <br />
                             <h6 class="d-flex justify-content-between border-bottom pb-1">
                                 <span>Description *</span>
                             </h6>
@@ -83,7 +102,7 @@
                             ]); ?>
                             <br />
                             <h6 class="d-flex justify-content-between border-bottom pb-1">
-                                <span>Extra Information </span>
+                                <span>Extra Information *</span>
                             </h6>
                             <?php echo $this->Form->control('extra_info', [
                                 'class' => 'form-control',
@@ -199,7 +218,7 @@
                                 </table>
                             </div> -->
 
-                            
+
                             <br />
                 <div class="d-grid">
     <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-success']) ?>

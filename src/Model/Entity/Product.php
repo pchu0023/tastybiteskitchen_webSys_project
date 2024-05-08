@@ -1,5 +1,4 @@
 <?php
-
 declare(strict_types=1);
 
 namespace App\Model\Entity;
@@ -13,6 +12,9 @@ use Cake\ORM\Entity;
  * @property string $name
  * @property float $price
  * @property string $description
+ * @property int $quantity
+ * @property string|null $extra_info
+ * @property int $catering_discount
  *
  * @property \App\Model\Entity\Image[] $images
  * @property \App\Model\Entity\Ingredient[] $ingredients
@@ -34,11 +36,12 @@ class Product extends Entity
         'name' => true,
         'price' => true,
         'description' => true,
+        'quantity' => true,
+        'extra_info' => true,
+        'catering_discount' => true,
         'images' => true,
         'ingredients' => true,
         'menus' => true,
         'orders' => true,
-        'quantity' => true,
-        'extra_info' => true,
     ];
 }

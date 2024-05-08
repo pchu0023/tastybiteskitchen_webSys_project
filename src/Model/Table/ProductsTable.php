@@ -100,7 +100,7 @@ class ProductsTable extends Table
                     return is_numeric($value);
                 },
                 'message' => 'Price must only contain numbers.'
-            ]);            
+            ]);
 
         $validator
             ->scalar('description')
@@ -123,11 +123,28 @@ class ProductsTable extends Table
                     return is_numeric($value);
                 },
                 'message' => 'Quantity must only contain numbers.'
-            ]); 
-            $validator
-            ->scalar('extra_info')
-            ->maxLength('extra_info', 200);
+            ]);
 
+        $validator
+            ->scalar('extra_info')
+            ->maxLength('extra_info', 200)
+            ->allowEmptyString('extra_info');
+
+        $validator
+            ->integer('catering_discount')
+            ->notEmptyString('catering_discount')
+            ->add('catering_discount', 'custom', [
+                'rule' => function ($value, $context) {
+                    return $value <= 99.99;
+                },
+                'message' => '! ! ! Catering Discount must not exceed 99.99% off.'
+            ])
+            ->add('price', 'numeric', [
+                'rule' => function ($value, $context) {
+                    return is_numeric($value);
+                },
+                'message' => 'Catering Discount must only contain numbers.'
+            ]);
 
         return $validator;
     }
