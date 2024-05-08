@@ -176,10 +176,36 @@
                                                 <?= $this->Form->control('address', ['label' => 'Delivery Address', 'required' => true, 'class' => 'form-control', 'value' => $this->Identity->get('address')]) ?>
                                                 <?= $this->Form->control('requested_date', ['label' => 'Requested Delivery Date', 'type' => 'date', 'required' => true, 'class' => 'form-control']) ?>
                                             <?php else : ?>
-                                                <?= $this->Form->control('first_name', ['label' => 'First Name', 'required' => true, 'class' => 'form-control']) ?>
-                                                <?= $this->Form->control('last_name', ['label' => 'Last Name', 'required' => true, 'class' => 'form-control']) ?>
-                                                <?= $this->Form->control('phone_number', ['label' => 'Phone Number', 'type' => 'tel', 'required' => true, 'class' => 'form-control']) ?>
-                                                <?= $this->Form->control('email', ['label' => 'Email Address', 'type' => 'email', 'required' => true, 'class' => 'form-control']) ?>
+                                                <?= $this->Form->control('first_name', [
+                                                        'label' => 'First Name', 
+                                                        'required' => true, 
+                                                        'class' => 'form-control',
+                                                        'pattern' => "^[A-Za-z]+$",
+                                                        'title' => 'Last Name must contain only letters.',
+                                                    ]) ?>
+
+                                                <?= $this->Form->control('last_name', [
+                                                        'label' => 'Last Name',
+                                                        'required' => true,
+                                                        'class' => 'form-control',
+                                                        'pattern' => "^[A-Za-z]+$",
+                                                        'title' => 'Last Name must contain only letters.',
+                                                    ]);?>
+                                                <?= $this->Form->control('phone_number', [
+                                                        'label' => 'Phone Number',
+                                                        'type' => 'tel',
+                                                        'required' => true,
+                                                        'class' => 'form-control',
+                                                        'pattern' => '^(?:\d{2}\s?\d{4}\s?\d{4}|\d{10})$',
+                                                        'title' => 'Phone number must be in the format "04 0000 0000" or "0400000000".',
+                                                    ]);?>
+                                                <?= $this->Form->control('email', [
+                                                        'label' => 'Email Address',
+                                                        'type' => 'email',
+                                                        'required' => true,
+                                                        'class' => 'form-control',
+                                                        'title' => 'Please enter a valid email address.',
+                                                    ]); ?>
                                                 <?= $this->Form->control('address', ['label' => 'Delivery Address', 'required' => true, 'class' => 'form-control']) ?>
                                                 <?= $this->Form->control('requested_date', ['label' => 'Requested Delivery Date', 'type' => 'date', 'required' => true, 'class' => 'form-control']) ?>
                                             <?php endif; ?>
