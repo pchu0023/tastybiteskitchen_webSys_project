@@ -84,7 +84,14 @@ class WebsiteContentTable extends Table
             ->scalar('opening_time_weekends')
             ->maxLength('opening_time_weekends', 255)
             ->allowEmptyString('opening_time_weekends');
-
+        $validator
+            ->scalar('opening_content1')
+            ->maxLength('opening_content1', 255)
+            ->allowEmptyString('opening_content1');   
+        $validator
+            ->scalar('opening_content2')
+            ->maxLength('opening_content2', 255)
+            ->allowEmptyString('opening_content2'); 
         $validator
             ->scalar('logo_image')
             ->maxLength('logo_image', 255)

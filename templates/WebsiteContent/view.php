@@ -9,26 +9,26 @@
     <?php else : ?>
 <?php $this->layout = 'admin_default'; ?>
     <br />
-    <?= $this->Html->link(__('Go Back to Edit website home page'), ['action' => 'edit'], ['class' => 'btn btn-primary']) ?>
-    <?= $this->Html->link(__('Go Back to Edit website about page'), ['action' => 'add'], ['class' => 'btn btn-secondary float-right']) ?>
-
+    <?= $this->Html->link(__('Edit Home and Footer'), ['action' => 'edit'], ['class' => 'btn btn-primary']) ?>
+    <?= $this->Html->link(__('Edit About Page Content'), ['action' => 'add'], ['class' => 'btn btn-secondary float-right']) ?>
+ 
     <br /><br />
-    
-
+   
+ 
                  
 <div class="col">
-
+ 
         <div class="products form content">
-
-
-
-            <h3 class="heading"><?= __('Edit Website Display') ?></h3>
-            
+ 
+ 
+ 
+            <h3 class="heading"><?= __('Current Website Display') ?></h3>
+           
                 <br>
-                <h5 class="d-flex justify-content-between border-bottom pb-1">
-                            <span>Home Page footer (contact)</span>
+                <h5 class="d-flex justify-content-between border-bottom pb-1" style="color: orange;">
+                            <span>Footer (contact section)</span>
                         </h5>
-
+ 
                 <div class="row">
                     <div class="col">
                         <br />
@@ -37,7 +37,7 @@
                 </h6>
                 <?= h($websiteContent->address) ?>
                     </div>
-
+ 
                     <div class="col">
                         <br />
                         <h6 class="d-flex justify-content-between border-bottom pb-1">
@@ -45,7 +45,7 @@
                         </h6>
                         <?= h($websiteContent->phone) ?>
                     </div>
-
+ 
                     <div class="col">
                         <br />
                         <h6 class="d-flex border-bottom">
@@ -55,33 +55,51 @@
                     </div>
                 </div>
                 <br>
-                <h5 class="d-flex justify-content-between border-bottom pb-1">
-                            <span>Home Page footer (opening)</span>
+                <h5 class="d-flex justify-content-between border-bottom pb-1" style="color: orange;">
+                            <span>Footer (opening section) </span>
                         </h5>
                 <div class="row">
-
+ 
                     <div class="col">
                         <br />
                         <h6 class="d-flex justify-content-between border-bottom pb-1">
-                            <span>Monday - Friday opening time</span>
+                        <span>opening content 1</span>
+                        </h6>
+                        <?= h($websiteContent->opening_content1) ?>
+                    </div>
+                    <div class="col">
+                        <br />
+                        <h6 class="d-flex border-bottom">
+                            <span>opening content 2</span>
+                        </h6>
+                        <?= h($websiteContent->opening_content2) ?>
+                    </div>
+                </div>
+                <div class="row">
+ 
+                    <div class="col">
+                        <br />
+                        <h6 class="d-flex justify-content-between border-bottom pb-1">
+                        <span>Opening time 1</span>
                         </h6>
                         <?= h($websiteContent->opening_time_weekdays) ?>
                     </div>
                     <div class="col">
                         <br />
                         <h6 class="d-flex border-bottom">
-                            <span>Weekends opening time </span>
+                            <span>Opening time 2</span>
                         </h6>
                         <?= h($websiteContent->opening_time_weekends) ?>
                     </div>
                 </div>
-                
+               
                 <br>
-                <h5 class="d-flex justify-content-between border-bottom pb-1">
+                <br>
+                <h5 class="d-flex justify-content-between border-bottom pb-1" style="color: orange;">
                             <span>Home Page Image</span>
                         </h5>
                 <div class="row">
-
+ 
                     <div class="col">
                         <table>
                             <thead>
@@ -143,12 +161,12 @@
                         </table>
                     </div>
                 </div>
-
-
-
+ 
+ 
+ 
                 <br>
                 <br>
-                <h4 class="d-flex justify-content-between border-bottom pb-1">
+                <h5 class="d-flex justify-content-between border-bottom pb-1" style="color: orange;">
                             <span>About Us Page Details</span>
                         </h4>
                 <br>
@@ -156,18 +174,20 @@
                     <span>About Us Title</span>
                 </h6>
                 <?= h($websiteContent->about_title) ?>
-
+ 
+                <br>
+                <br>
                 <h6 class="d-flex justify-content-between border-bottom pb-1">
                     <span>About Description</span>
                 </h6>
                 <?= $this->Text->autoParagraph(h($websiteContent->about_description)); ?>
                 <br />
-                
-                <h5 class="d-flex justify-content-between border-bottom pb-1">
+               
+                <h5 class="d-flex justify-content-between border-bottom pb-1" style="color: orange;">
                             <span>About Us Page Image</span>
                         </h5>
                 <div class="row">
-
+ 
                     <div class="col">
                         <table>
                             <thead>
@@ -208,7 +228,7 @@
                             </tbody>
                         </table>
                     </div>
-
+ 
                     <div class="col">
                         <table>
                             <thead>
@@ -224,7 +244,7 @@
                                             <span>About page Image Three</span>
                                         </h6>
                                         <img class="flex-sm-shrink-0 img-fluid roundd" src="<?= $websiteContent->image3 ?>" style="width: 200px; height: auto; object-fit: contain;" alt="None image in there">
-
+ 
                                     </td>
                                 </tr>
                             </tbody>
@@ -245,7 +265,7 @@
                                             <span>About page Image Four</span>
                                         </h6>
                                         <img class="flex-sm-shrink-0 img-fluid roundd" src="<?= $websiteContent->image4 ?>" style="width: 200px; height: auto; object-fit: contain;" alt="None image in there">
-
+ 
                                     </td>
                                 </tr>
                             </tbody>
@@ -254,11 +274,11 @@
                 </div>
                 <br>
                 <br>
-                
-
+               
+ 
         </div>
     </div>
 </div>
-
-
+ 
+ 
 <?php endif; ?>
