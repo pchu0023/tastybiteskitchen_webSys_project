@@ -13,7 +13,7 @@
             <div class="alert alert-warning" role="alert">
                 <h4 class="alert-heading">Please note that...</h4>
                 <p>
-                    Your order is not yet confirmed. 
+                    Your order is not yet confirmed.
                 </p>
                 <p> <strong>
                 Please use the given Order ID as reference and description, and send your required payment to :
@@ -74,7 +74,7 @@
                             </div>
                         </td>
                         <?php if ($quant >= 20) : ?>
-                            <td class="text-right font-weight-semibold align-middle p-4"><?= ($product->price) * (1.0 - ($product->catering_discount / 100)) ?></td>
+                            <td class="text-right font-weight-semibold align-middle p-4"><?= round(($product->price) * (1.0 - ($product->catering_discount / 100)),2) ?></td>
                         <?php else : ?>
                             <td class="text-right font-weight-semibold align-middle p-4"><?= $product->price ?></td>
                         <?php endif ?>
@@ -82,9 +82,9 @@
                                                             onchange="this.value = Math.round(this.value);"
                             /></td>
                         <?php if ($quant >= 20) : ?>
-                            <td class="text-right font-weight-semibold align-middle p-4" id="totalProdPrice"><?= ($product->price) * (1.0 - ($product->catering_discount / 100)) * $quant ?></td>
+                            <td class="text-right font-weight-semibold align-middle p-4" id="totalProdPrice"><?= round(($product->price) * (1.0 - ($product->catering_discount / 100)) * $quant,2) ?></td>
                         <?php else : ?>
-                            <td class="text-right font-weight-semibold align-middle p-4" id="totalProdPrice"><?= $product->price * $quant ?></td>
+                            <td class="text-right font-weight-semibold align-middle p-4" id="totalProdPrice"><?= round($product->price * $quant,2) ?></td>
                         <?php endif ?>
                     </tr>
                 <?php endforeach; ?>
