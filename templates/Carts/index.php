@@ -79,17 +79,17 @@
                       </div>
                     </td>
                     <?php if ($quant >= 20) : ?>
-                        <td class="text-right font-weight-semibold align-middle p-4"><?= ($product->price) * (1.0 - ($product->catering_discount / 100)) ?></td>
+                        <td class="text-right font-weight-semibold align-middle p-4"><?= round(($product->price) * (1.0 - ($product->catering_discount / 100)),2) ?></td>
                       <?php else : ?>
-                        <td class="text-right font-weight-semibold align-middle p-4"><?= $product->price ?></td>
+                        <td class="text-right font-weight-semibold align-middle p-4"><?= round($product->price,2) ?></td>
                       <?php endif ?>
                     <td class="align-middle p-4"><input name="quantity[]" readonly type="number" min = 1 max = 10 step = 1 class="form-control text-center" value="<?= $quant ?>"
                         onchange="this.value = Math.round(this.value);"
                         /></td>
                       <?php if ($quant >= 20) : ?>
-                          <td class="text-right font-weight-semibold align-middle p-4" id="totalProdPrice"><?= ($product->price) * (1.0 - ($product->catering_discount / 100)) * $quant ?></td>
+                          <td class="text-right font-weight-semibold align-middle p-4" id="totalProdPrice"><?= round(($product->price) * (1.0 - ($product->catering_discount / 100)) * $quant,2) ?></td>
                       <?php else : ?>
-                          <td class="text-right font-weight-semibold align-middle p-4" id="totalProdPrice"><?= $product->price * $quant ?></td>
+                          <td class="text-right font-weight-semibold align-middle p-4" id="totalProdPrice"><?= round($product->price * $quant,2) ?></td>
                       <?php endif ?>
 
                       <td class="actions">
@@ -189,8 +189,8 @@
                                                 <?= $this->Form->control('requested_date', ['label' => 'Requested Delivery Date', 'type' => 'date', 'required' => true, 'class' => 'form-control']) ?>
                                             <?php else : ?>
                                                 <?= $this->Form->control('first_name', [
-                                                        'label' => 'First Name', 
-                                                        'required' => true, 
+                                                        'label' => 'First Name',
+                                                        'required' => true,
                                                         'class' => 'form-control',
                                                         'pattern' => "^[A-Za-z]+$",
                                                         'title' => 'Last Name must contain only letters.',
