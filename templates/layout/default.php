@@ -150,9 +150,9 @@ $cakeDescription = 'Tasty Bites Kitchen';
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Opening</h4>
-                        <h5 class="text-light fw-normal">Monday - Friday</h5>
+                        <h5 class="text-light fw-normal"><?= h($websiteContent->opening_time_weekdays) ?></h5>
                         <p><?= h($websiteContent->opening_time_weekdays) ?></p>
-                        <h5 class="text-light fw-normal">Weekends</h5>
+                        <h5 class="text-light fw-normal"><?= h($websiteContent->opening_time_weekends) ?></h5>
                         <p><?= h($websiteContent->opening_time_weekends) ?></p>
                     </div>
                 </div>
