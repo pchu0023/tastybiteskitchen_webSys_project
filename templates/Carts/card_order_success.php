@@ -60,7 +60,7 @@
                             </div>
                         </td>
                         <?php if ($quant >= 20) : ?>
-                            <td class="text-right font-weight-semibold align-middle p-4"><?= ($product->price) * (1.0 - ($product->catering_discount / 100)) ?></td>
+                            <td class="text-right font-weight-semibold align-middle p-4"><?= round(($product->price) * (1.0 - ($product->catering_discount / 100)),2) ?></td>
                         <?php else : ?>
                             <td class="text-right font-weight-semibold align-middle p-4"><?= $product->price ?></td>
                         <?php endif ?>
@@ -68,9 +68,9 @@
                                                             onchange="this.value = Math.round(this.value);"
                             /></td>
                         <?php if ($quant >= 20) : ?>
-                            <td class="text-right font-weight-semibold align-middle p-4" id="totalProdPrice"><?= ($product->price) * (1.0 - ($product->catering_discount / 100)) * $quant ?></td>
+                            <td class="text-right font-weight-semibold align-middle p-4" id="totalProdPrice"><?= round(($product->price) * (1.0 - ($product->catering_discount / 100)) * $quant,2) ?></td>
                         <?php else : ?>
-                            <td class="text-right font-weight-semibold align-middle p-4" id="totalProdPrice"><?= $product->price * $quant ?></td>
+                            <td class="text-right font-weight-semibold align-middle p-4" id="totalProdPrice"><?= round($product->price * $quant,2) ?></td>
                         <?php endif ?>
                     </tr>
                 <?php endforeach; ?>
