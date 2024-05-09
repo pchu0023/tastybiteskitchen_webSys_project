@@ -53,12 +53,21 @@ $cakeDescription = 'Tasty Bites Kitchen';
     <!-- Template Stylesheet -->
     <?= $this->Html->css('style.css') ?>
 </head>
+
+    <!-- Spacing for nav and content -->
 <style>
-    body {
-        padding-top: 120px;
+    .index.content {
+        padding-top: 35px;
         /* padding-bottom: 90px;
         margin-bottom: 90px;  */
-        /* margin-top: 90px; */
+        margin-top: 105px;
+         /* Adjust this value as needed */
+    }
+    .manage.content {
+        padding-top: 35px;
+        /* padding-bottom: 90px;
+        margin-bottom: 90px;  */
+        margin-top: 100px;
          /* Adjust this value as needed */
     }
 </style>

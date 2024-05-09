@@ -11,13 +11,13 @@
     <br />
 <?php else : ?>
     <?php $this->layout = 'admin_default'; ?>
-    <br />
+    <div class="products index content">
+
     <?= $this->Html->link(__('Add New Product'), ['action' => 'add'], ['class' => 'btn btn-primary']) ?>
     <?= $this->Html->link(__('Update Quantities'), ['action' => 'quantity_edit'], ['class' => 'btn btn-secondary']) ?>
     <?= $this->Html->link(__('Update Catering Discount'), ['action' => 'catering_edit'], ['class' => 'btn btn-info']) ?>
     <br />
     <br />
-    <div class="products index content">
 
         <h3 class="d-flex justify-content-between border-bottom pb-1"><?= __('Products') ?></h3>
 

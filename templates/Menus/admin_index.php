@@ -8,7 +8,6 @@
 <div class="menus index content">
     <!-- display for admin -->
     <?php $this->layout = 'admin_default'; ?>
-    <br />
     <?= $this->Html->link(__('Add New Menu'), ['action' => 'add'], ['class' => 'btn btn-primary float-right']) ?>
     <?= $this->Html->link(__('Change Active Status'), ['action' => 'activeCater'], ['class' => 'btn btn-secondary float-right']) ?>
     <br />
