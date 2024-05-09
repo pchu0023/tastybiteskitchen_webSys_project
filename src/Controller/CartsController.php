@@ -5,6 +5,7 @@ namespace App\Controller;
 
 use App\Model\Entity\Product;
 use App\Model\Table\ProductsTable;
+use Cake\Http\ServerRequest;
 use Ramsey\Uuid\Uuid;
 
 /**
@@ -220,6 +221,21 @@ class CartsController extends AppController
             $this->set(compact('deliveryData'));
             $this->set(compact('order'));
 
+            // Link to OrderProducts
+            // Link to OrderProducts
+            $this->OrdersProducts = $this->fetchTable('OrdersProducts');
+            $arr = $this->request->getSession()->read('cart');
+            foreach ($arr as $key => $value) {
+                $ordersProduct = $this->OrdersProducts->newEmptyEntity();
+                $ordersProduct->order_id = $order->id;
+                $ordersProduct->product_id = $value['product']['id'];
+                $ordersProduct->quantity = $value['quantity'];
+
+                if (!$this->OrdersProducts->save($ordersProduct)) {
+                    $this->Flash->error(__('Failed to save orders_products entry.'));
+                }
+            }
+
             // Update quantities of products
             // Load Products table
             $Products = $this->fetchTable('Products');
@@ -262,6 +278,20 @@ class CartsController extends AppController
         $order->receiver_name = $deliveryData['first_name'] . ' ' . $deliveryData['last_name'];
         $order->receiver_phone = $deliveryData['phone_number'];
         if ($this->Orders->save($order)) {
+            // Link to OrderProducts
+            $this->OrdersProducts = $this->fetchTable('OrdersProducts');
+            $arr = $this->request->getSession()->read('cart');
+            foreach ($arr as $key => $value) {
+                $ordersProduct = $this->OrdersProducts->newEmptyEntity();
+                $ordersProduct->order_id = $order->id;
+                $ordersProduct->product_id = $value['product']['id'];
+                $ordersProduct->quantity= $value['quantity'];
+
+                if (!$this->OrdersProducts->save($ordersProduct)) {
+                    $this->Flash->error(__('Failed to save orders_products entry.'));
+                }
+            }
+
             $this->set(compact('deliveryData'));
             $this->set(compact('order'));
             $this->set(compact('session'));
