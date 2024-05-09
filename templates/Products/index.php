@@ -14,6 +14,7 @@
     <br />
     <?= $this->Html->link(__('Add New Product'), ['action' => 'add'], ['class' => 'btn btn-primary']) ?>
     <?= $this->Html->link(__('Update Quantities'), ['action' => 'quantity_edit'], ['class' => 'btn btn-secondary']) ?>
+    <?= $this->Html->link(__('Update Catering Discount'), ['action' => 'catering_edit'], ['class' => 'btn btn-info']) ?>
     <br />
     <br />
     <div class="products index content">
@@ -29,6 +30,7 @@
                         <th><?= $this->Paginator->sort('extra_info') ?></th>
                         <th><?= $this->Paginator->sort('price') ?></th>
                         <th><?= $this->Paginator->sort('quantity') ?></th>
+                        <th><?= $this->Paginator->sort('catering_discount') ?></th>
                         <th><?= __('Actions') ?></th>
                     </tr>
                 </thead>
@@ -42,6 +44,7 @@
                             <td>$<?= $this->Number->format($product->price) ?></td>
 
                             <td ><?= h($product->quantity) ?></td>
+                            <td ><?= h($product->catering_discount) ?></td>
                             <td class="actions">
                                 <?= $this->Html->link(__('View'), ['action' => 'view', $product->id], ['class' => 'btn btn-sm btn-info']) ?>
                                 <?php if ($this->Identity->get('type') == "emp") : ?>

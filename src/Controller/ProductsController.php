@@ -51,6 +51,14 @@ class ProductsController extends AppController
 
         $this->set(compact('product'));
     }
+    public function cateringEdit()
+    {
+        $query = $this->Products->find();
+        $product = $this->paginate($query);
+
+        $this->set(compact('product'));
+    }
+
     public function updateAllQuantities()
 {
     if ($this->request->is('post')) {
@@ -76,7 +84,33 @@ class ProductsController extends AppController
         return $this->redirect(['action' => 'index']);
     }
 }
-    /**
+public function updateAllCatering()
+{
+    if ($this->request->is('post')) {
+        // Get the submitted data from the form
+        $postData = $this->request->getData();
+
+        // Loop through each product
+        foreach ($postData['catering_discount'] as $productId => $cateringDiscount) {
+            // Find the product by its id
+            $product = $this->Products->get($productId);
+
+            // Update the catering
+            $product->catering_discount = $cateringDiscount;
+
+            // Save the product
+            $this->Products->save($product);
+        }
+
+        // Flash success message
+        $this->Flash->success(__('Products catering discounts updated successfully.'));
+
+        // Redirect back to the index page
+        return $this->redirect(['action' => 'index']);
+    }
+} 
+
+/**
      * Add method
      *
      * @return \Cake\Http\Response|null|void Redirects on successful add, renders view otherwise.
