@@ -115,6 +115,10 @@ $this->assign('title', 'Register new user');
                             'class' => 'form-control',
                             'label' => false,
                             'placeholder' => 'Phone',
+                            'type' => 'tel',
+                            'required' => false,
+                            'pattern' => '^(?:\d{2}\s?\d{4}\s?\d{4}|\d{10})$',
+                            'title' => 'Phone number must be in the format "04 0000 0000" or "0400000000".',                         
                             'style' => 'font-size:1.5rem'
                         ]); ?>
                     </div>
