@@ -19,6 +19,8 @@ class OrdersController extends AppController
         $this->Authentication->allowUnauthenticated(['addBlankEntity']);
     }
 
+    public array $paginate = ['limit' => 10000];
+
     /**
      * Index method
      *
