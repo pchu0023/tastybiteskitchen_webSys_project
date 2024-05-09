@@ -26,9 +26,10 @@
                 <?php foreach ($product as $item) : ?>
                     <tr>
                         <td style="max-width:100px; word-wrap:break-word;"><?= h($item->name) ?></td>
-                        <td style="max-width: 300px; word-wrap: break-word;"><?= h($item->description) ?></td>
-                        <td>
-                        <?= $this->Form->input("catering_discount.{$item->id}", [
+                        <td style="max-width: 400px; word-wrap: break-word;"><?= h($item->description) ?></td>
+
+                        <td >
+<?= $this->Form->input("catering_discount.{$item->id}", [
     'type' => 'number',
     'value' => $item->catering_discount,
     'step' => 'any', // Allow any step value
@@ -37,7 +38,9 @@
     'class' => 'form-control',
     'label' => false,
     'placeholder' => 'Catering Discount amount',
-    'size' => 3
+    // 'size' => 3,
+    'style' => 'width: 100px;' // Adjust the width directly with inline CSS
+
 ]) ?>                                    
                         </td>
                     </tr>

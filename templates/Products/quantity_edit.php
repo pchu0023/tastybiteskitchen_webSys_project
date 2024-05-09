@@ -27,18 +27,30 @@
                     <tr>
                         <td style="max-width:100px; word-wrap:break-word;"><?= h($product->name) ?></td>
                         <td style="max-width: 300px; word-wrap: break-word;"><?= h($product->description) ?></td>
-                        <td><?= $this->Form->input("quantity.{$product->id}", ['type' => 'number', 'value' => $product->quantity, 'size' => 5]) ?></td>
+                        <td><?= $this->Form->input(
+                                "quantity.{$product->id}",
+                                [
+                                    'type' => 'number',
+                                    'value' => $product->quantity,
+                                    'min' => '0',     // Ensures the price is not negative, doubled in validator
+                                    'max' => '9999', // Ensures the price is not over 100%, doubled in validator
+                                    'class' => 'form-control',
+                                    'size' => 3,
+                                    'style' => 'width: 100px;' // Adjust the width directly with inline CSS
+                                ]
+                            ) ?></td>
+
                     </tr>
                 <?php endforeach; ?>
             </tbody>
         </table>
     </div>
-    <br/>
+    <br />
 
     <div class="d-grid">
         <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-success']) ?>
     </div>
-    <br/>
-    <br/>
+    <br />
+    <br />
 </div>
 <?= $this->Form->end() ?>
