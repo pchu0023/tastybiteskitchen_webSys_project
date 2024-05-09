@@ -128,10 +128,10 @@ class CartsController extends AppController
 //          Cost * 100 is because cost is in cents, so change to dollars $$$$$$$$$$
             if ($quantity >= 20) {
 //              Cost = Price of the item multiplied by the inverse of the discount (10% off = cost * 0.9, 20% off = cost * 0.8, etc..)
-                $cost = round((($product->price) * (1.0 - ($product->catering_discount / 100))) * 100,2);
+                $cost = round((($product->price) * (1.0 - ($product->catering_discount / 100))) * 100);
             }
             else {
-                $cost = round(($product->price) * 100,2);
+                $cost = round(($product->price) * 100);
             }
             $name = ($product->name);
             $description = ($product->description);
