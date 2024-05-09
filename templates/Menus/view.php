@@ -7,10 +7,10 @@
 ?>
 <?php if ($this->Identity->get('type') === "emp") : ?>
     <?php $this->layout = 'admin_default'; ?>
+    <div class="products index content">
 
-    <div class="row">
-        <div class="column column-80">
-            <div class="menus view content">
+        <div class="row">
+            <div class="column column-80">
                 <h3><?= h($menu->name) ?></h3>
                 <table>
                     <tr>
@@ -39,15 +39,15 @@
 
             <?php endif; ?>
             <br />
+            <br />
 
-            <div class="products index content">
-                <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                    <h5 class="section-title ff-secondary text-center text-primary fw-normal"><?= h($menu->name) ?> </h5>
-                    <br>
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h5 class="section-title ff-secondary text-center text-primary fw-normal"><?= h($menu->name) ?> </h5>
+                <br>
 
-                    <h1 class="mb-5"><?= h($menu->description) ?> </h1>
+                <h1 class="mb-5"><?= h($menu->description) ?> </h1>
 
-                </div>
+            </div>
             </div>
             <?php if (!empty($menu->products)) : ?>
                 <div class="row">
@@ -100,14 +100,14 @@
                                     <br>
 
                                     <div class="d-flex justify-content-end">
-                                    <?= $this->Form->postButton(
-    $product->quantity > 0 ? 'Add to cart' : 'Unavailable',
-    ['controller' => 'Products', 'action' => 'addToCart', $product->id],
-    [
-        'class' => 'btn btn-primary me-2',
-        'disabled' => $product->quantity == 0 ? true : false
-    ]
-) ?>
+                                        <?= $this->Form->postButton(
+                                            $product->quantity > 0 ? 'Add to cart' : 'Unavailable',
+                                            ['controller' => 'Products', 'action' => 'addToCart', $product->id],
+                                            [
+                                                'class' => 'btn btn-primary me-2',
+                                                'disabled' => $product->quantity == 0 ? true : false
+                                            ]
+                                        ) ?>
 
                                         <?= $this->Html->link(__('View Product'), ['controller' => 'Products', 'action' => 'view', $product->id, '?' => ['return_to' => $this->getRequest()->getRequestTarget()]], ['class' => 'btn btn-secondary me-2']) ?>
                                     </div>
@@ -119,7 +119,5 @@
                     <?php endforeach; ?>
                 </div>
             <?php endif; ?>
-            </div>
         </div>
-    </div>
     </div>
