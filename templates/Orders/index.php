@@ -52,9 +52,9 @@
                             <td style="max-width: 400px; word-wrap: break-word;"><?= h($active_array[0]->requested_date) ?></td>
 
                             <td class="actions">
-                                <?= $this->Html->link(__('View'), ['action' => 'view', $active_array[0]->id], ['class' => 'btn btn-secondary py-sm-2 px-sm-3 me-2']) ?>
+                                <?= $this->Html->link(__('View'), ['action' => 'view', $active_array[0]->id], ['class' => 'btn btn-sm btn-info']) ?>
                                 <?php if ($this->Identity->get('type') === "emp") : ?>
-                                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $active_array[0]->id], ['class' => 'btn btn-primary py-sm-2 px-sm-3 me-2']) ?>
+                                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $active_array[0]->id], ['class' => 'btn btn-sm btn-primary']) ?>
                                     <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $active_array[0]->id], ['confirm' => __('Are you sure you want to delete # {0}?', $order->id), 'class' => 'btn btn-danger py-sm-2 px-sm-2 me-2']) ?>
                                 <?php endif; ?>
                             </td>
