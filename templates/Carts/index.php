@@ -83,9 +83,27 @@
                       <?php else : ?>
                         <td class="text-right font-weight-semibold align-middle p-4"><?= $product->price ?></td>
                       <?php endif ?>
-                    <td class="align-middle p-4"><input name="quantity[]" readonly type="number" min = 1 max = 10 step = 1 class="form-control text-center" value="<?= $quant ?>"
-                        onchange="this.value = Math.round(this.value);"
-                        /></td>
+<!--                    <td class="align-middle p-4"><input name="quantity[]" readonly type="number" min = 1 max = 10 step = 1 class="form-control text-center" value="--><?php //= $quant ?><!--"-->
+<!--                        onchange="this.value = Math.round(this.value);"-->
+<!--                        /></td>-->
+<!--                      update($id = null, $quantity = null)-->
+                      <td
+                          <?= $this->Form->create(null, ['url' => ['controller' => 'Carts', 'action' => 'update', $product->id, $quant]]) ?>
+                          <?php echo $this->Form->control('quantity', [
+                              'class' => 'form-control',
+                              'type' => 'number',
+                              'step' => '1',
+                              'min' => '1',
+                              'max' => '100',
+                              'label' => false,
+                              'default' => $quant,
+                          ]); ?>
+                          <?= $this->Form->button(__('Update quantity'), ['controller' => 'Carts', 'class' => 'btn btn-success', 'action' => 'update', $product->id, $quant]) ?>
+                          <?= $this->Form->end() ?>
+
+                      </td>
+
+
                       <?php if ($quant >= 20) : ?>
                           <td class="text-right font-weight-semibold align-middle p-4" id="totalProdPrice"><?= ($product->price) * (1.0 - ($product->catering_discount / 100)) * $quant ?></td>
                       <?php else : ?>
