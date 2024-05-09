@@ -86,12 +86,8 @@ class OrdersProductsController extends AppController
 
             if (!$this->OrdersProducts->save($ordersProduct)) {
                 $this->Flash->error(__('Failed to save orders_products entry.'));
-                return $this->redirect(['controller' => 'Carts', 'action' => 'index']);
             }
         }
-
-        $this->Flash->success(__('Your order has been saved successfully.'));
-        return $this->redirect(['controller' => 'Carts', 'action' => 'checkoutClear']);
 
 
 
