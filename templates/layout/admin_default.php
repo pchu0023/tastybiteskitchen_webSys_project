@@ -61,6 +61,13 @@ $cakeDescription = 'Tasty Bites Kitchen';
         margin-top: 115px;
          /* Adjust this value as needed */
     }
+    .manage.content {
+        padding-top: 35px;
+        /* padding-bottom: 90px;
+        margin-bottom: 90px;  */
+        margin-top: 115px;
+         /* Adjust this value as needed */
+    }
 </style>
 <body>
 <div class="container-xxl bg-dark p-0">

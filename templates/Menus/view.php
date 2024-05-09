@@ -7,7 +7,7 @@
 ?>
 <?php if ($this->Identity->get('type') === "emp") : ?>
     <?php $this->layout = 'admin_default'; ?>
-    <div class="products index content">
+    <div class="products manage content">
 
         <div class="row">
             <div class="column column-80">
