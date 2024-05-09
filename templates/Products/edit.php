@@ -257,10 +257,7 @@
                                     <?php if (!empty($product->extra_info)) : ?>
                                         <small class="fst-normal"><?= h($product->extra_info) ?></small>
 
-                                        <!-- <?php foreach ($product->extra_info as $ingredient) : ?>
-                                            <small class="fst-normal"><?= h($ingredient->name) ?></small>
-                                        <?php endforeach; ?>
-                                        <br /> -->
+                                    
                                     <?php endif; ?>
                                 </div>
                             </div>

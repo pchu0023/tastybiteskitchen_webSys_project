@@ -54,11 +54,11 @@ $cakeDescription = 'Tasty Bites Kitchen';
     <?= $this->Html->css('style.css') ?>
 </head>
 <style>
-    body {
-        padding-top: 120px;
+    .index.content {
+        padding-top: 35px;
         /* padding-bottom: 90px;
         margin-bottom: 90px;  */
-        /* margin-top: 90px; */
+        margin-top: 115px;
          /* Adjust this value as needed */
     }
 </style>
