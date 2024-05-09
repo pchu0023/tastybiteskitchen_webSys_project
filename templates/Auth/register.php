@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\User $user
@@ -22,11 +23,11 @@ $this->assign('title', 'Register new user');
                 <hr class="hr-between-buttons">
 
                 <?= $this->Flash->render() ?>
-                <?php if ($user->getErrors()): ?>
+                <?php if ($user->getErrors()) : ?>
                     <div class="errors">
                         <ul>
-                            <?php foreach ($user->getErrors() as $field => $errors): ?>
-                                <?php foreach ($errors as $error): ?>
+                            <?php foreach ($user->getErrors() as $field => $errors) : ?>
+                                <?php foreach ($errors as $error) : ?>
                                     <li><?= h($field) . ': ' . h($error) ?></li>
                                 <?php endforeach; ?>
                             <?php endforeach; ?>
@@ -35,9 +36,9 @@ $this->assign('title', 'Register new user');
                 <?php endif; ?>
                 <br />
                 <h2 class="d-flex justify-content-between border-bottom pb-2">
-                        <span>
-                            Account Details
-                        </span>
+                    <span>
+                        Account Details
+                    </span>
                 </h2>
 
                 <?= $this->Form->control('email', [
@@ -63,7 +64,7 @@ $this->assign('title', 'Register new user');
                         'label' => 'Password *',
                         'style' => 'font-size:1.5rem'
                     ]); ?>
-<!--                    <i class="bi bi-eye-slash" id="togglePassword"></i>-->
+                    <!--                    <i class="bi bi-eye-slash" id="togglePassword"></i>-->
                 </div>
                 <br />
                 <div class="row">
@@ -78,7 +79,7 @@ $this->assign('title', 'Register new user');
                         'style' => 'font-size:1.5rem'
                     ]);
                     ?>
-<!--                    <i class="bi bi-eye-slash" id="toggleConfirmPassword"></i>-->
+                    <!--                    <i class="bi bi-eye-slash" id="toggleConfirmPassword"></i>-->
                     <small id="passwordHelpBlock" class="form-text text-muted">
                         Your password must be between 8 and 128 characters long, contain at least one symbol, and must not contain emojis.
                     </small>
@@ -86,9 +87,9 @@ $this->assign('title', 'Register new user');
                 <br />
 
                 <h2 class="d-flex justify-content-between border-bottom pb-2">
-                        <span>
-                            Personal Details
-                        </span>
+                    <span>
+                        Personal Details
+                    </span>
                 </h2>
                 <div class="row">
                     <div class="col">
@@ -111,20 +112,28 @@ $this->assign('title', 'Register new user');
                 <br>
                 <div class="row">
                     <div class="col">
-                        <?= $this->Form->control('phone', [
-                            'class' => 'form-control',
+                        <?= $this->Form->control('phone_number', [
                             'label' => false,
-                            'placeholder' => 'Phone',
-                            'style' => 'font-size:1.5rem'
+                            'type' => 'tel',
+                            'required' => true,
+                            'placeholder' => 'Phone Number',
+                            'class' => 'form-control',
+                            'pattern' => '^(?:\d{2}\s?\d{4}\s?\d{4}|\d{10})$',
+                            'title' => 'Phone number must be in the format "04 0000 0000" or "0400000000".',
+                            'style' => 'font-size:1.5rem',
+                            'required' => false // make the field optional
+
                         ]); ?>
                     </div>
                     <div class="col">
                         <?= $this->Form->control('address', [
-                            'class' => 'form-control',
                             'label' => false,
+                            'required' => false,
                             'placeholder' => 'Address',
-                            'style' => 'font-size:1.5rem'
-                        ]); ?>
+                            'style' => 'font-size:1.5rem',
+                            'class' => 'form-control'
+                        ]) ?>
+
                     </div>
                 </div>
                 <small id="passwordHelpBlock" class="form-text text-muted">
@@ -134,7 +143,7 @@ $this->assign('title', 'Register new user');
             <br />
 
             <div class="d-grid">
-                <?= $this->Form->button('Register', ['class' => 'button btn-success btn-block ','style' => 'background-color: orange; border-color: orange;']) ?>
+                <?= $this->Form->button('Register', ['class' => 'button btn-success btn-block ', 'style' => 'background-color: orange; border-color: orange;']) ?>
                 <?= $this->Form->end(['data-type' => 'hidden']) ?>
             </div>
 
