@@ -128,10 +128,10 @@ class CartsController extends AppController
 //          Cost * 100 is because cost is in cents, so change to dollars $$$$$$$$$$
             if ($quantity >= 20) {
 //              Cost = Price of the item multiplied by the inverse of the discount (10% off = cost * 0.9, 20% off = cost * 0.8, etc..)
-                $cost = round((($product->price) * (1.0 - ($product->catering_discount / 100))) * 100,2);
+                $cost = round((($product->price) * (1.0 - ($product->catering_discount / 100))) * 100);
             }
             else {
-                $cost = round(($product->price) * 100,2);
+                $cost = round(($product->price) * 100);
             }
             $name = ($product->name);
             $description = ($product->description);
@@ -237,12 +237,14 @@ class CartsController extends AppController
                 $Products->save($product);
             }
             $session->delete('paymentSessionId');
+            $this->set(compact('session'));
         } else {
             $this->Flash->error(__('The order could not be saved. Please, try again.'));
         }
     }
 
     public function transferOrderSuccess(){
+        $session = $this->request->getSession();
         $this->Orders = $this->fetchTable('Orders');
         $session = $this->request->getSession();
         $deliveryData = $session->read('DeliveryData');
@@ -259,11 +261,10 @@ class CartsController extends AppController
         $order->requested_date = $deliveryData['requested_date'];
         $order->receiver_name = $deliveryData['first_name'] . ' ' . $deliveryData['last_name'];
         $order->receiver_phone = $deliveryData['phone_number'];
-//        Team, as I've stated before, I would seriously recommend adding an attribute about payment, and we can mark
-//        it as "unpaid" here!
         if ($this->Orders->save($order)) {
             $this->set(compact('deliveryData'));
             $this->set(compact('order'));
+            $this->set(compact('session'));
         }
         else {
             $this->Flash->error(__('The order could not be saved. Please, try again.'));

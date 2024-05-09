@@ -109,6 +109,6 @@
             </table>
         </div>
         <label class="text-muted font-weight-normal m-0"> <strong>Reminder:</strong> Once noting down orderID, feel free to refresh the page for leaving, or navigate to other pages from the top menu. </label>
-
     </div>
+    <?= $session->delete('cart'); ?>
 </div>
