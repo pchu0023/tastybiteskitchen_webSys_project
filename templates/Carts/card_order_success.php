@@ -12,10 +12,14 @@
         <div class="col-12">
             <div class="alert alert-warning" role="alert">
                 <h4 class="alert-heading">Don't refresh your page!</h4>
-                <p>Please take note of your order before navigating away or refreshing, as you will not be able to access this again.</p>
+                <p>Please take note of your order ID before navigating away or refreshing, as you will not be able to access this again.</p>
             </div>
         </div>
     </div>
+    <br>
+    <br>
+    <h3>Order Summary</h3>
+<br>
     <div class="row">
         <div class="col-12">
             <h5>Order Details</h5>
@@ -104,5 +108,7 @@
                 </tbody>
             </table>
         </div>
+        <label class="text-muted font-weight-normal m-0"> <strong>Reminder:</strong> Once noting down orderID, feel free to refresh the page for leaving, or navigate to other pages from the top menu. </label>
+
     </div>
 </div>

@@ -146,8 +146,8 @@
                 <label class="text-muted font-weight-normal m-0"><h5>Total price:</h5>
                 <h4> $<?= $totalPrice ?></h4></label>
                  <br>
-                <label class="text-muted font-weight-normal m-0"> Once checkout, your order will be recorded. </label>
-                <label class="text-muted font-weight-normal m-0">  To finish purchasing these products, please contact us using our contact details at the bottom of the website.</label>
+                <label class="text-muted font-weight-normal m-0"> Once checkout, your delivery will be recorded and payment options are available. </label>
+                <label class="text-muted font-weight-normal m-0">  Please note that paying by bank transfer will take time for us to validate before actual order confirmation.</label>
 
                 </div>
               </div>
@@ -157,7 +157,8 @@
             <!--  Change this to redirect to the payment confirmation page when completed -->
                 <?php if (!empty($this->request->getSession()->read('cart'))) : ?>
                     <!-- Button to trigger modal -->
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#checkoutModal">
+
+                    <button type="button" class="btn btn-lg btn-primary mt-2" data-bs-toggle="modal" data-bs-target="#checkoutModal">
                         Checkout Now!
                     </button>
 

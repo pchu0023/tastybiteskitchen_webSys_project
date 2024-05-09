@@ -13,7 +13,12 @@
             <div class="alert alert-warning" role="alert">
                 <h4 class="alert-heading">Please note that...</h4>
                 <p>
-                    Your order is not yet confirmed. Please send your required payment to:
+                    Your order is not yet confirmed. 
+                </p>
+                <p> <strong>
+                Please use the given Order ID as reference and description, and send your required payment to :
+
+                </strong>
                 </p>
                 <p>Account Name: Tasty Bites Kitchen</p>
                 <p>BSB: 100100</p>
@@ -21,6 +26,14 @@
             </div>
         </div>
     </div>
+    <label class="text-muted font-weight-normal m-0"> <strong>Reminder:</strong> Once noting down orderID and our bank account, feel free to leave and make payment at anytime before your scheduled date. </label>
+
+    <br>
+    <br>
+
+
+    <h3>Order Summary</h3>
+<br>
     <div class="row">
         <div class="col-12">
             <h5>Order Details</h5>
@@ -109,5 +122,6 @@
                 </tbody>
             </table>
         </div>
+
     </div>
 </div>
