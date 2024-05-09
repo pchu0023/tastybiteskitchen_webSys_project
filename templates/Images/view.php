@@ -6,22 +6,23 @@
  */
 ?>
 <?php $this->layout = 'admin_default'; ?>
-<div class="row">
-    <aside class="column">
-            <br />
+<div class="users manage content">
+
+    <div class="row">
+        <aside class="column">
             <h3 class="heading"><?= __('Administrative Actions') ?></h3>
 
             <div class="side-nav">
-            <!-- <h3 class="heading"><?= __('Administrative Actions') ?></h3> -->
-            <!-- image cant edit, only create new one  -->
-            <!-- <?= $this->Html->link(__('Edit Image'), ['action' => 'edit', $image->id], ['class' => 'btn btn-primary']) ?> -->
-            <?= $this->Form->postLink(__('Delete Image'), ['action' => 'delete', $image->id], ['confirm' => __('Are you sure you want to delete # {0}?', $image->id), 'class' => 'btn btn-danger']) ?>
-            <?= $this->Html->link(__('Go Back To All Images'), ['action' => 'index'], ['class' => 'btn btn-secondary']) ?>
+                <!-- <h3 class="heading"><?= __('Administrative Actions') ?></h3> -->
+                <!-- image cant edit, only create new one  -->
+                <!-- <?= $this->Html->link(__('Edit Image'), ['action' => 'edit', $image->id], ['class' => 'btn btn-primary']) ?> -->
+                <?= $this->Form->postLink(__('Delete Image'), ['action' => 'delete', $image->id], ['confirm' => __('Are you sure you want to delete # {0}?', $image->id), 'class' => 'btn btn-danger']) ?>
+                <?= $this->Html->link(__('Go Back To All Images'), ['action' => 'index'], ['class' => 'btn btn-secondary']) ?>
 
-        </div>
+            </div>
             <br />
         </aside>
-    <!--     
+        <!--     
     <aside class="column">
         <div class="side-nav">
             <h4 class="heading"><?= __('Actions') ?></h4>
@@ -29,9 +30,7 @@
             <?= $this->Html->link(__('List Images'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
         </div>
     </aside> -->
-    <div class="column column-80">
-
-        <div class="images view content">
+        <div class="column column-80">
             <h3 class="d-flex justify-content-between border-bottom pb-1">Image detail</h3>
 
             <h4>Image File: <?= basename($image->file_location) ?></h4>
@@ -78,4 +77,5 @@
             </div>
         </div>
     </div>
+</div>
 </div>

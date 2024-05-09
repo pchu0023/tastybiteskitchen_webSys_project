@@ -11,9 +11,10 @@
 <?php if($this->Identity->get('type') != "emp") : ?>
     <div class="alert alert-danger">You do not have privileges to view this page.</div>
 <?php else : ?>
-
-    <br />
+    <?php $this->layout = 'admin_default'; ?>
+    <div class="order manage content">
     <?= $this->Html->link(__('Back To All Orders'), ['action' => 'index'], ['class' => 'btn btn-primary float-right']) ?>
+    <br />
     <br />
     <div class="row">
         <aside class="column">

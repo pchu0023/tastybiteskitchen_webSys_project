@@ -7,11 +7,11 @@
 <?php if($this->Identity->get('type') != "emp") : ?>
     <div class="alert alert-danger">You do not have privileges to view this page.</div>
 <?php else : ?>
+    <div class="orders index content">
+
 <?= $this->Form->create(null, ['url' => ['controller' => 'Orders', 'action' => 'updateAllOrderStatus']]) ?>
-<div class="orders index content">
     <!-- display for admin -->
     <?php $this->layout = 'admin_default'; ?>
-    <br />
     <?= $this->Html->link(__('Back To All Orders'), ['action' => 'index'], ['class' => 'btn btn-primary float-right']) ?>
     <br />
     <br />
