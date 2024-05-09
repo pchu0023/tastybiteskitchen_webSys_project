@@ -6,10 +6,9 @@
 ?>
 
 <?= $this->Form->create(null, ['url' => ['controller' => 'Menus', 'action' => 'updateAllActiveCaterState']]) ?>
-<div class="menus index content">
+<div class="menus manage content">
     <!-- display for admin -->
     <?php $this->layout = 'admin_default'; ?>
-    <br />
     <?= $this->Html->link(__('Back To All Menu'), ['action' => 'adminIndex'], ['class' => 'btn btn-primary float-right']) ?>
     <br />
     <br />

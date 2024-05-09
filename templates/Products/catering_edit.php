@@ -4,7 +4,6 @@
 <div class="products index content">
     <!-- Display for admin -->
     <?php $this->layout = 'admin_default'; ?>
-    <br />
     <?= $this->Html->link(__('Back To All Products'), ['action' => 'index'], ['class' => 'btn btn-primary float-right']) ?>
     <br />
     <br />

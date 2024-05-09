@@ -9,10 +9,9 @@
     <div class="alert alert-danger">You do not have privileges to view this page.</div>
 <?php else : ?>
 
-    <div class="menus index content">
+    <div class="order index content">
         <!-- display for admin -->
         <?php $this->layout = 'admin_default'; ?>
-        <br />
         <?= $this->Html->link(__('Change multiple order statuses'), ['action' => 'multipleOrderStatus'], ['class' => 'btn btn-secondary float-right']) ?>
         <br />
         <br />
@@ -344,7 +343,7 @@
         </div>
 
 
-
+        <br />
         <br />
     </div>
 <?php endif; ?>
