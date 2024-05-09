@@ -174,7 +174,7 @@ class OrdersController extends AppController
             return $this->redirect(['action' => 'index']);
         }
 
-        $this->Flash->error(__('Order status(es) updated successfully.'));
+        $this->Flash->error(__('Order status(es) failed to update.'));
         return $this->redirect(['action' => 'index']);
     }
 
