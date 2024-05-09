@@ -52,7 +52,6 @@
                     </h6>
                     <?php echo $this->Form->control('phone_number', [
                             'class' => 'form-control',
-                            'id' => 'phone',
                             'label' => false,
                             'placeholder' => '0400000000'
                         ]); ?>
@@ -73,23 +72,4 @@
             </div>
         </div>
     </div>
-    <script type="text/javascript">
-    document.addEventListener("DOMContentLoaded", function() {
-        const phoneInput = document.getElementById('phone');
-       
-        phoneInput.addEventListener('input', function(e) {
-            var value = e.target.value;
-            var formatted = value.replace(/[^\d\s]/g, '')
-                                 .replace(/\s+/g, ' ')
-                                 .trim()
-                                 .substring(0, 12);
- 
- 
-            if (formatted.length === 2 || formatted.length === 7) {
-                formatted += ' ';
-            }
-           
-            phoneInput.value = formatted;
-        });
-    });
-</script>
+    
