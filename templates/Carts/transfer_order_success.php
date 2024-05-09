@@ -124,4 +124,5 @@
         </div>
 
     </div>
+    <?= $session->delete('cart'); ?>
 </div>
