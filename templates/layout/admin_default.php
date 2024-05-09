@@ -64,10 +64,10 @@ $cakeDescription = 'Tasty Bites Kitchen';
          /* Adjust this value as needed */
     }
     .manage.content {
-        padding-top: 35px;
+        padding-top: 30px;
         /* padding-bottom: 90px;
         margin-bottom: 90px;  */
-        margin-top: 115px;
+        margin-top: 100px;
          /* Adjust this value as needed */
     }
 </style>

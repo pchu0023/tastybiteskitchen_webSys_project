@@ -9,7 +9,7 @@
     <div class="alert alert-danger">You do not have privileges to view this page.</div>
 <?php else : ?>
     <?php $this->layout = 'admin_default'; ?>
-    <div class="webpage index content">
+    <div class="websiteContent manage content">
 
         <?= $this->Html->link(__('Edit Home and Footer'), ['action' => 'edit'], ['class' => 'btn btn-primary']) ?>
         <?= $this->Html->link(__('Edit About Page Content'), ['action' => 'add'], ['class' => 'btn btn-secondary float-right']) ?>
