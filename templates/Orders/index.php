@@ -343,8 +343,6 @@
             </table>
         </div>
 
-
-
         <br />
     </div>
 <?php endif; ?>
