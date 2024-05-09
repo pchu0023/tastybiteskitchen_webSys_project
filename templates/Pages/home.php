@@ -7,14 +7,8 @@
         <div class="row align-items-center g-5">
             <div class="col-lg-6 text-center text-lg-start">
                 <h1 class="display-3 text-white animated slideInLeft">Welcome,<br>Admin.</h1>
-                <p class="text-white animated slideInLeft mb-4 pb-2"></p>
-                <div class="button-container">
-                    <a href="<?= $this->Url->build('/Users') ?>" class="btn btn-primary py-sm-3 px-sm-5 me-3 animated slideInLeft">Add a new admin user</a>
-                    <a href="<?= $this->Url->build('/Menus/admin-index') ?>" class="btn btn-primary py-sm-3 px-sm-5 me-3 animated slideInLeft">Manage the menu</a>
-                    <a href="<?= $this->Url->build('/Products') ?>" class="btn btn-primary py-sm-3 px-sm-5 me-3 animated slideInLeft">Manage Food Items</a>
-                    <a href="<?= $this->Url->build('/Images') ?>" class="btn btn-primary py-sm-3 px-sm-5 me-3 animated slideInLeft">Manage Images</a>
-                </div>
-            </div>
+                    <a href="<?= $this->Url->build('/Menus/admin-index') ?>" class="btn btn-primary py-sm-3 px-sm-5 me-3 animated slideInLeft">Start Administrative Task</a>
+                   
             <div class="col-lg-5 text-right overflow-hidden">
             <img class="flex-sm-shrink-0 img-fluid roundd" src="<?= $websiteContent->home_image ?>" style="width: 768px; height: auto; object-fit: contain;" alt="">
             <!-- <?= $this->Html->image('meal.png', ["alt" => "Meal", "class" => "img-fluid"]) ?> -->
