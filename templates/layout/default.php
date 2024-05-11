@@ -56,9 +56,11 @@ $cakeDescription = 'Tasty Bites Kitchen';
 </head>
 <style>
     body {
-        padding-top: 90px; /* Adjust this value as needed */
+        padding-top: 90px;
+        /* Adjust this value as needed */
     }
 </style>
+
 <body>
     <div class="container-xxl bg-dark p-0">
 
@@ -74,11 +76,12 @@ $cakeDescription = 'Tasty Bites Kitchen';
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto py-0 pe-4">
-                        <a href="<?= $this->Url->build('/') ?>" class="nav-item nav-link">Home</a>
-                        <a href="<?= $this->Url->build('/Menus') ?>" class="nav-item nav-link">Menu</a>
-                        <a href="<?= $this->Url->build('/About') ?>" class="nav-item nav-link">About Us</a>
-                        <a href="<?= $this->Url->build('/Carts') ?>" class="nav-item nav-link">View Cart</a>
+                        <a href="<?= $this->Url->build('/') ?>" class="nav-item nav-link <?= $this->request->getPath() === '/' ? 'active' : '' ?>">Home</a>
+                        <a href="<?= $this->Url->build('/Menus') ?>" class="nav-item nav-link <?= $this->request->getPath() === '/Menus' ? 'active' : '' ?>">Menu</a>
+                        <a href="<?= $this->Url->build('/About') ?>" class="nav-item nav-link <?= $this->request->getPath() === '/About' ? 'active' : '' ?>">About Us</a>
+                        <a href="<?= $this->Url->build('/Carts') ?>" class="nav-item nav-link <?= $this->request->getPath() === '/Carts' ? 'active' : '' ?>">View Cart</a>
                     </div>
+
                     <?php
                     if (!$this->Identity->isLoggedIn()) {
                         echo $this->Html->link(
@@ -104,9 +107,9 @@ $cakeDescription = 'Tasty Bites Kitchen';
 
 
                 </div>
-               
-    
-            </div>
+
+
+        </div>
         </nav>
     </div>
     <!-- Navbar & Hero End -->
