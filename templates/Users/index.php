@@ -8,13 +8,12 @@
     <div class="alert alert-danger">You do not have privileges to view this page.</div>
 <?php else : ?>
     <?php $this->layout = 'admin_default'; ?>
-
-    <br />
+    <div class="users index content">
     <?= $this->Html->link(__('Add New User'), ['action' => 'add'], ['class' => 'btn btn-primary float-right']) ?>
 
-    <br />
-    <br />
-    <div class="users index content">
+<br />
+<br />
+
         <h3 class="d-flex justify-content-between border-bottom pb-1"><?= __('Employees') ?></h3>
        
         <div class="table-responsive">
