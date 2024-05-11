@@ -54,6 +54,15 @@ $cakeDescription = 'Tasty Bites Kitchen';
     <!-- Template Stylesheet -->
     <?= $this->Html->css('style.css') ?>
 </head>
+
+<style>
+    @media (min-width: 1024px) {
+        .bg-body {
+            margin-top: 30px;
+        }
+    }
+</style>
+
 <body>
     <div class="container-xxl bg-dark p-0">
 
@@ -99,9 +108,9 @@ $cakeDescription = 'Tasty Bites Kitchen';
 
 
                 </div>
-               
-    
-            </div>
+
+
+        </div>
         </nav>
     </div>
     <!-- Navbar & Hero End -->

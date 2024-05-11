@@ -1,9 +1,12 @@
 <?php ?>
+<br>  
+<br>  
+
 <div class="container mt-5">
     <div class="row">
         <div class="col-12">
             <div class="alert alert-success" role="alert">
-                <h4 class="alert-heading">Thank you for your order!</h4>
+            <h4 class="alert-heading">Thank you for your order!</h4>
                 <p>Your order has been received and will be processed once we confirm the bank transfer.</p>
             </div>
         </div>
