@@ -240,6 +240,8 @@ class AuthController extends AppController
         $result = $this->Authentication->getResult();
         if ($result && $result->isValid()) {
             $this->Authentication->logout();
+            $session = $this->request->getSession();
+            $session->destroy();
 
             $this->Flash->success('You have been logged out successfully. ');
         }
