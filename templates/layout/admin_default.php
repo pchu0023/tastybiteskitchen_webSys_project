@@ -56,10 +56,11 @@ $cakeDescription = 'Tasty Bites Kitchen';
 </head>
 <style>
     @media (min-width: 1024px) {
-        .bg-body{
+        .bg-body {
             padding-top: 35px;
             margin-top: 115px;
         }
+
         /* .index.content {
             padding-top: 35px;
             margin-top: 105px;
@@ -69,6 +70,7 @@ $cakeDescription = 'Tasty Bites Kitchen';
             margin-top: 100px;
         } */
     }
+
     /* .flash{
         margin-top: 135px;
     } */
@@ -89,14 +91,15 @@ $cakeDescription = 'Tasty Bites Kitchen';
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto py-0 pe-4">
-                        <a href="<?= $this->Url->build('/') ?>" class="nav-item nav-link">Home</a>
-                        <a href="<?= $this->Url->build('/website-content/view') ?>" class="nav-item nav-link">Edit Web Page</a>
-                        <a href="<?= $this->Url->build('/Menus/adminIndex') ?>" class="nav-item nav-link">Manage Menu</a>
-                        <a href="<?= $this->Url->build('/Users') ?>" class="nav-item nav-link">Manage Users</a>
-                        <a href="<?= $this->Url->build('/Products') ?>" class="nav-item nav-link">Manage Food Items</a>
-                        <a href="<?= $this->Url->build('/Images') ?>" class="nav-item nav-link">Manage Images</a>
-                        <a href="<?= $this->Url->build('/Orders') ?>" class="nav-item nav-link">Manage Orders</a>
+                        <a href="<?= $this->Url->build('/') ?>" class="nav-item nav-link <?= $this->request->getPath() === '/' ? 'active' : '' ?>">Home</a>
+                        <a href="<?= $this->Url->build('/website-content/view') ?>" class="nav-item nav-link <?= $this->request->getPath() === '/website-content/view' ? 'active' : '' ?>">Edit Web Page</a>
+                        <a href="<?= $this->Url->build('/Menus/adminIndex') ?>" class="nav-item nav-link <?= $this->request->getPath() === '/Menus/adminIndex' ? 'active' : '' ?>">Manage Menu</a>
+                        <a href="<?= $this->Url->build('/Users') ?>" class="nav-item nav-link <?= $this->request->getPath() === '/Users' ? 'active' : '' ?>">Manage Users</a>
+                        <a href="<?= $this->Url->build('/Products') ?>" class="nav-item nav-link <?= $this->request->getPath() === '/Products' ? 'active' : '' ?>">Manage Food Items</a>
+                        <a href="<?= $this->Url->build('/Images') ?>" class="nav-item nav-link <?= $this->request->getPath() === '/Images' ? 'active' : '' ?>">Manage Images</a>
+                        <a href="<?= $this->Url->build('/Orders') ?>" class="nav-item nav-link <?= $this->request->getPath() === '/Orders' ? 'active' : '' ?>">Manage Orders</a>
                     </div>
+
                     <?php
                     if (!$this->Identity->isLoggedIn()) {
                         echo $this->Html->link(
@@ -121,7 +124,7 @@ $cakeDescription = 'Tasty Bites Kitchen';
 
             <!-- Begin Page Content -->
             <div class="container-fluid bg-body">
-                    <?= $this->Flash->render() ?>
+                <?= $this->Flash->render() ?>
                 <?= $this->fetch('content') ?>
                 <!-- page content here -->
             </div>
