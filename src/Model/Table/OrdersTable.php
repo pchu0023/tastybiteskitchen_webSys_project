@@ -7,6 +7,7 @@ use Cake\ORM\Query\SelectQuery;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
+use DateTime;
 
 /**
  * Orders Model
@@ -86,7 +87,19 @@ class OrdersTable extends Table
 
         $validator
             ->date('requested_date')
-            ->allowEmptyDate('requested_date');
+            ->allowEmptyDate('requested_date')
+            ->add('requested_date', 'future_date', [
+                'rule' => function ($value, $context) {
+                    // Create a new date and set it to today
+                    $todaysDate = new DateTime();
+                    $todaysDate->setTime(0, 0, 0);
+                    // Assign user's input to a value
+                    $requestedDate = new DateTime($value);
+                    // Must be later than today
+                    return $requestedDate > $todaysDate;
+                },
+                'message' => 'The delivery date must be a future date.',
+            ]);
 
         $validator
             ->uuid('user_id')

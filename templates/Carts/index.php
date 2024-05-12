@@ -219,7 +219,13 @@
                                                         'title' => 'Please enter a valid email address.',
                                                     ]); ?>
                                                 <?= $this->Form->control('address', ['label' => 'Delivery Address', 'required' => true, 'class' => 'form-control']) ?>
-                                                <?= $this->Form->control('requested_date', ['label' => 'Requested Delivery Date', 'type' => 'date', 'required' => true, 'class' => 'form-control']) ?>
+                                                <?= $this->Form->control('requested_date', [
+                                                    'label' => 'Requested Delivery Date',
+                                                    'type' => 'date',
+                                                    'required' => true,
+                                                    'class' => 'form-control',
+                                                    'min' => date('Y-m-d'),
+                                                ]) ?>
                                             <?php endif; ?>
                                             <!-- User inputs for order processing -->
                                         </div>
