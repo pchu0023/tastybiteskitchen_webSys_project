@@ -5,13 +5,11 @@
  * @var iterable<\App\Model\Entity\Carts> $Carts
  */
 
- /**
-  *
-    *            <?php echo $_SESSION["cart"][0] ?>;
-
-  */
+/**
+ * <?php echo $_SESSION["cart"][0] ?>;
+ */
 ?>
-<?= $this->Html->script("https://js.stripe.com/v3/") ?>
+<?= $this->Html->script('https://js.stripe.com/v3/') ?>
 <div class="carts index content">
 
         <!-- display for all users -->
@@ -49,20 +47,19 @@
                     if (!empty($this->request->getSession()->read('cart'))) : ?>
                         <?php
                         $size = sizeof($this->request->getSession()->read('cart'));
-                        echo  "Food item in cart: " . $size ?>
+                        echo 'Food item in cart: ' . $size ?>
 
 </h5>
-                    <?php
-                    foreach ($this->request->getSession()->read('cart') as $value) :
-                        $product = $value['product'];
-                        $quant = $value['quantity'];
-                        if ($quant >= 20) {
-                            $totalPrice += (($product->price) * (1.0 - ($product->catering_discount / 100)) * $quant);
-                        }
-                        else {
-                            $totalPrice += ($product->price)*$quant;
-                        }
-                        ?>
+                        <?php
+                        foreach ($this->request->getSession()->read('cart') as $value) :
+                            $product = $value['product'];
+                            $quant = $value['quantity'];
+                            if ($quant >= 20) {
+                                $totalPrice += ($product->price * (1.0 - ($product->catering_discount / 100)) * $quant);
+                            } else {
+                                $totalPrice += $product->price * $quant;
+                            }
+                            ?>
                   <tr>
                     <td class="p-4">
                       <div class="media align-items-center">
@@ -78,18 +75,18 @@
                         </div>
                       </div>
                     </td>
-                    <?php if ($quant >= 20) : ?>
-                        <td class="text-right font-weight-semibold align-middle p-4"><?= ($product->price) * (1.0 - ($product->catering_discount / 100)) ?></td>
-                      <?php else : ?>
+                            <?php if ($quant >= 20) : ?>
+                        <td class="text-right font-weight-semibold align-middle p-4"><?= $product->price * (1.0 - ($product->catering_discount / 100)) ?></td>
+                            <?php else : ?>
                         <td class="text-right font-weight-semibold align-middle p-4"><?= $product->price ?></td>
-                      <?php endif ?>
+                            <?php endif ?>
 <!--                    <td class="align-middle p-4"><input name="quantity[]" readonly type="number" min = 1 max = 10 step = 1 class="form-control text-center" value="--><?php //= $quant ?><!--"-->
 <!--                        onchange="this.value = Math.round(this.value);"-->
 <!--                        /></td>-->
 <!--                      update($id = null, $quantity = null)-->
-                      <td
-                          <?= $this->Form->create(null, ['url' => ['controller' => 'Carts', 'action' => 'update', $product->id, $quant]]) ?>
-                          <?php echo $this->Form->control('quantity', [
+                      <td>
+                            <?= $this->Form->create(null, ['url' => ['controller' => 'Carts', 'action' => 'update', $product->id]]) ?>
+                            <?php echo $this->Form->control("productQuantity[$product->id]", [
                               'class' => 'form-control',
                               'type' => 'number',
                               'step' => '1',
@@ -97,27 +94,25 @@
                               'max' => '100',
                               'label' => false,
                               'default' => $quant,
+                              'id' => 'fieldQuantity',
                           ]); ?>
-                          <?= $this->Form->button(__('Update quantity'), ['controller' => 'Carts', 'class' => 'btn btn-success', 'action' => 'update', $product->id, $quant]) ?>
-                          <?= $this->Form->end() ?>
 
                       </td>
 
 
-                      <?php if ($quant >= 20) : ?>
-                          <td class="text-right font-weight-semibold align-middle p-4" id="totalProdPrice"><?= ($product->price) * (1.0 - ($product->catering_discount / 100)) * $quant ?></td>
-                      <?php else : ?>
+                            <?php if ($quant >= 20) : ?>
+                          <td class="text-right font-weight-semibold align-middle p-4" id="totalProdPrice"><?= $product->price * (1.0 - ($product->catering_discount / 100)) * $quant ?></td>
+                            <?php else : ?>
                           <td class="text-right font-weight-semibold align-middle p-4" id="totalProdPrice"><?= $product->price * $quant ?></td>
-                      <?php endif ?>
+                            <?php endif ?>
 
                       <td class="actions">
-                          <?= $this->Html->link(__('Delete'), ['action' => 'delete', $product->id], ['class' => 'btn btn-secondary py-sm-2 px-sm-3 me-2']) ?>
+                              <?= $this->Html->link(__('Delete'), ['action' => 'delete', $product->id], ['class' => 'btn btn-secondary py-sm-2 px-sm-3 me-2']) ?>
 
                       </td>
 
                   </tr>
-                <?php endforeach; ?>
-
+                        <?php endforeach; ?>
                         <tr>
                             <td class="p-4">
                                 <div class="media align-items-center">
@@ -134,25 +129,25 @@
                             <td class="text-right font-weight-semibold align-middle p-4"></td>
 
                             <td class="actions">
-<!--                                --><?php //= $this->Form->postButton('Update', ['controller' => 'Carts', 'action' => 'update', $product->id, 3], ['class' => 'btn btn-secondary py-sm-2 px-sm-3 me-2']) ?>
-
+                                <?= $this->Form->button(__('Update Quantity'), ['class' => 'btn btn-success']) ?>
+                                <?= $this->Form->end() ?>
 
                             </td>
                             <td class="text-right font-weight-semibold align-middle p-4" id="totalProdPrice"></td>
                             <td class="actions">
+
                                 <?= $this->Html->link(__('Clear Cart'), ['action' => 'clear'], ['class' => 'btn btn-danger py-sm-2 px-sm-2 me-2']) ?>
 
-                            </td><!--                      <td class="text-center align-middle px-0"><button class="shop-tooltip close float-none text-danger" title="" data-original-title="Remove">×</button></td>-->
+                            </td>
 
                         </tr>
 
-<!--                        --><?php //echo $this->Form->end();?>
 
-                <?php else : ?>
 
+                    <?php else : ?>
                   <label class="text-muted font-weight-normal m-0">Your Cart is empty, come back to this page after you have added some products.</label>
 
-                <?php endif; ?>
+                    <?php endif; ?>
 
                 </tbody>
               </table>
@@ -197,7 +192,7 @@
                                 <div class="modal-body">
                                     <div class="row">
                                         <div class="col-lg-8">
-                                            <?php if($this->Identity->isLoggedIn()) : ?>
+                                            <?php if ($this->Identity->isLoggedIn()) : ?>
                                                 <?= $this->Form->control('first_name', ['label' => 'First Name', 'required' => true, 'class' => 'form-control', 'value' => $this->Identity->get('first_name')]) ?>
                                                 <?= $this->Form->control('last_name', ['label' => 'Last Name', 'required' => true, 'class' => 'form-control', 'value' => $this->Identity->get('last_name')]) ?>
                                                 <?= $this->Form->control('phone_number', ['label' => 'Phone Number', 'type' => 'tel', 'required' => true, 'class' => 'form-control', 'value' => $this->Identity->get('phone_number')]) ?>

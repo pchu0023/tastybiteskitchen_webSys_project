@@ -47,27 +47,25 @@ class CartsController extends AppController
     }
 
 
-    public function update($id = null, $quantity = null)
+    public function update($id = null)
     {
         $arr = $this->request->getSession()->read('cart');
 
 
-//        $this->Flash->success(__($quantity));
-
-
-        foreach ($arr as $key => $value) {
-            if ($value['product']['id'] == $id) {
-                $this->Flash->success(__($value['product']['name']));
-                $arr[$key]['quantity'] = $quantity;
-                $arr = array_values($arr);
-                $this->request->getSession()->write('cart', $arr);
-
-                $this->Flash->success(__('Product quantity updated'));
-                return $this->redirect(['controller' => 'Carts', 'action' => 'index']);
-
+        if ($this->request->is('post')) {
+            $formData = $this->request->getData();
+            foreach ($formData['productQuantity'] as $productId => $quantity) {
+                foreach ($arr as $key => $value) {
+                    if ($value['product']['id'] == $productId) {
+                        $arr[$key]['quantity'] = $quantity;
+                        $arr = array_values($arr);
+                        $this->request->getSession()->write('cart', $arr);
+                    }
+                }
             }
+            $this->Flash->success(__('Product(s) quantity updated'));
+            return $this->redirect(['controller' => 'Carts', 'action' => 'index']);
         }
-
         $this->Flash->error(__('Failed to update item quantity.'));
         return $this->redirect(['controller' => 'Carts', 'action' => 'index']);
 
