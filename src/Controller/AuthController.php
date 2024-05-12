@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use App\Model\Table\UsersTable;
+use Authentication\Controller\Component\AuthenticationComponent;
 use Cake\I18n\DateTime;
 use Cake\Mailer\Mailer;
 use Cake\Utility\Security;
@@ -49,6 +50,8 @@ class AuthController extends AppController
         if ($this->request->is('post')) {
             $user = $this->Users->patchEntity($user, $this->request->getData());
             $user->type = "cust";
+            $user->session_id = $this->request->getSession()->id();
+            $user->first_login = false;
 
             if (($this->request->getData('password_confirm') != ($this->request->getData('password')))){
                 $userData = $this->request->getData();
@@ -218,7 +221,25 @@ class AuthController extends AppController
         if ($result && $result->isValid()) {
             // set a fallback location in case user logged in without triggering 'unauthenticatedRedirect'
             $fallbackLocation = ['controller' => 'Pages', 'action' => 'index'];
-
+//            // Check if the user is logging in for the first time
+//            $user = $this->Authentication->getIdentity();
+//            // If it is, then set their session in the DB
+//            if ($user->first_login === true){
+//                $UsersTable = $this->fetchTable('Users');
+//                $updatedUser = $UsersTable->get($user->getIdentifier());
+//
+//                $session_id = $this->request->getSession()->id();
+//                $updatedUser->session_id = $session_id;
+//                $updatedUser->first_login = false;
+//
+//                $UsersTable->save($updatedUser);
+//            }
+//            // If it is not, then get their session in the DB and start it
+//            else {
+//                $this->request->getSession()->destroy();
+//                session_id($user->session_id);
+//                session_start();
+//            }
             // and redirect user to the location they're trying to access
             return $this->redirect($this->Authentication->getLoginRedirect() ?? $fallbackLocation);
         }
@@ -240,6 +261,8 @@ class AuthController extends AppController
         $result = $this->Authentication->getResult();
         if ($result && $result->isValid()) {
             $this->Authentication->logout();
+            $session = $this->request->getSession();
+            $session->destroy();
 
             $this->Flash->success('You have been logged out successfully. ');
         }
