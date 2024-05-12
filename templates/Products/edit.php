@@ -77,7 +77,7 @@
                                 <br />
                                 <div class="row">
                                     <h6 class="d-flex border-bottom">
-                                        <span>Catering Discount *</span>
+                                        <span>Catering Discount (in % off)*</span>
                                     </h6>
                                     <?php echo $this->Form->control('catering_discount', [
                                         'class' => 'form-control',
