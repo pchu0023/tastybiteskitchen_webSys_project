@@ -58,10 +58,11 @@ $cakeDescription = 'Tasty Bites Kitchen';
 <style>
     @media (min-width: 1024px) {
         .bg-body {
-            margin-top: 30px;
+            padding-top: 90px;
         }
     }
 </style>
+
 
 <body>
     <div class="container-xxl bg-dark p-0">
