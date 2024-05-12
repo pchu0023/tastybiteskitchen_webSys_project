@@ -31,6 +31,7 @@ class CartsController extends AppController
                 'saveDeliveryToSession',
                 'transferOrderSuccess',
                 'cardOrderSuccess',
+                'update'
                 ]);
     }
 
