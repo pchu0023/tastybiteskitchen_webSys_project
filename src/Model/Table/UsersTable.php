@@ -93,7 +93,7 @@ class UsersTable extends Table
             ->requirePresence('password', 'create')
             ->add('password', ['hasSpecialCharacter' => ['rule' => function ($value, $context) {
                 return preg_match('/[^\w\s]/', $value) == 1;
-            }, 'message' => 'Password must have special character']])
+            }, 'message' => 'Password must have at least one special character']])
             ->notEmptyString('password');
 
         $validator
