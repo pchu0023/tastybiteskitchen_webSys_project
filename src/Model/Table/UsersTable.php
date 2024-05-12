@@ -119,6 +119,15 @@ class UsersTable extends Table
             ->dateTime('nonce_expiry')
             ->allowEmptyDateTime('nonce_expiry');
 
+        $validator
+            ->scalar('session_id')
+            ->maxLength('session_id', 255)
+            ->allowEmptyString('session_id');
+
+        $validator
+            ->boolean('first_login')
+            ->notEmptyString('first_login');
+
         return $validator;
     }
 

@@ -19,6 +19,8 @@ use Cake\ORM\Entity;
  * @property string|null $phone_number
  * @property string|null $nonce
  * @property \Cake\I18n\DateTime|null $nonce_expiry
+ * @property bool $first_login
+ * @property string|null $session_id
  *
  * @property \App\Model\Entity\Payment[] $payments
  */
@@ -44,6 +46,8 @@ class User extends Entity
         'nonce' => false,
         'nonce_expiry' => false,
         'payments' => true,
+        'session_id' => true,
+        'first_login' => true,
     ];
 
     /**
