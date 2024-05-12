@@ -44,7 +44,7 @@
                             <td>$<?= $this->Number->format($product->price) ?></td>
 
                             <td ><?= h($product->quantity) ?></td>
-                            <td ><?= h($product->catering_discount) ?></td>
+                            <td ><?= h($product->catering_discount) ?>%</td>
                             <td class="actions">
                                 <?= $this->Html->link(__('View'), ['action' => 'view', $product->id], ['class' => 'btn btn-sm btn-info']) ?>
                                 <?php if ($this->Identity->get('type') == "emp") : ?>
