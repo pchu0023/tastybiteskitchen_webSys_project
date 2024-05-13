@@ -4,6 +4,12 @@
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\WebsiteContent $websiteContent
  */
+$filenameOnlyImages2 = [];
+
+foreach ($globalImages as $key => $fullPath) {
+    // 使用 basename 获取文件名
+    $filenameOnlyImages2[$key] = basename($fullPath);
+}
 ?>
 <?php if ($this->Identity->get('type') != "emp") : ?>
     <div class="alert alert-danger">You do not have privileges to view this page.</div>
@@ -64,7 +70,7 @@
                                                 <span>About page Image One (Top left)</span>
                                             </h6>
                                             <div class="row">
-                                                <?php echo $this->Form->control('image1', ['options' => $globalImages, 'label' => false, 'class' => 'd-flex flex form-select', 'empty' => 'None']); ?>
+                                                <?php echo $this->Form->control('image1', ['options' => $filenameOnlyImages2, 'label' => false, 'class' => 'd-flex flex form-select', 'empty' => 'None']); ?>
                                             </div>
 
                                         </td>
@@ -87,7 +93,7 @@
                                                 <span>About page Image Two (Top right)</span>
                                             </h6>
                                             <div class="row">
-                                                <?php echo $this->Form->control('image2', ['options' => $globalImages, 'label' => false, 'class' => 'd-flex flex form-select', 'empty' => 'None']); ?>
+                                                <?php echo $this->Form->control('image2', ['options' => $filenameOnlyImages2, 'label' => false, 'class' => 'd-flex flex form-select', 'empty' => 'None']); ?>
                                             </div>
                                             <br />
 
@@ -115,7 +121,7 @@
                                                 <span>About page Image Three (Bottom left) </span>
                                             </h6>
                                             <div class="row">
-                                                <?php echo $this->Form->control('image3', ['options' => $globalImages, 'label' => false, 'class' => 'd-flex flex form-select', 'empty' => 'None']); ?>
+                                                <?php echo $this->Form->control('image3', ['options' => $filenameOnlyImages2, 'label' => false, 'class' => 'd-flex flex form-select', 'empty' => 'None']); ?>
                                             </div>
                                             <br />
 
@@ -139,7 +145,7 @@
                                                 <span>About page Image Four (Bottom right)</span>
                                             </h6>
                                             <div class="row">
-                                                <?php echo $this->Form->control('image4', ['options' => $globalImages, 'label' => false, 'class' => 'd-flex flex form-select', 'empty' => 'None']); ?>
+                                                <?php echo $this->Form->control('image4', ['options' => $filenameOnlyImages2, 'label' => false, 'class' => 'd-flex flex form-select', 'empty' => 'None']); ?>
                                             </div>
                                             <br />
 

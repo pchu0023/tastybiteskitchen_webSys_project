@@ -25,12 +25,12 @@
             <tbody>
                 <?php foreach ($images as $image) : ?>
                     <tr>
-                        <td><?= h($image->file_location) ?></td>
+                        <td><?= h(basename($image->file_location)) ?></td>
                         <td class="actions">
                             <?= $this->Html->link(__('View'), ['action' => 'view', $image->id], ['class' => 'btn btn-info btn-sm']) ?>
                             <!-- image should be delete and add new instead of edit -->
                             <!-- <?= $this->Html->link(__('Edit'), ['action' => 'edit', $image->id], ['class' => 'btn btn-primary btn-sm']) ?> -->
-                            <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $image->id], ['confirm' => __('Are you sure you want to delete # {0}?', $image->file_location), 'class' => 'btn btn-danger btn-sm']) ?>
+                            <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $image->id], ['confirm' => __('Are you sure you want to delete # {0}?', basename($image->file_location)), 'class' => 'btn btn-danger btn-sm']) ?>
                         </td>
                     </tr>
                 <?php endforeach; ?>
