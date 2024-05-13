@@ -8,6 +8,12 @@
  * @var string[]|\Cake\Collection\CollectionInterface $menus
  * @var string[]|\Cake\Collection\CollectionInterface $orders
  */
+$filenameImages2 = [];
+
+foreach ($images as $key => $fullPath) {
+
+    $filenameImages2[$key] = basename($fullPath);
+}
 ?>
 <?php if ($this->Identity->get('type') != "emp") : ?>
     <div class="alert alert-danger">You do not have privileges to view this page.</div>
@@ -131,7 +137,7 @@
                                                             <span>Images</span>
                                                         </h6>
                                                         <div class="row">
-                                                            <?php echo $this->Form->control('images._ids', ['options' => $images, 'label' => false, 'class' => 'd-flex flex form-select']); ?>
+                                                            <?php echo $this->Form->control('images._ids', ['options' => $filenameImages2, 'label' => false, 'class' => 'd-flex flex form-select']); ?>
                                                         </div>
                                                         <br />
                                                         <div class="row">
