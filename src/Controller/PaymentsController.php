@@ -92,7 +92,8 @@ class PaymentsController extends AppController
     {
         $this->request->allowMethod(['post', 'delete']);
         $payment = $this->Payments->get($id);
-        if ($this->Payments->delete($payment)) {
+        $this->Payments->patchEntity($payment, ['isArchived' => true]);
+        if ($this->Payments->save($payment)) {
             $this->Flash->success(__('The payment has been deleted.'));
         } else {
             $this->Flash->error(__('The payment could not be deleted. Please, try again.'));
