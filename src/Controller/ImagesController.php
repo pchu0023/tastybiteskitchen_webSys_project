@@ -117,7 +117,8 @@ public function add()
 
     if (file_exists($filePath)) {
         // delete database record
-        if ($this->Images->delete($image)) {
+        $this->Images->patchEntity($image, ['isArchived' => true]);
+        if ($this->Images->save($image)) {
             // delete image for file
             if (unlink($filePath)) {
                 $this->Flash->success(__('The image and the file have been deleted.'));
