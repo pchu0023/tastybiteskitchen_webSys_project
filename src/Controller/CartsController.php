@@ -229,6 +229,9 @@ class CartsController extends AppController
                 $ordersProduct->order_id = $order->id;
                 $ordersProduct->product_id = $value['product']['id'];
                 $ordersProduct->quantity = $value['quantity'];
+                $ordersProduct->product_name = $value['product']['name'];
+                $ordersProduct->product_price = $value['product']['price'];
+                $ordersProduct->product_description = $value['product']['description'];
 
                 if (!$this->OrdersProducts->save($ordersProduct)) {
                     $this->Flash->error(__('Failed to save orders_products entry.'));
@@ -285,6 +288,9 @@ class CartsController extends AppController
                 $ordersProduct->order_id = $order->id;
                 $ordersProduct->product_id = $value['product']['id'];
                 $ordersProduct->quantity= $value['quantity'];
+                $ordersProduct->product_name = $value['product']['name'];
+                $ordersProduct->product_price = $value['product']['price'];
+                $ordersProduct->product_description = $value['product']['description'];
 
                 if (!$this->OrdersProducts->save($ordersProduct)) {
                     $this->Flash->error(__('Failed to save orders_products entry.'));
