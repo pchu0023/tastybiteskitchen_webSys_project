@@ -60,6 +60,7 @@ class OrdersTable extends Table
             'targetForeignKey' => 'product_id',
             'joinTable' => 'orders_products',
             'through' => 'OrdersProducts',
+            'dependent' => false,
         ]);
     }
 

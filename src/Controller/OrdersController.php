@@ -44,7 +44,10 @@ class OrdersController extends AppController
     public function view($id = null)
     {
         $order = $this->Orders->get($id, contain: ['Products']);
-        $this->set(compact('order'));
+        $this->OrdersProducts = $this->fetchTable('OrdersProducts');
+        $query = $this->OrdersProducts->find('all', ['conditions' => ['OrdersProducts.order_id' => $id]]);
+        $orderProducts = $query->toArray();
+        $this->set(compact('order', 'orderProducts'));
     }
 
     /**
@@ -110,8 +113,10 @@ class OrdersController extends AppController
         $payments = $this->Orders->Payments->find('list', limit: 200)->all();
         $deliveries = $this->Orders->Deliveries->find('list', limit: 200)->all();
         $products = $this->Orders->Products->find('list', limit: 200)->all();
-        $ordersProduct = $this->Orders->Products->junction()->find('list', limit: 200)->all();
-        $this->set(compact('order', 'payments', 'deliveries', 'products', 'ordersProduct'));
+        $this->OrdersProducts = $this->fetchTable('OrdersProducts');
+        $query = $this->OrdersProducts->find('all', ['conditions' => ['OrdersProducts.order_id' => $id]]);
+        $orderProducts = $query->toArray();
+        $this->set(compact('order', 'payments', 'deliveries', 'products', 'orderProducts'));
     }
 
     /**

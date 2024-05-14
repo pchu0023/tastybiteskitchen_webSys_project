@@ -36,29 +36,29 @@
                             <th><?= __('Quantity') ?></th>
                         </tr>
                         <h4 class="heading"><?= __('Products in order') ?></h4>
-                        <?php foreach ($order->products as $product) : ?>
-                            <tr>
-                                <td><?= h($product->name) ?></td>
-                                <td><?= h($product->price) ?></td>
-                                <td><?= h($product->description) ?></td>
-                                <td class="actions">
-                                    <?= $this->Form->create(null, ['url' => ['controller' => 'OrdersProducts', 'action' => 'edit', $product->_joinData->id]]) ?>
-                                    <?php echo $this->Form->control('quantity', [
-                                        'class' => 'form-control',
-                                        'type' => 'number',
-                                        'step' => '1',
-                                        'min' => '1',
-                                        'max' => '100',
-                                        'readonly',
-                                        'label' => false,
-                                        'default' => $product->_joinData->quantity,
-                                    ]); ?>
-                                </td>
-                                <td <!-- --><?php //= $this->Html->link(__('Update Quantity'), ['controller' => 'OrdersProducts', 'action' => 'edit', $product->_joinData->id], ['class' => 'btn btn-primary']) 
-                                            ?>
-                                </td>
-                            </tr>
-                        <?php endforeach; ?>
+
+                        <?php if (!empty($orderProducts)) {
+                            foreach($orderProducts as $ordersProduct) : ?>
+                                <tr>
+                                    <td><?= h($ordersProduct->product_name) ?></td>
+                                    <td><?= h($ordersProduct->product_price) ?></td>
+                                    <td><?= h($ordersProduct->product_description) ?></td>
+                                    <td class="actions">
+                                        <?= $this->Form->create(null, ['url' => ['controller' => 'OrdersProducts', 'action' => 'edit', $ordersProduct->id]]) ?>
+                                        <?php echo $this->Form->control('quantity', [
+                                            'class' => 'form-control',
+                                            'type' => 'number',
+                                            'step' => '1',
+                                            'min' => '1',
+                                            'max' => '100',
+                                            'readonly',
+                                            'label' => false,
+                                            'default' => $ordersProduct->quantity,
+                                        ]); ?>
+                                    </td>
+                                </tr>
+                            <?php endforeach;
+                        } ?>
                     </table>
                 </div>
             </aside>
