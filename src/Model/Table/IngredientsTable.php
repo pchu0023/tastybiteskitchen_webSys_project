@@ -3,10 +3,12 @@ declare(strict_types=1);
 
 namespace App\Model\Table;
 
+use Cake\Event\EventInterface;
 use Cake\ORM\Query\SelectQuery;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
+use ArrayObject;
 
 /**
  * Ingredients Model
@@ -65,5 +67,19 @@ class IngredientsTable extends Table
             ->notEmptyString('name');
 
         return $validator;
+    }
+
+    /**
+     * @param EventInterface $event
+     * @param SelectQuery $query the query being modified
+     * @param ArrayObject $options
+     * @param $primary
+     * @return SelectQuery the modified query
+     *
+     * Modifies all queries to the Ingredients Table to only return entities not currently Archived
+     */
+    public function beforeFind(EventInterface $event, SelectQuery $query, ArrayObject $options, $primary) {
+        $query->where(['isArchived' => false]);
+        return $query;
     }
 }
