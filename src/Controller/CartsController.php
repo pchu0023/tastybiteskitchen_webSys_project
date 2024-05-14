@@ -170,14 +170,22 @@ class CartsController extends AppController
         if ($this->request->is('post')) {
             $formData = $this->request->getData();
             $this->request->getSession()->write('DeliveryData', $formData);
+            foreach ($this->request->getSession()->read('cart') as $value) :
+                $product = $value['product'];
+                $quant = $value['quantity'];
+                if ($product->isArchived == false) {
+                    if ($formData['submit'] === 'card') {
+                        return $this->redirect(['action' => 'checkout']);
+                    } elseif ($formData['submit'] === 'bank') {
+                        return $this->redirect(['action' => 'transferOrderSuccess']);
+                    }
 
-            if ($formData['submit'] === 'card') {
-                return $this->redirect(['action' => 'checkout']);
-            } elseif ($formData['submit'] === 'bank') {
-                return $this->redirect(['action' => 'transferOrderSuccess']);
-            }
-
-            return $this->redirect(['action' => 'checkout']);
+                    return $this->redirect(['action' => 'checkout']);
+                } else {
+                    $this->Flash->error('One or more products in your cart are no longer available for purchase, please clear cart and try again.');
+                    return $this->redirect(['action' => 'index']);
+                }
+                endforeach;
         }
         $this->Flash->error('Unexpected and invalid request occurred! Please try again.');
 

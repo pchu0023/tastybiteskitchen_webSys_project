@@ -39,6 +39,7 @@ class Product extends Entity
         'quantity' => true,
         'extra_info' => true,
         'catering_discount' => true,
+        'isArchived' => true,
         'images' => true,
         'ingredients' => true,
         'menus' => true,
