@@ -160,7 +160,8 @@ class MenusController extends AppController
     {
         $this->request->allowMethod(['post', 'delete']);
         $menu = $this->Menus->get($id);
-        if ($this->Menus->delete($menu)) {
+        $this->Menus->patchEntity($menu, ['isArchived' => true]);
+        if ($this->Menus->save($menu)) {
             $this->Flash->success(__('The menu has been deleted.'));
         } else {
             $this->Flash->error(__('The menu could not be deleted. Please, try again.'));
