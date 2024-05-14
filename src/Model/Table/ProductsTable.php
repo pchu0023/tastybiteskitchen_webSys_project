@@ -164,7 +164,7 @@ class ProductsTable extends Table
      * Modifies all queries to the Products Table to only return entities not currently Archived
      */
     public function beforeFind(EventInterface $event, SelectQuery $query, ArrayObject $options, $primary) {
-        $query->where(['isArchived' => false]);
+        $query->where(['Products.isArchived' => false]);
         return $query;
     }
 

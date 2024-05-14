@@ -81,7 +81,7 @@ class DeliveriesTable extends Table
      * Modifies all queries to the Deliveries Table to only return entities not currently Archived
      */
     public function beforeFind(EventInterface $event, SelectQuery $query, ArrayObject $options, $primary) {
-        $query->where(['isArchived' => false]);
+        $query->where(['Deliveries.isArchived' => false]);
         return $query;
     }
 }

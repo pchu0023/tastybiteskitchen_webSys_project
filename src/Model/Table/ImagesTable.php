@@ -80,7 +80,7 @@ class ImagesTable extends Table
      * Modifies all queries to the Images Table to only return entities not currently Archived
      */
     public function beforeFind(EventInterface $event, SelectQuery $query, ArrayObject $options, $primary) {
-        $query->where(['isArchived' => false]);
+        $query->where(['Images.isArchived' => false]);
         return $query;
     }
 
