@@ -12,7 +12,8 @@ $statuses = [
     'Payment_received' => 'Payment Received',
     'Order_packed' => 'Order Packed',
     'Order_dispatched' => 'Order Dispatched',
-    'Order_completed' => 'Order Completed'
+    'Order_completed' => 'Order Completed',
+    'Cancelled' => 'Order Cancelled',
 ];
 
 // Get the selected status from the query string, default to 'Unpaid'

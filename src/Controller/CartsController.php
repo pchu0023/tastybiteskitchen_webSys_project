@@ -279,6 +279,7 @@ class CartsController extends AppController
         $order->requested_date = $deliveryData['requested_date'];
         $order->receiver_name = $deliveryData['first_name'] . ' ' . $deliveryData['last_name'];
         $order->receiver_phone = $deliveryData['phone_number'];
+        $order->status = 'unpaid';
         if ($this->Orders->save($order)) {
             // Link to OrderProducts
             $this->OrdersProducts = $this->fetchTable('OrdersProducts');

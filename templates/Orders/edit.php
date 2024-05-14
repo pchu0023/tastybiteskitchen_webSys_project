@@ -25,7 +25,7 @@
                 <h4 class="heading"><?= __('Order Status') ?></h4>
                 <tr>
                     <?= $this->Form->create(null, ['url' => ['controller' => 'Orders', 'action' => 'updateAllOrderStatus']]) ?>
-                    <td <?php echo $this->Form->control("status[$order->id]", ["class" => 'form-select', 'default' => $order->status, 'options' => ['Unpaid' => 'Unpaid', 'Payment_received' => 'Payment Received', 'Order_Packed' => 'Order Packed', 'Order_dispatched' => 'Order Dispatched', 'Order_completed' => 'Order Completed'], 'label' => "Current status: " . $order->status]); ?> </td>
+                    <td <?php echo $this->Form->control("status[$order->id]", ["class" => 'form-select', 'default' => $order->status, 'options' => ['Unpaid' => 'Unpaid', 'Payment_received' => 'Payment Received', 'Order_Packed' => 'Order Packed', 'Order_dispatched' => 'Order Dispatched', 'Order_completed' => 'Order Completed', 'Cancelled' => 'Order Cancelled'], 'label' => "Current status: " . $order->status]); ?> </td>
                     <?= $this->Form->button(__('Update Status'), ['class' => 'btn btn-success']) ?>
                     <?= $this->Form->end() ?>
                 </tr>
