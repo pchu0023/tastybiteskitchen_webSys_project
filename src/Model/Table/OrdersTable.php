@@ -147,7 +147,7 @@ class OrdersTable extends Table
      * Modifies all queries to the Orders Table to only return entities not currently Archived
      */
     public function beforeFind(EventInterface $event, SelectQuery $query, ArrayObject $options, $primary) {
-        $query->where(['Menus.isArchived' => false]);
+        $query->where(['Orders.isArchived' => false]);
         return $query;
     }
 

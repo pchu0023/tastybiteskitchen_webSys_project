@@ -109,7 +109,7 @@ class PaymentsTable extends Table
      * Modifies all queries to the Payments Table to only return entities not currently Archived
      */
     public function beforeFind(EventInterface $event, SelectQuery $query, ArrayObject $options, $primary) {
-        $query->where(['Products.isArchived' => false]);
+        $query->where(['Payments.isArchived' => false]);
         return $query;
     }
 
