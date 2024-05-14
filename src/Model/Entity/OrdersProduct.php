@@ -31,6 +31,9 @@ class OrdersProduct extends Entity
         'order_id' => true,
         'product_id' => true,
         'quantity' => true,
+        'product_name' => true,
+        'product_price' => true,
+        'product_description' => true,
         'order' => true,
         'product' => true,
     ];
