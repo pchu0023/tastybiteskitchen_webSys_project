@@ -89,7 +89,8 @@ class DeliveriesController extends AppController
     {
         $this->request->allowMethod(['post', 'delete']);
         $delivery = $this->Deliveries->get($id);
-        if ($this->Deliveries->delete($delivery)) {
+        $this->Deliveries->patchEntity($delivery, ['isArchived' => true]);
+        if ($this->Deliveries->save($delivery)) {
             $this->Flash->success(__('The delivery has been deleted.'));
         } else {
             $this->Flash->error(__('The delivery could not be deleted. Please, try again.'));

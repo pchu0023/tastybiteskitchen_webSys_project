@@ -30,6 +30,7 @@ class Menu extends Entity
         'name' => true,
         'description' => true,
         'active' => true,
+        'isArchived' => true,
         'products' => true,
     ];
 }

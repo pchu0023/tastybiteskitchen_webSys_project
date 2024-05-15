@@ -2,6 +2,7 @@
 /**
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Payment $payment
+ * @var string[]|\Cake\Collection\CollectionInterface $users
  */
 ?>
 <?php if ($this->Identity->get('type') != "emp"): ?>
@@ -27,7 +28,14 @@
                     </tr>
                     <tr>
                         <th><?= __('User') ?></th>
-                        <td><?= $payment->hasValue('user') ? $this->Html->link($payment->user->type, ['controller' => 'Users', 'action' => 'view', $payment->user->id]) : '' ?></td>
+                        <td>
+                            <?php foreach ($users as $user): ?>
+                                <?php if ($user->id == $payment->user_id): ?>
+                                    <?= $this->Html->link($user->type, ['controller' => 'Users', 'action' => 'view', $user->id]) ?>
+                                <?php endif; ?>
+                            <?php endforeach; ?>
+                        </td>
+<!--                        <td>--><?php //= $payment->hasValue('user') ? $this->Html->link($payment->user->type, ['controller' => 'Users', 'action' => 'view', $payment->user->id]) : '' ?><!--</td>-->
                     </tr>
                     <tr>
                         <th><?= __('Method') ?></th>

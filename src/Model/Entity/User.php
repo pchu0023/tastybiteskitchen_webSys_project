@@ -45,6 +45,7 @@ class User extends Entity
         'phone_number' => true,
         'nonce' => false,
         'nonce_expiry' => false,
+        'isArchived' => true,
         'payments' => true,
         'session_id' => true,
         'first_login' => true,

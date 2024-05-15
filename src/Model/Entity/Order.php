@@ -42,6 +42,7 @@ class Order extends Entity
         'user_id' => true,
         'receiver_name' => true,
         'receiver_phone' => true,
+        'isArchived' => true,
         'payment' => true,
         'delivery' => true,
         'products' => true,

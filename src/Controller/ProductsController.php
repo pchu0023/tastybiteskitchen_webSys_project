@@ -43,7 +43,7 @@ class ProductsController extends AppController
         $product = $this->Products->get($id, contain: ['Images', 'Ingredients', 'Menus', 'Orders']);
         $this->set(compact('product'));
     }
- 
+
     public function quantityEdit()
     {
         $query = $this->Products->find();
@@ -108,7 +108,7 @@ public function updateAllCatering()
         // Redirect back to the index page
         return $this->redirect(['action' => 'index']);
     }
-} 
+}
 
 /**
      * Add method
@@ -171,7 +171,8 @@ public function updateAllCatering()
     {
         $this->request->allowMethod(['post', 'delete']);
         $product = $this->Products->get($id);
-        if ($this->Products->delete($product)) {
+        $this->Products->patchEntity($product, ['isArchived' => true]);
+        if ($this->Products->save($product)) {
             $this->Flash->success(__('The product has been deleted.'));
         } else {
             $this->Flash->error(__('The product could not be deleted. Please, try again.'));

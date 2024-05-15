@@ -26,6 +26,7 @@ class Image extends Entity
      */
     protected array $_accessible = [
         'file_location' => true,
+        'isArchived' => true,
         'products' => true,
     ];
 }
