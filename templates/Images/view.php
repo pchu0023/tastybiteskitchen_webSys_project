@@ -39,6 +39,7 @@
                     <th><?= __('Id') ?></th>
                     <td><?= h($image->id) ?></td>
                 </tr>
+                
                 <tr>
                     <th><?= __('File Location') ?></th>
                     <td><?= h($image->file_location) ?></td>

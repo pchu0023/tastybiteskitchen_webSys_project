@@ -30,7 +30,7 @@ $ordersArray = iterator_to_array($orders);
     <div class="order index content">
         <!-- display for admin -->
         <?php $this->layout = 'admin_default'; ?>
-        <?= $this->Html->link(__('Change multiple order statuses'), ['action' => 'multipleOrderStatus'], ['class' => 'btn btn-secondary float-right']) ?>
+        <?= $this->Html->link(__('Change multiple order statuses'), ['action' => 'multipleOrderStatus'], ['class' => 'btn btn-primary float-right']) ?>
         <br />
         <br />
 
