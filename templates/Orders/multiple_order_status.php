@@ -32,7 +32,7 @@
             <?php foreach ($orders as $order) : ?>
                 <tr>
                     <td style="max-width:100px; word-wrap:break-word;"><?= h($order->id) ?></td>
-                    <td <?php echo $this->Form->control("status[$order->id]", ["class" => 'form-select', 'default' => $order->status, 'options' => ['Unpaid' => 'Unpaid', 'Payment_received' => 'Payment Received', 'Order_Packed' => 'Order Packed', 'Order_dispatched' => 'Order Dispatched', 'Order_completed' => 'Order Completed'], 'label' => "Current status: " . $order->status]); ?> </td>
+                    <td <?php echo $this->Form->control("status[$order->id]", ["class" => 'form-select', 'default' => $order->status, 'options' => ['Unpaid' => 'Unpaid', 'Payment_received' => 'Payment Received', 'Order_Packed' => 'Order Packed', 'Order_dispatched' => 'Order Dispatched', 'Order_completed' => 'Order Completed', 'Cancelled' => 'Order Cancelled'], 'label' => "Current status: " . $order->status]); ?> </td>
                 </tr>
             <?php endforeach; ?>
             </tbody>
