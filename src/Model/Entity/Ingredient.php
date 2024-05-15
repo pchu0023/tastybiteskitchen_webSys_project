@@ -26,6 +26,7 @@ class Ingredient extends Entity
      */
     protected array $_accessible = [
         'name' => true,
+        'isArchived' => true,
         'products' => true,
     ];
 }

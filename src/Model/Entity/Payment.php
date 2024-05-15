@@ -33,6 +33,7 @@ class Payment extends Entity
         'amount' => true,
         'method' => true,
         'date' => true,
+        'isArchived' => true,
         'user' => true,
         'orders' => true,
     ];

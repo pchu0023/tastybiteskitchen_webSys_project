@@ -130,7 +130,8 @@ class OrdersController extends AppController
     {
         $this->request->allowMethod(['post', 'delete']);
         $order = $this->Orders->get($id);
-        if ($this->Orders->delete($order)) {
+        $this->Orders->patchEntity($order, ['isArchived' => true]);
+        if ($this->Orders->save($order)) {
             $this->Flash->success(__('The order has been deleted.'));
         } else {
             $this->Flash->error(__('The order could not be deleted. Please, try again.'));

@@ -218,7 +218,7 @@ class AuthController extends AppController
         $result = $this->Authentication->getResult();
 
         // if user passes authentication, grant access to the system
-        if ($result && $result->isValid()) {
+        if ($result && $result->isValid() && !$this->Authentication->getIdentity()->getOriginalData()->isArchived) {
             // set a fallback location in case user logged in without triggering 'unauthenticatedRedirect'
             $fallbackLocation = ['controller' => 'Pages', 'action' => 'index'];
 //            // Check if the user is logging in for the first time

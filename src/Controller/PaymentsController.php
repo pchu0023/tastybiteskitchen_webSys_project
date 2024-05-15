@@ -17,11 +17,12 @@ class PaymentsController extends AppController
      */
     public function index()
     {
-        $query = $this->Payments->find()
-            ->contain(['Users']);
+        $query = $this->Payments->find('all');
         $payments = $this->paginate($query);
-
-        $this->set(compact('payments'));
+        $this->Users = $this->fetchTable('Users');
+        $query = $this->Users->find('all');
+        $users = $query->toArray();
+        $this->set(compact('payments', 'users'));
     }
 
     /**
@@ -33,8 +34,11 @@ class PaymentsController extends AppController
      */
     public function view($id = null)
     {
-        $payment = $this->Payments->get($id, contain: ['Users', 'Orders']);
-        $this->set(compact('payment'));
+        $payment = $this->Payments->get($id, contain: ['Orders']);
+        $this->Users = $this->fetchTable('Users');
+        $query = $this->Users->find('all');
+        $users = $query->toArray();
+        $this->set(compact('payment', 'users'));
     }
 
     /**
@@ -92,7 +96,8 @@ class PaymentsController extends AppController
     {
         $this->request->allowMethod(['post', 'delete']);
         $payment = $this->Payments->get($id);
-        if ($this->Payments->delete($payment)) {
+        $this->Payments->patchEntity($payment, ['isArchived' => true]);
+        if ($this->Payments->save($payment)) {
             $this->Flash->success(__('The payment has been deleted.'));
         } else {
             $this->Flash->error(__('The payment could not be deleted. Please, try again.'));

@@ -28,6 +28,7 @@ class Delivery extends Entity
     protected array $_accessible = [
         'type' => true,
         'date' => true,
+        'isArchived' => true,
         'orders' => true,
     ];
 }

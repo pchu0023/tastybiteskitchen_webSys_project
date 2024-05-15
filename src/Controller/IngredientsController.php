@@ -91,7 +91,8 @@ class IngredientsController extends AppController
     {
         $this->request->allowMethod(['post', 'delete']);
         $ingredient = $this->Ingredients->get($id);
-        if ($this->Ingredients->delete($ingredient)) {
+        $this->Ingredients->patchEntity($ingredient, ['isArchived' => true]);
+        if ($this->Ingredients->save($ingredient)) {
             $this->Flash->success(__('The ingredient has been deleted.'));
         } else {
             $this->Flash->error(__('The ingredient could not be deleted. Please, try again.'));

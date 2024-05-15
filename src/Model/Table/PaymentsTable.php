@@ -3,10 +3,12 @@ declare(strict_types=1);
 
 namespace App\Model\Table;
 
+use Cake\Event\EventInterface;
 use Cake\ORM\Query\SelectQuery;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
+use ArrayObject;
 
 /**
  * Payments Model
@@ -96,4 +98,19 @@ class PaymentsTable extends Table
 
         return $rules;
     }
+
+    /**
+     * @param EventInterface $event
+     * @param SelectQuery $query the query being modified
+     * @param ArrayObject $options
+     * @param $primary
+     * @return SelectQuery the modified query
+     *
+     * Modifies all queries to the Payments Table to only return entities not currently Archived
+     */
+    public function beforeFind(EventInterface $event, SelectQuery $query, ArrayObject $options, $primary) {
+        $query->where(['Payments.isArchived' => false]);
+        return $query;
+    }
+
 }
