@@ -150,7 +150,7 @@ class OrdersProductsController extends AppController
         } else {
             $this->Flash->error(__('The orders product could not be deleted. Please, try again.'));
         }
-        return $this->redirect(['controller' => 'Orders', 'action' => 'index']);
+        return $this->redirect($this->referer());
 
     }
 
