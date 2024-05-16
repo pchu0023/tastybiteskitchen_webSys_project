@@ -109,6 +109,8 @@ class UsersController extends AppController
 
         // Attempt to save the user's data
         if ($this->Users->save($user)) {
+            $this->Authentication->setIdentity($user);
+
             $this->Flash->success(__('Your profile has been updated.'));
             // Redirect to the home page
             return $this->redirect($this->referer());
