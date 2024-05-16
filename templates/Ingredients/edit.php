@@ -2,37 +2,13 @@
 /**
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Ingredient $ingredient
- * @var string[]|\Cake\Collection\CollectionInterface $products
+ * @var \Cake\Collection\CollectionInterface|string[] $products
  */
 ?>
 <?php if($this->Identity->get('type') != "emp") : ?>
     <div class="alert alert-danger">You do not have privileges to view this page.</div>
 <?php else : ?>
-    <div class="row">
-        <aside class="column">
-            <div class="side-nav">
-                <h4 class="heading"><?= __('Actions') ?></h4>
-                <?= $this->Form->postLink(
-                    __('Delete'),
-                    ['action' => 'delete', $ingredient->id],
-                    ['confirm' => __('Are you sure you want to delete # {0}?', $ingredient->id), 'class' => 'side-nav-item']
-                ) ?>
-                <?= $this->Html->link(__('List Ingredients'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
-            </div>
-        </aside>
-        <div class="column column-80">
-            <div class="ingredients form content">
-                <?= $this->Form->create($ingredient) ?>
-                <fieldset>
-                    <legend><?= __('Edit Ingredient') ?></legend>
-                    <?php
-                    echo $this->Form->control('name');
-                    echo $this->Form->control('products._ids', ['options' => $products]);
-                    ?>
-                </fieldset>
-                <?= $this->Form->button(__('Submit')) ?>
-                <?= $this->Form->end() ?>
-            </div>
-        </div>
-    </div>
+    <h3>
+        This page can be developed in future version.
+    </h3>
 <?php endif; ?>
