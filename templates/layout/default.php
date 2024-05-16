@@ -16,6 +16,10 @@
  */
 
 $cakeDescription = 'Tasty Bites Kitchen';
+$cartItems = $this->request->getSession()->read('cart') ?? [];
+$cartQuantity = array_reduce($cartItems, function ($carry, $item) {
+    return $carry + $item['quantity'];
+}, 0);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -82,7 +86,11 @@ $cakeDescription = 'Tasty Bites Kitchen';
                         <a href="<?= $this->Url->build('/') ?>" class="nav-item nav-link <?= $this->request->getPath() === '/' ? 'active' : '' ?>">Home</a>
                         <a href="<?= $this->Url->build('/Menus') ?>" class="nav-item nav-link <?= $this->request->getPath() === '/Menus' ? 'active' : '' ?>">Menu</a>
                         <a href="<?= $this->Url->build('/About') ?>" class="nav-item nav-link <?= $this->request->getPath() === '/About' ? 'active' : '' ?>">About Us</a>
-                        <a href="<?= $this->Url->build('/Carts') ?>" class="nav-item nav-link <?= $this->request->getPath() === '/Carts' ? 'active' : '' ?>">View Cart</a>
+                        <a href="<?= $this->Url->build('/Carts') ?>" class="nav-item nav-link <?= $this->request->getPath() === '/Carts' ? 'active' : '' ?>"><i class="fa fa-shopping-cart"></i>
+                            <?php if ($cartQuantity > 0): ?>
+                                <span class="cart-badge"><?= $cartQuantity ?></span>
+                            <?php endif; ?>
+                        </a>
                     </div>
 
                     <?php

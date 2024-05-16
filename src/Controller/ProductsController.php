@@ -192,7 +192,7 @@ public function updateAllCatering()
 
         // Initialise the cart in session if it doesn't exist
         if ($this->request->getSession()->read('cart') == null) {
-            $arr = array();
+            $arr = [];
             $this->request->getSession()->write('cart', $arr);
         }
 
@@ -200,15 +200,23 @@ public function updateAllCatering()
         $arr = $this->request->getSession()->read('cart');
 
         // If the product is not already in the cart add it, else update quantity
-        if (!in_array($product, array_column($arr, 'product'))) {
-            $prodInfo = array(
+        $productExists = false;
+        foreach ($arr as $key => $item) {
+            if ($item['product']->id == $product->id) {
+                // Update quantity
+                $arr[$key]['quantity'] += 1;
+                $productExists = true;
+                $quantity = $arr[$key]['quantity'];
+                break;
+            }
+        }
+        if (!$productExists) {
+            $prodInfo = [
                 "product" => $product,
                 "quantity" => 1,
-            );
+            ];
             $arr[] = $prodInfo;
-        } else {
-            $key = array_search($product, array_column($arr, 'product'));
-            $arr[$key]['quantity'] += 1;
+            $quantity = 1;
         }
         // add new product to existing cart
 
@@ -217,7 +225,11 @@ public function updateAllCatering()
         $this->request->getSession()->write('cart', $arr);
 
         // Success message & Redirect to menus
-        $this->Flash->success(__('Product added to cart.'));
+        if ($productExists) {
+            $this->Flash->success(__('{0} of this product has been added', $quantity));
+        } else {
+            $this->Flash->success(__('product has been added'));
+        }
         $refererUrl = $this->request->getQuery('return_to');
         if ($refererUrl) {
             return $this->redirect($refererUrl);
