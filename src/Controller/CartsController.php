@@ -68,6 +68,11 @@ class CartsController extends AppController
                 }
             }
             $this->Flash->success(__('Product(s) quantity updated'));
+            $cartQuantity = array_reduce($arr, function ($carry, $item) {
+                return $carry + $item['quantity'];
+            }, 0);
+            $this->request->getSession()->write('Cart.quantity', $cartQuantity);
+    
             return $this->redirect(['controller' => 'Carts', 'action' => 'index']);
         }
         $this->Flash->error(__('Failed to update item quantity.'));
