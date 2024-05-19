@@ -48,6 +48,7 @@
                     $totalPrice = 0;
                     if (!empty($this->request->getSession()->read('cart'))) : ?>
                         <?php
+                        // // Calculate the size of the cart
                         $size = sizeof($this->request->getSession()->read('cart'));
                         echo 'Food item in cart: ' . $size ?>
 
@@ -56,11 +57,19 @@
                         foreach ($this->request->getSession()->read('cart') as $value) :
                             $product = $value['product'];
                             $quant = $value['quantity'];
-                            if ($quant >= 20) {
-                                $totalPrice += ($product->price * (1.0 - ($product->catering_discount / 100)) * $quant);
-                            } else {
-                                $totalPrice += $product->price * $quant;
-                            }
+                            // // Calculate original price and discounted price
+                            $originalPrice = round($product->price, 2);
+                            $discountedPrice = $quant >= 20 ? round(($product->price) * (1.0 - ($product->catering_discount / 100)), 2) : $originalPrice;
+                            $itemTotal = $discountedPrice * $quant;
+                            $totalPrice += $itemTotal;
+                            
+
+                            
+                            // if ($quant >= 20) {
+                            //     $totalPrice += ($product->price * (1.0 - ($product->catering_discount / 100)) * $quant);
+                            // } else {
+                            //     $totalPrice += $product->price * $quant;
+                            // }
                             ?>
                   <tr>
                     <td class="p-4">
@@ -77,10 +86,17 @@
                         </div>
                       </div>
                     </td>
+                    <td class="text-right font-weight-semibold align-middle p-4">
                     <?php if ($quant >= 20) : ?>
-                        <td class="text-right font-weight-semibold align-middle p-4"><?= round(($product->price) * (1.0 - ($product->catering_discount / 100)),2) ?></td>
+                        <!-- Display original price with line-through and discounted price -->
+                        <span class="text-muted" style="text-decoration: line-through;">$<?= $originalPrice ?></span>
+                            <span class="text-success">$<?= $discountedPrice ?></span>
+                            <span class="badge bg-success">Discount: <?= $product->catering_discount ?>%</span>
+                        <!-- <br>
+                                <span class="badge bg-success"> <?= $product->catering_discount ?>%</span>
+                         -->
                       <?php else : ?>
-                        <td class="text-right font-weight-semibold align-middle p-4"><?= round($product->price,2) ?></td>
+                        <span>$<?= $originalPrice ?></span>
                       <?php endif ?>
 
                       <td>
