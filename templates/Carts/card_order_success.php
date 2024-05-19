@@ -60,7 +60,8 @@
                             </div>
                         </td>
                         <?php if ($quant >= 20) : ?>
-                            <td class="text-right font-weight-semibold align-middle p-4"><?= round(($product->price) * (1.0 - ($product->catering_discount / 100)),2) ?></td>
+                            <td class="text-right font-weight-semibold align-middle p-4"><?= round(($product->price) * (1.0 - ($product->catering_discount / 100)),2) ?>
+                            <span class="badge bg-success">Discount: <?= $product->catering_discount ?>%</span></td>
                         <?php else : ?>
                             <td class="text-right font-weight-semibold align-middle p-4"><?= $product->price ?></td>
                         <?php endif ?>

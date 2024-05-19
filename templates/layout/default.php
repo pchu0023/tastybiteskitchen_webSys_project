@@ -65,7 +65,11 @@ $cartQuantity = array_reduce($cartItems, function ($carry, $item) {
             padding-top: 90px;
         }
     }
+    .line-through {
+            text-decoration: line-through;
+        }
 </style>
+
 
 
 <body>
